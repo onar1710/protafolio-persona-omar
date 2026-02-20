@@ -141,7 +141,7 @@ export default defineConfig({
       react(), 
       mdx(),
       mermaid(),
-      (await import("astro-compress")).default({Image : true, JavaScript : true, HTML : false})
+      compress({ Image: true, JavaScript: true, HTML: false })
   ],
   vite: {
     plugins: [tailwindcss()],

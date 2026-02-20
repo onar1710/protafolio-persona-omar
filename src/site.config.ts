@@ -100,7 +100,7 @@ export const NAV_LINKS = [
 ];
 
 export const ACTION_LINKS = {
-  primary: { label: 'Get Started', href: '/blog' },
+  primary: { label: 'Get Started', href: '/contacto' },
   social: { 
     linkedin: 'https://www.linkedin.com/in/omarfuentes052/',
     youtube: 'https://www.youtube.com/@OmarFuentes052',
