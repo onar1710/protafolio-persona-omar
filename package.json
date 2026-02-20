@@ -9,14 +9,15 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site dist && npm run copy-sitemap",
     "build:vercel": "cross-env ADAPTER=vercel astro build && pagefind --site dist",
     "build:netlify": "cross-env ADAPTER=netlify astro build && pagefind --site dist",
     "build:cloudflare": "cross-env ADAPTER=cloudflare astro build && pagefind --site dist",
     "preview": "astro preview",
     "deploy": "npm run build:cloudflare && wrangler deploy",
     "preview:worker": "wrangler dev",
-    "astro": "astro"
+    "astro": "astro",
+    "copy-sitemap": "copy /Y dist\\client\\sitemap-0.xml dist\\client\\sitemap.xml"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",

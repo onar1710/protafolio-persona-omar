@@ -132,7 +132,9 @@ export default defineConfig({
               const url = new URL(page);
               const pathname = url.pathname;
               return !noIndexUrls.includes(pathname);
-          }
+          },
+          customPages: [],
+          entryLimit: 10000
       }), 
       robotsTxt({
           sitemap: true,
