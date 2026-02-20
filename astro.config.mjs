@@ -120,7 +120,7 @@ function getAdapter() {
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://omarfuentes.com',
+  site: process.env.SITE_URL || 'https://onar1710.github.io/protafolio-persona-omar',
   output: 'static',
   image: {
     domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co'],
@@ -136,7 +136,7 @@ export default defineConfig({
       }), 
       robotsTxt({
           sitemap: true,
-          host: process.env.SITE_URL || 'https://omarfuentes.com'
+          host: process.env.SITE_URL || 'https://onar1710.github.io/protafolio-persona-omar'
       }),
       react(), 
       mdx(),
