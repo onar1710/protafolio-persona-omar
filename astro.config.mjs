@@ -10,6 +10,10 @@ import robotsTxt from 'astro-robots-txt';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 // Helper to find noindex URLs
 function getNoIndexUrls() {
