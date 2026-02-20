@@ -1,0 +1,372 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { ArrowRight, Star, Users, TrendingUp, Clock, Target, Zap, Shield, Award, CheckCircle, ExternalLink, FileText } from 'lucide-react';
+
+const project = {
+  title: "Plomería Aqua Imperio - Sitio Web de Servicios en Bogotá",
+  description: "Desarrollo completo de sitio web profesional para empresa de plomería especializada en Bogotá con SEO local, optimización para conversión y tecnología Ridgid.",
+  cliente: "Aqua Imperio Plomería",
+  fecha: "2026",
+  tipo: "Sitio Web de Servicios",
+  tecnologias: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "SEO Local"],
+  url: "https://plomeriaaquaimperio.co/",
+  imagen: "/images/proyecto-imagen-plemria.png",
+  stats: {
+    development: "1 semana",
+    pages: "15+ páginas",
+    services: "12 servicios especializados",
+    seo: "SEO Local Completo"
+  },
+  results: [
+    "✅ Sitio profesional desarrollado en 1 semana con SEO local completo",
+    "✅ Especialización en plomería con tecnología Ridgid profesional",
+    "✅ Optimización para conversión con WhatsApp como canal principal",
+    "✅ Schema markup completo con LocalBusiness, Service y FAQPage",
+    "✅ Diseño responsive optimizado para todos los dispositivos",
+    "✅ Estrategia de contenido educativo sobre servicios especializados"
+  ]
+};
+
+const techStack = [
+  { name: "HTML5", description: "Estructura semántica optimizada para SEO", icon: "📄" },
+  { name: "CSS3", description: "Diseño visual profesional y responsive", icon: "🎨" },
+  { name: "JavaScript", description: "Interactividad y optimización de UX", icon: "⚡" },
+  { name: "Bootstrap 5", description: "Framework CSS para desarrollo rápido", icon: "🅱️" },
+  { name: "SEO Local", description: "Optimización para búsquedas geográficas", icon: "🗺️" },
+  { name: "Schema Markup", description: "Datos estructurados para Google", icon: "🔍" }
+];
+
+const phases = [
+  {
+    title: "Análisis y Estrategia",
+    week: "Día 1-2",
+    tasks: [
+      "Análisis del mercado: Estudio de competencia en plomería local",
+      "Definición de especialización: Tecnología Ridgid vs sonda manual",
+      "Keyword research: 'plomero Bogotá', 'destapado tuberías', etc.",
+      "Arquitectura de información: 15+ páginas de servicios"
+    ]
+  },
+  {
+    title: "Diseño y Desarrollo",
+    week: "Día 3-4",
+    tasks: [
+      "Diseño visual: Paleta azul agua profesional, logo con gota",
+      "Implementación responsive: Mobile-first design",
+      "Desarrollo de páginas: Servicios, blog, contacto, legales",
+      "Integración de CTAs: WhatsApp flotante y llamadas"
+    ]
+  },
+  {
+    title: "SEO y Optimización",
+    week: "Día 5-6",
+    tasks: [
+      "SEO local: Meta tags geográficos para Bogotá",
+      "Schema markup: LocalBusiness, Service, FAQPage",
+      "Optimización de velocidad: DNS prefetch, lazy loading",
+      "Configuración de analytics y tracking"
+    ]
+  },
+  {
+    title: "Contenido y Testing",
+    week: "Día 7",
+    tasks: [
+      "Copywriting: Contenido educativo sobre tecnología Ridgid",
+      "FAQs: 10 preguntas sobre servicios y precios",
+      "Testing funcional: Formularios, CTAs, navegación",
+      "Deploy y configuración final"
+    ]
+  }
+];
+
+const features = [
+  {
+    icon: "🔧",
+    title: "Especialización en Plomería",
+    description: "Sitio web enfocado 100% en servicios de plomería con tecnología Ridgid profesional."
+  },
+  {
+    icon: "📍",
+    title: "SEO Local Avanzado",
+    description: "Optimización completa para búsquedas geográficas en Bogotá y alrededores."
+  },
+  {
+    icon: "💬",
+    title: "Conversión por WhatsApp",
+    description: "Estrategia de contacto con WhatsApp como canal principal y botones flotantes."
+  },
+  {
+    icon: "📱",
+    title: "Diseño Responsive",
+    description: "Experiencia perfecta en móvil, tablet y desktop con CTAs siempre visibles."
+  },
+  {
+    icon: "⚡",
+    title: "Desarrollo Rápido",
+    description: "Sitio completo y funcional entregado en solo 1 semana de desarrollo."
+  },
+  {
+    icon: "🎯",
+    title: "Contenido Educativo",
+    description: "Información detallada sobre tecnología Ridgid y diferenciadores de servicio."
+  }
+];
+
+const metrics = [
+  { label: "Tiempo Desarrollo", value: "1 semana", icon: "⏱️" },
+  { label: "Páginas Creadas", value: "15+", icon: "📄" },
+  { label: "Servicios", value: "12", icon: "🔧" },
+  { label: "SEO Score", value: "9.5/10", icon: "🔍" }
+];
+---
+
+<Layout title="Plomería Aqua Imperio - Caso de Estudio | Omar Fuentes" description="Caso de estudio completo del desarrollo de sitio web para empresa de plomería en Bogotá con SEO local, optimización para conversión y tecnología Ridgid.">
+  <div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+      <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Clock class="w-4 h-4 mr-1" /> 1 semana desarrollo
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-700 dark:text-green-300 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 mr-1" /> Completado
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+              {project.title}
+            </h1>
+            
+            <p class="text-xl text-muted-foreground mb-8">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              {project.tecnologias.map(tech => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-foreground/5 text-foreground border border-foreground/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Ver proyecto en vivo
+              </a>
+              <a 
+                href="/portfolio/proyectos"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+              >
+                <ArrowRight className="w-5 h-5" />
+                Ver más proyectos
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+              <img 
+                src={project.imagen}
+                alt={project.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-24 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div class="text-center" key={index}>
+              <div class="text-3xl mb-2">{metric.icon}</div>
+              <div class="text-2xl font-bold mb-1">{metric.value}</div>
+              <div class="text-sm text-muted-foreground">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Resumen del Proyecto</h2>
+          <p class="text-muted-foreground">
+            Desarrollo completo de sitio web profesional para empresa de plomería especializada en Bogotá, 
+            con enfoque en SEO local, especialización en tecnología Ridgid y optimización para conversión.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Información del Cliente</h3>
+            <div class="space-y-3 text-muted-foreground">
+              <p><strong>Empresa:</strong> Aqua Imperio Plomería</p>
+              <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
+              <p><strong>Experiencia:</strong> 12+ años en plomería</p>
+              <p><strong>Especialización:</strong> Tecnología Ridgid profesional</p>
+              <p><strong>Servicios:</strong> 12 servicios especializados</p>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Objetivos del Proyecto</h3>
+            <ul class="space-y-2 text-muted-foreground">
+              <li>• Generar leads calificados a través de WhatsApp</li>
+              <li>• Posicionamiento en búsquedas locales de plomería</li>
+              <li>• Diferenciarse con tecnología Ridgid</li>
+              <li>• Educar sobre servicios especializados</li>
+              <li>• Sistema de contacto fácil y directo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-24 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Stack Tecnológico</h2>
+          <p class="text-muted-foreground">
+            Tecnologías modernas y optimizadas para desarrollo rápido y SEO efectivo.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {techStack.map((tech, index) => (
+            <div class="bg-background rounded-xl border p-6 hover:shadow-lg transition-shadow" key={index}>
+              <div class="text-3xl mb-4">{tech.icon}</div>
+              <h3 class="text-lg font-semibold mb-2">{tech.name}</h3>
+              <p class="text-muted-foreground text-sm">{tech.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Process -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Proceso de Desarrollo</h2>
+          <p class="text-muted-foreground">
+            Metodología estructurada en 1 semana para garantizar entrega exitosa y calidad excepcional.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {phases.map((phase, index) => (
+            <div class="bg-background rounded-xl border p-8" key={index}>
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Target className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">{phase.title}</h3>
+                  <p class="text-sm text-muted-foreground">{phase.week}</p>
+                </div>
+              </div>
+              <ul class="space-y-2 text-muted-foreground">
+                {phase.tasks.map((task, taskIndex) => (
+                  <li key={taskIndex} class="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                    <span>{task}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-24 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Características Destacadas</h2>
+          <p class="text-muted-foreground">
+            Elementos clave que hacen este sitio web efectivo para generar clientes.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div class="bg-background rounded-xl border p-6 text-center" key={index}>
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-lg font-semibold mb-2">{feature.title}</h3>
+              <p class="text-muted-foreground text-sm">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Resultados Obtenidos</h2>
+          <p class="text-muted-foreground">
+            Entrega exitosa con todas las funcionalidades implementadas y optimización completa.
+          </p>
+        </div>
+
+        <div class="bg-background rounded-xl border p-8">
+          <ul class="space-y-4">
+            {project.results.map((result, index) => (
+              <li key={index} class="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 mt-0.5 text-green-500 flex-shrink-0" />
+                <span>{result}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 bg-primary text-primary-foreground">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">¿Necesitas un Sitio Web para tu Negocio Local?</h2>
+        <p class="text-xl mb-8 opacity-90">
+          Desarrollamos sitios web profesionales optimizados para SEO local y conversión en tiempo récord.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="https://wa.me/573014531504" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-xl hover:bg-gray-100 transition-all font-semibold"
+          >
+            <ExternalLink className="w-5 h-5" />
+            Hablar por WhatsApp
+          </a>
+          <a 
+            href="/contacto"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-primary-foreground/20 text-primary-foreground rounded-xl hover:bg-primary-foreground/30 transition-all font-semibold"
+          >
+            <ArrowRight className="w-5 h-5" />
+            Solicitar Cotización
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

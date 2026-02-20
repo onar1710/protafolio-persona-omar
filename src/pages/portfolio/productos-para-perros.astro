@@ -1,0 +1,409 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Clock, CheckCircle, ExternalLink, ArrowRight, Star, ShoppingCart, Heart, Search, Menu, X, Shield, Truck, RefreshCw } from 'lucide-react';
+
+const project = {
+  title: "Productos Para Perros - eCommerce Tienda Online Colombia",
+  description: "Desarrollo completo de tienda eCommerce para productos de mascotas con HTML, CSS y JavaScript. Sistema de categorías, carrito de compras y blog integrado",
+  cliente: "Productos Para Perros",
+  fecha: "2024-2025",
+  tipo: "eCommerce / Tienda Online",
+  tecnologias: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "SEO"],
+  url: "https://web-productos-para-perros.vercel.app/",
+  imagen: "/images/proyecto-imagen-productosperros.png",
+  stats: {
+    pages: "70+ páginas",
+    products: "50+ productos", 
+    categories: "7 categorías",
+    weeks: "2 semanas desarrollo"
+  },
+  results: [
+    "✅ Tienda completa con 50+ productos en 7 categorías principales",
+    "✅ Sistema de carrito funcional con localStorage",
+    "✅ Blog integrado con 3 artículos SEO-optimizados",
+    "✅ Diseño 100% responsive móvil-first",
+    "✅ Performance optimizada para mercado colombiano",
+    "✅ SEO local Colombia implementado",
+    "✅ Sistema de favoritos y lista de deseos"
+  ]
+};
+
+const techStack = [
+  { name: "HTML5", description: "Markup semántico para SEO y accesibilidad", icon: "📝" },
+  { name: "CSS3", description: "Estilos modernos con Grid, Flexbox y animaciones", icon: "🎨" },
+  { name: "JavaScript ES6+", description: "Funcionalidad vanilla sin frameworks", icon: "⚡" },
+  { name: "LocalStorage", description: "Persistencia de carrito y favoritos", icon: "💾" },
+  { name: "Vercel", description: "Hosting y CDN global para máxima velocidad", icon: "🌐" },
+  { name: "SEO Local", description: "Optimización para mercado colombiano", icon: "🎯" }
+];
+
+const phases = [
+  {
+    title: "Investigación y Planificación",
+    week: "Día 1-2",
+    tasks: [
+      "Día 1: Análisis de competencia colombiana y keywords principales",
+      "Día 2: Arquitectura de información con 70+ páginas y definición técnica HTML5 + CSS3 + Vanilla JS"
+    ]
+  },
+  {
+    title: "Diseño UI/UX",
+    week: "Día 3-4",
+    tasks: [
+      "Día 3: Sistema de diseño con paleta verde-naturaleza y componentes reutilizables",
+      "Día 4: Diseño de homepage, categorías, productos individuales y prototipos interactivos"
+    ]
+  },
+  {
+    title: "Desarrollo Frontend",
+    week: "Día 5-6",
+    tasks: [
+      "Día 5: Setup del proyecto HTML5 + CSS3 + componentes reutilizables",
+      "Día 6: Páginas principales, sistema de routing y JavaScript funcional"
+    ]
+  },
+  {
+    title: "Contenido y SEO",
+    week: "Día 7-8",
+    tasks: [
+      "Día 7: Creación de 50+ páginas de productos con descripciones optimizadas",
+      "Día 8: SEO on-page, meta tags, headings, URLs y SEO local Colombia"
+    ]
+  },
+  {
+    title: "Testing y Deploy",
+    week: "Día 9-10",
+    tasks: [
+      "Día 9: Testing funcional, cross-browser, responsive y Lighthouse optimization",
+      "Día 10: Deploy en Vercel con dominio custom y CDN setup"
+    ]
+  }
+];
+
+const features = [
+  {
+    icon: "🛒",
+    title: "Sistema de Carrito Completo",
+    description: "Carrito de compras funcional con localStorage, persistencia de datos, contador en header y cálculo automático de totales."
+  },
+  {
+    icon: "❤️",
+    title: "Lista de Deseos",
+    description: "Sistema de favoritos con persistencia, contador visual y capacidad de mover productos entre favoritos y carrito."
+  },
+  {
+    icon: "📱",
+    title: "Diseño 100% Responsive",
+    description: "Mobile-first approach con breakpoints optimizados para móvil, tablet y desktop. Experiencia perfecta en todos los dispositivos."
+  },
+  {
+    icon: "🔍",
+    title: "SEO Local Colombia",
+    description: "Optimización para mercado colombiano con keywords geo-específicas, precios en COP, y contenido localizado para Bogotá, Medellín, Cali."
+  },
+  {
+    icon: "⚡",
+    title: "Performance Optimizada",
+    description: "Lighthouse scores 95+ en desktop y mobile. Lazy loading, WebP images, CDN y JavaScript mínimo para máxima velocidad."
+  },
+  {
+    icon: "📝",
+    title: "Blog Integrado",
+    description: "3 artículos SEO-optimizados de 1000+ palabras sobre productos antipulgas, collar antipulgas y pastillas antipulgas para perros."
+  }
+];
+
+const metrics = [
+  {
+    icon: "🚀",
+    title: "Performance",
+    value: "95+",
+    description: "Lighthouse score en desktop y mobile"
+  },
+  {
+    icon: "📄",
+    title: "Páginas Creadas",
+    value: "70+",
+    description: "HTML estáticas optimizadas para SEO"
+  },
+  {
+    icon: "🛍️",
+    title: "Productos",
+    value: "50+",
+    description: "Catálogo completo con 7 categorías"
+  },
+  {
+    icon: "📊",
+    title: "SEO Score",
+    value: "100/100",
+    description: "Puntuación perfecta en SEO técnico"
+  }
+];
+---
+
+<Layout title="Productos Para Perros - eCommerce Colombia | Omar Fuentes" description="Caso de estudio completo del desarrollo de tienda online para productos de mascotas con HTML5, CSS3 y JavaScript vanilla.">
+  <div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+      <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Clock class="w-4 h-4 mr-1" /> 2 semanas desarrollo
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-700 dark:text-green-300 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 mr-1" /> Completado
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+              {project.title}
+            </h1>
+            
+            <p class="text-xl text-muted-foreground mb-8">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              {project.tecnologias.map(tech => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-foreground/5 text-foreground border border-foreground/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Ver proyecto en vivo
+              </a>
+              <a 
+                href="/portfolio/proyectos"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+              >
+                <ArrowRight className="w-5 h-5" />
+                Ver más proyectos
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+              <img 
+                src={project.imagen}
+                alt={project.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Stats -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {Object.entries(project.stats).map(([key, value]) => (
+            <div key={key} class="text-center">
+              <div class="text-3xl font-bold text-primary mb-2">{value}</div>
+              <div class="text-sm text-muted-foreground capitalize">{key}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Stack Tecnológico</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Tecnologías modernas y optimizadas para máxima velocidad y SEO
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech, index) => (
+            <div key={index} class="bg-background rounded-xl border p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">{tech.icon}</div>
+                <div>
+                  <h3 class="font-semibold mb-2">{tech.name}</h3>
+                  <p class="text-sm text-muted-foreground">{tech.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Características Principales</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Funcionalidades completas que hacen de esta tienda una solución eCommerce profesional
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 hover:shadow-lg transition-shadow">
+              <div class="text-3xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Process -->
+    <section id="proceso" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Proceso de Desarrollo</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Metodología estructurada en 2 semanas para garantizar entrega exitosa y calidad excepcional.
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {phases.map((phase, index) => (
+            <div key={index} class="relative">
+              <div class="flex items-start gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-primary/20">
+                    {index + 1}
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-6">
+                    <h3 class="text-2xl font-bold text-foreground">{phase.title}</h3>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                      {phase.week}
+                    </span>
+                  </div>
+                  <div class="bg-background rounded-2xl border border-foreground/10 p-6">
+                    <ul class="space-y-3">
+                      {phase.tasks.map((task, taskIndex) => (
+                        <li key={taskIndex} class="flex items-start gap-3 text-muted-foreground">
+                          <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <span class="text-foreground">{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {index < phases.length - 1 && (
+                <div class="absolute left-8 top-16 w-0.5 h-20 bg-gradient-to-b from-primary/20 to-transparent"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Métricas de Performance</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Resultados excepcionales en velocidad, SEO y experiencia de usuario
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 text-center">
+              <div class="text-4xl mb-4">{metric.icon}</div>
+              <div class="text-3xl font-bold text-primary mb-2">{metric.value}</div>
+              <div class="font-semibold mb-2">{metric.title}</div>
+              <p class="text-sm text-muted-foreground">{metric.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Resultados del Proyecto</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Entrega completa con todas las funcionalidades eCommerce implementadas
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-8">
+          <ul class="space-y-4">
+            {project.results.map((result, index) => (
+              <li key={index} class="flex items-start gap-3">
+                <span class="text-green-500 mt-1">{result.split(' ')[0]}</span>
+                <span class="text-foreground">{result.substring(result.indexOf(' ') + 1)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="flex justify-center mb-6">
+            <Star class="w-8 h-8 text-yellow-500 fill-current" />
+          </div>
+          <blockquote class="text-xl text-muted-foreground mb-8 leading-relaxed">
+            "Excelente desarrollo de tienda online. El sitio carga increíblemente rápido, 
+            el carrito funciona perfectamente y el SEO local ha posicionado varios productos 
+            en la primera página de Google Colombia."
+          </blockquote>
+          <div>
+            <div class="font-semibold">Productos Para Perros</div>
+            <div class="text-sm text-muted-foreground">Cliente Satisfecho</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">¿Necesitas una tienda online que convierta?</h2>
+        <p class="text-xl text-muted-foreground mb-8">
+          Desarrollo eCommerce completo con HTML, CSS y JavaScript vanilla
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20portafolio%20y%20quiero%20desarrollar%20una%20tienda%20online" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors">
+            <Shield class="w-5 h-5" />
+            Comenzar Proyecto
+          </a>
+          <a href="/portfolio" class="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-lg font-medium hover:bg-accent transition-colors">
+            Ver Más Proyectos
+            <ArrowRight class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,633 @@
+
+---
+import { languages, defaultLang } from '~/i18n/ui';
+import { isRtl, useTranslations } from '~/i18n/utils';
+import { Image } from 'astro:assets';
+import bentoCode from '~/assets/bento-code.jpg';
+import Layout from '~/layouts/Layout.astro';
+import Schema from '~/components/layout/Schema.astro';
+import Hero from '~/components/sections/Hero.astro';
+import Section from '~/components/layout/Section.astro';
+// posts execution moved to LatestPosts component
+import LatestPosts from '~/components/sections/LatestPosts.astro';
+import BentoGrid from '~/components/sections/BentoGrid.astro';
+import BentoItem from '~/components/ui/BentoItem.astro';
+import { Cpu, Globe, Zap, BarChart, ShieldCheck, Settings, FileCode, Search, Moon, Eye, ArrowRight } from 'lucide-react';
+import FeaturesList from '~/components/sections/FeaturesList.astro';
+import FeatureItem from '~/components/ui/FeatureItem.astro';
+import Container from '~/components/ui/Container.astro';
+
+import Testimonials from '~/components/sections/Testimonials.astro';
+import Testimonial from '~/components/ui/Testimonial.astro';
+import Stats from '~/components/sections/Stats.astro';
+import StatItem from '~/components/ui/StatItem.astro';
+import CTA from '~/components/sections/CTA.astro';
+import FAQ from '~/components/sections/FAQ.astro';
+import LogoCloud from '~/components/sections/LogoCloud.astro';
+import TechStack from '~/components/sections/TechStack.astro';
+import OpenSourceNotification from '~/components/common/OpenSourceNotification.astro';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang = defaultLang } = Astro.params;
+const t = useTranslations(lang);
+
+const logos = [
+  { name: 'Vite', src: 'https://vitejs.dev/logo.svg', description: t['logo.vite.desc'] },
+  { name: 'Cloudflare', src: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Cloudflare_Logo.svg', description: t['logo.cloudflare.desc'] },
+  { name: 'Astro', src: 'https://astro.build/assets/press/astro-logo-dark.svg', description: t['logo.astro.desc'] },
+  { name: 'React', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png', description: t['logo.react.desc'] },
+  { name: 'Tailwind CSS', src: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg', description: t['logo.tailwind.desc'] },
+  { name: 'Framer Motion', src: 'https://pagepro.co/blog/wp-content/uploads/2020/03/framer-motion.png', description: t['logo.framer.desc'] },
+];
+
+---
+
+<Layout title="Diseño Web SEO en Colombia - Omar Fuentes | Sitios que Aparecen en Google" description="Creo diseños web profesionales que rankean en Google, cargan rápido y convierten visitantes en clientes reales. +120% tráfico orgánico comprobado. Ayudo a negocios en Cali, Medellín, Bogotá y Barranquilla y toda Colombia." keywords="diseño web colombia, diseño web cali, diseño web medellin, diseño web bogota, paginas web colombia, desarrollador web freelance, seo tecnico, optimizacion web, landing page, tienda online, ecommerce, desarrollo web colombia, posicionamiento google, sitios web rapidos, web design colombia, freelancer colombia">
+    <Fragment slot="head">
+        <meta name="author" content="Omar Fuentes" />
+        <meta
+            name="keywords"
+            content="diseño web colombia, diseño web cali, diseño web medellin, diseño web bogota, paginas web colombia, desarrollador web freelance, seo tecnico, optimizacion web, landing page, tienda online, ecommerce"
+        />
+    </Fragment>
+    <Schema item={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": `${Astro.site}#website`,
+            "url": Astro.site,
+            "name": "Omar Fuentes - Diseño Web SEO en Colombia",
+            "description": "Ayudo a negocios en Colombia a tener sitios web profesionales que rankean en Google y convierten visitantes en clientes",
+            "inLanguage": "es-CO",
+            "isAccessibleForFree": true,
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": `${Astro.site}/search?q={search_term_string}`
+                },
+                "query-input": "required name=search_term_string"
+            },
+            "publisher": {
+                "@type": "Person",
+                "@id": `${Astro.site}#person`,
+                "name": "Omar Fuentes",
+                "url": Astro.site,
+                "sameAs": [
+                    "https://www.linkedin.com/in/omarfuentes052/",
+                    "https://github.com/onar1710",
+                    "https://twitter.com/omarfuentes052",
+                    "https://www.facebook.com/omarfuentes052",
+                    "https://www.youtube.com/@OmarFuentes052"
+                ]
+            }
+        }} />
+    <Schema item={{
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "@id": `${Astro.site}#service`,
+            "name": "Diseño Web SEO en Colombia",
+            "description": "Servicio profesional de diseño web con SEO técnico incluido para negocios en Colombia",
+            "url": `${Astro.site}/`,
+            "telephone": "+57 310 785 1074",
+            "email": "joseomarfernandez747@gmail.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "CO",
+                "addressRegion": "Valle del Cauca"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "3.4516",
+                "longitude": "-76.5319"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "priceRange": "$120-$500",
+            "paymentAccepted": ["PSE", "Credit Card", "Bank Transfer"],
+            "currenciesAccepted": "COP, USD",
+            "areaServed": [
+                "Cali, Valle del Cauca",
+                "Medellín, Antioquia", 
+                "Bogotá, Cundinamarca",
+                "Barranquilla, Atlántico",
+                "Cartagena, Bolívar"
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Servicios Web",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Diseño Web con SEO",
+                            "description": "Sitios web profesionales optimizados para Google"
+                        },
+                        "price": "120",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Tienda eCommerce",
+                            "description": "Tiendas online optimizadas para ventas"
+                        },
+                        "price": "300",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Rediseño Web + SEO",
+                            "description": "Optimización completa de sitios existentes"
+                        },
+                        "price": "200",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    }
+                ]
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "ratingCount": "20",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "provider": {
+                "@type": "Person",
+                "@id": `${Astro.site}#person`,
+                "name": "Omar Fuentes"
+            }
+        }} />
+	
+    <Hero 
+        title="Diseño Web SEO en Colombia"
+        highlight="Sitios que Aparecen en Google"
+        description="Ayudo a negocios en Cali, Medellín, Bogotá y Barranquilla a tener sitios web profesionales que rankean en Google, cargan rápido y convierten visitantes en clientes reales."
+        primaryCta={{ text: "Ver mi trabajo", href: `/${lang}/portfolio` }}
+        secondaryCta={{ text: "Cotizar mi proyecto", href: `/contacto` }}
+    />
+    
+    <LogoCloud title="Trabajo con negocios en las principales ciudades de Colombia" logos={logos} />
+    
+
+
+    <Section class="py-0 overflow-visible">
+	    <BentoGrid 
+	        title="Resultados Comprobados con pruebas"
+	        description="+120% más tráfico orgánico | 70% menos tiempo de carga | Primera página en Google en 1-2 meses"
+	    >
+	        <!-- Large Item -->
+	        <BentoItem class="md:col-span-2 group">
+	            <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-linear-to-br from-primary/20 to-purple-500/20 rounded-full blur-[80px] -mr-20 -mt-20"></div>
+	            
+	            <div class="relative z-10 h-full flex flex-col justify-between">
+	                <div>
+	                    <div class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-white/10 flex items-center justify-center mb-6">
+	                        <Globe className="w-6 h-6 text-primary dark:text-white" />
+	                    </div>
+	                    <h3 class="text-2xl font-bold mb-2">Resultados medibles</h3>
+	                    <p class="text-muted-foreground">Enfoque en SEO, velocidad y conversión.</p>
+	                </div>
+	                
+	                <div class="w-full h-32 bg-black/20 rounded-xl border border-white/5 backdrop-blur-sm overflow-hidden relative">
+	                    <img
+	                        src="/images/resultados/Resultados-medibles.jpg"
+	                        alt="Resultados medibles"
+	                        class="absolute inset-0 w-full h-full object-cover opacity-60"
+	                        loading="lazy"
+	                    />
+	                    <div class="absolute inset-0 bg-linear-to-r from-black/60 via-black/20 to-transparent"></div>
+	                    <div class="absolute inset-0 flex items-center justify-center text-xs font-mono text-white font-bold text-center px-4">
+	                        +120% tráfico orgánico promedio <br />
+	                        70% menos tiempo de carga
+	                    </div>
+	                </div>
+	            </div>
+	        </BentoItem>
+
+	        <!-- Tall Item -->
+	        <BentoItem class="md:row-span-2 group">
+	                <div class="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-black/50 to-transparent z-10"></div>
+	                <img src="/images/resultados/Sitios-r%C3%A1pidos-listos-SEO.jpg" alt="Sitios rápidos y listos para SEO" class="absolute inset-0 w-full h-full object-cover object-center opacity-55 group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+	                
+	                <div class="relative z-20 h-full flex flex-col justify-end">
+	                <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-4">
+	                    <Cpu className="w-6 h-6 text-white" />
+	                </div>
+	                <h3 class="text-2xl font-bold mb-2">Sitios rápidos y listos para SEO</h3>
+	                <p class="text-muted-foreground text-sm">Core Web Vitals, arquitectura limpia y enfoque en conversión.</p>
+	                </div>
+	        </BentoItem>
+
+	        <!-- Small Item 1 -->
+	        <BentoItem class="relative overflow-hidden flex flex-col justify-center text-center hover:bg-white/10 transition-colors">
+	            <img
+	                src="/images/resultados/120%25-Tr%C3%A1fico-Org%C3%A1nico.jpg"
+	                alt="+120% Tráfico Orgánico"
+	                class="absolute inset-0 w-full h-full object-cover opacity-25"
+	                loading="lazy"
+	            />
+	            <div class="absolute inset-0 bg-black/40"></div>
+	            <div class="relative z-10">
+	                <div class="w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center mx-auto mb-4">
+	                    <Zap className="w-6 h-6" />
+	                </div>
+	                <h3 class="text-lg font-bold">+120% Tráfico Orgánico</h3>
+	                <p class="text-sm text-muted-foreground mt-2">Promedio en 1-2 meses</p>
+	            </div>
+	        </BentoItem>
+
+	        <!-- Small Item 2 -->
+	        <BentoItem class="relative overflow-hidden flex flex-col justify-center text-center hover:bg-white/10 transition-colors">
+	            <img
+	                src="/images/resultados/menos-tiempo-carga-web.jpg"
+	                alt="70% menos tiempo de carga"
+	                class="absolute inset-0 w-full h-full object-cover opacity-25"
+	                loading="lazy"
+	            />
+	            <div class="absolute inset-0 bg-black/40"></div>
+	            <div class="relative z-10">
+	                <div class="w-12 h-12 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto mb-4">
+	                    <ShieldCheck className="w-6 h-6" />
+	                </div>
+	                <h3 class="text-lg font-bold">70% menos tiempo de carga</h3>
+	                <p class="text-sm text-muted-foreground mt-2">Mejor UX, mejor SEO</p>
+	            </div>
+	        </BentoItem>
+        
+	        <!-- Wide Item -->
+	        <BentoItem class="relative overflow-hidden md:col-span-2 flex items-center justify-between gap-8 group">
+	            <img
+	                src="/images/resultados/Primera-p%C3%A1gina-Google.jpg"
+	                alt="Primera página en Google"
+	                class="absolute inset-0 w-full h-full object-cover opacity-25"
+	                loading="lazy"
+	            />
+	            <div class="absolute inset-0 bg-black/40"></div>
+	            <div class="relative z-10">
+	                    <h3 class="text-2xl font-bold mb-2">Primera página en Google</h3>
+	                    <p class="text-muted-foreground max-w-sm">SEO técnico + contenido bien estructurado para competir en búsquedas locales.</p>
+	            </div>
+	            <div class="relative z-10 w-32 h-32 shrink-0 bg-linear-to-tr from-purple-950 to-indigo-900 rounded-2xl flex items-center justify-center shadow-lg transform rotate-6 group-hover:rotate-12 transition-transform">
+	                <img
+	                    src="/logo-google.png"
+	                    alt="Google"
+	                    class="w-24 h-24 object-contain"
+	                    loading="lazy"
+	                />
+	            </div>
+	        </BentoItem>
+	    </BentoGrid>
+	    </Section>
+
+    <Section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                <div class="max-w-3xl">
+                    <h2 class="text-3xl md:text-5xl font-display font-bold mb-4">Servicios de diseño web profesional en Colombia</h2>
+                    <p class="text-muted-foreground">Especializado en crear sitios web que funcionan: rápidos, optimizados para SEO y diseñados para convertir visitantes en clientes.</p>
+                </div>
+                <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                    Quiero un sitio que genere resultados →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-8 h-full flex flex-col">
+                    <h3 class="text-xl font-display font-bold mb-3">Diseño web con SEO incluido</h3>
+                    <p class="text-muted-foreground mb-6">Sitios web profesionales optimizados para aparecer en Google desde el día 1.</p>
+
+                    <ul class="space-y-2 text-sm text-muted-foreground mb-6">
+                        <li>Diseño responsive (móvil, tablet, desktop)</li>
+                        <li>SEO técnico completo</li>
+                        <li>Velocidad optimizada (Core Web Vitals)</li>
+                        <li>Arquitectura de contenido pensada para ranking</li>
+                        <li>Schema markup y metadatos</li>
+                        <li>Google Analytics configurado</li>
+                    </ul>
+
+                    <p class="text-sm text-muted-foreground mb-6"><span class="font-semibold text-foreground">Ideal para:</span> Negocios locales en Cali, Medellín y Bogotá que necesitan visibilidad online.</p>
+
+                    <div class="mt-auto">
+                        <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                            Cotizar mi proyecto web →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-8 h-full flex flex-col">
+                    <h3 class="text-xl font-display font-bold mb-3">Tiendas eCommerce optimizadas</h3>
+                    <p class="text-muted-foreground mb-6">Tiendas online diseñadas para vender: experiencia de compra que convierte.</p>
+
+                    <ul class="space-y-2 text-sm text-muted-foreground mb-6">
+                        <li>Catálogo de productos optimizado</li>
+                        <li>Carrito y checkout fluido</li>
+                        <li>Pasarelas de pago integradas</li>
+                        <li>Diseño que genera confianza</li>
+                        <li>Velocidad extrema de carga</li>
+                        <li>SEO para productos (aparecer en búsquedas)</li>
+                    </ul>
+
+                    <p class="text-sm text-muted-foreground mb-6"><span class="font-semibold text-foreground">Ideal para:</span> Emprendedores y empresas que venden productos online.</p>
+
+                    <div class="mt-auto">
+                        <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                            Quiero una tienda online →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-8 h-full flex flex-col">
+                    <h3 class="text-xl font-display font-bold mb-3">Rediseño web + optimización SEO</h3>
+                    <p class="text-muted-foreground mb-6">¿Tu sitio actual es lento, anticuado o no aparece en Google? Lo transformo completamente.</p>
+
+                    <ul class="space-y-2 text-sm text-muted-foreground mb-6">
+                        <li>Auditoría completa de tu sitio actual</li>
+                        <li>Rediseño moderno y profesional</li>
+                        <li>Mejora de velocidad (reducción 60-80% del tiempo de carga)</li>
+                        <li>Optimización SEO técnico</li>
+                        <li>Migración sin perder posiciones en Google</li>
+                        <li>Mantenimiento y soporte incluido</li>
+                    </ul>
+
+                    <p class="text-sm text-muted-foreground mb-6"><span class="font-semibold text-foreground">Ideal para:</span> Empresas con sitio actual que no genera resultados.</p>
+
+                    <div class="mt-auto">
+                        <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                            Analizar mi sitio actual →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Section>
+
+    <Section class="py-24">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold mb-4">Por qué los negocios en Colombia me eligen</h2>
+            <p class="text-muted-foreground">Trabajo directo contigo, sin agencias de por medio. Cada proyecto tiene un objetivo claro: que tu sitio web genere resultados medibles.</p>
+        </div>
+        <FeaturesList>
+            <FeatureItem title="SEO y Conversión en Cada Pixel" description="Tu sitio no solo se verá profesional, aparecerá en Google cuando tus clientes busquen tus servicios.">
+                <Settings slot="icon" className="w-6 h-6" />
+            </FeatureItem>
+            <FeatureItem title="Comunicación Directa y Precios Transparentes" description="Respuestas en menos de 4 horas. Tú y yo trabajamos juntos, sin intermediarios.">
+                <FileCode slot="icon" className="w-6 h-6" />
+            </FeatureItem>
+            <FeatureItem title="Velocidad 10x Superior al WordPress Tradicional" description="Sitios Next.js que cargan en menos de 1 segundo vs 5-8 segundos de WordPress.">
+                <Search slot="icon" className="w-6 h-6" />
+            </FeatureItem>
+            <FeatureItem title="Resultados Medibles: +120% Tráfico Orgánico" description="Promedio de aumento en tráfico orgánico en 6 meses para mis clientes en Colombia.">
+                <Moon slot="icon" className="w-6 h-6" />
+            </FeatureItem>
+            <FeatureItem title="Diseño Responsive Perfecto" description="Optimizado para móvil, tablet y desktop. 80% de tus clientes te buscarán desde celular.">
+                <Eye slot="icon" className="w-6 h-6" />
+            </FeatureItem>
+            <FeatureItem title="Experto en Negocios Colombianos" description="Conozco el mercado local: Cali, Medellín, Bogotá, Barranquilla y Cartagena.">
+                <Globe slot="icon" className="w-6 h-6" />
+            </FeatureItem>
+        </FeaturesList>
+    </Section>
+
+    <LatestPosts
+        title="Proyectos destacados"
+        subtitle="Casos de éxito que generaron resultados reales para negocios en Colombia"
+        viewAllText="Ver todos los proyectos"
+        viewAllHref={`/${lang}/portfolio`}
+        count={4}
+    />
+
+    <Section id="tech-stack" class="py-24 bg-foreground/2">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold mb-4 italic">Tecnologías Modernas para Sitios Web de Alto Rendimiento</h2>
+            <p class="text-muted-foreground">Next.js, React, Tailwind CSS, WordPress, Figma, Google Analytics</p>
+        </div>
+        <div class="max-w-6xl mx-auto px-6">
+            <TechStack t={t} />
+        </div>
+    </Section>
+
+    <Section class="py-0 overflow-visible">
+        <Stats>
+            <StatItem value="+20" label="Negocios en Colombia" />
+            <StatItem value="+120%" label="Tráfico Orgánico Promedio" />
+            <StatItem value="0.8s" label="Tiempo de Carga" />
+            <StatItem value="4hs" label="Respuesta Garantizada" />
+        </Stats>
+    </Section>
+
+    <Section class="py-0 overflow-visible">
+        <Testimonials title="Lo que dicen mis clientes">
+          <Testimonial 
+            text="Antes de trabajar con Omar, teníamos una idea pero no sabíamos cómo ejecutarla online. En menos de un mes teníamos una tienda completa funcionando. Lo mejor: el sitio carga instantáneamente y hemos recibido comentarios increíbles sobre lo fácil que es comprar. Las ventas lo comprueban."
+            author="Daniela Ruiz"
+            role="Fundadora de Omar YT Play"
+          />
+          <Testimonial 
+            text="Necesitábamos un sitio que generara confianza para clientes empresariales. Omar entregó un diseño profesional que nos ha traído 4-5 cotizaciones semanales solo del sitio web."
+            author="Carlos Leal"
+            role="Director de Leexms"
+          />
+          <Testimonial 
+            text="Pasamos de estar invisible en Google a primera página para nuestras keywords principales en 4 meses. El tráfico orgánico creció +200% y las llamadas de clientes no paran."
+            author="Andrés Ferrary"
+            role="Dueño de Ferrarycucina"
+          />
+          <Testimonial 
+            text="La velocidad de nuestro nuevo sitio es increíble. Los clientes comentan lo fácil que es navegar y las conversiones mejoraron +150% vs el sitio anterior."
+            author="María Gómez"
+            role="Gerente de Tienda Online"
+          />
+          <Testimonial 
+            text="Omar no solo diseñó, nos enseñó a manejar nuestro sitio. La capacitación fue excelente y el soporte post-lanzamiento ha sido fundamental para nuestro crecimiento."
+            author="Luis Torres"
+            role="Emprendedor Local"
+          />
+        </Testimonials>
+    </Section>
+
+    <!-- Blog Section -->
+    <Section class="py-24 bg-foreground/2">
+      <Container>
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Artículos Recientes</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Guías y consejos sobre diseño web, SEO y desarrollo para potenciar tu presencia online.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Artículo 1 -->
+          <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
+            <div class="aspect-video overflow-hidden">
+              <img 
+                src="/src/assets/blog/art.jpg" 
+                alt="Diseño Web Freelance: Guía Completa"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                <span>29 ene 2026</span>
+                <span>•</span>
+                <span>Diseño Web</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                Diseño Web Freelance: Guía Completa
+              </h3>
+              <p class="text-muted-foreground mb-4 line-clamp-3">
+                Aprende qué evaluar antes de contratar, señales de profesionalismo, proceso de trabajo y precios.
+              </p>
+              <a 
+                href="/blog/diseno-web-freelance-guia-completa" 
+                class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+              >
+                Leer artículo
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </article>
+
+          <!-- Artículo 2 -->
+          <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
+            <div class="aspect-video overflow-hidden">
+              <img 
+                src="/src/assets/blog/blocks.jpg" 
+                alt="7 Errores de Diseño Web que Cuestan Clientes"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                <span>1 feb 2026</span>
+                <span>•</span>
+                <span>Errores</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                7 Errores de Diseño Web que Cuestan Clientes
+              </h3>
+              <p class="text-muted-foreground mb-4 line-clamp-3">
+                Descubre los errores más comunes que afectan conversión, velocidad y experiencia de usuario.
+              </p>
+              <a 
+                href="/blog/errores-diseno-web" 
+                class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+              >
+                Leer artículo
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </article>
+
+          <!-- Artículo 3 -->
+          <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
+            <div class="aspect-video overflow-hidden">
+              <img 
+                src="/src/assets/blog/search.jpg" 
+                alt="Cómo Posicionar en Google en 2025"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                <span>15 ene 2025</span>
+                <span>•</span>
+                <span>SEO</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                Cómo Posicionar en Google en 2025
+              </h3>
+              <p class="text-muted-foreground mb-4 line-clamp-3">
+                Guía completa de estrategias SEO modernas para dominar los resultados de búsqueda.
+              </p>
+              <a 
+                href="/blog/modern-seo" 
+                class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+              >
+                Leer artículo
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </article>
+        </div>
+        
+        <div class="text-center mt-12">
+          <a 
+            href="/blog" 
+            class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+          >
+            Ver todos los artículos
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+      </Container>
+    </Section>
+
+    <Section class="py-0 overflow-visible">
+    <FAQ
+      title="Preguntas frecuentes"
+      subtitle="Todo lo que necesitas saber sobre el servicio, tiempos y precios."
+      items={[
+        {
+          question: "¿Cuánto cuesta una página web en Colombia?",
+          answer: "Depende del alcance del proyecto. Como freelance manejo precios accesibles: desde $120 USD hasta $500 USD según las páginas, el diseño y las funcionalidades que necesites. Te envío una cotización exacta después de entender tu proyecto específico. Sin sorpresas, todo transparente."
+        },
+        {
+          question: "¿Cuánto tiempo tardas en entregar mi sitio web?",
+          answer: "Por lo general entrego tu sitio en 4 a 10 días (según las páginas, el diseño y las funcionalidades). Siempre trabajo con hitos claros para que veas el avance y apruebes cada etapa."
+        },
+        {
+          question: "¿Trabajas con WordPress o solo con Next.js?",
+          answer: "Trabajo con ambos según lo que necesites: WordPress si necesitas actualizar contenido constantemente y prefieres algo familiar. Next.js si quieres un sitio 10x más rápido, mejor SEO y tecnología moderna. Te recomiendo la mejor opción para TU caso específico."
+        },
+        {
+          question: "¿Haces una cotización antes de contratar?",
+          answer: "Sí. Antes de empezar te muestro una cotización gratuita (un vistazo de cómo quedaría tu sitio) para que veas el estilo, la estructura y la propuesta. Si te gusta, avanzamos con el desarrollo completo."
+        },
+        {
+          question: "¿Atiendes clientes de toda Colombia?",
+          answer: "Sí. Trabajo 100% remoto con clientes en Cali, Medellín, Bogotá, Barranquilla, Cartagena y toda Colombia. Todo el proceso es online: videollamadas, WhatsApp, email. Funciona perfecto. Si estás en Medellín, podemos hacer reuniones presenciales si prefieres."
+        },
+        {
+          question: "¿Qué pasa después de entregar el sitio?",
+          answer: "Te capacito para que puedas editar contenido tú mismo (textos, imágenes básicas). También ofrezco planes de mantenimiento si prefieres que yo maneje actualizaciones, mejoras de SEO y soporte técnico."
+        },
+        {
+          question: "¿Trabajas con empresas grandes o solo pequeños negocios?",
+          answer: "Trabajo con ambos. He atendido desde emprendedores solos hasta empresas con equipos de 20+ personas. Lo importante no es el tamaño, sino que tengas claridad en tus objetivos y quieras resultados medibles."
+        },
+    ]}
+    />
+    </Section>
+
+    <CTA 
+        title="¿Listo para un Sitio Web que Genere Clientes Reales?"
+        description="Tu competencia ya está apareciendo en Google. Cada día que esperas, ellos están capturando a TUS clientes potenciales. No se trata solo de tener un 'sitio bonito'. Se trata de tener una herramienta de marketing que trabaje 24/7 generando leads, ventas y crecimiento para tu negocio."
+        primaryBtn={{ text: "Hablar por WhatsApp", href: "https://wa.me/573014531504" }}
+        secondaryBtn={{ text: "Enviar email", href: "mailto:joseomarfernandez747@gmail.com" }}
+        features={[
+          "✓ Diseño web profesional optimizado para conversión",
+          "✓ SEO técnico completo (aparecer en Google)",
+          "✓ Velocidad extrema de carga",
+          "✓ Responsive perfecto en todos los dispositivos",
+          "✓ Google Analytics configurado",
+          "✓ Capacitación para que edites contenido",
+          "✓ Soporte post-lanzamiento"
+        ]}
+        disclaimer="Respondo en menos de 4 horas (lun-vie) | +20 negocios en Colombia ya confiaron en mí"
+    />
+
+    <OpenSourceNotification lang={lang} />
+
+</Layout>

@@ -1,0 +1,254 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Section from '~/components/layout/Section.astro';
+import Container from '~/components/ui/Container.astro';
+import { languages } from '~/i18n/ui';
+import { useTranslations } from '~/i18n/utils';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+---
+
+<Layout title="Soporte - Omar Fuentes" description="Soporte técnico y mantenimiento para sitios web. Ayuda continua, actualizaciones y optimización.">
+  <PageHeader 
+    title="Soporte Técnico y Mantenimiento" 
+    description="Ayuda continua para tu sitio web. Actualizaciones, optimización y soporte técnico profesional." 
+  />
+
+  <Section class="py-24">
+    <Container>
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-2xl font-bold mb-6">Servicios de Soporte</h2>
+          
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-background rounded-xl border p-6">
+              <h3 class="text-xl font-semibold mb-4">🛠️ Mantenimiento Técnico</h3>
+              <p class="text-muted-foreground mb-4">
+                Mantenimiento regular para asegurar que tu sitio web funcione perfectamente:
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li>• Actualizaciones de seguridad</li>
+                <li>• Optimización de rendimiento</li>
+                <li>• Backups automáticos</li>
+                <li>• Monitorización 24/7</li>
+                <li>• Resolución de problemas</li>
+              </ul>
+            </div>
+
+            <div class="bg-background rounded-xl border p-6">
+              <h3 class="text-xl font-semibold mb-4">📈 SEO y Marketing</h3>
+              <p class="text-muted-foreground mb-4">
+                Mejora continua de tu posicionamiento y presencia online:
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li>• SEO técnico mensual</li>
+                <li>• Creación de contenido</li>
+                <li>• Análisis de rendimiento</li>
+                <li>• Estrategias de keywords</li>
+                <li>• Reportes mensuales</li>
+              </ul>
+            </div>
+
+            <div class="bg-background rounded-xl border p-6">
+              <h3 class="text-xl font-semibold mb-4">🎨 Actualizaciones de Contenido</h3>
+              <p class="text-muted-foreground mb-4">
+                Mantén tu sitio web actualizado con contenido fresco:
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li>• Actualización de textos</li>
+                <li>• Cambio de imágenes</li>
+                <li>• Nuevas secciones</li>
+                <li>• Blog posts</li>
+                <li>• Noticias y promociones</li>
+              </ul>
+            </div>
+
+            <div class="bg-background rounded-xl border p-6">
+              <h3 class="text-xl font-semibold mb-4">🚀 Mejoras y Optimización</h3>
+              <p class="text-muted-foreground mb-4">
+                Mejora continua del rendimiento y funcionalidades:
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li>• Optimización de velocidad</li>
+                <li>• Nuevas funcionalidades</li>
+                <li>• Mejoras de UX/UI</li>
+                <li>• Integraciones nuevas</li>
+                <li>• Optimización móvil</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold mb-6">Planes de Soporte</h2>
+          
+          <div class="space-y-6 mb-12">
+            <div class="bg-background rounded-xl border p-6">
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <h3 class="text-xl font-semibold">Plan Básico</h3>
+                  <p class="text-2xl font-bold text-primary">$50<span class="text-sm font-normal text-muted-foreground">/mes</span></p>
+                </div>
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Popular</span>
+              </div>
+              <ul class="space-y-2 text-sm mb-6">
+                <li>✅ Mantenimiento técnico mensual</li>
+                <li>✅ Actualizaciones de seguridad</li>
+                <li>✅ Backups semanales</li>
+                <li>✅ Soporte por email</li>
+                <li>✅ Reporte mensual</li>
+                <li>❌ SEO avanzado</li>
+                <li>❌ Actualizaciones de contenido</li>
+              </ul>
+              <a href="https://wa.me/573014531504?text=Hola%20Omar,%20quiero%20contratar%20el%20Plan%20Básico%20de%20soporte" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="inline-block w-full text-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                Contratar Plan Básico
+              </a>
+            </div>
+
+            <div class="bg-background rounded-xl border p-6">
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <h3 class="text-xl font-semibold">Plan Profesional</h3>
+                  <p class="text-2xl font-bold text-primary">$150<span class="text-sm font-normal text-muted-foreground">/mes</span></p>
+                </div>
+                <span class="px-3 py-1 bg-green-500/10 text-green-700 rounded-full text-sm">Recomendado</span>
+              </div>
+              <ul class="space-y-2 text-sm mb-6">
+                <li>✅ Todo del Plan Básico</li>
+                <li>✅ SEO técnico avanzado</li>
+                <li>✅ 2 actualizaciones de contenido/mes</li>
+                <li>✅ Optimización de rendimiento</li>
+                <li>✅ Soporte prioritario (24h)</li>
+                <li>✅ Llamadas mensuales de seguimiento</li>
+                <li>✅ Análisis de competencia</li>
+              </ul>
+              <a href="https://wa.me/573014531504?text=Hola%20Omar,%20quiero%20contratar%20el%20Plan%20Profesional%20de%20soporte" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="inline-block w-full text-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                Contratar Plan Profesional
+              </a>
+            </div>
+
+            <div class="bg-background rounded-xl border p-6">
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <h3 class="text-xl font-semibold">Plan Enterprise</h3>
+                  <p class="text-2xl font-bold text-primary">$300<span class="text-sm font-normal text-muted-foreground">/mes</span></p>
+                </div>
+                <span class="px-3 py-1 bg-purple-500/10 text-purple-700 rounded-full text-sm">Personalizado</span>
+              </div>
+              <ul class="space-y-2 text-sm mb-6">
+                <li>✅ Todo del Plan Profesional</li>
+                <li>✅ Actualizaciones de contenido ilimitadas</li>
+                <li>✅ Desarrollo de nuevas funcionalidades</li>
+                <li>✅ Soporte dedicado (12h)</li>
+                <li>✅ Reuniones semanales</li>
+                <li>✅ Estrategia de marketing digital</li>
+                <li>✅ Análisis avanzado de datos</li>
+                <li>✅ Consultoría estratégica</li>
+              </ul>
+              <a href="https://wa.me/573014531504?text=Hola%20Omar,%20quiero%20contratar%20el%20Plan%20Enterprise%20de%20soporte" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="inline-block w-full text-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                Contactar para Plan Enterprise
+              </a>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold mb-6">¿Cómo Funciona el Soporte?</h2>
+          
+          <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl">1️⃣</span>
+              </div>
+              <h3 class="font-semibold mb-2">Contacto Inicial</h3>
+              <p class="text-sm text-muted-foreground">Nos contactas por WhatsApp o email y evaluamos tus necesidades de soporte.</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl">2️⃣</span>
+              </div>
+              <h3 class="font-semibold mb-2">Plan Personalizado</h3>
+              <p class="text-sm text-muted-foreground">Creamos un plan de soporte adaptado a tus necesidades y presupuesto.</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl">3️⃣</span>
+              </div>
+              <h3 class="font-semibold mb-2">Soporte Continuo</h3>
+              <p class="text-sm text-muted-foreground">Comenzamos con el soporte técnico y mantenimiento de tu sitio web.</p>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold mb-6">Preguntas Frecuentes</h2>
+          
+          <div class="space-y-4">
+            <div class="bg-background rounded-xl border p-6">
+              <h3 class="font-semibold mb-2">¿Qué incluye el soporte técnico?</h3>
+              <p class="text-sm text-muted-foreground">
+                Incluye actualizaciones de seguridad, optimización de rendimiento, resolución de problemas técnicos, 
+                backups automáticos y monitorización del sitio web 24/7.
+              </p>
+            </div>
+            
+            <div class="bg-background rounded-xl border p-6">
+              <h3 class="font-semibold mb-2">¿Puedo cambiar de plan?</h3>
+              <p class="text-sm text-muted-foreground">
+                Sí, puedes cambiar de plan en cualquier momento. Si subes de nivel, solo pagas la diferencia. 
+                Si bajas de nivel, el cambio se aplica al siguiente ciclo de facturación.
+              </p>
+            </div>
+            
+            <div class="bg-background rounded-xl border p-6">
+              <h3 class="font-semibold mb-2">¿Qué pasa si mi sitio web cae?</h3>
+              <p class="text-sm text-muted-foreground">
+                Con nuestro sistema de monitorización 24/7, detectamos caídas inmediatamente y actuamos para restaurar 
+                el servicio lo antes posible. Los planes Profesional y Enterprise incluyen tiempo de respuesta garantizado.
+              </p>
+            </div>
+            
+            <div class="bg-background rounded-xl border p-6">
+              <h3 class="font-semibold mb-2">¿Ofrecen soporte para sitios web no desarrollados por usted?</h3>
+              <p class="text-sm text-muted-foreground">
+                Sí, ofrecemos soporte para sitios web existentes. Primero realizamos una auditoría gratuita para 
+                evaluar el estado actual y luego proponemos un plan de soporte adecuado.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-primary/10 rounded-xl p-8 text-center mt-12">
+            <h2 class="text-2xl font-bold mb-4">¿Listo para Mantener tu Sitio Web en Perfectas Condiciones?</h2>
+            <p class="text-muted-foreground mb-6">
+              No dejes que tu sitio web se vuelva obsoleto o tenga problemas técnicos. 
+              Con nuestro soporte profesional, tu presencia online siempre estará optimizada y funcionando perfectamente.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://wa.me/573014531504?text=Hola%20Omar,%20quiero%20contratar%20servicios%20de%20soporte%20técnico" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all font-semibold">
+                Hablar por WhatsApp
+              </a>
+              <a href="/contacto" 
+                 class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold">
+                Solicitar Cotización
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+</Layout>

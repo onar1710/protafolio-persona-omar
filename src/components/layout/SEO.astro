@@ -1,0 +1,116 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  image?: string;
+  article?: boolean;
+  noindex?: boolean;
+  nofollow?: boolean;
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  type?: string;
+  locale?: string;
+  siteName?: string;
+}
+
+const { 
+  title, 
+  description, 
+  keywords = '',
+  image, 
+  article = false, 
+  noindex = false, 
+  nofollow = false,
+  author = 'Omar Fuentes',
+  publishedTime,
+  modifiedTime,
+  type = 'website',
+  locale = 'es_CO',
+  siteName = 'Omar Fuentes - Diseño Web SEO en Colombia'
+} = Astro.props;
+import { siteConfig } from '~/site.config';
+
+const pathname = (Astro.url.pathname || '/').replace(/^\/es(?=\/|$)/, '') || '/';
+const canonicalURL = new URL(pathname, Astro.site).toString();
+
+const ogImageUrl = image || siteConfig.ogImage;
+
+const robots = [
+  noindex ? 'noindex' : 'index',
+  nofollow ? 'nofollow' : 'follow'
+].join(', ');
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" href={siteConfig.logo.src} />
+<link rel="apple-touch-icon" href={siteConfig.logo.src} />
+<meta name="generator" content={Astro.generator} />
+
+<!-- DNS Prefetch for Performance -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+<!-- Robots -->
+<meta name="robots" content={robots} />
+<meta name="googlebot" content={robots} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+{keywords && <meta name="keywords" content={keywords} />}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={article ? 'article' : type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogImageUrl, Astro.site).toString()} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
+<meta property="og:logo" content={new URL(siteConfig.logo.src, Astro.site).toString()} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content={locale} />
+{article && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{article && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+{article && <meta property="article:author" content={author} />}
+
+<!-- Twitter Card -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(ogImageUrl, Astro.site).toString()} />
+<meta property="twitter:image:alt" content={title} />
+<meta property="twitter:creator" content="@omarfuentes052" />
+<meta property="twitter:site" content="@omarfuentes052" />
+
+<!-- Additional Meta Tags -->
+<meta name="theme-color" content="#00008B" />
+<meta name="msapplication-TileColor" content="#00008B" />
+<meta name="application-name" content={siteName} />
+<meta name="apple-mobile-web-app-title" content={siteName} />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+<!-- Geographic Meta Tags for Local SEO -->
+<meta name="geo.region" content="CO" />
+<meta name="geo.placename" content="Colombia" />
+<meta name="geo.position" content="4.5709;-74.2973" />
+<meta name="ICBM" content="4.5709,-74.2973" />
+
+<!-- Language and Region -->
+<meta name="language" content="Spanish" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="revisit-after" content="7 days" />

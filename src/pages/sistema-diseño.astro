@@ -1,0 +1,277 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { ui } from '~/i18n/ui';
+import Button from '~/components/ui/Button.astro';
+import Section from '~/components/layout/Section.astro';
+import Container from '~/components/ui/Container.astro';
+import Grid from '~/components/ui/Grid.astro';
+import Heading from '~/components/ui/Heading.astro';
+import Text from '~/components/ui/Text.astro';
+import Badge from '~/components/ui/Badge.astro';
+import Card from '~/components/ui/Card.astro';
+import { ArrowRight, ChevronRight, Check, Palette, Type, Layers, Sparkles, Zap, Shield, Smartphone } from 'lucide-react';
+import { useTranslations } from '~/i18n/utils';
+
+export async function getStaticPaths() {
+  return Object.keys(ui).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+
+const colors = [
+    { name: 'Primary', class: 'bg-primary', text: 'text-white', description: 'Color principal para acciones importantes' },
+    { name: 'Background', class: 'bg-background', text: 'text-foreground border border-foreground/10', description: 'Fondo principal del sitio' },
+    { name: 'Foreground', class: 'bg-foreground', text: 'text-background', description: 'Texto principal y elementos' },
+    { name: 'Muted', class: 'bg-muted', text: 'text-muted-foreground', description: 'Elementos secundarios y texto sutil' },
+];
+
+const typography = [
+    { name: 'Display 7xl', class: 'text-7xl font-display font-bold', label: 'Transforma tu presencia digital' },
+    { name: 'Display 5xl', class: 'text-5xl font-display font-bold', label: 'Diseño web profesional' },
+    { name: 'Heading 3xl', class: 'text-3xl font-bold', label: 'Soluciones a medida' },
+    { name: 'Heading 2xl', class: 'text-2xl font-bold', label: 'Experiencia de usuario' },
+    { name: 'Body Base', class: 'text-base', label: 'Creamos sitios web modernos, rápidos y optimizados para SEO que convierten visitantes en clientes.' },
+    { name: 'Body Small', class: 'text-sm text-muted-foreground', label: 'Desarrollo web con las mejores tecnologías y prácticas del mercado.' },
+];
+
+const components = [
+    {
+        icon: Palette,
+        title: 'Colores',
+        description: 'Paleta coherente y accesible',
+        features: ['Variables CSS', 'Modo oscuro', 'Accesibilidad WCAG']
+    },
+    {
+        icon: Type,
+        title: 'Tipografía',
+        description: 'Jerarquía visual clara',
+        features: ['Font system', 'Responsive', 'Optimizado']
+    },
+    {
+        icon: Layers,
+        title: 'Componentes',
+        description: 'Reutilizables y consistentes',
+        features: ['Atomic design', 'Documentados', 'Testeados']
+    },
+    {
+        icon: Sparkles,
+        title: 'Animaciones',
+        description: 'Micro-interacciones fluidas',
+        features: ['Framer Motion', 'Performantes', 'Accesibles']
+    }
+];
+---
+
+<Layout title="Sistema de Diseño - Omar Fuentes" description="Nuestro lenguaje visual y componentes para crear experiencias web consistentes y profesionales.">
+    <Section class="pt-40 pb-24">
+        <Container>
+            <div class="text-center mb-16">
+                <Heading level={1} class="mb-6">Sistema de Diseño</Heading>
+                <Text variant="lead" class="max-w-3xl mx-auto mb-8">
+                    Un lenguaje visual coherente y componentes reutilizables que garantizan calidad y consistencia en cada proyecto web que desarrollamos.
+                </Text>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <Badge variant="accent" class="text-green-500 bg-green-500/10 border-green-500/20">
+                        <Check class="w-4 h-4 mr-1" /> Accesible
+                    </Badge>
+                    <Badge variant="accent" class="text-blue-500 bg-blue-500/10 border-blue-500/20">
+                        <Zap class="w-4 h-4 mr-1" /> Rápido
+                    </Badge>
+                    <Badge variant="accent" class="text-purple-500 bg-purple-500/10 border-purple-500/20">
+                        <Shield class="w-4 h-4 mr-1" /> Escalable
+                    </Badge>
+                </div>
+            </div>
+
+            {/* Colors Section */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">01</span>
+                    Colores
+                </Heading>
+                <Text class="mb-8 text-muted-foreground">
+                    Nuestra paleta de colores está diseñada para crear jerarquía visual clara y mantener accesibilidad en todos los niveles.
+                </Text>
+                <Grid cols={4}>
+                    {colors.map((color) => (
+                        <div class="group">
+                            <div class={`h-32 rounded-xl mb-4 shadow-sm ${color.class} ${color.name === 'Background' ? 'border border-foreground/10' : ''} group-hover:scale-105 transition-transform`}></div>
+                            <h3 class="font-bold mb-1">{color.name}</h3>
+                            <p class="text-sm text-muted-foreground mb-2">{color.description}</p>
+                            <code class="text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block">.{color.class}</code>
+                        </div>
+                    ))}
+                </Grid>
+            </div>
+
+            {/* Typography Section */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">02</span>
+                    Tipografía
+                </Heading>
+                <Text class="mb-8 text-muted-foreground">
+                    Sistema tipográfico optimizado para legibilidad y jerarquía visual, adaptado para todos los dispositivos.
+                </Text>
+                <div class="space-y-8 border border-foreground/10 rounded-2xl p-8 bg-background/50 backdrop-blur-sm">
+                    {typography.map((type) => (
+                         <div class="flex flex-col md:flex-row md:items-center gap-4 border-b border-foreground/5 last:border-0 pb-8 last:pb-0">
+                            <div class="w-48 shrink-0">
+                                <span class="text-muted-foreground text-sm font-mono">{type.name}</span>
+                            </div>
+                            <div class={type.class}>{type.label}</div>
+                         </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Components Overview */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">03</span>
+                    Componentes Principales
+                </Heading>
+                <Grid cols={2} class="gap-8">
+                    {components.map((component) => (
+                        <div class="p-8 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all group">
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                <component.icon class="w-6 h-6" />
+                            </div>
+                            <Heading level={3} class="text-lg mb-2">{component.title}</Heading>
+                            <Text class="mb-4">{component.description}</Text>
+                            <div class="space-y-2">
+                                {component.features.map((feature) => (
+                                    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                                        <Check class="w-4 h-4 text-green-500" />
+                                        {feature}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </Grid>
+            </div>
+
+            {/* Interactive Components */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">04</span>
+                    Componentes Interactivos
+                </Heading>
+                
+                <div class="grid gap-12">
+                    {/* Buttons */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Botones</Heading>
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <Button>Comenzar Ahora</Button>
+                            <Button variant="secondary">Ver Proyectos</Button>
+                            <Button variant="outline">Contactar</Button>
+                            <Button variant="ghost">Más Info</Button>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                             <Button>
+                                Explorar Servicios <ArrowRight size={18} />
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Badges */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                         <Heading level={3} class="text-xl mb-6">Etiquetas y Estados</Heading>
+                        <div class="flex flex-wrap gap-3">
+                            <Badge variant="accent">Disponible</Badge>
+                            <Badge variant="accent" class="text-blue-500 bg-blue-500/10 border-blue-500/20">Nuevo</Badge>
+                            <Badge variant="accent" class="text-amber-500 bg-amber-500/10 border-amber-500/20">En Progreso</Badge>
+                            <Badge variant="accent" class="text-red-500 bg-red-400/10 border-red-500/20">Urgente</Badge>
+                            <Badge variant="secondary">Estándar</Badge>
+                        </div>
+                    </div>
+
+                    {/* Cards */}
+                     <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Tarjetas</Heading>
+                        <Grid cols={2} class="gap-6">
+                            <div class="p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-colors group cursor-pointer">
+                                <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                    <Smartphone />
+                                </div>
+                                <Heading level={4} class="text-lg mb-2">Diseño Responsive</Heading>
+                                <Text small>
+                                    Adaptación perfecta a todos los dispositivos. Experiencia optimizada para móviles, tablets y desktop.
+                                </Text>
+                            </div>
+                             <div class="p-6 rounded-2xl bg-linear-to-br from-primary to-indigo-600 text-white shadow-xl shadow-primary/25">
+                                <Heading level={4} class="text-lg mb-2">Optimización SEO</Heading>
+                                <p class="text-white/80 text-sm mb-4">
+                                    Mejoramos tu posicionamiento con técnicas avanzadas de SEO técnico y contenido optimizado.
+                                </p>
+                                <button class="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium backdrop-blur-sm transition-colors">
+                                    Ver Servicios
+                                </button>
+                            </div>
+                        </Grid>
+                    </div>
+                </div>
+            </div>
+
+            {/* Guidelines */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">05</span>
+                    Principios de Diseño
+                </Heading>
+                <Grid cols={3} class="gap-6">
+                    <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                        <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-4">
+                            <Check class="w-5 h-5" />
+                        </div>
+                        <Heading level={4} class="text-lg mb-2">Consistencia</Heading>
+                        <Text small>
+                            Cada elemento sigue patrones establecidos para crear una experiencia coherente.
+                        </Text>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-4">
+                            <Zap class="w-5 h-5" />
+                        </div>
+                        <Heading level={4} class="text-lg mb-2">Performance</Heading>
+                        <Text small>
+                            Componentes optimizados para carga rápida y rendimiento excepcional.
+                        </Text>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4">
+                            <Shield class="w-5 h-5" />
+                        </div>
+                        <Heading level={4} class="text-lg mb-2">Accesibilidad</Heading>
+                        <Text small>
+                            Diseño inclusivo que cumple con estándares WCAG para todos los usuarios.
+                        </Text>
+                    </div>
+                </Grid>
+            </div>
+
+            {/* CTA */}
+            <div class="text-center">
+                <Heading level={2} class="mb-4">¿Listo para aplicar nuestro sistema?</Heading>
+                <Text class="mb-8 text-muted-foreground max-w-2xl mx-auto">
+                    Transformamos tu visión en realidad con un diseño profesional que convierte y escala con nuestro desarrollo web.
+                </Text>
+                <a 
+                    href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20sistema%20de%20diseño%20y%20quiero%20aplicarlo%20en%20mi%20proyecto.%20¿Podemos%20hablar?"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all text-lg font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 2.16 3.916c2.359 2.359 4.734 2.359 5.511 2.359.297 0 .644-.074.792-.223.148-.148.671-.671.796-1.263.125-.592.125-1.099.084-1.203-.041-.104-.173-.165-.37-.264z"/>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                    Hablar por WhatsApp
+                </a>
+            </div>
+        </Container>
+    </Section>
+</Layout>

@@ -1,0 +1,474 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+import { languages } from '~/i18n/ui';
+import { useTranslations } from '~/i18n/utils';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+---
+
+<Layout title="Política de Cookies - Omar Fuentes" description="Política de cookies de Jose Omar Fernandez Fuentes. Información sobre el uso de cookies y tecnologías similares en nuestro sitio web.">
+  
+  <PageHeader 
+      title="Política de Cookies"
+      description="Última actualización: 28 de enero de 2026"
+  />
+
+  <Container as="main" class="max-w-4xl mx-auto">
+      
+      <!-- 1. ¿Qué son las Cookies? -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">1. ¿Qué son las Cookies?</h2>
+          <p class="text-muted-foreground leading-8">
+              Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (computadora, tablet o móvil) cuando
+              visita un sitio web. Permiten que el sitio web recuerde sus acciones y preferencias durante un período de tiempo,
+              mejorando su experiencia de navegación.
+          </p>
+      </section>
+
+      <!-- 2. ¿Cómo Utilizamos las Cookies? -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">2. ¿Cómo Utilizamos las Cookies?</h2>
+          <p class="text-muted-foreground leading-8 mb-4">
+              <span class="font-semibold text-foreground">Jose Omar Fernandez Fuentes</span> utiliza cookies en este sitio web para:
+          </p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Recordar sus preferencias y configuraciones</li>
+              <li>Analizar el tráfico y uso del sitio web</li>
+              <li>Mejorar la funcionalidad y experiencia del usuario</li>
+              <li>Entender cómo los visitantes interactúan con nuestro sitio</li>
+              <li>Optimizar el rendimiento del sitio web</li>
+          </ul>
+      </section>
+
+      <!-- 3. Tipos de Cookies que Utilizamos -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">3. Tipos de Cookies que Utilizamos</h2>
+
+          <h3 class="text-xl font-semibold mb-4">3.1 Cookies Estrictamente Necesarias</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Estas cookies son esenciales para el funcionamiento del sitio web y no pueden desactivarse.
+          </p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 mb-6 overflow-x-auto">
+              <table class="min-w-full text-left text-sm">
+                  <thead class="bg-black/5 dark:bg-white/5">
+                      <tr>
+                          <th class="px-4 py-3 font-semibold text-foreground">Nombre</th>
+                          <th class="px-4 py-3 font-semibold text-foreground">Propósito</th>
+                          <th class="px-4 py-3 font-semibold text-foreground">Duración</th>
+                      </tr>
+                  </thead>
+                  <tbody class="divide-y divide-black/10 dark:divide-white/10">
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">session_id</td>
+                          <td class="px-4 py-3 text-muted-foreground">Mantener la sesión del usuario</td>
+                          <td class="px-4 py-3 text-muted-foreground">Sesión</td>
+                      </tr>
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">consent_cookie</td>
+                          <td class="px-4 py-3 text-muted-foreground">Recordar preferencias de cookies</td>
+                          <td class="px-4 py-3 text-muted-foreground">1 año</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">3.2 Cookies de Rendimiento y Análisis</h3>
+          <p class="text-muted-foreground leading-8 mb-4">Nos ayudan a entender cómo los visitantes usan nuestro sitio web.</p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 mb-6">
+              <p class="font-semibold text-foreground mb-4">Google Analytics</p>
+              <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+                  <li>
+                      <span class="font-semibold text-foreground">Propósito:</span> Analizar el tráfico del sitio web
+                  </li>
+                  <li>
+                      <span class="font-semibold text-foreground">Cookies:</span> _ga, _gid, _gat
+                  </li>
+                  <li>
+                      <span class="font-semibold text-foreground">Duración:</span> Entre sesión y 2 años
+                  </li>
+                  <li>
+                      <span class="font-semibold text-foreground">Proveedor:</span> Google LLC
+                  </li>
+                  <li>
+                      <span class="font-semibold text-foreground">Más información:</span>{" "}
+                      <a class="font-semibold text-primary hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">
+                          Google Analytics
+                      </a>
+                  </li>
+              </ul>
+          </div>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 overflow-x-auto">
+              <table class="min-w-full text-left text-sm">
+                  <thead class="bg-black/5 dark:bg-white/5">
+                      <tr>
+                          <th class="px-4 py-3 font-semibold text-foreground">Cookie</th>
+                          <th class="px-4 py-3 font-semibold text-foreground">Propósito</th>
+                          <th class="px-4 py-3 font-semibold text-foreground">Duración</th>
+                      </tr>
+                  </thead>
+                  <tbody class="divide-y divide-black/10 dark:divide-white/10">
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">_ga</td>
+                          <td class="px-4 py-3 text-muted-foreground">Distinguir usuarios únicos</td>
+                          <td class="px-4 py-3 text-muted-foreground">2 años</td>
+                      </tr>
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">_gid</td>
+                          <td class="px-4 py-3 text-muted-foreground">Distinguir usuarios únicos</td>
+                          <td class="px-4 py-3 text-muted-foreground">24 horas</td>
+                      </tr>
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">_gat</td>
+                          <td class="px-4 py-3 text-muted-foreground">Limitar tasa de solicitudes</td>
+                          <td class="px-4 py-3 text-muted-foreground">1 minuto</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">3.3 Cookies de Funcionalidad</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Permiten que el sitio web recuerde sus elecciones y proporcione funciones mejoradas.
+          </p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 overflow-x-auto">
+              <table class="min-w-full text-left text-sm">
+                  <thead class="bg-black/5 dark:bg-white/5">
+                      <tr>
+                          <th class="px-4 py-3 font-semibold text-foreground">Nombre</th>
+                          <th class="px-4 py-3 font-semibold text-foreground">Propósito</th>
+                          <th class="px-4 py-3 font-semibold text-foreground">Duración</th>
+                      </tr>
+                  </thead>
+                  <tbody class="divide-y divide-black/10 dark:divide-white/10">
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">language_pref</td>
+                          <td class="px-4 py-3 text-muted-foreground">Recordar preferencia de idioma</td>
+                          <td class="px-4 py-3 text-muted-foreground">1 año</td>
+                      </tr>
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">theme_mode</td>
+                          <td class="px-4 py-3 text-muted-foreground">Recordar modo claro/oscuro</td>
+                          <td class="px-4 py-3 text-muted-foreground">1 año</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">3.4 Cookies de Marketing y Publicidad</h3>
+          <p class="text-muted-foreground leading-8">
+              Actualmente <span class="font-semibold text-foreground">NO</span> utilizamos cookies de marketing o publicidad de terceros. Si esto cambia en el futuro,
+              actualizaremos esta política y solicitaremos su consentimiento.
+          </p>
+      </section>
+
+      <!-- 4. Cookies de Terceros -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">4. Cookies de Terceros</h2>
+
+          <h3 class="text-xl font-semibold mb-4">Google Analytics</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li><span class="font-semibold text-foreground">Propósito:</span> Análisis de tráfico web</li>
+              <li><span class="font-semibold text-foreground">Tipo:</span> Cookies de análisis</li>
+              <li>
+                  <span class="font-semibold text-foreground">Política de privacidad:</span>{" "}
+                  <a class="font-semibold text-primary hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">
+                      https://policies.google.com/privacy
+                  </a>
+              </li>
+              <li>
+                  <span class="font-semibold text-foreground">Opt-out:</span>{" "}
+                  <a class="font-semibold text-primary hover:underline" href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noreferrer">
+                      https://tools.google.com/dlpage/gaoptout
+                  </a>
+              </li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">Google Fonts</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li><span class="font-semibold text-foreground">Propósito:</span> Cargar tipografías web</li>
+              <li><span class="font-semibold text-foreground">Tipo:</span> Cookies de funcionalidad</li>
+              <li>
+                  <span class="font-semibold text-foreground">Política de privacidad:</span>{" "}
+                  <a class="font-semibold text-primary hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">
+                      https://policies.google.com/privacy
+                  </a>
+              </li>
+          </ul>
+
+          <p class="text-muted-foreground leading-8 mb-4">Otros servicios que pueden establecer cookies:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Servicios de alojamiento (hosting)</li>
+              <li>Herramientas de formularios de contacto</li>
+              <li>Integraciones de redes sociales (si están presentes)</li>
+          </ul>
+      </section>
+
+      <!-- 5. Gestión y Control de Cookies -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">5. Gestión y Control de Cookies</h2>
+
+          <h3 class="text-xl font-semibold mb-4">5.1 Consentimiento de Cookies</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Al visitar nuestro sitio web por primera vez, se le mostrará un banner de cookies donde puede aceptar, rechazar o personalizar sus preferencias.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">5.2 Cambiar sus Preferencias</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Puede cambiar sus preferencias de cookies en cualquier momento usando un panel de configuración (si está disponible) o a través de la configuración
+              de su navegador.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">5.3 Configuración del Navegador</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Puede controlar y/o eliminar cookies según desee. Para obtener detalles, consulte{" "}
+              <a class="font-semibold text-primary hover:underline" href="https://www.aboutcookies.org/" target="_blank" rel="noreferrer">
+                  aboutcookies.org
+              </a>
+              .
+          </p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+              <p class="font-semibold text-foreground mb-4">Guías rápidas</p>
+              <div class="grid gap-4 text-muted-foreground">
+                  <div>
+                      <p class="font-semibold text-foreground">Google Chrome</p>
+                      <ol class="mt-2 grid gap-1 pl-6 list-decimal">
+                          <li>Haga clic en el menú (tres puntos) &gt; Configuración</li>
+                          <li>Vaya a "Privacidad y seguridad" &gt; "Cookies y otros datos de sitios"</li>
+                          <li>Seleccione sus preferencias</li>
+                      </ol>
+                  </div>
+                  <div>
+                      <p class="font-semibold text-foreground">Mozilla Firefox</p>
+                      <ol class="mt-2 grid gap-1 pl-6 list-decimal">
+                          <li>Haga clic en el menú (tres líneas) &gt; Configuración</li>
+                          <li>Vaya a "Privacidad y seguridad"</li>
+                          <li>En "Cookies y datos del sitio", configure sus preferencias</li>
+                      </ol>
+                  </div>
+                  <div>
+                      <p class="font-semibold text-foreground">Safari</p>
+                      <ol class="mt-2 grid gap-1 pl-6 list-decimal">
+                          <li>Vaya a Preferencias &gt; Privacidad</li>
+                          <li>Configure "Cookies y datos de sitios web"</li>
+                      </ol>
+                  </div>
+                  <div>
+                      <p class="font-semibold text-foreground">Microsoft Edge</p>
+                      <ol class="mt-2 grid gap-1 pl-6 list-decimal">
+                          <li>Haga clic en el menú (tres puntos) &gt; Configuración</li>
+                          <li>Vaya a "Cookies y permisos del sitio"</li>
+                          <li>Configure "Cookies y datos del sitio"</li>
+                      </ol>
+                  </div>
+              </div>
+
+              <p class="mt-6 text-sm text-muted-foreground">
+                  <span class="font-semibold text-foreground">Nota:</span> Bloquear o eliminar cookies puede afectar la funcionalidad del sitio web.
+              </p>
+          </div>
+      </section>
+
+      <!-- 6. Cookies en Dispositivos Móviles -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">6. Cookies en Dispositivos Móviles</h2>
+          <p class="text-muted-foreground leading-8">
+              Para gestionar cookies en dispositivos móviles, consulte la documentación de su navegador móvil: Safari (iOS), Chrome (Android/iOS), Firefox
+              (Android/iOS) y Samsung Internet.
+          </p>
+      </section>
+
+      <!-- 7. Do Not Track (DNT) -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">7. Do Not Track (DNT)</h2>
+          <p class="text-muted-foreground leading-8">
+              Algunos navegadores incluyen una función "Do Not Track" (No Rastrear). Actualmente no existe un estándar universal para interpretar estas señales.
+              Respetamos su privacidad y puede controlar las cookies mediante los métodos descritos anteriormente.
+          </p>
+      </section>
+
+      <!-- 8. Almacenamiento Local y Otras Tecnologías -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">8. Almacenamiento Local y Otras Tecnologías</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Además de cookies, podemos utilizar otras tecnologías de almacenamiento como:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li><span class="font-semibold text-foreground">Local Storage:</span> Para almacenar preferencias del usuario</li>
+              <li><span class="font-semibold text-foreground">Session Storage:</span> Para datos temporales durante su sesión</li>
+              <li><span class="font-semibold text-foreground">Píxeles de seguimiento:</span> En emails (si corresponde)</li>
+          </ul>
+      </section>
+
+      <!-- 9. Duración de las Cookies -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">9. Duración de las Cookies</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Las cookies pueden ser:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li><span class="font-semibold text-foreground">Cookies de sesión:</span> Se eliminan cuando cierra su navegador</li>
+              <li><span class="font-semibold text-foreground">Cookies persistentes:</span> Permanecen en su dispositivo hasta que expiran o las elimine manualmente</li>
+          </ul>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 overflow-x-auto">
+              <table class="min-w-full text-left text-sm">
+                  <thead class="bg-black/5 dark:bg-white/5">
+                      <tr>
+                          <th class="px-4 py-3 font-semibold text-foreground">Tipo de Cookie</th>
+                          <th class="px-4 py-3 font-semibold text-foreground">Duración Típica</th>
+                      </tr>
+                  </thead>
+                  <tbody class="divide-y divide-black/10 dark:divide-white/10">
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">Estrictamente necesarias</td>
+                          <td class="px-4 py-3 text-muted-foreground">Sesión - 1 año</td>
+                      </tr>
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">Análisis</td>
+                          <td class="px-4 py-3 text-muted-foreground">1 día - 2 años</td>
+                      </tr>
+                      <tr>
+                          <td class="px-4 py-3 text-muted-foreground">Funcionalidad</td>
+                          <td class="px-4 py-3 text-muted-foreground">1 mes - 1 año</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </section>
+
+      <!-- 10. Actualizaciones de Cookies -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">10. Actualizaciones de Cookies</h2>
+          <p class="text-muted-foreground leading-8">
+              Podemos actualizar los tipos de cookies que utilizamos ocasionalmente. Cuando realicemos cambios significativos, actualizaremos la fecha de
+              "Última actualización" en esta página.
+          </p>
+      </section>
+
+      <!-- 11. Impacto de Rechazar Cookies -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">11. Impacto de Rechazar Cookies</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Si decide rechazar cookies no esenciales:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>✅ El sitio web seguirá funcionando</li>
+              <li>✅ Puede navegar y acceder al contenido</li>
+              <li>❌ No podremos recordar sus preferencias</li>
+              <li>❌ La experiencia puede ser menos personalizada</li>
+              <li>❌ No podremos analizar cómo mejorar el sitio</li>
+          </ul>
+      </section>
+
+      <!-- 12. Cookies y Privacidad -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">12. Cookies y Privacidad</h2>
+          <p class="text-muted-foreground leading-8 mb-4">
+              El uso de cookies está cubierto por nuestra{" "}
+              <a class="font-semibold text-primary hover:underline" href="/politica-privacidad">
+                  Política de Privacidad
+              </a>
+              .
+          </p>
+      </section>
+
+      <!-- 13. Marco Legal -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">13. Marco Legal</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Nuestra política de cookies cumple con:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Ley 1581 de 2012 de Colombia (Protección de Datos Personales)</li>
+              <li>Decreto 1377 de 2013</li>
+              <li>GDPR (Reglamento General de Protección de Datos de la UE) - buenas prácticas</li>
+              <li>ePrivacy Directive</li>
+          </ul>
+      </section>
+
+      <!-- 14. Preguntas Frecuentes -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">14. Preguntas Frecuentes</h2>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">¿Debo aceptar todas las cookies?</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              No. Puede rechazar cookies no esenciales. Solo las cookies estrictamente necesarias son obligatorias para que el sitio funcione.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">¿Cómo elimino las cookies existentes?</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Puede eliminar cookies a través de la configuración de su navegador en cualquier momento.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">¿Las cookies contienen información personal?</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Las cookies por sí mismas no contienen información personal identificable, pero pueden asociarse con ella cuando se combinan con otros datos.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">¿Puedo cambiar mi consentimiento después?</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Sí, puede cambiar sus preferencias de cookies en cualquier momento usando nuestro panel de configuración o la configuración de su navegador.
+          </p>
+      </section>
+
+      <!-- 15. Contacto -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">15. Contacto</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Si tiene preguntas sobre nuestra Política de Cookies, puede contactarnos:</p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 mb-8">
+              <p class="font-semibold text-foreground mb-4">Jose Omar Fernandez Fuentes</p>
+              <div class="grid gap-2 text-muted-foreground">
+                  <p>
+                      <span class="font-semibold text-foreground">Dirección:</span> Floridablanca, Santander, Colombia
+                  </p>
+                  <p>
+                      <span class="font-semibold text-foreground">Teléfono:</span> +57 310 785 1074
+                  </p>
+                  <p>
+                      <span class="font-semibold text-foreground">Email:</span> joseomarfernandez747@gmail.com
+                  </p>
+                  <p>
+                      <span class="font-semibold text-foreground">NIT:</span> 3-1091452824
+                  </p>
+              </div>
+          </div>
+      </section>
+
+      <!-- 16. Recursos Adicionales -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">16. Recursos Adicionales</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Para más información sobre cookies:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>
+                  <a class="font-semibold text-primary hover:underline" href="https://www.allaboutcookies.org/" target="_blank" rel="noreferrer">
+                      All About Cookies
+                  </a>
+              </li>
+              <li>
+                  <a class="font-semibold text-primary hover:underline" href="https://www.youronlinechoices.com/" target="_blank" rel="noreferrer">
+                      Your Online Choices
+                  </a>
+              </li>
+              <li>
+                  <a class="font-semibold text-primary hover:underline" href="https://www.networkadvertising.org/" target="_blank" rel="noreferrer">
+                      Network Advertising Initiative
+                  </a>
+              </li>
+              <li>
+                  <a class="font-semibold text-primary hover:underline" href="https://www.sic.gov.co/" target="_blank" rel="noreferrer">
+                      Superintendencia de Industria y Comercio
+                  </a>
+              </li>
+          </ul>
+
+          <p class="text-sm text-muted-foreground mt-8">
+              <span class="font-semibold text-foreground">Última revisión:</span> 28 de enero de 2026 · <span class="font-semibold text-foreground">Próxima revisión programada:</span> 28 de julio de 2026
+          </p>
+      </section>
+  </Container>
+</Layout>

@@ -1,0 +1,344 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+import { languages } from '~/i18n/ui';
+import { useTranslations } from '~/i18n/utils';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+---
+
+<Layout title="Aviso Legal - Omar Fuentes" description="Aviso legal de Jose Omar Fernandez Fuentes. Información legal, derechos de autor, protección de datos y cumplimiento normativo en Colombia.">
+  
+  <PageHeader 
+      title="Aviso Legal"
+      description="Última actualización: 28 de enero de 2026"
+  />
+
+  <Container as="main" class="max-w-4xl mx-auto">
+      
+      <!-- 1. Información General -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">1. Información General</h2>
+          <p class="text-muted-foreground leading-8">
+              En cumplimiento de lo establecido en la Ley 1581 de 2012 de Colombia sobre Protección de Datos Personales y demás normativa aplicable, se informa a
+              los usuarios del sitio web sobre los aspectos legales de su uso.
+          </p>
+      </section>
+
+      <!-- 2. Datos Identificativos del Prestador -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">2. Datos Identificativos del Prestador</h2>
+          <p class="text-muted-foreground leading-8 mb-4">
+              <span class="font-semibold text-foreground">Titular del sitio web y prestador de servicios:</span>
+          </p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+              <dl class="grid gap-4 text-muted-foreground">
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Nombre completo</dt>
+                      <dd>Jose Omar Fernandez Fuentes</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">NIT</dt>
+                      <dd>3-1091452824</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Actividad</dt>
+                      <dd>Diseño web, SEO, programación y desarrollo web</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Dirección</dt>
+                      <dd>Floridablanca, Santander, Colombia</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Teléfono</dt>
+                      <dd>+57 310 785 1074</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Email</dt>
+                      <dd>joseomarfernandez747@gmail.com</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Sitio web</dt>
+                      <dd>omarfuentes.com</dd>
+                  </div>
+              </dl>
+          </div>
+      </section>
+
+      <!-- 3. Objeto -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">3. Objeto</h2>
+          <p class="text-muted-foreground leading-8 mb-6">
+              El presente aviso legal regula el uso y acceso al sitio web de Jose Omar Fernandez Fuentes, así como las responsabilidades derivadas de la utilización
+              de sus contenidos.
+          </p>
+          <p class="text-muted-foreground leading-8">
+              El acceso a este sitio web es gratuito, salvo en lo relativo al costo de la conexión a través de la red de telecomunicaciones suministrada por el
+              proveedor de acceso contratado por los usuarios.
+          </p>
+      </section>
+
+      <!-- 4. Condiciones de Uso -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">4. Condiciones de Uso</h2>
+
+          <h3 class="text-xl font-semibold mb-4">4.1 Uso Responsable</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              El usuario se compromete a utilizar el sitio web de forma diligente, correcta y lícita, de conformidad con la legislación colombiana vigente, estos
+              términos y condiciones, las buenas costumbres y el orden público.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">4.2 Prohibiciones Expresas</h3>
+
+          <p class="font-semibold text-foreground mb-4">Uso indebido del sitio:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Utilizar el sitio web con fines ilícitos o lesivos de derechos e intereses de terceros</li>
+              <li>Introducir virus, malware o cualquier código dañino</li>
+              <li>Realizar ingeniería inversa, descompilar o desensamblar cualquier software del sitio</li>
+              <li>Intentar acceder a áreas restringidas del sistema</li>
+              <li>Realizar acciones que generen una carga desproporcionada en la infraestructura del sitio</li>
+          </ul>
+
+          <p class="font-semibold text-foreground mb-4 mt-6">Propiedad intelectual:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Reproducir, copiar, distribuir o modificar contenidos sin autorización</li>
+              <li>Eliminar, manipular u ocultar avisos de derechos de autor</li>
+              <li>Utilizar contenidos del sitio con fines comerciales sin autorización</li>
+          </ul>
+
+          <p class="font-semibold text-foreground mb-4 mt-6">Integridad del servicio:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Intentar hackear, vulnerar o comprometer la seguridad del sitio</li>
+              <li>Realizar actividades de scraping automatizado sin autorización</li>
+              <li>Transmitir spam o contenido no solicitado</li>
+          </ul>
+      </section>
+
+      <!-- 5. Propiedad Intelectual e Industrial -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">5. Propiedad Intelectual e Industrial</h2>
+
+          <h3 class="text-xl font-semibold mb-4">5.1 Derechos de Autor</h3>
+          <p class="text-muted-foreground leading-8 mb-6">
+              Todos los contenidos del sitio web, incluyendo pero no limitándose a textos, gráficos, imágenes, logos, código fuente, bases de datos, diseños,
+              estructura de navegación, audio, vídeo y otros materiales multimedia, son propiedad de Jose Omar Fernandez Fuentes o están debidamente licenciados, y
+              están protegidos por las leyes colombianas e internacionales de propiedad intelectual.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">5.2 Marcas Registradas</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Todas las marcas, nombres comerciales o signos distintivos que aparecen en el sitio web son propiedad de Jose Omar Fernandez Fuentes o de sus
+              respectivos titulares.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">5.3 Uso Permitido</h3>
+          <p class="text-muted-foreground leading-8 mb-4">Se permite:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Visualizar los contenidos para uso personal y no comercial</li>
+              <li>Imprimir o descargar fragmentos siempre que se indique la fuente</li>
+              <li>Compartir enlaces al sitio web en redes sociales</li>
+          </ul>
+
+          <p class="text-muted-foreground leading-8">Se requiere autorización expresa para reproducción total/parcial, uso comercial, modificación o creación de obras derivadas.</p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">5.4 Licencias de Terceros</h3>
+          <p class="text-muted-foreground leading-8">
+              Algunos elementos pueden estar sujetos a licencias de terceros (frameworks y librerías open-source, iconos y recursos gráficos, fuentes tipográficas).
+          </p>
+      </section>
+
+      <!-- 6. Protección de Datos Personales -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">6. Protección de Datos Personales</h2>
+
+          <h3 class="text-xl font-semibold mb-4">6.1 Responsable del Tratamiento</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Jose Omar Fernandez Fuentes es responsable del tratamiento de los datos personales recopilados a través de este sitio web.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">6.2 Finalidad del Tratamiento</h3>
+          <p class="text-muted-foreground leading-8">Los datos personales se tratan para responder consultas, gestionar servicios y cumplir obligaciones legales.</p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">6.3 Derechos de los Usuarios</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Los usuarios tienen derecho a acceder, rectificar, solicitar la supresión de datos, revocar el consentimiento y presentar quejas ante la SIC. Para
+              ejercer estos derechos, contactar a: joseomarfernandez747@gmail.com
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">6.4 Información Detallada</h3>
+          <p class="text-muted-foreground leading-8">
+              Para información completa sobre protección de datos, consulte nuestra{" "}
+              <a class="font-semibold text-primary hover:underline" href="/politica-privacidad">
+                  Política de Privacidad
+              </a>
+              .
+          </p>
+      </section>
+
+      <!-- 7. Política de Cookies -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">7. Política de Cookies</h2>
+          <p class="text-muted-foreground leading-8">
+              Este sitio web utiliza cookies para mejorar la experiencia del usuario y analizar el tráfico web. Para información detallada, consulte nuestra{" "}
+              <a class="font-semibold text-primary hover:underline" href="/politicas-cookies">
+                  Política de Cookies
+              </a>
+              .
+          </p>
+      </section>
+
+      <!-- 8. Responsabilidades y Garantías -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">8. Responsabilidades y Garantías</h2>
+
+          <h3 class="text-xl font-semibold mb-4">8.1 Disponibilidad del Servicio</h3>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Jose Omar Fernandez Fuentes se esfuerza por mantener el sitio web disponible de forma ininterrumpida, pero no garantiza disponibilidad 24/7 sin
+              interrupciones, ausencia total de errores técnicos o compatibilidad con todos los dispositivos y navegadores.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">8.2 Mantenimiento</h3>
+          <p class="text-muted-foreground leading-8">Nos reservamos el derecho a suspender temporalmente el servicio por mantenimiento y modificar contenidos.</p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">8.3 Exclusión de Responsabilidad</h3>
+          <p class="text-muted-foreground leading-8">No somos responsables por contenidos de terceros enlazados, daños por fallos técnicos, virus/malware, uso inadecuado o pérdidas por interrupciones.</p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">8.4 Limitación de Garantías</h3>
+          <p class="text-muted-foreground leading-8">El sitio web se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo.</p>
+      </section>
+
+      <!-- 9. Enlaces a Terceros -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">9. Enlaces a Terceros</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Este sitio web puede contener enlaces a sitios externos. No nos hacemos responsables de su contenido o políticas.</p>
+          <p class="text-muted-foreground leading-8">Si desea enlazar a nuestro sitio web, no se permite framing ni enlazar desde sitios ilícitos/ofensivos.</p>
+      </section>
+
+      <!-- 10. Modificaciones -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">10. Modificaciones</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Nos reservamos el derecho a modificar este Aviso Legal y contenidos del sitio en cualquier momento.</p>
+          <p class="text-muted-foreground leading-8">Las modificaciones significativas se notificarán actualizando la fecha de "Última actualización" y mediante avisos.</p>
+      </section>
+
+      <!-- 11. Legislación Aplicable y Jurisdicción -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">11. Legislación Aplicable y Jurisdicción</h2>
+          <p class="text-muted-foreground leading-8">
+              Este Aviso Legal se rige por la legislación colombiana. Para controversias, las partes se someten a los juzgados y tribunales de Bucaramanga,
+              Santander, Colombia.
+          </p>
+      </section>
+
+      <!-- 12. Comunicaciones -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">12. Comunicaciones</h2>
+          <p class="text-muted-foreground leading-8">
+              Para cualquier comunicación relacionada con este Aviso Legal: joseomarfernandez747@gmail.com · +57 310 785 1074 · Floridablanca, Santander,
+              Colombia.
+          </p>
+      </section>
+
+      <!-- 13. Idioma -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">13. Idioma</h2>
+          <p class="text-muted-foreground leading-8">
+              El idioma preferente es el español. En caso de traducción, prevalecerá la versión en español.
+          </p>
+      </section>
+
+      <!-- 14. Contacto para Reclamaciones -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">14. Contacto para Reclamaciones</h2>
+          <p class="text-muted-foreground leading-8 mb-4">
+              Para consultas, sugerencias o reclamaciones: Jose Omar Fernandez Fuentes · Email: joseomarfernandez747@gmail.com · Tel: +57 310 785 1074.
+          </p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 mb-8">
+              <p class="font-semibold text-foreground mb-4">Autoridad de Control</p>
+              <p class="text-muted-foreground mb-4">Superintendencia de Industria y Comercio (SIC)</p>
+              <div class="grid gap-1 text-muted-foreground">
+                  <p>
+                      <span class="font-semibold text-foreground">Website:</span> www.sic.gov.co
+                  </p>
+                  <p>
+                      <span class="font-semibold text-foreground">Línea de atención:</span> 01 8000 910165
+                  </p>
+                  <p>
+                      <span class="font-semibold text-foreground">Dirección:</span> Carrera 13 No. 27 - 00, Pisos 3 y 4, Bogotá D.C.
+                  </p>
+              </div>
+          </div>
+      </section>
+
+      <!-- 15. Accesibilidad Web -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">15. Accesibilidad Web</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Nos esforzamos por hacer este sitio web accesible para todos los usuarios, incluyendo personas con discapacidades.</p>
+          <p class="text-muted-foreground leading-8 mb-4">Trabajamos para cumplir con WCAG 2.1, estándares W3C y mejores prácticas.</p>
+          <p class="text-muted-foreground leading-8">Si encuentra barreras de accesibilidad, contáctenos para mejorar.</p>
+      </section>
+
+      <!-- 16. Seguridad -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">16. Seguridad</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Implementamos medidas técnicas y organizativas para proteger la integridad del sitio y los datos de los usuarios.</p>
+          <p class="text-muted-foreground leading-8">Si detecta una vulnerabilidad de seguridad, contacte inmediatamente a: joseomarfernandez747@gmail.com</p>
+      </section>
+
+      <!-- 17. Menores de Edad -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">17. Menores de Edad</h2>
+          <p class="text-muted-foreground leading-8">Este sitio web no está dirigido a menores de 18 años. No recopilamos intencionalmente datos de menores.</p>
+      </section>
+
+      <!-- 18. Validez de las Cláusulas -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">18. Validez de las Cláusulas</h2>
+          <p class="text-muted-foreground leading-8">Si alguna cláusula fuera declarada nula o inválida, las demás cláusulas permanecerán en vigor.</p>
+      </section>
+
+      <!-- 19. Redes Sociales -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">19. Redes Sociales</h2>
+          <p class="text-muted-foreground leading-8">Podemos mantener presencia en redes sociales. No somos responsables de comentarios u opiniones publicadas por usuarios en dichas plataformas.</p>
+      </section>
+
+      <!-- 20. Política Medioambiental Digital -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">20. Política Medioambiental Digital</h2>
+          <p class="text-muted-foreground leading-8">Nos comprometemos a minimizar el impacto ambiental mediante optimización del código, hosting verde cuando sea posible y diseño eficiente.</p>
+      </section>
+
+      <!-- Aceptación del Aviso Legal -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">Aceptación del Aviso Legal</h2>
+          <p class="text-muted-foreground leading-8 mb-4">
+              El acceso y uso de este sitio web implica la aceptación expresa y sin reservas de todos los términos del presente Aviso Legal.
+          </p>
+          <p class="text-muted-foreground leading-8">
+              <span class="font-semibold text-foreground">Si no está de acuerdo con estos términos, por favor, absténgase de utilizar este sitio web.</span>
+          </p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 mb-8">
+              <p class="font-semibold text-foreground mb-4">Jose Omar Fernandez Fuentes</p>
+              <p class="text-muted-foreground mb-2">NIT: 3-1091452824</p>
+              <p class="text-muted-foreground mb-1">Floridablanca, Santander, Colombia</p>
+              <p class="text-muted-foreground mb-1">Email: joseomarfernandez747@gmail.com</p>
+              <p class="text-muted-foreground mb-1">Tel: +57 310 785 1074</p>
+          </div>
+
+          <p class="text-sm text-muted-foreground">
+              <span class="font-semibold text-foreground">Fecha de vigencia:</span> 28 de enero de 2026 · <span class="font-semibold text-foreground">Versión:</span> 1.0 ·{" "}
+              <span class="font-semibold text-foreground">Última revisión:</span> 28 de enero de 2026
+          </p>
+      </section>
+  </Container>
+</Layout>

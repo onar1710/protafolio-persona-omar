@@ -1,0 +1,98 @@
+---
+import BlogCard from '~/components/blog/BlogCard.astro';
+import { defaultLang } from '~/i18n/ui';
+import { isRtl, useTranslations } from '~/i18n/utils';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  viewAllText?: string;
+  viewAllHref?: string;
+  count?: number;
+}
+
+const { lang = defaultLang } = Astro.params;
+const t = useTranslations(lang);
+const arrow = isRtl(lang) ? '←': '→';
+
+const {
+    title = t['blog.title'],
+    subtitle = t['blog.subtitle'],
+    viewAllText = t['blog.viewAll'],
+    viewAllHref,
+    count = 3
+} = Astro.props;
+
+const resolvedViewAllHref = viewAllHref ?? `/blog`;
+
+const cards = [
+	{
+		title: 'Ferrarycucina',
+		description: 'Resultados Comprobados: +120% tráfico orgánico | 70% menos tiempo carga | Primera página Google 1-2 meses',
+		pubDate: new Date('2024-01-15'),
+		slug: `/portfolio/ferrarycucina`,
+		heroImage: '/images/proyecto-imagen-ferrarycucina.png',
+		visitHref: 'https://www.ferrarycucina.co/',
+		isVideo: false,
+	},
+	{
+		title: 'Omar YT Play',
+		description: 'Tienda eCommerce de gaming y tecnología.',
+		pubDate: new Date('2024-02-20'),
+		slug: `/portfolio/mundo-gaming`,
+		heroImage: '/images/proyecto-imagen-omarytplay.png',
+		visitHref: 'https://omarytplay.com/',
+		isVideo: false,
+	},
+	{
+		title: 'Plomería',
+		description: 'Servicios de plomería y reparaciones en el hogar.',
+		pubDate: new Date('2024-03-10'),
+		slug: `/portfolio/plomeria`,
+		heroImage: '/images/proyecto-imagen-plemria.png',
+		visitHref: 'https://plomeriaaquaimperio.co/',
+		isVideo: false,
+	},
+	{
+		title: 'Productos Perros',
+		description: 'Tienda de productos para mascotas.',
+		pubDate: new Date('2024-04-05'),
+		slug: `/portfolio/productos-para-perros`,
+		heroImage: '/images/proyecto-imagen-productosperros.png',
+		visitHref: 'https://web-productos-para-perros.vercel.app/',
+		isVideo: false,
+	},
+].slice(0, count);
+---
+
+<section class="py-24 bg-white/2">
+    <div class="max-w-7xl mx-auto px-6">
+         <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl font-display font-bold mb-4">{title}</h2>
+                 <p class="text-muted-foreground">{subtitle}</p>
+            </div>
+            <a href={resolvedViewAllHref} class="text-primary hover:text-primary/80 font-medium hidden md:block">
+                {viewAllText} {arrow}
+            </a>
+         </div>
+
+         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			{cards.map((card) => (
+				<BlogCard
+					title={card.title}
+					description={card.description}
+					pubDate={card.pubDate}
+					slug={card.slug}
+					heroImage={card.heroImage}
+					visitHref={card.visitHref}
+					isVideo={card.isVideo}
+				/>
+			))}
+         </div>
+         
+         <div class="mt-8 text-center md:hidden">
+             <a href={resolvedViewAllHref} class="text-primary font-medium">{viewAllText} {arrow}</a>
+         </div>
+    </div>
+</section>

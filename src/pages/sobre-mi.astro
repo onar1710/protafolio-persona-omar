@@ -1,0 +1,113 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import ContentSection from '~/components/sections/ContentSection.astro';
+import FeaturesList from '~/components/sections/FeaturesList.astro';
+import TeamSection from '~/components/sections/TeamSection.astro';
+import FeatureItem from '~/components/ui/FeatureItem.astro';
+import TeamMember from '~/components/ui/TeamMember.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import { Zap, Shield, Smartphone, Globe, Code, Layers } from 'lucide-react';
+import { languages } from '~/i18n/ui';
+import { useTranslations } from '~/i18n/utils';
+
+// Las imágenes de /public/ se usan con rutas relativas, no con import
+import storyImage from '~/assets/blog/omar-story.png';
+
+import Timeline from '~/components/sections/Timeline.astro';
+import Section from '~/components/layout/Section.astro';
+import Container from '~/components/ui/Container.astro';
+import Heading from '~/components/ui/Heading.astro';
+import Text from '~/components/ui/Text.astro';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+
+const timelineItems = [
+    { date: '2019', title: 'Primeros proyectos', description: 'Empecé a construir sitios para negocios locales, enfocándome en velocidad, estructura y claridad.' },
+    { date: '2021', title: 'Enfoque SEO + performance', description: 'Me especialicé en SEO técnico, Core Web Vitals y experiencias rápidas en móvil.' },
+    { date: '2023', title: 'Webs que convierten', description: 'Landing pages y sitios pensados para convertir visitas en leads y ventas.' },
+    { date: 'Hoy', title: 'Trabajo directo contigo', description: 'Freelance: comunicación clara, entregables definidos y soporte post-lanzamiento.' },
+];
+---
+
+<Layout title="Sobre Omar Fuentes - Desarrollador Web SEO Colombia | Freelance" description="Conoce a Omar Fuentes: desarrollador web freelance en Colombia con 5+ años de experiencia. Especialista en SEO técnico, diseño web y desarrollo de sitios que convierten." keywords="omar fuentes desarrollador web, freelance web colombia, sobre mi cali, desarrollador web medellin, seo experto colombia, diseñador web freelance, portafolio desarrollador, web developer colombia">
+<PageHeader title="Sobre mí" description="Hola, soy Omar. Diseño y desarrollo sitios web rápidos, optimizados para SEO y pensados para convertir." />
+
+  <ContentSection
+    title="Hola, soy Omar 👋"
+    image="/images/sobre-mi/sobre-mi-omar.jpg"
+    imageAlt="Omar Fuentes - Desarrollador Web"
+  >
+    <Text>Diseñador web, desarrollador y especialista en SEO en Colombia. Llevo años ayudando a negocios y emprendedores a tener presencia online profesional que realmente funciona.</Text>
+    <Text>Mi enfoque es simple: sitios rápidos, bien estructurados y con SEO técnico desde el día uno. Sin relleno, sin humo, con entregables claros.</Text>
+    <Text>Trabajo directo contigo (sin agencias), con comunicación clara y avances visibles para que el resultado final sea una web que convierta.</Text>
+  </ContentSection>
+
+  <Container class="py-24">
+    <Heading level={2} class="text-center mb-12">Mi camino</Heading>
+    <Timeline items={timelineItems} />
+  </Container>
+
+  <Section>
+      <Container>
+          <div class="mb-24">
+             <Heading level={2} class="text-center mb-12">Cómo trabajo</Heading>
+             <FeaturesList>
+                <FeatureItem title="Velocidad y rendimiento" description="Optimizo Core Web Vitals para que tu sitio cargue rápido y convierta mejor.">
+                    <Zap slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="Código limpio y mantenible" description="Nada de parches. Estructura ordenada, escalable y fácil de actualizar.">
+                    <Shield slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="Diseño responsive" description="Optimizado para móvil, tablet y escritorio desde el primer día.">
+                    <Smartphone slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="SEO técnico" description="Metadatos, estructura, schema, sitemap y buenas prácticas para competir en Google.">
+                    <Globe slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="Desarrollo a medida" description="React, Next.js, Astro o WordPress según tu necesidad. La tecnología al servicio del negocio.">
+                    <Code slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="Comunicación clara" description="Trabajo directo contigo, sin intermediarios. Avances visibles y tiempos definidos.">
+                    <Layers slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+             </FeaturesList>
+          </div>
+
+          <div>
+            <TeamSection title="Lo que puedes esperar">
+              <TeamMember
+                name="Diseño y UX"
+                role="Interfaces limpias y enfocadas en conversión"
+                image="/images/sobre-mi/Diseño-UX.jpg"
+                github="https://github.com/onar1710"
+                linkedin="https://linkedin.com/in/omarfuentes052/"
+              />
+              <TeamMember
+                name="Desarrollo"
+                role="Implementación rápida y ordenada"
+                image="/images/sobre-mi/Desarrollo.jpg"
+                github="https://github.com/onar1710"
+                linkedin="https://linkedin.com/in/omarfuentes052/"
+              />
+              <TeamMember
+                name="SEO & Performance"
+                role="Base técnica sólida para posicionar"
+                image="/images/sobre-mi/SEO-Performance.jpg"
+                linkedin="https://linkedin.com/in/omarfuentes052/"
+              />
+              <TeamMember
+                name="Soporte"
+                role="Acompañamiento post-lanzamiento"
+                image="/images/sobre-mi/Soporte.jpg"
+                github="https://github.com/onar1710"
+              />
+            </TeamSection>
+          </div>
+      </Container>
+  </Section>
+</Layout>

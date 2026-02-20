@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 360" role="img" aria-label="Logo Omar Fuentes">
+  <defs>
+    <linearGradient id="ofGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="22%" stop-color="#3F3F46" />
+      <stop offset="45%" stop-color="#0A0A0A" />
+      <stop offset="68%" stop-color="#6B7280" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+    <linearGradient id="strokeGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="55%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55" />
+      <stop offset="45%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+    <filter id="shine" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.28" />
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#FFFFFF" flood-opacity="0.16" />
+    </filter>
+    <style>
+      .brand {
+        font-family: Margalika, "Cinzel", "Trajan Pro", "Georgia", serif;
+        letter-spacing: 0.22em;
+      }
+      .mark {
+        letter-spacing: 0.06em;
+      }
+    </style>
+  </defs>
+
+  <g filter="url(#shine)">
+    <text x="160" y="210" text-anchor="middle" font-size="170" font-weight="800" class="brand mark" fill="none" stroke="url(#strokeGlow)" stroke-width="10" paint-order="stroke" stroke-linejoin="round">OF</text>
+    <text x="160" y="210" text-anchor="middle" font-size="170" font-weight="800" class="brand mark" fill="url(#ofGradient)">OF</text>
+    <text x="160" y="210" text-anchor="middle" font-size="170" font-weight="800" class="brand mark" fill="url(#highlight)">OF</text>
+  </g>
+
+  <text x="160" y="320" text-anchor="middle" font-size="28" font-weight="700" class="brand" fill="#0B1220">OMAR FUENTES</text>
+</svg>

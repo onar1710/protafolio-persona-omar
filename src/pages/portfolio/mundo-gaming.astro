@@ -1,0 +1,441 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { ArrowRight, Star, Users, TrendingUp, Clock, Target, Zap, Shield, Award, CheckCircle, ExternalLink, FileText } from 'lucide-react';
+
+const project = {
+  title: "Mundo Gaming - eCommerce de Gaming y Tecnología",
+  description: "Desarrollo completo de una tienda eCommerce especializada en productos gaming con Next.js, Tailwind CSS y programa de afiliados de Amazon",
+  cliente: "Mundo Gaming",
+  fecha: "2025",
+  tipo: "eCommerce / Sitio Web",
+  tecnologias: ["Next.js", "React", "Tailwind CSS", "Amazon Associates API", "Vercel"],
+  url: "https://omarytplay.com",
+  imagen: "/images/proyecto-imagen-omarytplay.png",
+  stats: {
+    products: "100+ productos",
+    categories: "15 categorías",
+    performance: "95/100 Lighthouse",
+    weeks: "2 semanas desarrollo"
+  },
+  results: [
+    "✅ Sitio completo con más de 100+ productos organizados en 15 categorías",
+    "✅ Sistema de blog integrado con reseñas detalladas y análisis técnicos",
+    "✅ Performance optimizada: carga rápida y experiencia fluida",
+    "✅ Diseño responsive adaptado a móvil, tablet y desktop",
+    "✅ SEO optimizado con estructura de URLs amigables",
+    "✅ Integración con Amazon Associates para monetización"
+  ]
+};
+
+const techStack = [
+  { name: "Next.js 14+", description: "Framework React con App Router para SSR/SSG", icon: "🚀" },
+  { name: "React 18", description: "Biblioteca UI con componentes reutilizables", icon: "⚛️" },
+  { name: "Tailwind CSS", description: "Framework CSS utility-first para diseño rápido", icon: "🎨" },
+  { name: "TypeScript", description: "Tipado estático para mayor robustez", icon: "📘" },
+  { name: "Vercel", description: "Hosting y deployment automático", icon: "🌐" },
+  { name: "Amazon Associates", description: "Integración de productos y monetización", icon: "🛒" }
+];
+
+const phases = [
+  {
+    title: "Investigación y Planificación",
+    week: "Día 1-2",
+    tasks: [
+      "Análisis del mercado: Estudio de competidores en el nicho gaming",
+      "Definición de categorías: Organización de productos por tipo",
+      "Wireframing: Bocetos de estructura y navegación",
+      "Arquitectura de información: Mapa del sitio completo"
+    ]
+  },
+  {
+    title: "Diseño UI/UX",
+    week: "Día 3-4",
+    tasks: [
+      "Sistema de diseño: Paleta de colores, tipografía, componentes",
+      "Diseño de componentes: Cards, buttons, navigation, forms",
+      "Diseño de páginas: Home, categorías, blog, producto individual",
+      "Prototipo interactivo: Mockups en alta fidelidad"
+    ]
+  },
+  {
+    title: "Desarrollo Frontend",
+    week: "Día 5-6",
+    tasks: [
+      "Setup del proyecto: Next.js + Tailwind CSS",
+      "Componentes reutilizables: Header, Footer, ProductCard, CategoryGrid",
+      "Páginas principales: Home, categorías, blog",
+      "Sistema de routing: Dynamic routes para productos y posts"
+    ]
+  },
+  {
+    title: "Integración Amazon Associates",
+    week: "Día 7-8",
+    tasks: [
+      "Configuración API: Setup de Amazon Associates",
+      "Sistema de enlaces: Tracking de afiliados",
+      "Sincronización de productos: Precios y disponibilidad",
+      "Testing de conversión: Verificación de tracking"
+    ]
+  },
+  {
+    title: "Contenido y SEO",
+    week: "Día 9-10",
+    tasks: [
+      "Creación de contenido: Reseñas de productos iniciales",
+      "Optimización SEO: Meta tags, headings, URLs",
+      "Imágenes optimizadas: Compresión y alt text",
+      "Schema markup: Implementación de structured data"
+    ]
+  },
+  {
+    title: "Testing",
+    week: "Día 11-12",
+    tasks: [
+      "Testing cross-browser: Chrome, Firefox, Safari, Edge",
+      "Testing responsive: Móvil, tablet, desktop",
+      "Performance testing: Lighthouse, PageSpeed Insights"
+    ]
+  },
+  {
+    title: "Deploy y Entrega",
+    week: "Día 13-14",
+    tasks: [
+      "Deploy a producción: Vercel con dominio custom",
+      "Testing final y entrega del proyecto completo"
+    ]
+  }
+];
+
+const features = [
+  {
+    icon: "🎯",
+    title: "Sistema de Productos",
+    description: "Catálogo dinámico con más de 100 productos gaming y tecnología, imágenes optimizadas y precios actualizados en tiempo real."
+  },
+  {
+    icon: "📄",
+    title: "Blog de Reseñas",
+    description: "Contenido de valor con reseñas detalladas, análisis técnicos, guías de compra y comparativas entre productos similares."
+  },
+  {
+    icon: "⚡",
+    title: "Performance Optimizada",
+    description: "Lighthouse scores de 95+ en performance, lazy loading de imágenes y SSG para páginas estáticas."
+  },
+  {
+    icon: "🛡️",
+    title: "SEO Técnico",
+    description: "URLs semánticas, meta tags optimizados, schema markup y sitemap XML automático para mejor posicionamiento."
+  }
+];
+
+const metrics = [
+  { label: "Performance", value: "95/100", icon: "📈" },
+  { label: "Accessibility", value: "98/100", icon: "✅" },
+  { label: "Best Practices", value: "100/100", icon: "🏆" },
+  { label: "SEO", value: "100/100", icon: "⭐" }
+];
+---
+
+<Layout title="Mundo Gaming - eCommerce de Gaming y Tecnología | Omar Fuentes" description="Caso de estudio completo del desarrollo de Mundo Gaming: eCommerce especializado en gaming con Next.js, Tailwind CSS y Amazon Associates.">
+  <div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+      <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Clock class="w-4 h-4 mr-1" /> 2 semanas desarrollo
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-700 dark:text-green-300 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 mr-1" /> Completado
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+              {project.title}
+            </h1>
+            
+            <p class="text-xl text-muted-foreground mb-8">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              {project.tecnologias.map(tech => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-foreground/5 text-foreground border border-foreground/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Ver proyecto en vivo
+              </a>
+              <a 
+                href="/portfolio/proyectos"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+              >
+                <ArrowRight className="w-5 h-5" />
+                Ver más proyectos
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+              <img 
+                src={project.imagen}
+                alt={project.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Info -->
+    <section class="py-20 border-t border-foreground/10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8 mb-16">
+          <div class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+            <div class="text-3xl font-bold text-primary mb-2">{project.stats.products}</div>
+            <div class="text-muted-foreground">Productos</div>
+          </div>
+          <div class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+            <div class="text-3xl font-bold text-primary mb-2">{project.stats.categories}</div>
+            <div class="text-muted-foreground">Categorías</div>
+          </div>
+          <div class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+            <div class="text-3xl font-bold text-primary mb-2">{project.stats.performance}</div>
+            <div class="text-muted-foreground">Lighthouse Score</div>
+          </div>
+          <div class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+            <div class="text-3xl font-bold text-primary mb-2">{project.stats.weeks}</div>
+            <div class="text-muted-foreground">Desarrollo</div>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">El Desafío</h2>
+            <p class="text-muted-foreground mb-6">
+              El cliente necesitaba una plataforma profesional para publicar reseñas de productos gaming y tecnología, con capacidad de mostrar productos de múltiples categorías de forma organizada, integrar con el programa de afiliados de Amazon, ofrecer contenido de valor mediante reseñas detalladas, mantener una experiencia de usuario fluida y rápida, y facilitar la búsqueda y navegación entre productos.
+            </p>
+            
+            <h3 class="text-xl font-semibold mb-4">Objetivos del Proyecto</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Crear una tienda online profesional con catálogo extenso</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Desarrollar un sistema de blog para reseñas y comparativas</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Optimizar para conversión con CTAs claros y efectivos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Garantizar rendimiento óptimo en todos los dispositivos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Implementar SEO técnico para posicionamiento orgánico</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Resultados Clave</h2>
+            <div class="space-y-4">
+              {project.results.map((result, index) => (
+                <div key={index} class="flex items-start gap-3 p-4 rounded-xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span class="text-foreground">{result.replace('✅ ', '')}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Stack Tecnológico</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Tecnologías modernas seleccionadas para garantizar rendimiento, escalabilidad y experiencia de usuario excepcional.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {techStack.map((tech, index) => (
+            <div key={index} class="p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+              <div class="text-3xl mb-4">{tech.icon}</div>
+              <h3 class="text-xl font-semibold mb-2">{tech.name}</h3>
+              <p class="text-muted-foreground text-sm">{tech.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Características Principales</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Funcionalidades clave que hacen de Mundo Gaming una plataforma eCommerce completa y profesional.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} class="flex gap-6 p-8 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 text-2xl">
+                {feature.icon}
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+                <p class="text-muted-foreground">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Process -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Proceso de Desarrollo</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Metodología intensiva en 2 semanas para garantizar entrega rápida y calidad excepcional.
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {phases.map((phase, index) => (
+            <div key={index} class="relative">
+              <div class="flex items-start gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-primary/20">
+                    {index + 1}
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-6">
+                    <h3 class="text-2xl font-bold text-foreground">{phase.title}</h3>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                      {phase.week}
+                    </span>
+                  </div>
+                  <div class="bg-background rounded-2xl border border-foreground/10 p-6">
+                    <ul class="space-y-3">
+                      {phase.tasks.map((task, taskIndex) => (
+                        <li key={taskIndex} class="flex items-start gap-3 text-muted-foreground">
+                          <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <span class="text-foreground">{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {index < phases.length - 1 && (
+                <div class="absolute left-8 top-16 w-0.5 h-20 bg-gradient-to-b from-primary/20 to-transparent"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Métricas de Performance</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Resultados de Google Lighthouse mostrando optimización excepcional en todos los aspectos.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div key={index} class="text-center p-8 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4 text-2xl">
+                {metric.icon}
+              </div>
+              <div class="text-3xl font-bold text-foreground mb-2">{metric.value}</div>
+              <div class="text-muted-foreground">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center text-primary mx-auto mb-8 text-3xl">
+          👥
+        </div>
+        <blockquote class="text-2xl font-medium text-foreground mb-8">
+          "Omar entregó exactamente lo que necesitábamos: un sitio profesional, rápido y fácil de navegar. La integración con Amazon funciona perfectamente y las reseñas han ayudado mucho a generar confianza con los usuarios. El proyecto se completó en tiempo y forma."
+        </blockquote>
+        <div>
+          <div class="font-semibold text-foreground">Daniela Ruiz</div>
+          <div class="text-muted-foreground">Fundadora de Mundo Gaming</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">¿Tienes un proyecto similar en mente?</h2>
+        <p class="text-muted-foreground mb-8">
+          Si buscas un desarrollador web que entienda tanto la parte técnica como el negocio, este proyecto demuestra mi capacidad para crear sitios rápidos, funcionales y que generan resultados.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20el%20proyecto%20Mundo%20Gaming%20y%20quiero%20desarrollar%20algo%20similar.%20¿Podemos%20hablar?"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 2.16 3.916c2.359 2.359 4.734 2.359 5.511 2.359.297 0 .644-.074.792-.223.148-.148.671-.671.796-1.263.125-.592.125-1.099.084-1.203-.041-.104-.173-.165-.37-.264z"/>
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+            </svg>
+            Consultar por WhatsApp
+          </a>
+          <a 
+            href="/portfolio/proyectos"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+          >
+            <ArrowRight class="w-5 h-5" />
+            Ver todos los proyectos
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

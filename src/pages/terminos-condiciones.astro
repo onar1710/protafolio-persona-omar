@@ -1,0 +1,451 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+import { languages } from '~/i18n/ui';
+import { useTranslations } from '~/i18n/utils';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+---
+
+<Layout title="Términos y Condiciones - Omar Fuentes" description="Términos y condiciones de uso de Jose Omar Fernandez Fuentes. Contratación de servicios de diseño web, SEO y programación.">
+  
+  <PageHeader 
+      title="Términos y Condiciones de Uso"
+      description="Última actualización: 28 de enero de 2026"
+  />
+
+  <Container as="main" class="max-w-4xl mx-auto">
+      
+      <!-- 1. Aceptación de los Términos -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">1. Aceptación de los Términos</h2>
+          <p class="text-muted-foreground leading-8 mb-6">
+              Bienvenido al sitio web de <span class="font-semibold text-foreground">Jose Omar Fernandez Fuentes</span>. Al acceder y utilizar este sitio web y nuestros
+              servicios de diseño web, SEO y programación, usted acepta cumplir con estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos
+              términos, por favor no utilice nuestro sitio web ni nuestros servicios.
+          </p>
+
+          <p class="font-semibold text-foreground mb-4">Prestador de servicios:</p>
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+              <dl class="grid gap-4 text-muted-foreground">
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Nombre</dt>
+                      <dd>Jose Omar Fernandez Fuentes</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">NIT</dt>
+                      <dd>3-1091452824</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Dirección</dt>
+                      <dd>Floridablanca, Santander, Colombia</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Teléfono</dt>
+                      <dd>+57 310 785 1074</dd>
+                  </div>
+                  <div class="grid gap-1">
+                      <dt class="text-sm font-semibold text-foreground">Email</dt>
+                      <dd>joseomarfernandez747@gmail.com</dd>
+                  </div>
+              </dl>
+          </div>
+      </section>
+
+      <!-- 2. Definiciones -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">2. Definiciones</h2>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li><span class="font-semibold text-foreground">"Nosotros", "nuestro":</span> Se refiere a Jose Omar Fernandez Fuentes</li>
+              <li><span class="font-semibold text-foreground">"Usted", "cliente":</span> Se refiere al usuario de este sitio web o contratante de servicios</li>
+              <li><span class="font-semibold text-foreground">"Servicios":</span> Diseño web, desarrollo web, SEO, programación y servicios relacionados</li>
+              <li><span class="font-semibold text-foreground">"Sitio web":</span> Este sitio web y todos sus contenidos</li>
+              <li><span class="font-semibold text-foreground">"Proyecto":</span> Trabajo específico acordado entre el cliente y el prestador de servicios</li>
+          </ul>
+      </section>
+
+      <!-- 3. Servicios Ofrecidos -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">3. Servicios Ofrecidos</h2>
+          <p class="text-muted-foreground leading-8 mb-6">Ofrecemos los siguientes servicios profesionales:</p>
+
+          <h3 class="text-xl font-semibold mb-4">3.1 Diseño y Desarrollo Web</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Diseño de sitios web responsivos</li>
+              <li>Desarrollo de aplicaciones web</li>
+              <li>Diseño de interfaces de usuario (UI/UX)</li>
+              <li>Maquetación HTML/CSS</li>
+              <li>Desarrollo con frameworks modernos (React, Next.js, etc.)</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">3.2 Optimización SEO</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>SEO técnico</li>
+              <li>Optimización on-page</li>
+              <li>Análisis de palabras clave</li>
+              <li>Mejora de rendimiento web</li>
+              <li>Estrategias de contenido</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">3.3 Programación y Desarrollo</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Desarrollo frontend y backend</li>
+              <li>Integración de APIs</li>
+              <li>Desarrollo de funcionalidades personalizadas</li>
+              <li>Mantenimiento y soporte técnico</li>
+          </ul>
+      </section>
+
+      <!-- 4. Proceso de Contratación -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">4. Proceso de Contratación</h2>
+
+          <h3 class="text-xl font-semibold mb-4">4.1 Solicitud de Presupuesto</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>El cliente solicita un presupuesto detallando sus necesidades</li>
+              <li>Proporcionamos una cotización dentro de 48-72 horas hábiles</li>
+              <li>El presupuesto es válido por 30 días calendario</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">4.2 Aceptación del Presupuesto</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>El cliente acepta el presupuesto mediante confirmación escrita (email)</li>
+              <li>Se firma un contrato o acuerdo de servicios específico</li>
+              <li>Se establece un cronograma de trabajo y entregables</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">4.3 Inicio del Proyecto</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>El proyecto inicia tras recibir el pago inicial acordado</li>
+              <li>Se asignan plazos de entrega específicos</li>
+              <li>Se establecen canales de comunicación</li>
+          </ul>
+      </section>
+
+      <!-- 5. Términos Comerciales -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">5. Términos Comerciales</h2>
+
+          <h3 class="text-xl font-semibold mb-4">5.1 Precios y Pagos</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Todos los precios se expresan en Pesos Colombianos (COP) o Dólares Estadounidenses (USD)</li>
+              <li>Los precios no incluyen IVA (19%) a menos que se especifique lo contrario</li>
+              <li>Las formas de pago aceptadas son: Transferencia bancaria, Nequi / Daviplata, PayPal (proyectos internacionales), otros por acuerdo</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">5.2 Estructura de Pagos</h3>
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 mb-6">
+              <p class="font-semibold text-foreground mb-4">Proyectos estándar:</p>
+              <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+                  <li>50% anticipo al inicio del proyecto</li>
+                  <li>50% restante al finalizar y entregar el proyecto</li>
+              </ul>
+
+              <p class="font-semibold text-foreground mb-4 mt-6">Proyectos grandes (superiores a $5.000.000 COP):</p>
+              <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+                  <li>40% anticipo</li>
+                  <li>30% al 50% de avance</li>
+                  <li>30% al finalizar</li>
+              </ul>
+          </div>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">5.3 Plazos de Pago</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Las facturas deben pagarse dentro de los 5 días hábiles posteriores a su emisión</li>
+              <li>Los retrasos en el pago pueden resultar en la suspensión del proyecto</li>
+              <li>Pagos atrasados más de 15 días pueden generar intereses de mora del 1.5% mensual</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">5.4 Reembolsos</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>No se realizan reembolsos una vez iniciado el proyecto</li>
+              <li>Si el cliente cancela antes del inicio, se reembolsa el 100% del anticipo</li>
+              <li>Cancelaciones después del inicio: se cobra el trabajo realizado según avance</li>
+          </ul>
+      </section>
+
+      <!-- 6. Propiedad Intelectual y Derechos de Autor -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">6. Propiedad Intelectual y Derechos de Autor</h2>
+          <h3 class="text-xl font-semibold mb-4">6.1 Propiedad del Cliente</h3>
+          <p class="text-muted-foreground leading-8 mb-6">
+              Una vez completado el pago total, el cliente obtiene derechos de uso completos del diseño final entregado, código fuente del proyecto,
+              archivos de diseño (si corresponde) y licencias necesarias para el funcionamiento del sitio.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">6.2 Derechos Reservados por el Prestador</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Incluir el proyecto en nuestro portafolio</li>
+              <li>Usar capturas de pantalla en materiales de marketing</li>
+              <li>Mencionar el proyecto como referencia (salvo acuerdo de confidencialidad)</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">6.3 Código y Frameworks de Terceros</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Los frameworks open-source mantienen sus licencias originales</li>
+              <li>Las bibliotecas de terceros se rigen por sus respectivas licencias</li>
+              <li>Se notificará al cliente sobre cualquier dependencia con licencia específica</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">6.4 Contenido del Cliente</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>El cliente retiene todos los derechos sobre el contenido que proporciona</li>
+              <li>El cliente garantiza tener derechos sobre todo el material suministrado</li>
+              <li>El cliente es responsable de cualquier infracción de derechos de autor</li>
+          </ul>
+      </section>
+
+      <!-- 7. Responsabilidades del Cliente -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">7. Responsabilidades del Cliente</h2>
+          <h3 class="text-xl font-semibold mb-4">7.1 Provisión de Materiales</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Proporcionar contenido, textos e imágenes en tiempo y forma</li>
+              <li>Asegurar que tiene derechos sobre todo el material proporcionado</li>
+              <li>Revisar y aprobar entregables en los plazos acordados</li>
+              <li>Proporcionar feedback claro y constructivo</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">7.2 Accesos y Credenciales</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Proporcionar accesos necesarios (hosting, dominio, APIs)</li>
+              <li>Mantener la seguridad de sus propias credenciales</li>
+              <li>Informar cualquier cambio en accesos o plataformas</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">7.3 Comunicación</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Mantener comunicación activa durante el proyecto</li>
+              <li>Responder consultas en un plazo razonable (máximo 72 horas)</li>
+              <li>Designar un punto de contacto único si es una organización</li>
+          </ul>
+      </section>
+
+      <!-- 8. Nuestras Responsabilidades y Garantías -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">8. Nuestras Responsabilidades y Garantías</h2>
+          <h3 class="text-xl font-semibold mb-4">8.1 Compromisos</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Entregar trabajo de calidad profesional</li>
+              <li>Cumplir con los plazos acordados (salvo causas de fuerza mayor)</li>
+              <li>Mantener comunicación clara y regular</li>
+              <li>Proteger la confidencialidad del proyecto</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">8.2 Garantía de Funcionamiento</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Garantizamos el correcto funcionamiento del sitio por 30 días post-entrega</li>
+              <li>Corregimos errores de programación sin costo adicional durante este período</li>
+              <li>La garantía no cubre cambios de alcance o nuevas funcionalidades</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">8.3 Limitaciones</h3>
+          <p class="text-muted-foreground leading-8 mb-4">No garantizamos:</p>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Rankings específicos en motores de búsqueda</li>
+              <li>Tráfico web o conversiones específicas</li>
+              <li>Compatibilidad con navegadores obsoletos o en desuso</li>
+              <li>Funcionamiento con plugins o temas de terceros no acordados</li>
+          </ul>
+      </section>
+
+      <!-- 9. Modificaciones y Cambios de Alcance -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">9. Modificaciones y Cambios de Alcance</h2>
+          <h3 class="text-xl font-semibold mb-4">9.1 Cambios Menores</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Ajustes menores dentro del alcance acordado están incluidos</li>
+              <li>Se permiten hasta 2 rondas de revisiones sin costo adicional</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">9.2 Cambios Significativos</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Cambios que alteran el alcance original requieren cotización adicional</li>
+              <li>Se pausará el proyecto hasta aprobar y acordar el costo adicional</li>
+              <li>Los plazos de entrega se ajustarán según los cambios solicitados</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">9.3 Change Orders</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Todo cambio significativo se documentará por escrito</li>
+              <li>Se requerirá aprobación explícita antes de proceder</li>
+              <li>Los costos y tiempos adicionales se comunicarán antes de la ejecución</li>
+          </ul>
+      </section>
+
+      <!-- 10. Plazos y Entregas -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">10. Plazos y Entregas</h2>
+          <h3 class="text-xl font-semibold mb-4">10.1 Cronograma</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Se establece un cronograma al inicio del proyecto</li>
+              <li>Los plazos dependen de la complejidad y alcance del proyecto</li>
+              <li>Los retrasos del cliente en proporcionar materiales extienden los plazos</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">10.2 Entrega Final</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Se notifica al cliente cuando el proyecto está listo</li>
+              <li>El cliente tiene 7 días para revisión final</li>
+              <li>Se procede a la entrega oficial tras aprobación y pago final</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">10.3 Causas de Fuerza Mayor</h3>
+          <p class="text-muted-foreground leading-8">Los plazos pueden extenderse por eventos fuera de nuestro control, emergencias, problemas técnicos de terceros o desastres naturales.</p>
+      </section>
+
+      <!-- 11. Confidencialidad -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">11. Confidencialidad</h2>
+          <h3 class="text-xl font-semibold mb-4">11.1 Información Confidencial</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Mantener confidencial toda información sensible del cliente</li>
+              <li>No divulgar detalles comerciales o estratégicos</li>
+              <li>Proteger credenciales y accesos proporcionados</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">11.2 Excepciones</h3>
+          <p class="text-muted-foreground leading-8">No se considera confidencial la información pública, obtenida legalmente de terceros o requerida por ley.</p>
+      </section>
+
+      <!-- 12. Terminación del Contrato -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">12. Terminación del Contrato</h2>
+          <h3 class="text-xl font-semibold mb-4">12.1 Terminación por el Cliente</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>Puede cancelar el proyecto con notificación escrita de 7 días</li>
+              <li>Se facturará el trabajo completado hasta la fecha</li>
+              <li>No hay reembolso del anticipo si ya se inició el trabajo</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">12.2 Terminación por el Prestador</h3>
+          <p class="text-muted-foreground leading-8">Podemos terminar el contrato si hay incumplimientos de pago, falta de materiales, conducta abusiva o actividad fraudulenta/ilegal.</p>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">12.3 Entrega al Terminar</h3>
+          <p class="text-muted-foreground leading-8">Se entrega el trabajo completado hasta la fecha; el cliente debe pagar el trabajo realizado y no se entregan archivos fuente sin pago completo.</p>
+      </section>
+
+      <!-- 13. Limitación de Responsabilidad -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">13. Limitación de Responsabilidad</h2>
+          <p class="text-muted-foreground leading-8 mb-6">
+              Nuestra responsabilidad se limita al monto total pagado por el cliente en el proyecto específico y a la corrección de errores dentro del período de garantía.
+          </p>
+          <p class="text-muted-foreground leading-8">No somos responsables por pérdidas de ingresos, daños indirectos, incompatibilidades de terceros, caídas de servicios externos o ataques cibernéticos.</p>
+      </section>
+
+      <!-- 14. Soporte y Mantenimiento Post-Entrega -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">14. Soporte y Mantenimiento Post-Entrega</h2>
+          <h3 class="text-xl font-semibold mb-4">14.1 Soporte Incluido</h3>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li>30 días de soporte para corrección de errores</li>
+              <li>Asistencia básica vía email</li>
+              <li>Documentación del proyecto entregado</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mb-4 mt-8">14.2 Servicios Adicionales</h3>
+          <p class="text-muted-foreground leading-8">Pueden contratarse por separado: mantenimiento mensual, actualizaciones de contenido, nuevas funcionalidades, soporte extendido, hosting y dominio.</p>
+      </section>
+
+      <!-- 15. Hosting y Dominio -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">15. Hosting y Dominio</h2>
+          <p class="text-muted-foreground leading-8">El cliente es responsable de contratar hosting y dominio. Podemos asesorar u ofrecer gestión (costo adicional).</p>
+      </section>
+
+      <!-- 16. Uso Aceptable -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">16. Uso Aceptable</h2>
+          <p class="text-muted-foreground leading-8 mb-4">No desarrollaremos proyectos que promuevan contenido ilegal, vulneren derechos, promuevan odio/violencia o faciliten actividades fraudulentas.</p>
+          <p class="text-muted-foreground leading-8">Nos reservamos el derecho a rechazar o terminar proyectos que violen estos principios.</p>
+      </section>
+
+      <!-- 17. Resolución de Disputas -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">17. Resolución de Disputas</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Intentaremos resolver disputas mediante comunicación directa. Si falla, se puede recurrir a mediación profesional (costos 50/50).</p>
+          <p class="text-muted-foreground leading-8">Estos términos se rigen por las leyes de Colombia y jurisdicción en Bucaramanga, Santander, Colombia.</p>
+      </section>
+
+      <!-- 18. Comunicaciones -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">18. Comunicaciones</h2>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li><span class="font-semibold text-foreground">Email:</span> joseomarfernandez747@gmail.com</li>
+              <li><span class="font-semibold text-foreground">WhatsApp:</span> +57 310 785 1074</li>
+              <li><span class="font-semibold text-foreground">Videollamadas:</span> para reuniones programadas</li>
+          </ul>
+          <p class="text-muted-foreground leading-8">Horario de atención: Lunes a Viernes, 9:00 AM - 6:00 PM (Hora de Colombia). Respuestas a emails: 24-48 horas hábiles.</p>
+      </section>
+
+      <!-- 19. Modificaciones a los Términos -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">19. Modificaciones a los Términos</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Podemos actualizar estos términos ocasionalmente. Los cambios significativos se notificarán y la fecha de actualización reflejará cambios.</p>
+          <p class="text-muted-foreground leading-8">Los proyectos en curso se rigen por los términos vigentes al momento de la firma.</p>
+      </section>
+
+      <!-- 20. Disposiciones Generales -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">20. Disposiciones Generales</h2>
+          <ul class="grid gap-2 pl-6 text-muted-foreground list-disc">
+              <li><span class="font-semibold text-foreground">Divisibilidad:</span> si alguna disposición es inválida, las demás permanecen en efecto</li>
+              <li><span class="font-semibold text-foreground">Cesión:</span> no puede transferir derechos sin consentimiento escrito</li>
+              <li><span class="font-semibold text-foreground">Acuerdo completo:</span> estos términos y el contrato específico constituyen el acuerdo</li>
+              <li><span class="font-semibold text-foreground">Renuncia:</span> no ejercer un derecho no implica renuncia al mismo</li>
+          </ul>
+      </section>
+
+      <!-- 21. Protección de Datos -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">21. Protección de Datos</h2>
+          <p class="text-muted-foreground leading-8 mb-4">
+              El tratamiento de datos personales se rige por nuestra{" "}
+              <a class="font-semibold text-primary hover:underline" href="/politica-privacidad">
+                  Política de Privacidad
+              </a>
+              .
+          </p>
+          <p class="text-muted-foreground leading-8">
+              Para cookies y tecnologías similares, consulte nuestra{" "}
+              <a class="font-semibold text-primary hover:underline" href="/politicas-cookies">
+                  Política de Cookies
+              </a>
+              .
+          </p>
+      </section>
+
+      <!-- 22. Contacto y Preguntas -->
+      <section class="mb-16">
+          <h2 class="text-2xl font-bold mb-6">22. Contacto y Preguntas</h2>
+          <p class="text-muted-foreground leading-8 mb-4">Si tiene preguntas sobre estos Términos y Condiciones:</p>
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 mb-8">
+              <p class="font-semibold text-foreground mb-4">Jose Omar Fernandez Fuentes</p>
+              <div class="grid gap-2 text-muted-foreground">
+                  <p>
+                      <span class="font-semibold text-foreground">NIT:</span> 3-1091452824
+                  </p>
+                  <p>
+                      <span class="font-semibold text-foreground">Dirección:</span> Floridablanca, Santander, Colombia
+                  </p>
+                  <p>
+                      <span class="font-semibold text-foreground">Teléfono:</span> +57 310 785 1074
+                  </p>
+                  <p>
+                      <span class="font-semibold text-foreground">Email:</span> joseomarfernandez747@gmail.com
+                  </p>
+              </div>
+          </div>
+          <p class="text-sm text-muted-foreground">
+              <span class="font-semibold text-foreground">Fecha de entrada en vigor:</span> 28 de enero de 2026 · <span class="font-semibold text-foreground">Versión:</span> 1.0
+          </p>
+      </section>
+  </Container>
+</Layout>

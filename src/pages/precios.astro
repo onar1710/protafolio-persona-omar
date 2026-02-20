@@ -1,0 +1,314 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+import Grid from '~/components/ui/Grid.astro';
+import { languages } from '~/i18n/ui';
+import { useTranslations } from '~/i18n/utils';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+---
+
+<Layout title="Precios - Omar Fuentes" description="Planes y precios de diseño web, SEO y programación. Paquetes claros, entregables definidos y enfoque profesional.">
+  
+  <PageHeader 
+      title="Precios"
+      description="Paquetes claros, entregables definidos y enfoque profesional. Si tu proyecto necesita algo más específico, también trabajo a medida."
+  />
+
+  <Container as="section" class="pb-24">
+      
+      <!-- Diseño Web -->
+      <div class="mb-16">
+          <h2 class="text-2xl font-bold mb-4">Diseño Web</h2>
+          <p class="text-muted-foreground mb-8">Planes recomendados para proyectos web modernos. Precios en USD.</p>
+
+          <Grid cols={3} class="gap-6">
+              <div class="flex flex-col rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+                  <p class="text-sm font-semibold text-foreground">Blog / Periódico</p>
+                  <p class="mt-2 text-3xl font-bold text-foreground">$130</p>
+                  <p class="mt-2 text-muted-foreground">Ideal para contenido, artículos, secciones y estructura editorial.</p>
+                  <ul class="mt-5 grid gap-2 text-muted-foreground">
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Diseño responsivo
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Estructura semántica
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Base SEO on-page
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Rendimiento optimizado
+                      </li>
+                  </ul>
+                  <div class="mt-auto pt-6">
+                      <a href="/contacto" class="inline-flex w-full justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors">
+                          Pedir propuesta
+                      </a>
+                  </div>
+              </div>
+
+              <div class="flex flex-col rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+                  <p class="text-sm font-semibold text-foreground">Negocio / Tienda online / eCommerce</p>
+                  <p class="mt-2 text-3xl font-bold text-foreground">$200</p>
+                  <p class="mt-2 text-muted-foreground">Para vender, captar leads y escalar con una web enfocada a conversión.</p>
+                  <ul class="mt-5 grid gap-2 text-muted-foreground">
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Arquitectura de conversión
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Diseño UI profesional
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          SEO técnico básico
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Performance y buenas prácticas
+                      </li>
+                  </ul>
+                  <div class="mt-auto pt-6">
+                      <a href="/contacto" class="inline-flex w-full justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors">
+                          Pedir propuesta
+                      </a>
+                  </div>
+              </div>
+
+              <div class="flex flex-col rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+                  <p class="text-sm font-semibold text-foreground">Full custom stack + Base de datos + Reunión</p>
+                  <p class="mt-2 text-3xl font-bold text-foreground">Cotización</p>
+                  <p class="mt-2 text-muted-foreground">Para sistemas a medida, lógica compleja, paneles, usuarios y data.</p>
+                  <ul class="mt-5 grid gap-2 text-muted-foreground">
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Reunión de levantamiento
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Backend + API
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Base de datos (MongoDB/MySQL/PostgreSQL)
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Deploy y configuración
+                      </li>
+                  </ul>
+                  <div class="mt-auto pt-6">
+                      <a href="/contacto" class="inline-flex w-full justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors">
+                          Agendar y cotizar
+                      </a>
+                  </div>
+              </div>
+          </Grid>
+      </div>
+
+      <!-- SEO -->
+      <div class="mb-16">
+          <h2 class="text-2xl font-bold mb-4">SEO</h2>
+          <p class="text-muted-foreground mb-8">
+              Si quieres que tu web se encuentre en Google y cargue rápido, el SEO técnico y el performance no son opcionales.
+          </p>
+
+          <Grid cols={2} class="gap-6">
+              <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+                  <p class="text-lg font-bold text-foreground">SEO técnico + on-page</p>
+                  <ul class="mt-4 grid gap-2 text-muted-foreground">
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Metadata y estructura semántica
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Core Web Vitals y rendimiento
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Sitemap / robots.txt
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Recomendaciones priorizadas
+                      </li>
+                  </ul>
+                  <p class="mt-5 text-muted-foreground">Precio: según alcance (cotización).</p>
+              </div>
+
+              <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+                  <p class="text-lg font-bold text-foreground">Auditoría + plan de mejoras</p>
+                  <ul class="mt-4 grid gap-2 text-muted-foreground">
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Diagnóstico técnico y contenido
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Roadmap por impacto/esfuerzo
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Checklist de implementación
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Soporte para ejecución
+                      </li>
+                  </ul>
+                  <p class="mt-5 text-muted-foreground">Precio: según alcance (cotización).</p>
+              </div>
+          </Grid>
+      </div>
+
+      <!-- Programación / Desarrollo a medida -->
+      <div class="mb-16">
+          <h2 class="text-2xl font-bold mb-4">Programación / Desarrollo a medida</h2>
+          <p class="text-muted-foreground mb-8">
+              Integraciones, automatizaciones y funcionalidades personalizadas. Si necesitas algo que no existe en un "tema" o "plugin", lo construimos.
+          </p>
+
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+              <p class="text-lg font-bold text-foreground">Servicios típicos</p>
+              <div class="mt-4 grid gap-4 md:grid-cols-2">
+                  <ul class="grid gap-2 text-muted-foreground">
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          APIs REST e integraciones
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Autenticación y roles
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Panel admin / dashboards
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Bases de datos y modelos
+                      </li>
+                  </ul>
+                  <ul class="grid gap-2 text-muted-foreground">
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Refactor y performance
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Migraciones
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Deploy (Vercel/Netlify/AWS/cPanel)
+                      </li>
+                      <li class="flex items-center gap-2">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          Buenas prácticas y seguridad básica
+                      </li>
+                  </ul>
+              </div>
+              <p class="mt-6 text-muted-foreground">Precio: según alcance (cotización).</p>
+          </div>
+      </div>
+
+      <!-- ¿Cómo cotizo? -->
+      <div class="mb-16">
+          <h2 class="text-2xl font-bold mb-4">¿Cómo cotizo?</h2>
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+              <ol class="grid gap-4 text-muted-foreground">
+                  <li>
+                      <span class="font-bold text-foreground">1. Entiendo tu necesidad</span>
+                      <p class="mt-1">Me cuentas objetivo, público, referencias y alcance.</p>
+                  </li>
+                  <li>
+                      <span class="font-bold text-foreground">2. Propongo</span>
+                      <p class="mt-1">Te digo la mejor ruta (rápida, escalable y realista).</p>
+                  </li>
+                  <li>
+                      <span class="font-bold text-foreground">3. Presupuesto y tiempos</span>
+                      <p class="mt-1">Recibes una propuesta clara con entregables y cronograma.</p>
+                  </li>
+              </ol>
+          </div>
+      </div>
+
+      <!-- Nota -->
+      <div>
+          <h2 class="text-2xl font-bold mb-4">Nota</h2>
+          <p class="text-muted-foreground">
+              Los precios pueden variar según alcance, urgencia, contenido y funcionalidades. Si quieres que el plan "Full custom stack" tenga un precio fijo,
+              dime el monto exacto y lo dejo publicado.
+          </p>
+      </div>
+  </Container>
+</Layout>
