@@ -17,8 +17,8 @@ export const siteConfig = {
   announcement: {
     enabled: true,
     id: 'launch_v1', // Change this ID to reshow the banner
-    link: '/changelog',
-    localizeLink: true, // Set to true to apply i18n routing to the link, false for external/absolute links
+    link: 'https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20sitio%20web%20y%20quiero%20cotizar%20un%20proyecto.',
+    localizeLink: false, // Set to true to apply i18n routing to the link, false for external/absolute links
   },
   blog: {
     postsPerPage: 6,

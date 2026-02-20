@@ -4,6 +4,9 @@ import { languages, defaultLang } from '~/i18n/ui';
 import { isRtl, useTranslations } from '~/i18n/utils';
 import { Image } from 'astro:assets';
 import bentoCode from '~/assets/bento-code.jpg';
+import artImage from '~/assets/blog/art.jpg';
+import blocksImage from '~/assets/blog/blocks.jpg';
+import searchImage from '~/assets/blog/search.jpg';
 import Layout from '~/layouts/Layout.astro';
 import Schema from '~/components/layout/Schema.astro';
 import Hero from '~/components/sections/Hero.astro';
@@ -172,7 +175,7 @@ const logos = [
         highlight="Sitios que Aparecen en Google"
         description="Ayudo a negocios en Cali, Medellín, Bogotá y Barranquilla a tener sitios web profesionales que rankean en Google, cargan rápido y convierten visitantes en clientes reales."
         primaryCta={{ text: "Ver mi trabajo", href: `/${lang}/portfolio` }}
-        secondaryCta={{ text: "Cotizar mi proyecto", href: `/contacto` }}
+        secondaryCta={{ text: "Cotizar mi proyecto", href: "https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20sitio%20web%20y%20quiero%20cotizar%20un%20proyecto." }}
     />
     
     <LogoCloud title="Trabajo con negocios en las principales ciudades de Colombia" logos={logos} />
@@ -317,7 +320,7 @@ const logos = [
                     <p class="text-sm text-muted-foreground mb-6"><span class="font-semibold text-foreground">Ideal para:</span> Negocios locales en Cali, Medellín y Bogotá que necesitan visibilidad online.</p>
 
                     <div class="mt-auto">
-                        <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                        <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20sitio%20web%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
                             Cotizar mi proyecto web →
                         </a>
                     </div>
@@ -468,8 +471,8 @@ const logos = [
           <!-- Artículo 1 -->
           <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
             <div class="aspect-video overflow-hidden">
-              <img 
-                src="/src/assets/blog/art.jpg" 
+              <Image 
+                src={artImage} 
                 alt="Diseño Web Freelance: Guía Completa"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
@@ -500,8 +503,8 @@ const logos = [
           <!-- Artículo 2 -->
           <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
             <div class="aspect-video overflow-hidden">
-              <img 
-                src="/src/assets/blog/blocks.jpg" 
+              <Image 
+                src={blocksImage} 
                 alt="7 Errores de Diseño Web que Cuestan Clientes"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
@@ -532,8 +535,8 @@ const logos = [
           <!-- Artículo 3 -->
           <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
             <div class="aspect-video overflow-hidden">
-              <img 
-                src="/src/assets/blog/search.jpg" 
+              <Image 
+                src={searchImage} 
                 alt="Cómo Posicionar en Google en 2025"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
