@@ -123,7 +123,7 @@ export default defineConfig({
   site: process.env.SITE_URL || 'https://onar1710.github.io/protafolio-persona-omar',
   output: 'static',
   image: {
-    domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co'],
+    domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co', 'localhost'],
   },
   adapter: getAdapter(),
   integrations: [

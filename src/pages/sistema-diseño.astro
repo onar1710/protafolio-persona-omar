@@ -20,19 +20,34 @@ const { lang } = Astro.params;
 const t = useTranslations(lang);
 
 const colors = [
-    { name: 'Primary', class: 'bg-primary', text: 'text-white', description: 'Color principal para acciones importantes' },
-    { name: 'Background', class: 'bg-background', text: 'text-foreground border border-foreground/10', description: 'Fondo principal del sitio' },
-    { name: 'Foreground', class: 'bg-foreground', text: 'text-background', description: 'Texto principal y elementos' },
-    { name: 'Muted', class: 'bg-muted', text: 'text-muted-foreground', description: 'Elementos secundarios y texto sutil' },
+    { name: 'Primary', class: 'bg-primary', text: 'text-white', description: 'Color principal para acciones importantes', usage: 'Botones principales, enlaces activos, elementos destacados' },
+    { name: 'Primary Light', class: 'bg-primary/20', text: 'text-primary', description: 'Variación sutil del primario', usage: 'Estados hover, fondos de sección, elementos secundarios' },
+    { name: 'Background', class: 'bg-background', text: 'text-foreground border border-foreground/10', description: 'Fondo principal del sitio', usage: 'Fondo principal de todas las páginas' },
+    { name: 'Foreground', class: 'bg-foreground', text: 'text-background', description: 'Texto principal y elementos', usage: 'Títulos principales, texto importante, elementos activos' },
+    { name: 'Muted', class: 'bg-muted', text: 'text-muted-foreground', description: 'Elementos secundarios y texto sutil', usage: 'Texto secundario, metadatos, información complementaria' },
+    { name: 'Success', class: 'bg-green-500', text: 'text-white', description: 'Estados positivos y éxito', usage: 'Confirmaciones, mensajes de éxito, indicadores positivos' },
+    { name: 'Warning', class: 'bg-amber-500', text: 'text-white', description: 'Alertas y atención', usage: 'Advertencias, notificaciones importantes, estados pendientes' },
+    { name: 'Error', class: 'bg-red-500', text: 'text-white', description: 'Errores y acciones críticas', usage: 'Mensajes de error, botones de eliminar, estados críticos' },
+    { name: 'Info', class: 'bg-blue-500', text: 'text-white', description: 'Información y ayuda', usage: 'Tooltips, mensajes informativos, elementos de ayuda' },
+];
+
+const gradients = [
+    { name: 'Primary Gradient', class: 'bg-gradient-to-r from-primary to-indigo-600', text: 'text-white', description: 'Gradiente principal para elementos destacados', usage: 'Heros, CTAs importantes, tarjetas premium' },
+    { name: 'Success Gradient', class: 'bg-gradient-to-r from-green-500 to-emerald-600', text: 'text-white', description: 'Gradiente para elementos positivos', usage: 'Secciones de éxito, testimonios, métricas positivas' },
+    { name: 'Sunset Gradient', class: 'bg-gradient-to-r from-amber-500 to-orange-600', text: 'text-white', description: 'Gradiente cálido para llamadas de atención', usage: 'Promociones, banners especiales, elementos urgentes' },
+    { name: 'Cool Gradient', class: 'bg-gradient-to-r from-blue-500 to-cyan-600', text: 'text-white', description: 'Gradiente fresco para elementos tecnológicos', usage: 'Secciones técnicas, características de producto, elementos modernos' },
 ];
 
 const typography = [
-    { name: 'Display 7xl', class: 'text-7xl font-display font-bold', label: 'Transforma tu presencia digital' },
-    { name: 'Display 5xl', class: 'text-5xl font-display font-bold', label: 'Diseño web profesional' },
-    { name: 'Heading 3xl', class: 'text-3xl font-bold', label: 'Soluciones a medida' },
-    { name: 'Heading 2xl', class: 'text-2xl font-bold', label: 'Experiencia de usuario' },
-    { name: 'Body Base', class: 'text-base', label: 'Creamos sitios web modernos, rápidos y optimizados para SEO que convierten visitantes en clientes.' },
-    { name: 'Body Small', class: 'text-sm text-muted-foreground', label: 'Desarrollo web con las mejores tecnologías y prácticas del mercado.' },
+    { name: 'Display 7xl', class: 'text-7xl font-display font-bold', label: 'Transforma tu presencia digital', usage: 'Heros de página, títulos principales, declaraciones impactantes' },
+    { name: 'Display 5xl', class: 'text-5xl font-display font-bold', label: 'Diseño web profesional', usage: 'Secciones principales, títulos de servicios, encabezados importantes' },
+    { name: 'Display 3xl', class: 'text-3xl font-display font-bold', label: 'Soluciones Creativas', usage: 'Subtítulos importantes, títulos de sección, elementos destacados' },
+    { name: 'Heading 2xl', class: 'text-2xl font-bold', label: 'Experiencia de usuario', usage: 'Títulos de componentes, encabezados de contenido, secciones secundarias' },
+    { name: 'Heading xl', class: 'text-xl font-semibold', label: 'Desarrollo a Medida', usage: 'Títulos de tarjetas, subtítulos de sección, elementos de navegación' },
+    { name: 'Heading lg', class: 'text-lg font-semibold', label: 'Optimización y Rendimiento', usage: 'Títulos pequeños, encabezados de lista, elementos de formulario' },
+    { name: 'Body Base', class: 'text-base', label: 'Creamos sitios web modernos, rápidos y optimizados para SEO que convierten visitantes en clientes.', usage: 'Texto principal de contenido, descripciones, párrafos informativos' },
+    { name: 'Body Small', class: 'text-sm text-muted-foreground', label: 'Desarrollo web con las mejores tecnologías y prácticas del mercado.', usage: 'Texto secundario, pies de página, información complementaria' },
+    { name: 'Body XS', class: 'text-xs text-muted-foreground', label: 'Última actualización: 2024', usage: 'Metadatos, fechas, información técnica, etiquetas pequeñas' },
 ];
 
 const components = [
@@ -93,16 +108,36 @@ const components = [
                 <Text class="mb-8 text-muted-foreground">
                     Nuestra paleta de colores está diseñada para crear jerarquía visual clara y mantener accesibilidad en todos los niveles.
                 </Text>
-                <Grid cols={4}>
+                <Grid cols={3}>
                     {colors.map((color) => (
                         <div class="group">
                             <div class={`h-32 rounded-xl mb-4 shadow-sm ${color.class} ${color.name === 'Background' ? 'border border-foreground/10' : ''} group-hover:scale-105 transition-transform`}></div>
                             <h3 class="font-bold mb-1">{color.name}</h3>
                             <p class="text-sm text-muted-foreground mb-2">{color.description}</p>
+                            <p class="text-xs text-muted-foreground mb-2 font-medium">{color.usage}</p>
                             <code class="text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block">.{color.class}</code>
                         </div>
                     ))}
                 </Grid>
+
+                {/* Gradients Section */}
+                <div class="mt-16">
+                    <Heading level={3} class="mb-6">Gradientes de Color</Heading>
+                    <Text class="mb-8 text-muted-foreground">
+                        Gradientes predefinidos para crear impacto visual y jerarquía en elementos importantes.
+                    </Text>
+                    <Grid cols={2}>
+                        {gradients.map((gradient) => (
+                            <div class="group">
+                                <div class={`h-24 rounded-xl mb-4 shadow-sm ${gradient.class} group-hover:scale-105 transition-transform`}></div>
+                                <h3 class="font-bold mb-1">{gradient.name}</h3>
+                                <p class="text-sm text-muted-foreground mb-2">{gradient.description}</p>
+                                <p class="text-xs text-muted-foreground mb-2 font-medium">{gradient.usage}</p>
+                                <code class="text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block">.{gradient.class}</code>
+                            </div>
+                        ))}
+                    </Grid>
+                </div>
             </div>
 
             {/* Typography Section */}
@@ -120,7 +155,10 @@ const components = [
                             <div class="w-48 shrink-0">
                                 <span class="text-muted-foreground text-sm font-mono">{type.name}</span>
                             </div>
-                            <div class={type.class}>{type.label}</div>
+                            <div class="flex-1">
+                                <div class={type.class}>{type.label}</div>
+                                <p class="text-xs text-muted-foreground mt-2 font-medium">{type.usage}</p>
+                            </div>
                          </div>
                     ))}
                 </div>
@@ -164,64 +202,313 @@ const components = [
                     {/* Buttons */}
                     <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
                         <Heading level={3} class="text-xl mb-6">Botones</Heading>
-                        <div class="flex flex-wrap gap-4 mb-8">
-                            <Button>Comenzar Ahora</Button>
-                            <Button variant="secondary">Ver Proyectos</Button>
-                            <Button variant="outline">Contactar</Button>
-                            <Button variant="ghost">Más Info</Button>
-                        </div>
-                        <div class="flex flex-wrap gap-4">
-                             <Button>
-                                Explorar Servicios <ArrowRight size={18} />
-                            </Button>
+                        <Text class="mb-6 text-sm text-muted-foreground">Botones para diferentes acciones y contextos en la interfaz.</Text>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Botones Principales</h4>
+                                <div class="flex flex-wrap gap-4 mb-4">
+                                    <Button>Comenzar Ahora</Button>
+                                    <Button variant="secondary">Ver Proyectos</Button>
+                                    <Button variant="outline">Contactar</Button>
+                                    <Button variant="ghost">Más Info</Button>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Uso: CTAs principales, acciones importantes, navegación clave</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Botones con Iconos</h4>
+                                <div class="flex flex-wrap gap-4 mb-4">
+                                     <Button>
+                                        Explorar Servicios <ArrowRight size={18} />
+                                    </Button>
+                                    <Button variant="outline">
+                                        <ChevronRight size={18} /> Ver Detalles
+                                    </Button>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Uso: Acciones con dirección visual, enlaces a contenido, navegación</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Estados de Botones</h4>
+                                <div class="flex flex-wrap gap-4 mb-4">
+                                    <Button disabled>Deshabilitado</Button>
+                                    <Button class="opacity-75 cursor-not-allowed">Cargando...</Button>
+                                    <Button variant="outline" class="border-red-500 text-red-500 hover:bg-red-500 hover:text-white">Peligro</Button>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Uso: Estados de formulario, acciones críticas, retroalimentación</p>
+                            </div>
                         </div>
                     </div>
 
                     {/* Badges */}
                     <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
                          <Heading level={3} class="text-xl mb-6">Etiquetas y Estados</Heading>
-                        <div class="flex flex-wrap gap-3">
-                            <Badge variant="accent">Disponible</Badge>
-                            <Badge variant="accent" class="text-blue-500 bg-blue-500/10 border-blue-500/20">Nuevo</Badge>
-                            <Badge variant="accent" class="text-amber-500 bg-amber-500/10 border-amber-500/20">En Progreso</Badge>
-                            <Badge variant="accent" class="text-red-500 bg-red-400/10 border-red-500/20">Urgente</Badge>
-                            <Badge variant="secondary">Estándar</Badge>
+                         <Text class="mb-6 text-sm text-muted-foreground">Indicadores visuales para estados y categorías de contenido.</Text>
+                         
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Estados de Sistema</h4>
+                                <div class="flex flex-wrap gap-3 mb-4">
+                                    <Badge variant="accent">Disponible</Badge>
+                                    <Badge variant="accent" class="text-blue-500 bg-blue-500/10 border-blue-500/20">Nuevo</Badge>
+                                    <Badge variant="accent" class="text-amber-500 bg-amber-500/10 border-amber-500/20">En Progreso</Badge>
+                                    <Badge variant="accent" class="text-red-500 bg-red-400/10 border-red-500/20">Urgente</Badge>
+                                    <Badge variant="secondary">Estándar</Badge>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Uso: Estados de proyectos, indicadores de estado, filtros de contenido</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Categorías y Etiquetas</h4>
+                                <div class="flex flex-wrap gap-3 mb-4">
+                                    <Badge variant="outline">Frontend</Badge>
+                                    <Badge variant="outline" class="border-green-500 text-green-500">Backend</Badge>
+                                    <Badge variant="outline" class="border-purple-500 text-purple-500">UI/UX</Badge>
+                                    <Badge variant="outline" class="border-orange-500 text-orange-500">Mobile</Badge>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Uso: Categorización de contenido, etiquetas de habilidades, filtros técnicos</p>
+                            </div>
                         </div>
                     </div>
 
                     {/* Cards */}
                      <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
                         <Heading level={3} class="text-xl mb-6">Tarjetas</Heading>
-                        <Grid cols={2} class="gap-6">
-                            <div class="p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-colors group cursor-pointer">
-                                <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
-                                    <Smartphone />
+                        <Text class="mb-6 text-sm text-muted-foreground">Contenedores versátiles para organizar información y contenido.</Text>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Tarjetas Estándar</h4>
+                                <Grid cols={2} class="gap-6 mb-4">
+                                    <div class="p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-colors group cursor-pointer">
+                                        <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                            <Smartphone />
+                                        </div>
+                                        <Heading level={4} class="text-lg mb-2">Diseño Responsive</Heading>
+                                        <Text small>
+                                            Adaptación perfecta a todos los dispositivos. Experiencia optimizada para móviles, tablets y desktop.
+                                        </Text>
+                                    </div>
+                                     <div class="p-6 rounded-2xl bg-linear-to-br from-primary to-indigo-600 text-white shadow-xl shadow-primary/25">
+                                        <Heading level={4} class="text-lg mb-2">Optimización SEO</Heading>
+                                        <p class="text-white/80 text-sm mb-4">
+                                            Mejoramos tu posicionamiento con técnicas avanzadas de SEO técnico y contenido optimizado.
+                                        </p>
+                                        <button class="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium backdrop-blur-sm transition-colors">
+                                            Ver Servicios
+                                        </button>
+                                    </div>
+                                </Grid>
+                                <p class="text-xs text-muted-foreground">Uso: Presentación de servicios, características de producto, portafolio</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Tarjetas de Contenido</h4>
+                                <Grid cols={3} class="gap-4 mb-4">
+                                    <div class="p-4 rounded-xl border border-foreground/10 bg-background">
+                                        <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-3">
+                                            <Check class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Verificado</h5>
+                                        <p class="text-xs text-muted-foreground">Proyecto completado y revisado</p>
+                                    </div>
+                                    <div class="p-4 rounded-xl border border-foreground/10 bg-background">
+                                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-3">
+                                            <Zap class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Rápido</h5>
+                                        <p class="text-xs text-muted-foreground">Optimizado para velocidad máxima</p>
+                                    </div>
+                                    <div class="p-4 rounded-xl border border-foreground/10 bg-background">
+                                        <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-3">
+                                            <Shield class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Seguro</h5>
+                                        <p class="text-xs text-muted-foreground">Protección de datos garantizada</p>
+                                    </div>
+                                </Grid>
+                                <p class="text-xs text-muted-foreground">Uso: Características clave, beneficios, ventajas competitivas</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Forms */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Elementos de Formulario</Heading>
+                        <Text class="mb-6 text-sm text-muted-foreground">Componentes interactivos para captura de datos del usuario.</Text>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Campos de Entrada</h4>
+                                <div class="space-y-4 mb-4">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Nombre Completo</label>
+                                        <input type="text" placeholder="Ingresa tu nombre" class="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Correo Electrónico</label>
+                                        <input type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+                                    </div>
                                 </div>
-                                <Heading level={4} class="text-lg mb-2">Diseño Responsive</Heading>
-                                <Text small>
-                                    Adaptación perfecta a todos los dispositivos. Experiencia optimizada para móviles, tablets y desktop.
-                                </Text>
+                                <p class="text-xs text-muted-foreground">Uso: Formularios de contacto, registro, búsqueda de contenido</p>
                             </div>
-                             <div class="p-6 rounded-2xl bg-linear-to-br from-primary to-indigo-600 text-white shadow-xl shadow-primary/25">
-                                <Heading level={4} class="text-lg mb-2">Optimización SEO</Heading>
-                                <p class="text-white/80 text-sm mb-4">
-                                    Mejoramos tu posicionamiento con técnicas avanzadas de SEO técnico y contenido optimizado.
-                                </p>
-                                <button class="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium backdrop-blur-sm transition-colors">
-                                    Ver Servicios
-                                </button>
-                            </div>
-                        </Grid>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            {/* Use Cases */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">06</span>
+                    Casos de Uso y Aplicaciones
+                </Heading>
+                <Text class="mb-8 text-muted-foreground">
+                    Ejemplos prácticos de cómo aplicamos nuestro sistema de diseño en diferentes contextos y proyectos.
+                </Text>
+                
+                <div class="space-y-12">
+                    {/* Landing Page Example */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Landing Page Principal</Heading>
+                        <Text class="mb-6 text-sm text-muted-foreground">Estructura típica de una página de aterrizaje usando nuestro sistema.</Text>
+                        
+                        <div class="space-y-6">
+                            <div class="p-6 rounded-xl bg-gradient-to-r from-primary to-indigo-600 text-white">
+                                <h4 class="text-3xl font-display font-bold mb-4">Hero Section</h4>
+                                <p class="text-lg mb-6 text-white/90">Usamos Display 7xl para el título principal y gradientes para impacto visual.</p>
+                                <div class="space-y-2">
+                                    <p class="text-sm text-white/80">• Título: text-7xl font-display font-bold</p>
+                                    <p class="text-sm text-white/80">• Fondo: bg-gradient-to-r from-primary to-indigo-600</p>
+                                    <p class="text-sm text-white/80">• CTA: Button primario con hover effects</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-6 rounded-xl border border-foreground/10 bg-background">
+                                <h4 class="text-2xl font-bold mb-4">Sección de Características</h4>
+                                <div class="grid grid-cols-3 gap-4 mb-4">
+                                    <div class="p-4 rounded-lg border border-foreground/10">
+                                        <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-2">
+                                            <Check class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Característica 1</h5>
+                                        <p class="text-xs text-muted-foreground">Descripción breve</p>
+                                    </div>
+                                    <div class="p-4 rounded-lg border border-foreground/10">
+                                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-2">
+                                            <Zap class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Característica 2</h5>
+                                        <p class="text-xs text-muted-foreground">Descripción breve</p>
+                                    </div>
+                                    <div class="p-4 rounded-lg border border-foreground/10">
+                                        <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-2">
+                                            <Shield class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Característica 3</h5>
+                                        <p class="text-xs text-muted-foreground">Descripción breve</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-xs text-muted-foreground">• Tarjetas: Border radius 2xl, hover effects</p>
+                                    <p class="text-xs text-muted-foreground">• Iconos: Colores semánticos (green=éxito, blue=velocidad, purple=seguridad)</p>
+                                    <p class="text-xs text-muted-foreground">• Títulos: text-lg font-semibold</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Dashboard Example */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Panel de Control (Dashboard)</Heading>
+                        <Text class="mb-6 text-sm text-muted-foreground">Interfaz de administración con métricas y datos.</Text>
+                        
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-4 gap-4">
+                                <div class="p-4 rounded-xl bg-background border border-foreground/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs text-muted-foreground">Usuarios</span>
+                                        <Badge variant="accent" class="text-green-500 bg-green-500/10 border-green-500/20">+12%</Badge>
+                                    </div>
+                                    <div class="text-2xl font-bold">1,234</div>
+                                </div>
+                                <div class="p-4 rounded-xl bg-background border border-foreground/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs text-muted-foreground">Ventas</span>
+                                        <Badge variant="accent" class="text-blue-500 bg-blue-500/10 border-blue-500/20">+8%</Badge>
+                                    </div>
+                                    <div class="text-2xl font-bold">$45.2K</div>
+                                </div>
+                                <div class="p-4 rounded-xl bg-background border border-foreground/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs text-muted-foreground">Proyectos</span>
+                                        <Badge variant="accent" class="text-amber-500 bg-amber-500/10 border-amber-500/20">En Progreso</Badge>
+                                    </div>
+                                    <div class="text-2xl font-bold">23</div>
+                                </div>
+                                <div class="p-4 rounded-xl bg-background border border-foreground/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs text-muted-foreground">Tasa</span>
+                                        <Badge variant="accent" class="text-red-500 bg-red-400/10 border-red-500/20">-3%</Badge>
+                                    </div>
+                                    <div class="text-2xl font-bold">89.2%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <p class="text-xs text-muted-foreground">• Métricas: Tarjetas con borders sutiles y badges de estado</p>
+                                <p class="text-xs text-muted-foreground">• Números: text-2xl font-bold para jerarquía visual</p>
+                                <p class="text-xs text-muted-foreground">• Estados: Badges con colores semánticos según rendimiento</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Blog/Content Example */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Blog y Contenido</Heading>
+                        <Text class="mb-6 text-sm text-muted-foreground">Diseño para artículos y contenido editorial.</Text>
+                        
+                        <div class="space-y-6">
+                            <article class="p-6 rounded-xl border border-foreground/10 bg-background">
+                                <header class="mb-4">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <Badge variant="outline">Frontend</Badge>
+                                        <Badge variant="outline" class="border-green-500 text-green-500">React</Badge>
+                                        <span class="text-xs text-muted-foreground">• 5 min lectura</span>
+                                    </div>
+                                    <h1 class="text-3xl font-bold mb-2">Cómo Optimizar el Rendimiento en React</h1>
+                                    <p class="text-muted-foreground text-sm">Por Omar Fuentes • 15 Nov 2024</p>
+                                </header>
+                                <div class="prose prose-sm max-w-none">
+                                    <p class="text-base mb-4">El rendimiento es crucial para la experiencia del usuario. En este artículo exploramos técnicas avanzadas...</p>
+                                    <p class="text-sm text-muted-foreground mb-4">Aprenderemos sobre memoización, lazy loading, code splitting y otras optimizaciones que pueden transformar tu aplicación...</p>
+                                </div>
+                                <div class="flex gap-3 mt-6">
+                                    <Button variant="outline" size="sm">Leer Más</Button>
+                                    <Button variant="ghost" size="sm">Compartir</Button>
+                                </div>
+                            </article>
+                            
+                            <div class="space-y-2">
+                                <p class="text-xs text-muted-foreground">• Artículo: Estructura con header badges y metadatos</p>
+                                <p class="text-xs text-muted-foreground">• Título: text-3xl font-bold para impacto inicial</p>
+                                <p class="text-xs text-muted-foreground">• Contenido: text-base para lectura, text-sm para extractos</p>
+                                <p class="text-xs text-muted-foreground">• Categorías: Badges outline con colores técnicos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {/* Guidelines */}
             <div class="mb-24">
                 <Heading level={2} class="mb-8 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">05</span>
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">07</span>
                     Principios de Diseño
                 </Heading>
+                <Text class="mb-8 text-muted-foreground">
+                    Los fundamentos que guían cada decisión de diseño en nuestro sistema.
+                </Text>
                 <Grid cols={3} class="gap-6">
                     <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
                         <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-4">
@@ -231,6 +518,11 @@ const components = [
                         <Text small>
                             Cada elemento sigue patrones establecidos para crear una experiencia coherente.
                         </Text>
+                        <div class="mt-4 space-y-2">
+                            <p class="text-xs text-muted-foreground">• Mismos bordes radius (2xl, xl, lg)</p>
+                            <p class="text-xs text-muted-foreground">• Paleta de colores consistente</p>
+                            <p class="text-xs text-muted-foreground">• Espaciado uniforme (4, 8, 16, 32px)</p>
+                        </div>
                     </div>
                     <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
                         <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-4">
@@ -240,6 +532,11 @@ const components = [
                         <Text small>
                             Componentes optimizados para carga rápida y rendimiento excepcional.
                         </Text>
+                        <div class="mt-4 space-y-2">
+                            <p class="text-xs text-muted-foreground">• CSS variables para cambios dinámicos</p>
+                            <p class="text-xs text-muted-foreground">• Componentes ligeros y reutilizables</p>
+                            <p class="text-xs text-muted-foreground">• Optimización de animaciones</p>
+                        </div>
                     </div>
                     <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
                         <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4">
@@ -249,6 +546,53 @@ const components = [
                         <Text small>
                             Diseño inclusivo que cumple con estándares WCAG para todos los usuarios.
                         </Text>
+                        <div class="mt-4 space-y-2">
+                            <p class="text-xs text-muted-foreground">• Contraste mínimo 4.5:1</p>
+                            <p class="text-xs text-muted-foreground">• Navegación por teclado</p>
+                            <p class="text-xs text-muted-foreground">• Etiquetas ARIA apropiadas</p>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500 mb-4">
+                            <Sparkles class="w-5 h-5" />
+                        </div>
+                        <Heading level={4} class="text-lg mb-2">Flexibilidad</Heading>
+                        <Text small>
+                            Sistema adaptable que evoluciona con las necesidades del proyecto.
+                        </Text>
+                        <div class="mt-4 space-y-2">
+                            <p class="text-xs text-muted-foreground">• Componentes modulares</p>
+                            <p class="text-xs text-muted-foreground">• Variables CSS personalizables</p>
+                            <p class="text-xs text-muted-foreground">• Extensiones fáciles</p>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                        <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500 mb-4">
+                            <Layers class="w-5 h-5" />
+                        </div>
+                        <Heading level={4} class="text-lg mb-2">Jerarquía</Heading>
+                        <Text small>
+                            Estructura visual clara que guía la atención del usuario.
+                        </Text>
+                        <div class="mt-4 space-y-2">
+                            <p class="text-xs text-muted-foreground">• Escala tipográfica definida</p>
+                            <p class="text-xs text-muted-foreground">• Colores con peso visual</p>
+                            <p class="text-xs text-muted-foreground">• Espaciado proporcional</p>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-4">
+                            <Smartphone class="w-5 h-5" />
+                        </div>
+                        <Heading level={4} class="text-lg mb-2">Responsive</Heading>
+                        <Text small>
+                            Experiencia óptima en todos los dispositivos y tamaños de pantalla.
+                        </Text>
+                        <div class="mt-4 space-y-2">
+                            <p class="text-xs text-muted-foreground">• Mobile-first approach</p>
+                            <p class="text-xs text-muted-foreground">• Grid systems flexibles</p>
+                            <p class="text-xs text-muted-foreground">• Touch-friendly interactions</p>
+                        </div>
                     </div>
                 </Grid>
             </div>

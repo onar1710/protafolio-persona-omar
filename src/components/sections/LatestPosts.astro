@@ -36,7 +36,7 @@ const cards = [
 		isVideo: false,
 	},
 	{
-		title: 'Omar YT Play',
+		title: 'Mundo Gaming',
 		description: 'Tienda eCommerce de gaming y tecnología.',
 		pubDate: new Date('2024-02-20'),
 		slug: `/portfolio/mundo-gaming`,
@@ -63,6 +63,13 @@ const cards = [
 		isVideo: false,
 	},
 ].slice(0, count);
+
+// Debug: Verificar imágenes
+console.log('LatestPosts - Imágenes:', cards.map(card => ({
+	title: card.title,
+	heroImage: card.heroImage,
+	slug: card.slug
+})));
 ---
 
 <section class="py-24 bg-white/2">
