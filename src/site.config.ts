@@ -41,8 +41,8 @@ export const siteConfig = {
     alwaysLoad: false, // Set to true to bypass cookie consent check
     vendors: {
       googleAnalytics: {
-        id: 'G-XXXXXXXXXX', // Reemplazar con tu ID real de Google Analytics
-        enabled: false,
+        id: 'G-NBYYE8QMXG', // Reemplazar con tu ID real de Google Analytics
+        enabled: true,
       },
       rybbit: {
         id: "your-site-id", // Reemplazar con tu ID real de Rybbit
