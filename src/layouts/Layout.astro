@@ -12,6 +12,7 @@ import AnnouncementBanner from '~/components/sections/AnnouncementBanner.astro';
 interface Props {
 	title?: string;
 	description?: string;
+    keywords?: string;
     image?: string;
     article?: boolean;
     noindex?: boolean;
@@ -34,6 +35,7 @@ const brandName = (t as any)['brand.name'] || siteConfig.name;
 const { 
     title = brandName, 
     description = siteConfig.description, 
+    keywords = '',
     image, 
     article = false,
     noindex = false,
@@ -50,6 +52,7 @@ const dir = isRtl(lang) ? 'rtl' : 'ltr';
         <SEO 
             title={title} 
             description={description} 
+            keywords={keywords}
             image={image} 
             article={article} 
             noindex={noindex}

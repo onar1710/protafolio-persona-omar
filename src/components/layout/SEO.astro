@@ -76,7 +76,7 @@ const robots = [
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(ogImageUrl, Astro.site).toString()} />
 <meta property="og:image:secure_url" content={new URL(ogImageUrl, Astro.site).toString()} />
-<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1280" />
 <meta property="og:image:height" content="720" />
 <meta property="og:image:alt" content={title} />
@@ -95,6 +95,16 @@ const robots = [
 <meta property="twitter:image:alt" content={title} />
 <meta property="twitter:creator" content="@omarfuentes052" />
 <meta property="twitter:site" content="@omarfuentes052" />
+
+<!-- LinkedIn Specific -->
+<meta property="linkedin:owner" content="omarfuentes052" />
+<meta property="linkedin:published_time" content={new Date().toISOString()} />
+
+<!-- Additional Social Media -->
+<meta name="image" content={new URL(ogImageUrl, Astro.site).toString()} />
+<meta name="image:alt" content={title} />
+<meta name="image:width" content="1280" />
+<meta name="image:height" content="720" />
 
 <!-- Facebook Specific - For large image display -->
 <meta property="fb:app_id" content="" />
