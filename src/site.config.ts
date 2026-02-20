@@ -9,7 +9,7 @@ export const siteConfig = {
     alt: 'Logo Omar Fuentes',
     strategy: 'invert' as 'invert' | 'switch' | 'static', // 'invert' | 'switch' | 'static'
   },
-  ogImage: '/og-image.webp',
+  ogImage: '/imagen-destacada-omarfuentes.jpg',
   primaryColor: '#00008B', // Default primary color
   search: {
     enabled: true,
