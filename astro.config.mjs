@@ -124,7 +124,7 @@ function getAdapter() {
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://onar1710.github.io/protafolio-persona-omar',
+  site: 'https://omarfuentes.com',
   output: 'static',
   image: {
     domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co', 'localhost'],
@@ -142,7 +142,7 @@ export default defineConfig({
       }), 
       robotsTxt({
           sitemap: true,
-          host: process.env.SITE_URL || 'https://onar1710.github.io/protafolio-persona-omar'
+          host: 'https://omarfuentes.com'
       }),
       react(), 
       mdx(),
@@ -153,6 +153,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
     define: {
         'import.meta.env.DEFAULT_LOCALE': JSON.stringify(DEFAULT_LOCALE)
+    },
+    ssr: {
+      noExternal: ['@tailwindcss/vite']
     }
   },
   i18n: {

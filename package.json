@@ -9,10 +9,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "cross-env ADAPTER=cloudflare astro build && pagefind --site dist && npm run copy-sitemap",
+    "build": "npm run build:cloudflare",
     "build:vercel": "cross-env ADAPTER=vercel astro build && pagefind --site dist",
     "build:netlify": "cross-env ADAPTER=netlify astro build && pagefind --site dist",
-    "build:cloudflare": "cross-env ADAPTER=cloudflare astro build && pagefind --site dist",
+    "build:cloudflare": "cross-env ADAPTER=cloudflare astro build && pagefind --site dist && npm run copy-sitemap",
     "preview": "astro preview",
     "deploy": "npm run build:cloudflare && wrangler deploy",
     "preview:worker": "wrangler dev",
