@@ -11,6 +11,7 @@ export default {
                 "primary-foreground": "var(--primary-foreground)",
                 muted: "var(--muted)",
                 "muted-foreground": "var(--muted-foreground)",
+                "link": "var(--link-color)",
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],

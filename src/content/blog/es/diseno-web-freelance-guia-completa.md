@@ -71,6 +71,7 @@ Algunos freelancers nos especializamos solo en diseño, otros solo en programaci
    - Muestra proyectos completos, no solo mockups
    - Enlaces funcionales a sitios reales
    - Variedad de estilos y tecnologías
+   - Puedes ver [mi proyecto estrella Ferrary](/portfolio/ferrarycucina) como ejemplo
 
 2. **Comunicación clara desde el inicio**
    - Responde emails/mensajes en menos de 24 horas
@@ -93,6 +94,7 @@ Algunos freelancers nos especializamos solo en diseño, otros solo en programaci
    - "Trabajos confidenciales" sin mostrar nada
    - Solo diseños en Figma sin sitios reales
    - Portfolio con proyectos rotos o caídos
+   - Como ejemplo, [mi tienda Mundo Gaming](/portfolio/mundo-gaming) muestra proyectos funcionales
 
 2. **Precios sospechosamente bajos**
    - "Sitio web completo por $50"
@@ -161,11 +163,13 @@ Algunos freelancers nos especializamos solo en diseño, otros solo en programaci
 - **Freelance:** $500 - $1,200 USD
 - **Agencia:** $1,500 - $3,000 USD
 - **Incluye:** Catálogo productos, carrito, pasarelas pago
+- Ejemplo: [Mundo Gaming](/portfolio/mundo-gaming) - Tienda gaming con 100+ productos
 
 ### Aplicaciones Web Custom
 - **Freelance:** $800 - $2,000 USD
 - **Agencia:** $2,000 - $5,000 USD
 - **Incluye:** Funcionalidades personalizadas, bases de datos
+- Ejemplo: [LEEXMS SRL](/portfolio/leexms) - Transformación digital contable
 
 ---
 
@@ -201,15 +205,15 @@ Algunos freelancers nos especializamos solo en diseño, otros solo en programaci
 
 ### ❌ Error 1: Elegir solo por precio
 
-El más barato suele salir caro. Un sitio de $50 que no funciona te costará más tiempo y dinero arreglarlo que uno de $300 bien hecho desde el inicio.
+El más barato suele salir caro. Un sitio de $50 que no funciona te costará más tiempo y dinero arreglarlo que uno de $300 bien hecho desde el inicio. [Mira cómo Plomería Aqua Imperio](/portfolio/plomeria) invirtió en calidad y ahora genera clientes directamente desde Google.
 
 ### ❌ Error 2: No definir alcance
 
-"Quiero un sitio web" es demasiado vago. Define páginas, funcionalidades, diseño, contenido desde el inicio.
+"Quiero un sitio web" es demasiado vago. Define páginas, funcionalidades, diseño, contenido desde el inicio. Como en [Ferrary Cucinas](/portfolio/ferrarycucina), definimos exactamente qué necesitaban: un portafolio visual que generara cotizaciones.
 
 ### ❌ Error 3: Ignorar el SEO
 
-Un sitio hermoso que nadie encuentra es inútil. El SEO técnico debe incluirse desde el día uno.
+Un sitio hermoso que nadie encuentra es inútil. El SEO técnico debe incluirse desde el día uno. [Plomería Aqua Imperio](/portfolio/plomeria) ahora posiciona #1 para "plomero Bogotá" gracias al SEO implementado desde el inicio.
 
 ### ❌ Error 4: No planificar el contenido
 
@@ -257,7 +261,7 @@ Busca alguien con:
 - Precios justos y transparentes
 - Garantías y soporte post-entrega
 
-Y si estás considerando trabajar conmigo, envíame un mensaje. Te responderé con una propuesta clara, sin compromiso y adaptada a tus necesidades específicas.
+Y si estás considerando trabajar conmigo, [revisa mi transformación de LEEXMS](/portfolio/leexms) y envíame un mensaje. Te responderé con una propuesta clara, sin compromiso y adaptada a tus necesidades específicas.
 
 ---
 

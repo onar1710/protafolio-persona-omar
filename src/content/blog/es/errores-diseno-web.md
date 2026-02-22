@@ -135,6 +135,7 @@ Tienes el mejor producto, el mejor contenido, pero si no dices claramente qué q
 - "Descargar guía gratuita" vs "Click aquí"
 - "Obtener cotización en 24 horas" vs "Contactar"
 - "Ver casos de éxito" vs "Más información"
+- Ejemplo: [Ver cómo transformé LEEXMS](/portfolio/leexms) en 1 semana
 
 **Crea urgencia (real)**
 - "Oferta por tiempo limitado"
@@ -244,6 +245,7 @@ Los usuarios necesitan saber que otros confían en ti. Sin prueba social, tu sit
 - Solución que implementaste
 - Resultados medibles con números
 - Antes/después cuando aplique
+- Ejemplos: [Ferrary Cucinas](/portfolio/ferrarycucina) genera 4-5 cotizaciones/semana, [Plomería Aqua Imperio](/portfolio/plomeria) posiciona #1 en Google
 
 **Datos sociales visibles**
 - "+50 clientes satisfechos"
@@ -290,16 +292,19 @@ No intentes arreglar todo de una vez. Prioriza así:
 1. **Optimiza velocidad** (impacto inmediato en SEO y conversiones)
 2. **Arregla mobile** (60% de tu tráfico)
 3. **Mejora CTAs principales** (impacto directo en ventas)
+- Ejemplo: [Mundo Gaming](/portfolio/mundo-gaming) logra 95/100 en Lighthouse
 
 ### Semana 2: Importantes
 1. **Simplifica navegación** (mejora experiencia general)
 2. **Mejora tipografía** (reduce abandono)
 3. **Añade testimonios básicos** (aumenta confianza)
+- Ejemplo: [Productos Perros](/portfolio/productos-para-perros) usa testimonios de clientes satisfechos
 
 ### Semana 3: Optimización
 1. **Optimiza formularios** (mejora tasa de conversión)
 2. **Añade más prueba social** (refuerza confianza)
 3. **Testing A/B** (optimización continua)
+- Ejemplo: [Ver cómo LEEXMS](/portfolio/leexms) optimiza sus formularios de contacto
 
 ---
 
@@ -314,7 +319,7 @@ Recuerda: tu sitio web no es un folleto estático, es tu vendedor más important
 ---
 
 **¿Necesitas ayuda para arreglar estos errores?**  
-[Pide una auditoría gratuita de tu sitio](/contact) y te diré exactamente qué está fallando y cómo solucionarlo.
+[Pide una auditoría gratuita de tu sitio](/contact) y te diré exactamente qué está fallando y cómo solucionarlo. O [revisa cómo Ferrary Cucinas](/portfolio/ferrarycucina) evitó estos errores en su portafolio visual.
 
 ---
 

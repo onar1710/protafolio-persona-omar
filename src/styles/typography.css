@@ -1,4 +1,22 @@
 @layer utilities {
+  /* Enlaces internos con color personalizado */
+  .prose a:not([href*="http"]):not([href*="https"]):not([href*="www"]) {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+    text-decoration-color: color-mix(in srgb, var(--link-color), transparent 60%) !important;
+    text-underline-offset: 2px !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .prose a:not([href*="http"]):not([href*="https"]):not([href*="www"]):hover {
+    color: color-mix(in srgb, var(--link-color), black 10%) !important;
+    text-decoration-color: var(--link-color) !important;
+  }
+
+  .dark .prose a:not([href*="http"]):not([href*="https"]):not([href*="www"]):hover {
+    color: color-mix(in srgb, var(--link-color), white 20%) !important;
+  }
+
   .prose pre {
     border-radius: 0.75rem !important;
     padding: 1.5rem !important;
