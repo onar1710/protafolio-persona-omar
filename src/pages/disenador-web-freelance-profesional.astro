@@ -4,19 +4,109 @@ import Container from '~/components/ui/Container.astro';
 import Grid from '~/components/ui/Grid.astro';
 import Button from '~/components/ui/Button.astro';
 import LandingQuoteForm from '~/components/islands/LandingQuoteForm.jsx';
+import Schema from '~/components/layout/Schema.astro';
 import { CheckCircle2, Star, ArrowRight, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 import { siteConfig } from '~/site.config';
 
-const title = 'Agencia de Diseño Web Profesional en Colombia | Diseñador Web Profesional';
-const description = 'Diseño web profesional en Colombia. SEO incluido, entrega en 4-10 días, desde $600k COP. +120% tráfico comprobado. Cotiza gratis.';
-const keywords = 'agencia de diseño web, diseñador web profesional, diseñadores web, diseño web colombia, paginas web colombia, seo tecnico, landing page colombia';
+const title = 'Diseñador Web Freelance Colombia: Diseños Rápidos y Baratos | Omar Fuentes';
+const description = 'Diseñador web freelance en Colombia. Sitios profesionales con SEO incluido que aumentan ventas y rankean en Google. Trabajo 1-a-1, sin agencias. ¡Cotiza gratis!';
+const keywords = 'diseñador web freelance, diseñador web freelance colombia, contratar diseñador web freelance, diseñador web freelance cali, diseñador web freelance bogota, diseñador web freelance medellin, diseñador web freelance barranquilla, freelance diseño web';
 const image = '/images/landing-page/diseñadores-web-profesional.png';
 
-const whatsappLink = 'https://wa.me/573107851074?text=Hola%20Omar,%20quiero%20cotizar%20un%20sitio%20web.%20Vengo%20desde%20la%20landing%20de%20Dise%C3%B1o%20Web%20Profesional.';
-const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIComponent('Cotización - Diseño Web Profesional')}`;
+const whatsappLink = 'https://wa.me/573107851074?text=Hola%20Omar,%20quiero%20cotizar%20un%20sitio%20web.%20Vengo%20desde%20la%20landing%20de%20Disenador%20Web%20Freelance%20Profesional.';
+const emailLink = `mailto:contacto@omarfuentes.com?subject=${encodeURIComponent('Cotización - Diseño Web Profesional')}`;
 ---
 
 <Layout title={title} description={description} keywords={keywords} image={image}>
+    <Fragment slot="head">
+        <Schema item={{
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Omar Fuentes",
+            "jobTitle": "Diseñador Web Freelance",
+            "description": "Diseñador web freelance en Colombia. Creo sitios profesionales para aumentar tus ventas y tu presencia en Google con SEO incluido que rankean. Trabajo directo 1-a-1, sin agencias.",
+            "url": Astro.url,
+            "image": new URL(image, Astro.site).toString(),
+            "sameAs": [
+                "https://wa.me/573107851074",
+                "mailto:contacto@omarfuentes.com"
+            ],
+            "knowsAbout": [
+                "Diseño Web Freelance",
+                "Diseño Web Freelance Colombia", 
+                "Contratar Diseñador Web Freelance",
+                "Freelance Diseño Web",
+                "SEO Técnico",
+                "Desarrollo Web Profesional"
+            ],
+            "offers": {
+                "@type": "Offer",
+                "serviceType": "Diseño Web Freelance",
+                "description": "Sitios web profesionales con SEO incluido que rankean en Google",
+                "priceCurrency": "COP",
+                "price": "600000",
+                "availability": "https://schema.org/InStock",
+                "areaServed": [
+                    "Colombia",
+                    "Cali",
+                    "Bogotá", 
+                    "Medellín",
+                    "Barranquilla"
+                ]
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+57-310-785-1074",
+                "contactType": "customer service",
+                "email": "contacto@omarfuentes.com",
+                "availableLanguage": ["Spanish"]
+            }
+        }} />
+        
+        <Schema item={{
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Diseño Web Freelance en Colombia",
+            "description": "Servicio de diseño web freelance para crear sitios profesionales que aumentan ventas y rankean en Google con SEO incluido",
+            "provider": {
+                "@type": "Person",
+                "name": "Omar Fuentes"
+            },
+            "serviceType": "Diseño Web Profesional",
+            "keywords": "diseñador web freelance, diseñador web freelance colombia, contratar diseñador web freelance, freelance diseño web",
+            "areaServed": "Colombia",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Servicios de Diseño Web",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Diseño Web Corporativo",
+                            "description": "Sitios profesionales para empresas con SEO técnico completo"
+                        }
+                    },
+                    {
+                        "@type": "Offer", 
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Tiendas eCommerce",
+                            "description": "Plataformas de venta online optimizadas para conversiones"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service", 
+                            "name": "Landing Pages para Ads",
+                            "description": "Páginas de alta conversión optimizadas para Google Ads"
+                        }
+                    }
+                ]
+            }
+        }} />
+    </Fragment>
   <div class="min-h-screen bg-background">
     <section class="relative overflow-hidden pt-28 pb-10">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-purple-500/10"></div>
@@ -28,16 +118,15 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
           <div class="order-2 md:order-1">
             <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-muted-foreground">
               <Zap className="h-4 w-4 text-primary" />
-              Sitios rápidos, claros y diseñados para convertir
+              Freelance diseño web con entrega en 4-10 días
             </div>
 
             <h1 class="text-4xl md:text-6xl font-display font-bold leading-tight">
-              Diseñador Web Profesional en Colombia
+              Diseñador Web Freelance en Colombia
             </h1>
 
             <p class="mt-5 text-lg md:text-xl text-muted-foreground max-w-xl">
-              Diseñador web profesional y equipo de diseñadores web enfocados en una sola cosa: que tu sitio aparezca en Google y genere solicitudes de cotización.
-              <span class="text-foreground font-medium"> +120% tráfico orgánico</span> en proyectos con SEO técnico bien hecho.
+              Soy Omar Fuentes, diseñador web freelance en Colombia especializado en crear sitios optimizados para aumentar tus ventas. Tu marca merece una presencia online profesional que hable por ti. Creo diseños web optimizados para aumentar tu tráfico orgánico con SEO técnico comprobado.
             </p>
 
             <div class="mt-6 flex flex-col gap-3">
@@ -53,7 +142,7 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
                   href="#cotizar"
                   class="w-full sm:w-auto justify-center"
                 >
-                  Cotizar Ahora
+                  Cotización Gratis
                   <ArrowRight className="h-4 w-4" />
                 </Button>
 
@@ -73,23 +162,27 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
             <div class="mt-8 grid gap-3 text-sm">
               <div class="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
-                <span><span class="font-semibold text-foreground">SEO técnico incluido</span> (estructura, performance, indexación y Core Web Vitals).</span>
+                <span><span class="font-semibold text-foreground">20+ proyectos web exitosos entregados en Colombia.</span></span>
               </div>
               <div class="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
-                <span><span class="font-semibold text-foreground">Entrega en 4-10 días</span> según alcance (landing, corporativa o ecommerce).</span>
+                <span><span class="font-semibold text-foreground">Especialista en diseños web y conversión de ventas.</span></span>
               </div>
               <div class="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
-                <span><span class="font-semibold text-foreground">Soporte post-lanzamiento</span> para ajustes y mejoras rápidas.</span>
+                <span><span class="font-semibold text-foreground">Respuesta en 5 minutos - ¡contrátame ya!</span></span>
               </div>
               <div class="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
-                <span><span class="font-semibold text-foreground">Hosting gratis 1 año</span> + registro de dominio incluido.</span>
+                <span><span class="font-semibold text-foreground">Entrega 4-10 días (landing, corporativa, ecommerce).</span></span>
               </div>
               <div class="flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
-                <span><span class="font-semibold text-foreground">Google Business + Search Console</span> configuración completa.</span>
+                <span><span class="font-semibold text-foreground">Soporte post-lanzamiento para ajustes rápidos.</span></span>
+              </div>
+              <div class="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
+                <span><span class="font-semibold text-foreground">Hosting gratis 1 año + dominio incluido.</span></span>
               </div>
             </div>
           </div>
@@ -97,9 +190,9 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
           <div class="order-1 md:order-2 hidden md:block" id="cotizar">
             <div class="rounded-3xl border border-white/10 bg-linear-to-br from-primary/15 to-purple-500/10 p-5">
               <div class="mb-4">
-                <h2 class="text-xl font-bold">Solicita tu cotización</h2>
+                <h2 class="text-xl font-bold">Contratar diseñador web freelance - Omar Fuentes</h2>
                 <p class="mt-1 text-sm text-muted-foreground">
-                  4 datos. Respuesta rápida.
+                  4 datos. Respuesta en 5 minutos.
                 </p>
               </div>
 
@@ -107,8 +200,8 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
 
               <p class="mt-4 text-xs text-muted-foreground">
                 También puedes escribir a
-                <a class="underline hover:text-foreground" href={emailLink}>
-                  {siteConfig.contact.email.sales}
+                <a class="underline hover:text-foreground" href="mailto:contacto@omarfuentes.com">
+                  contacto@omarfuentes.com
                 </a>
               </p>
             </div>
@@ -122,9 +215,9 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
         <div class="max-w-md mx-auto">
           <div class="rounded-3xl border border-white/10 bg-linear-to-br from-primary/15 to-purple-500/10 p-5">
             <div class="mb-4">
-              <h2 class="text-xl font-bold">Solicita tu cotización</h2>
+              <h2 class="text-xl font-bold">Contratar diseñador web freelance - Omar Fuentes</h2>
               <p class="mt-1 text-sm text-muted-foreground">
-                4 datos. Respuesta rápida.
+                4 datos. Respuesta en 5 minutos.
               </p>
             </div>
 
@@ -132,8 +225,8 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
 
             <p class="mt-4 text-xs text-muted-foreground">
               También puedes escribir a
-              <a class="underline hover:text-foreground" href={emailLink}>
-                {siteConfig.contact.email.sales}
+              <a class="underline hover:text-foreground" href="mailto:contacto@omarfuentes.com">
+                contacto@omarfuentes.com
               </a>
             </p>
           </div>
@@ -163,8 +256,59 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
     <section class="py-10">
       <Container as="div">
         <div class="text-center mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold mb-4">Resultados Comprobados en Search Console</h2>
-          <p class="text-muted-foreground max-w-2xl mx-auto">No solo prometemos tráfico, te mostramos las métricas reales de nuestros clientes. +120% tráfico orgánico en menos de 2 meses.</p>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">Tecnologías Modernas que Uso</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">Creo sitios web con las últimas tecnologías del mercado. Rápidos, seguros y escalables.</p>
+        </div>
+
+        <div class="flex gap-2 md:gap-4 justify-center flex-wrap">
+            <!-- Astro -->
+            <div class="w-12 h-12 md:w-24 md:h-24 flex items-center justify-center">
+              <img src="https://astro.build/assets/press/astro-logo-dark.svg" alt="Astro" class="h-10 md:h-16 w-auto object-contain" />
+            </div>
+            
+            <!-- React -->
+            <div class="w-12 h-12 md:w-24 md:h-24 flex items-center justify-center">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-10 md:h-16 w-auto object-contain" />
+            </div>
+            
+            <!-- Tailwind CSS -->
+            <div class="w-12 h-12 md:w-24 md:h-24 flex items-center justify-center">
+              <img src="/tailwind-logo.svg" alt="Tailwind CSS" class="h-10 md:h-16 w-auto object-contain" />
+            </div>
+            
+            <!-- TypeScript - Desktop Only -->
+            <div class="hidden md:block w-24 h-24 flex items-center justify-center">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="h-16 w-auto object-contain" />
+            </div>
+            
+            <!-- Vite - Desktop Only -->
+            <div class="hidden md:block w-24 h-24 flex items-center justify-center">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" alt="Vite" class="h-16 w-auto object-contain" />
+            </div>
+            
+            <!-- PWA -->
+            <div class="w-12 h-12 md:w-24 md:h-24 flex items-center justify-center">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="PWA" class="h-10 md:h-16 w-auto object-contain" />
+            </div>
+            
+            <!-- WordPress -->
+            <div class="w-12 h-12 md:w-24 md:h-24 flex items-center justify-center">
+              <img src="/logo-diseño-wordpress.png" alt="WordPress" class="h-10 md:h-16 w-auto object-contain" />
+            </div>
+            
+            <!-- WooCommerce -->
+            <div class="w-12 h-12 md:w-24 md:h-24 flex items-center justify-center">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/woocommerce/woocommerce-original.svg" alt="WooCommerce" class="h-12 md:h-20 w-auto object-contain" />
+            </div>
+          </div>
+      </Container>
+    </section>
+
+    <section class="py-10">
+      <Container as="div">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">Diseñador Web Freelance Colombia - Resultados Reales</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">Como especialista web, me enfoco en conversiones y tráfico orgánico. Puedo aumentarlos +120% en <2 meses con sitios que convierten leads en clientes. Mira los casos de éxito de clientes que confiaron en mí.</p>
         </div>
 
         <div class="grid gap-8 md:grid-cols-2 mb-8">
@@ -181,13 +325,13 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
                 <div class="text-white">
                   <div class="text-lg font-bold">Mundo Gaming</div>
                   <div class="text-sm opacity-90">Tienda online de videojuegos</div>
-                  <div class="text-lg font-bold text-green-400 mt-1">+2900% tráfico</div>
+                  <div class="text-lg font-bold text-green-400 mt-1">+290% tráfico</div>
                 </div>
               </div>
             </div>
             <div class="p-4">
               <p class="text-sm text-muted-foreground">
-                "Pasamos de 50 visitas a 1500 visitas en una semana con nuestra estrategia de diseño web avanzado. El sitio de afiliado de Amazon generó $2.5M en comisiones el primer mes."
+                "Rediseñé su página de afiliados Amazon. Pasaron de 50 a 200 visitas semanales. $2,500 en comisiones el primer mes."
               </p>
               <div class="mt-2 text-xs text-muted-foreground">
                 <span class="font-semibold">Resultado:</span> Generando ganancias óptimas por comisiones de Amazon
@@ -208,16 +352,16 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
                 <div class="text-white">
                   <div class="text-lg font-bold">Tienda Online para Perros</div>
                   <div class="text-sm opacity-90">Productos y accesorios para mascotas</div>
-                  <div class="text-lg font-bold text-green-400 mt-1">+1294% clics</div>
+                  <div class="text-lg font-bold text-green-400 mt-1">+180% clics</div>
                 </div>
               </div>
             </div>
             <div class="p-4">
               <p class="text-sm text-muted-foreground">
-                "De 200 clics a 2789 clics en 60 días. Las consultas de productos para perros se triplicaron y las ventas crecieron 150% gracias a nuestra optimización SEO."
+                "Modifiqué la estructura visual de su página de productos para perros. Pasaron de 200 a 560 clics en 60 días. Consultas duplicadas y ventas +80%."
               </p>
               <div class="mt-2 text-xs text-muted-foreground">
-                <span class="font-semibold">Resultado:</span> Aumentando sus ventas en dropshipping un 150%
+                <span class="font-semibold">Resultado:</span> Aumentando sus ventas en dropshipping un 80%
               </div>
             </div>
           </div>
@@ -238,8 +382,8 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
     <section class="py-10">
       <Container as="div">
         <div class="text-center mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold mb-4">Nuestros Servicios de Diseño Web Profesional</h2>
-          <p class="text-muted-foreground max-w-2xl mx-auto">Como agencia de diseño web, ofrecemos soluciones completas para negocios que necesitan resultados medibles.</p>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">Mis Servicios de Diseño Web Profesional</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">Soluciones completas para negocios que necesitan resultados reales y medibles.</p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-3">
@@ -342,6 +486,52 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
               </div>
             </div>
           </a>
+
+          <a href="/portfolio/mundo-gaming" class="group overflow-hidden rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+            <div class="aspect-[16/9] w-full overflow-hidden bg-foreground/5">
+              <img
+                src="/images/proyecto-imagen-omarytplay.png"
+                alt="Mundo Gaming - caso de éxito diseño web"
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <div class="text-lg font-bold">Mundo Gaming</div>
+                  <div class="mt-1 text-sm text-muted-foreground">+290% tráfico en tienda online</div>
+                </div>
+                <div class="text-sm text-primary group-hover:underline">Ver</div>
+              </div>
+              <div class="mt-4 text-sm text-muted-foreground">
+                Tienda online de videojuegos con SEO técnico y optimización para conversiones.
+              </div>
+            </div>
+          </a>
+
+          <a href="/portfolio/productos-para-perros" class="group overflow-hidden rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+            <div class="aspect-[16/9] w-full overflow-hidden bg-foreground/5">
+              <img
+                src="/images/proyecto-imagen-productosperros.png"
+                alt="Productos para Perros - caso de éxito diseño web"
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <div class="text-lg font-bold">Productos para Perros</div>
+                  <div class="mt-1 text-sm text-muted-foreground">+180% clics y ventas +80%</div>
+                </div>
+                <div class="text-sm text-primary group-hover:underline">Ver</div>
+              </div>
+              <div class="mt-4 text-sm text-muted-foreground">
+                Tienda dropshipping con estructura visual optimizada para SEO y conversiones.
+              </div>
+            </div>
+          </a>
         </div>
       </Container>
     </section>
@@ -350,7 +540,7 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
       <Container as="div">
         <div class="text-center mb-8">
           <h2 class="text-2xl md:text-3xl font-bold mb-4">Preguntas Frecuentes sobre Diseño Web Profesional</h2>
-          <p class="text-muted-foreground max-w-2xl mx-auto">Todo lo que necesitas saber sobre nuestra agencia de diseño web.</p>
+          <p class="text-muted-foreground max-w-2xl mx-auto">Respuestas claras para todo lo que necesitas saber antes de crear tu sitio web.</p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-2">
@@ -445,7 +635,7 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
                     <Star className="h-5 w-5 fill-current" />
                   </div>
                   <blockquote class="text-lg text-muted-foreground leading-relaxed mb-6">
-                    "Mi sitio de afiliado de Amazon generó $2.5M en comisiones el primer mes. Pasamos de 50 a 1500 visitas en una semana. Increíble trabajo de SEO técnico."
+                    "Mi sitio de afiliado de Amazon generó $2,500 en comisiones el primer mes. Pasamos de 50 a 200 visitas en una semana. Increíble trabajo de SEO técnico."
                   </blockquote>
                   <div class="font-semibold">Andrés Castillo</div>
                   <div class="text-sm text-muted-foreground">Affiliate Marketer</div>
@@ -580,10 +770,9 @@ const emailLink = `mailto:${siteConfig.contact.email.sales}?subject=${encodeURIC
     <section class="py-14">
       <Container as="div">
         <div class="text-center">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">🚀 ¿Listo para duplicar tu tráfico?</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Listo para crear un sitio web que convierta y aumente tus ventas</h2>
           <p class="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Más de 50 empresas ya confían en nosotros. +120% tráfico orgánico comprobado. 
-            <span class="text-foreground font-bold"> ¿Esperando qué?</span>
+            Más de 20 negocios y emprendedores ya confiaron en mí. ¿Qué estás esperando? La competencia ya tiene un sitio web y una identidad en Google. No te quedes atrás. Cotiza completamente gratis y sé un empresario con una marca online.
           </p>
           
           <a 
