@@ -6,6 +6,7 @@ import SEO from '~/components/layout/SEO.astro';
 import Schema from '~/components/layout/Schema.astro';
 import CookieConsent from '~/components/common/CookieConsent.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+import VercelAnalytics from '@vercel/analytics/astro';
 import '../styles/global.css';
 import AnnouncementBanner from '~/components/sections/AnnouncementBanner.astro';
 
@@ -122,5 +123,6 @@ const dir = isRtl(lang) ? 'rtl' : 'ltr';
         <CookieConsent />
 		<Footer />
 		<SpeedInsights />
+		<VercelAnalytics />
 	</body>
 </html>
