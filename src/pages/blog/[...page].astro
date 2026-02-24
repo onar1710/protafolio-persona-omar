@@ -19,7 +19,7 @@ export async function getStaticPaths({ paginate }: { paginate: GetStaticPathsOpt
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
   );
 
-  const filteredPosts = posts.filter((post) => post.id.startsWith('es/'));
+  const filteredPosts = posts.filter((post) => !post.id.includes('/'));
   return paginate(filteredPosts, { 
     pageSize: siteConfig.blog.postsPerPage
   });
@@ -44,7 +44,7 @@ const t = useTranslations(lang);
              description={post.data.description}
              pubDate={post.data.pubDate}
              heroImage={post.data.heroImage}
-             slug={`/blog/${post.id.split('/').slice(1).join('/').replace(/\.[^/.]+$/, "")}`}
+             slug={`/blog/${post.id.replace(/\.[^/.]+$/, "")}`}
              isVideo={post.data.isVideo}
           />
         ))}

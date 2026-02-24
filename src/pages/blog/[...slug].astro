@@ -6,11 +6,11 @@ import { languages } from '~/i18n/ui';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
-	return posts.map((post) => {
-    const [lang, ...slugParts] = post.id.split('/');
-    const slug = slugParts.join('/').replace(/\.[^/.]+$/, "");
+	const filteredPosts = posts.filter((post) => !post.id.includes('/'));
+	return filteredPosts.map((post) => {
+    const slug = post.id.replace(/\.[^/.]+$/, "");
     return {
-		  params: { lang, slug },
+		  params: { slug },
 		  props: post,
 	  };
   });
@@ -22,10 +22,9 @@ const { Content } = await render(post);
 
 // Calculate available translations
 const allPosts = await getCollection('blog');
-const currentBaseSlug = post.id.split('/').slice(1).join('/');
 const availableLangs = allPosts
-    .filter(p => p.id.endsWith(currentBaseSlug))
-    .map(p => p.id.split('/')[0]);
+    .filter(p => p.id === post.id)
+    .map(p => 'es');
 ---
 
 <BlogPost 
