@@ -9,6 +9,7 @@ import { isRtl, useTranslations } from '~/i18n/utils';
 interface Props {
   title: string;
   description: string;
+  keywords?: string;
   pubDate: Date;
   updatedDate?: Date;
   heroImage?: ImageMetadata;
@@ -21,7 +22,7 @@ interface Props {
   availableLangs?: string[];
 }
 
-const { title, description, pubDate, updatedDate, heroImage, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs } = Astro.props;
+const { title, description, keywords, pubDate, updatedDate, heroImage, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs } = Astro.props;
 const { lang = defaultLang } = Astro.params;
 const t = useTranslations(lang);
 
@@ -47,7 +48,7 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
 
-<Layout title={title} description={description} image={heroImage?.src} article={true} noindex={noindex} nofollow={nofollow} availableLangs={availableLangs}>
+<Layout title={title} description={description} keywords={keywords} image={heroImage?.src} article={true} noindex={noindex} nofollow={nofollow} availableLangs={availableLangs}>
   <ScrollProgress />
   <article class="max-w-4xl mx-auto px-6 py-20">
     <div class="mb-8">
