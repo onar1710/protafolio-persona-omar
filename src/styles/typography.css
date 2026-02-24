@@ -1,4 +1,12 @@
 @layer utilities {
+  /* Estilos base para prose */
+  .prose {
+    color: var(--color-foreground) !important;
+    max-width: none !important;
+    font-size: 1.125rem !important;
+    line-height: 1.75 !important;
+  }
+
   /* Enlaces internos con color personalizado */
   .prose a:not([href*="http"]):not([href*="https"]):not([href*="www"]) {
     color: var(--link-color) !important;
@@ -149,5 +157,44 @@
   
   .prose tbody tr:hover td {
       color: var(--color-foreground);
+  }
+
+  /* Estilos para párrafos con espaciado adecuado */
+  .prose p {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.7 !important;
+    color: var(--color-foreground) !important;
+  }
+
+  /* Listas con espaciado */
+  .prose ul, .prose ol {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem !important;
+    line-height: 1.6 !important;
+    color: var(--color-foreground) !important;
+  }
+
+  /* Separadores hr */
+  .prose hr {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+    border: none !important;
+    border-top: 1px solid color-mix(in srgb, var(--color-foreground), transparent 20%) !important;
+  }
+
+  /* Blockquotes */
+  .prose blockquote {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    padding-left: 1rem !important;
+    border-left: 3px solid var(--color-primary) !important;
+    font-style: italic !important;
+    color: var(--color-foreground) !important;
   }
 }

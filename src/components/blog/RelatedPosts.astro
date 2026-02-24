@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import { defaultLang } from '~/i18n/ui';
+import { useTranslations } from '~/i18n/utils';
+import BlogCard from './BlogCard.astro';
+
+interface Props {
+  currentSlug: string;
+  currentLang?: string;
+}
+
+const { currentSlug, currentLang = defaultLang } = Astro.props;
+const t = useTranslations(currentLang);
+
+// Obtener todos los posts del blog (sin filtrar por lang ya que no tienen ese campo)
+const allPosts = await getCollection('blog', ({ data }) => {
+  return !data.draft;
+});
+
+// Extraer el nombre del archivo del slug actual
+const currentFileName = currentSlug ? currentSlug.split('/').pop()?.replace('.html', '') || '' : '';
+
+// Debug para ver qué está pasando
+console.log('CurrentSlug:', currentSlug);
+console.log('CurrentFileName:', currentFileName);
+
+// Debug para ver la estructura de los posts
+console.log('All posts structure:', allPosts.map(p => ({
+  id: p.id,
+  slug: p.slug,
+  title: p.data.title
+})));
+
+// Construir la ruta correcta según el sistema de rutas
+const getPostPath = (post) => {
+  // Extraer solo el slug sin el idioma
+  const slugParts = post.id.split('/');
+  const slug = slugParts[slugParts.length - 1].replace(/\.[^/.]+$/, ""); // quitar .md
+  return `/blog/${slug}`;
+};
+
+// Extraer el slug del artículo actual de la URL
+const getCurrentSlug = () => {
+  if (!currentSlug) return '';
+  // Si currentSlug es algo como "/blog/como-posicionar-mi-web-en-los-primeros-lugares-de-google"
+  const parts = currentSlug.split('/');
+  return parts[parts.length - 1] || '';
+};
+
+const currentArticleSlug = getCurrentSlug();
+
+// Mostrar 3 posts excluyendo el actual dinámicamente
+const relatedPosts = allPosts
+  .filter(post => {
+    // Extraer el slug del post
+    const postSlugParts = post.id.split('/');
+    const postSlug = postSlugParts[postSlugParts.length - 1].replace(/\.[^/.]+$/, "");
+    
+    // Excluir el artículo actual
+    return postSlug !== currentArticleSlug;
+  })
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 3);
+
+console.log('Slug actual:', currentArticleSlug);
+console.log('Posts relacionados:', relatedPosts.map(p => ({ 
+  title: p.data.title, 
+  slug: p.id.split('/').pop()?.replace('.md', '')
+})));
+---
+
+<section class="mt-20 border-t border-black/10 dark:border-white/10 pt-12">
+  <h2 class="text-3xl font-display font-bold mb-8 text-center">
+    {t['blog.relatedPosts'] || 'Artículos Relacionados'}
+  </h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+    {relatedPosts.map((post) => (
+      <div class="transform transition-all duration-300 hover:scale-105">
+        <BlogCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          slug={getPostPath(post)}
+          heroImage={post.data.heroImage}
+          isVideo={post.data.isVideo}
+        />
+      </div>
+    ))}
+  </div>
+  
+  <div class="mt-12 text-center">
+    <a 
+      href="/blog" 
+      class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-colors"
+    >
+      <span>Ver todos los artículos</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14"/>
+        <path d="m12 5 7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+  
+  {relatedPosts.length === 0 && (
+    <p class="text-center text-muted-foreground">No hay artículos relacionados disponibles.</p>
+  )}
+</section>

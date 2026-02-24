@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import { Image } from 'astro:assets';
 import AudioPlayer from '~/components/common/AudioPlayer.astro';
+import RelatedPosts from '~/components/blog/RelatedPosts.astro';
 import { defaultLang } from '~/i18n/ui';
 import { isRtl, useTranslations } from '~/i18n/utils';
 
@@ -23,6 +24,9 @@ interface Props {
 const { title, description, pubDate, updatedDate, heroImage, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs } = Astro.props;
 const { lang = defaultLang } = Astro.params;
 const t = useTranslations(lang);
+
+// Obtener el slug actual para los posts relacionados
+const currentSlug = Astro.url.pathname;
 
 const schema = {
   "@context": "https://schema.org",
@@ -80,12 +84,16 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
             </div>
         )}
         
-        <div class="flex items-center justify-center gap-4 text-muted-foreground mb-4">
+        <div class="flex items-center justify-center gap-6 text-muted-foreground mb-4">
             {isVideo && (
                 <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest rounded-md bg-red-500/10 text-red-500 border border-red-500/20">
                     {t['blog.videoContent']}
                 </span>
             )}
+            <div class="flex items-center gap-3">
+                <img src="/foto-perfil-omar-fuentes.jpeg" alt="Omar Fuentes" class="w-8 h-8 rounded-full object-cover" />
+                <span class="text-sm font-medium">Omar Fuentes</span>
+            </div>
             <time>{pubDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric'})}</time>
             {updatedDate && (
                 <div class="italic">
@@ -95,12 +103,13 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
         </div>
 
         <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 bg-linear-to-br from-white to-white/60 bg-clip-text text-transparent">{title}</h1>
-        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">{description}</p>
         <hr class="border-black/10 dark:border-white/10 mt-8" />
     </div>
 
-    <div class="prose prose-lg mx-auto prose-img:rounded-xl prose-headings:font-display prose-headings:font-bold prose-a:text-primary hover:prose-a:text-primary/80 dark:prose-invert">
+    <div class="prose prose-lg mx-auto prose-img:rounded-xl prose-headings:font-display prose-headings:font-bold prose-a:text-primary hover:prose-a:text-primary/80 dark:prose-invert max-w-none">
       <slot />
     </div>
+
+    <RelatedPosts currentSlug={currentSlug} currentLang={lang} />
   </article>
 </Layout>
