@@ -11,7 +11,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import dotenv from 'dotenv';
-import { remarkImageAlt } from './src/utils/remark-image-alt.js';
 
 // Load environment variables
 dotenv.config();
@@ -146,9 +145,7 @@ export default defineConfig({
           host: 'https://omarfuentes.com'
       }),
       react(), 
-      mdx({
-        remarkPlugins: [remarkImageAlt]
-      }),
+      mdx(),
       mermaid(),
       compress({ Image: true, JavaScript: true, HTML: false })
   ],

@@ -68,7 +68,7 @@ Con el tema claro, las palabras clave definidas, el dominio elegido y la segurid
 
 ## Hosting, servidor y despliegue: la base técnica de tu diseño web SEO
 
-<img src="~/assets/blog/Hosting-servidor-despliegue.jpg" alt="Hosting, servidor y despliegue: la base técnica de tu diseño web SEO" title="Hosting, servidor y despliegue: la base técnica de tu diseño web SEO" />
+![Hosting, servidor y despliegue](~/assets/blog/Hosting-servidor-despliegue.jpg "Hosting, servidor y despliegue: la base técnica de tu diseño web SEO")
 
 Antes de publicar tu sitio web necesitas decidir dónde va a vivir. Y esta decisión importa más de lo que crees para tu SEO. Un servidor lento, inestable o lejos de tu audiencia le dice a Google que tu sitio no está preparado para posicionar. Aquí te explico las mejores opciones para que tomes la decisión correcta desde el principio.
 
@@ -140,7 +140,7 @@ Con Vercel, Netlify, Cloudflare Pages o cualquiera de los hostings mencionados v
 
 ## Diseño web responsive: móvil, tablet y PC obligatorio para el SEO
 
-<img src="~/assets/blog/Diseño-web-responsive-móvil-tablet-PC-obligatorio-SEO.jpg" alt="Diseño web responsive: móvil, tablet y PC obligatorio para el SEO" title="Diseño web responsive: móvil, tablet y PC obligatorio para el SEO" />
+![Diseño web responsive](~/assets/blog/Diseño-web-responsive-móvil-tablet-PC-obligatorio-SEO.jpg "Diseño web responsive: móvil, tablet y PC obligatorio para el SEO")
 
 Tu diseño web tiene que verse y funcionar perfecto en cualquier dispositivo. No es opcional, es una obligación.
 
@@ -164,7 +164,7 @@ Perfecto, tengo todos los datos. Aquí va la sección completa.
 
 ## Tecnologías para construir tu diseño web SEO moderno
 
-<img src="~/assets/blog/tecnologias-para-construir-tu-diseno-web-seo-moderno.jpg" alt="Tecnologías para construir tu diseño web SEO moderno" title="Tecnologías para construir tu diseño web SEO moderno" />
+![Tecnologías para construir tu diseño web SEO moderno](~/assets/blog/tecnologias-para-construir-tu-diseno-web-seo-moderno.jpg "Tecnologías para construir tu diseño web SEO moderno")
 
 Antes de escribir una línea de código o contratar a alguien, necesitas tomar una decisión muy importante: con qué tecnología vas a construir tu diseño web. Esta elección impacta directamente el SEO, la velocidad, el mantenimiento y los resultados que vas a obtener.
 
@@ -255,7 +255,7 @@ Ahora que ya tienes claro el tema de tu sitio, la tecnología que vas a usar, c�
 
 ## Arquitectura de la información: organiza tu sitio antes de construirlo
 
-<img src="~/assets/blog/arquitectura-informacion-organiza-tu-sitio-antes-construirlo.jpg" alt="Arquitectura de la información: organiza tu sitio antes de construirlo" title="Arquitectura de la información: organiza tu sitio antes de construirlo" />
+![Arquitectura de la información](~/assets/blog/arquitectura-informacion-organiza-tu-sitio-antes-construirlo.jpg "Arquitectura de la información: organiza tu sitio antes de construirlo")
 
 Esto que te voy a explicar ahora es uno de los puntos más importantes de todo el diseño web SEO y muy pocos lo hacen bien desde el principio.
 
@@ -326,7 +326,7 @@ Define las URLs antes de construir el sitio. Si las cambias después vas a perde
 
 ### El enlazado interno y el anchor text en el diseño web SEO
 
-<img src="~/assets/blog/enlazado-interno-anchor-text-diseno-web-seo.jpg" alt="Enlazado interno y anchor text en el diseño web SEO" title="Enlazado interno y anchor text en el diseño web SEO" />
+![Enlazado interno y anchor text](~/assets/blog/enlazado-interno-anchor-text-diseno-web-seo.jpg "Enlazado interno y anchor text en el diseño web SEO")
 
 Este punto es crítico y quiero que lo entiendas bien porque impacta directamente cómo Google valora cada página de tu sitio.
 
@@ -402,7 +402,7 @@ Con HTML5 Google sabe exactamente que header es la cabecera, nav es el menú, ma
 
 ### Errores en el código que pueden hundir tu diseño web SEO y cómo evitarlos
 
-<img src="~/assets/blog/errores-estan-destruyendo-diseno-web-seo-tu-sitio.jpg" alt="Errores en el código que pueden hundir tu diseño web SEO y cómo evitarlos" title="Errores en el código que pueden hundir tu diseño web SEO y cómo evitarlos" />
+![Errores en el código que pueden hundir tu diseño web SEO](~/assets/blog/errores-estan-destruyendo-diseno-web-seo-tu-sitio.jpg "Errores en el código que pueden hundir tu diseño web SEO y cómo evitarlos")
 
 Un código limpio es fundamental para el diseño web SEO. Google no solo lee tu contenido, también analiza la calidad de tu código. Un código mal escrito puede hacer que tu sitio no posicione sin importar qué tan bueno sea tu contenido.
 
@@ -451,7 +451,7 @@ Estos errores parecen pequeños pero Google los detecta y los toma en cuenta al 
 
 ### Cómo se maneja el código según la tecnología que eligas
 
-<img src="~/assets/blog/como-se-maneja-codigo-segun-tecnologia-eligas.jpg" alt="Cómo se maneja el código según la tecnología que eligas" title="Cómo se maneja el código según la tecnología que eligas" />
+![Cómo se maneja el código según la tecnología que eligas](~/assets/blog/como-se-maneja-codigo-segun-tecnologia-eligas.jpg "Cómo se maneja el código según la tecnología que eligas")
 
 Dependiendo de la tecnología que hayas elegido el código va a funcionar de forma diferente y eso impacta el SEO de tu sitio.
 
@@ -483,7 +483,7 @@ Cualquiera de estos editores te va a funcionar bien. Lo importante es que te sie
 
 ## Velocidad de carga y Core Web Vitals: el combustible técnico del diseño web SEO
 
-<img src="~/assets/blog/velocidad-carga-core-web-vitals-combustible-tecnico-diseno-web-seo.jpg" alt="Velocidad de carga y Core Web Vitals: el combustible técnico del diseño web SEO" title="Velocidad de carga y Core Web Vitals: el combustible técnico del diseño web SEO" />
+![Velocidad de carga y Core Web Vitals](~/assets/blog/velocidad-carga-core-web-vitals-combustible-tecnico-diseno-web-seo.jpg "Velocidad de carga y Core Web Vitals: el combustible técnico del diseño web SEO")
 
 Si hay algo que Google mide sin piedad es la velocidad de tu sitio. Un diseño web SEO lento es un diseño web SEO que no posiciona, así de simple.
 
@@ -568,7 +568,7 @@ Un sitio bien construido para diseño web SEO debe apuntar a una puntuación de 
 
 ## Optimización de imágenes: un detalle que define el diseño web SEO
 
-<img src="~/assets/blog/optimizacion-imagenes-un-detalle-que-define-diseno-web-seo.jpg" alt="Optimización de imágenes: un detalle que define el diseño web SEO" title="Optimización de imágenes: un detalle que define el diseño web SEO" />
+![Optimización de imágenes](~/assets/blog/optimizacion-imagenes-un-detalle-que-define-diseno-web-seo.jpg "Optimización de imágenes: un detalle que define el diseño web SEO")
 
 Antes de subir cualquier imagen a tu sitio quiero que te detengas un momento. Las imágenes son uno de los elementos que más pesan en un sitio web y si no las optimizas correctamente van a ralentizar todo lo que has construido hasta ahora y el diseño web SEO va a sufrir las consecuencias.
 
@@ -663,7 +663,7 @@ Ninguna imagen debe llegar a tu sitio sin haber pasado por este proceso. Hazlo u
 
 ## Los metadatos: lo que Google lee antes que nadie en el diseño web SEO
 
-<img src="~/assets/blog/metadatos-que-google-lee-antes-que-nadie-diseno-web-seo.jpg" alt="Metadatos: lo que Google lee antes que nadie en el diseño web SEO" title="Metadatos: lo que Google lee antes que nadie en el diseño web SEO" />
+![Metadatos que Google lee](~/assets/blog/metadatos-que-google-lee-antes-que-nadie-diseno-web-seo.jpg "Metadatos: lo que Google lee antes que nadie en el diseño web SEO")
 
 Cuando Google entra a tu sitio lo primero que lee no es tu contenido visible. Lee los metadatos. Son etiquetas que viven en el código de tu página y le dicen a Google exactamente de qué trata tu sitio, cómo mostrarlo en los resultados de búsqueda y cómo presentarlo en redes sociales.
 
@@ -804,7 +804,7 @@ Ese candado verde no es solo visual. Es una señal directa para Google de que tu
 
 ### Cómo activar el SSL en tu sitio
 
-<img src="~/assets/blog/como-activar-ssl-en-tu-sitio.jpg" alt="Cómo activar el SSL en tu sitio" title="Cómo activar el SSL en tu sitio" />
+![Cómo activar el SSL en tu sitio](~/assets/blog/como-activar-ssl-en-tu-sitio.jpg "Cómo activar el SSL en tu sitio")
 
 Entra al panel de control de tu hosting. Si usas Hostinger o SiteGround vas a encontrar la opción de SSL en la sección de seguridad. Actívalo con un solo click. La mayoría de los hostings hoy ofrecen el certificado SSL gratuito a través de Let's Encrypt.
 
@@ -853,7 +853,7 @@ Este paso garantiza que todo el tráfico de tu sitio fluya por una sola versión
 
 ## Robots.txt y Sitemap.xml: guíale el camino a Google
 
-<img src="~/assets/blog/robotstxt-sitemapxml-guiale-camino-a-google.jpg" alt="Robots.txt y Sitemap.xml: guíale el camino a Google" title="Robots.txt y Sitemap.xml: guíale el camino a Google" />
+![Robots.txt y Sitemap.xml](~/assets/blog/robotstxt-sitemapxml-guiale-camino-a-google.jpg "Robots.txt y Sitemap.xml: guíale el camino a Google")
 
 Imagina que Google llega a tu sitio por primera vez. Necesita saber qué páginas puede visitar, qué páginas debe ignorar y cuál es el mapa completo de tu sitio. Esa información se la das tú a través de dos archivos fundamentales para el diseño web SEO: el robots.txt y el sitemap.xml.
 
@@ -942,7 +942,7 @@ Haz click en enviar y Google va a empezar a rastrear e indexar todas las página
 
 ## Las páginas esenciales que todo diseño web SEO necesita
 
-<img src="~/assets/blog/paginas-esenciales-diseno-web-seo-necesita.jpg" alt="Las páginas esenciales que todo diseño web SEO necesita" title="Las páginas esenciales que todo diseño web SEO necesita" />
+![Las páginas esenciales que todo diseño web SEO necesita](~/assets/blog/paginas-esenciales-diseno-web-seo-necesita.jpg "Las páginas esenciales que todo diseño web SEO necesita")
 
 Cuando construyes tu sitio no puedes crear páginas al azar. Cada página tiene un propósito específico y Google las evalúa todas. Un diseño web SEO bien ejecutado tiene un conjunto de páginas esenciales que le dicen a Google que tu sitio es completo, confiable y relevante para el usuario.
 
@@ -1205,7 +1205,7 @@ El segundo le dice a Google exactamente qué haces, a quién le hablas y cuál e
 
 ## El menú de navegación y su impacto en el diseño web SEO
 
-<img src="~/assets/blog/menu-navegacion-su-impacto-en-diseno-web-seo.jpg" alt="Menú de navegación y su impacto en el diseño web SEO" title="Menú de navegación y su impacto en el diseño web SEO" />
+![Menú de navegación y su impacto en el diseño web SEO](~/assets/blog/menu-navegacion-su-impacto-en-diseno-web-seo.jpg "Menú de navegación y su impacto en el diseño web SEO")
 
 El menú de tu sitio no es solo un elemento visual. Es una de las primeras cosas que Google rastrea cuando entra a tu página y le dice exactamente qué secciones tiene tu sitio y cuáles son las más importantes. Un menú mal estructurado confunde a Google y al usuario al mismo tiempo.
 
@@ -1299,7 +1299,7 @@ Abre tu sitio desde el celular ahora mismo y navega por el menú como si fuera l
 
 ## El footer que fortalece el diseño de tu sitio
 
-<img src="~/assets/blog/footer-que-fortalece-diseno-tu-sitio.jpg" alt="Footer que fortalece el diseño de tu sitio" title="Footer que fortalece el diseño de tu sitio" />
+![Footer que fortalece el diseño](~/assets/blog/footer-que-fortalece-diseno-tu-sitio.jpg "Footer que fortalece el diseño de tu sitio")
 
 El footer es la parte inferior de tu sitio y muchos lo tratan como un relleno. Ese es un error grave. Google rastrea el footer de cada página de tu sitio y lo usa como una señal adicional de confianza y estructura. Un footer bien construido refuerza el diseño web SEO en cada página donde aparece.
 
