@@ -86,7 +86,7 @@ export const NAV_LINKS = [
     label: 'Work',
     children: [
         { href: '/portfolio/proyectos', label: 'All Projects', description: 'Our complete portfolio', icon: 'LayoutGrid' },
-        { href: '/sistema-diseño', label: 'Design System', description: 'Style guide & tokens', icon: 'Palette' },
+        { href: '/sistema-diseno', label: 'Design System', description: 'Style guide & tokens', icon: 'Palette' },
     ]
   },
   { 
