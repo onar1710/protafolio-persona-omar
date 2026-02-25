@@ -48,6 +48,7 @@
     "tailwindcss": "^4.1.7",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.3",
+    "unist-util-visit": "^5.1.0",
     "wrangler": "^4.56.0"
   },
   "devDependencies": {

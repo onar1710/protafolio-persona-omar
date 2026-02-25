@@ -1,0 +1,85 @@
+---
+import SocialMeta from '~/components/SocialMeta.astro';
+import { siteConfig } from '~/site.config';
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article';
+  author?: string;
+  publishDate?: Date;
+  modifiedDate?: Date;
+  tags?: string[];
+  noindex?: boolean;
+  nofollow?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  type = 'website',
+  author,
+  publishDate,
+  modifiedDate,
+  tags,
+  noindex = false,
+  nofollow = false
+} = Astro.props;
+
+// URL completa de la página
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+
+// Imagen por defecto si no se especifica
+const defaultImage = siteConfig.ogImage || '/imagen-destacada-omarfuentes.jpg';
+const finalImage = image || defaultImage;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalUrl} />
+  
+  <!-- Robots -->
+  {noindex && <meta name="robots" content="noindex" />}
+  {nofollow && <meta name="robots" content="nofollow" />}
+  {noindex && nofollow && <meta name="robots" content="noindex, nofollow" />}
+  {!noindex && !nofollow && <meta name="robots" content="index, follow" />}
+  
+  <!-- Metadatos para redes sociales -->
+  <SocialMeta 
+    title={title}
+    description={description}
+    image={finalImage}
+    imageAlt={imageAlt || title}
+    url={canonicalUrl}
+    type={type}
+    author={author}
+    publishDate={publishDate}
+    modifiedDate={modifiedDate}
+    tags={tags}
+  />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  
+  <!-- Preconnect a dominios externos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <slot />
+</head>
+<body>
+  <slot />
+</body>
+</html>

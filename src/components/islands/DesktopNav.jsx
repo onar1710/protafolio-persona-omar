@@ -1,14 +1,28 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 import * as Icons from 'lucide-react';
 
 export default function DesktopNav({ links, currentPath = '/' }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const timeoutRef = useRef(null);
 
   const isActive = (href) => {
     if (href === '/') return currentPath === '/';
     return currentPath.startsWith(href);
+  };
+
+  const handleMouseEnter = (index) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setHoveredIndex(null);
+    }, 100);
   };
 
   const handleKeyDown = (e, index) => {
@@ -21,7 +35,7 @@ export default function DesktopNav({ links, currentPath = '/' }) {
   };
 
   return (
-    <nav className="hidden md:flex items-center gap-6" onMouseLeave={() => setHoveredIndex(null)} aria-label="Main Navigation">
+    <nav className="hidden md:flex items-center gap-6" aria-label="Main Navigation">
       <ul className="flex items-center gap-6 m-0 p-0 list-none">
         {links.map((link, index) => {
           const isLinkActive = isActive(link.href || '') || (link.children && link.children.some(child => isActive(child.href)));
@@ -30,8 +44,8 @@ export default function DesktopNav({ links, currentPath = '/' }) {
           <li 
             key={link.label}
             className="relative"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
           >
             {link.children ? (
               <button
@@ -68,8 +82,10 @@ export default function DesktopNav({ links, currentPath = '/' }) {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="absolute top-full left-0 pt-4 w-60 z-50"
+                  className="absolute top-full left-0 pt-4 w-60 z-[9999] dropdown-menu"
                   role="menu"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
                 >
                    <div className="p-2 bg-background/95 backdrop-blur-xl border border-foreground/10 rounded-xl shadow-xl shadow-black/5 overflow-hidden">
                        <ul className="flex flex-col gap-1 m-0 p-0 list-none">
