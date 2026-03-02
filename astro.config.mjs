@@ -124,7 +124,7 @@ function getAdapter() {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://omarfuentes.com',
+  site: 'https://www.omarfuentes.com',
   output: 'static',
   image: {
     domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co', 'localhost'],
@@ -142,7 +142,7 @@ export default defineConfig({
       }), 
       robotsTxt({
           sitemap: true,
-          host: 'https://omarfuentes.com'
+          host: 'https://www.omarfuentes.com'
       }),
       react(), 
       mdx(),
