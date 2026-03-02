@@ -8,7 +8,8 @@ export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	const filteredPosts = posts.filter((post) => !post.id.includes('/'));
 	return filteredPosts.map((post) => {
-    const slug = post.id.replace(/\.[^/.]+$/, "");
+    const slugPath = post.id.replace(/\.[^/.]+$/, "");
+    const slug = slugPath.split('/').filter(Boolean);
     return {
 		  params: { slug },
 		  props: post,

@@ -9,15 +9,15 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run build:cloudflare",
-    "build:vercel": "cross-env ADAPTER=vercel astro build && pagefind --site dist",
-    "build:netlify": "cross-env ADAPTER=netlify astro build && pagefind --site dist",
+    "build": "npm run build:vercel",
+    "build:vercel": "cross-env ADAPTER=vercel astro build && pagefind --site dist && npm run copy-sitemap",
+    "build:netlify": "cross-env ADAPTER=netlify astro build && pagefind --site dist && npm run copy-sitemap",
     "build:cloudflare": "cross-env ADAPTER=cloudflare astro build && pagefind --site dist && npm run copy-sitemap",
     "preview": "astro preview",
     "deploy": "npm run build:cloudflare && wrangler deploy",
     "preview:worker": "wrangler dev",
     "astro": "astro",
-    "copy-sitemap": "copy /Y dist\\sitemap-0.xml dist\\sitemap.xml"
+    "copy-sitemap": "node -e \"const fs=require('fs'); const src='dist/sitemap-0.xml'; const dst='dist/sitemap.xml'; if(fs.existsSync(src)) fs.copyFileSync(src,dst);\""
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",

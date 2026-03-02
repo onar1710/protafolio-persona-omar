@@ -1,2 +1,5 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://omarfuentes.com/sitemap.xml
+Host: https://omarfuentes.com
