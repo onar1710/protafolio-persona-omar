@@ -7,6 +7,9 @@ dist/
 # generated types
 .astro/
 
+# Vercel
+.vercel/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
