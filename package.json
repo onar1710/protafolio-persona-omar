@@ -17,7 +17,7 @@
     "deploy": "npm run build:cloudflare && wrangler deploy",
     "preview:worker": "wrangler dev",
     "astro": "astro",
-    "copy-sitemap": "node -e \"const fs=require('fs'); const path=require('path'); const dstDist='dist/sitemap.xml'; const candidates=['dist/sitemap-index.xml','dist/sitemap-0.xml','dist/sitemap.xml']; const src=candidates.find(p=>fs.existsSync(p)); if(!src) { console.error('No sitemap file found in dist/. Expected one of: '+candidates.join(', ')); process.exit(1); } if(src!==dstDist) fs.copyFileSync(src,dstDist); const vercelStaticDir=path.join('.vercel','output','static'); if(fs.existsSync(vercelStaticDir)) { const dstVercel=path.join(vercelStaticDir,'sitemap.xml'); fs.copyFileSync(dstDist,dstVercel); }\""
+    "copy-sitemap": "node -e \"const fs=require('fs'); const path=require('path'); const dstDist='dist/sitemap.xml'; const candidates=['dist/sitemap-index.xml','dist/sitemap-0.xml','dist/sitemap.xml']; const src=candidates.find(p=>fs.existsSync(p)); if(!src) { console.warn('No sitemap file found in dist/. Expected one of: '+candidates.join(', ')+'. Continuing without sitemap copy.'); process.exit(0); } if(src!==dstDist) fs.copyFileSync(src,dstDist); const vercelStaticDir=path.join('.vercel','output','static'); if(fs.existsSync(vercelStaticDir)) { const dstVercel=path.join(vercelStaticDir,'sitemap.xml'); fs.copyFileSync(dstDist,dstVercel); }\""
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
