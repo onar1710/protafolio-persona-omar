@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+---
+
+<Layout title="Política de reembolso - Omar Fuentes" description="Política de reembolso y cancelaciones para servicios digitales." >
+  <PageHeader 
+    title="Política de reembolso"
+    description="Información clara sobre reembolsos, cancelaciones y cambios de alcance."
+  />
+
+  <Container as="section" class="pb-24">
+    <div class="max-w-3xl mx-auto rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Servicios digitales</h2>
+        <p class="text-muted-foreground">Los servicios ofrecidos (diseño web, desarrollo, SEO, consultoría y similares) son digitales y se ejecutan por etapas. Por esa razón, los reembolsos dependen del avance del proyecto.</p>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Reembolsos</h2>
+        <p class="text-muted-foreground">Si el proyecto aún no ha iniciado, puedes solicitar la devolución del pago (menos costos de procesamiento si aplican). Si el proyecto ya inició, se puede realizar un reembolso parcial proporcional al trabajo no ejecutado.</p>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Pagos por fases</h2>
+        <p class="text-muted-foreground">Cuando el servicio se paga por fases o adelantos, cada fase se considera entregable independiente. Una vez iniciada una fase, el valor correspondiente a esa fase puede no ser reembolsable.</p>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Cancelaciones y cambios</h2>
+        <p class="text-muted-foreground">Si decides cancelar, podemos cerrar el proyecto con el material desarrollado hasta la fecha y acordar el valor correspondiente. Los cambios de alcance pueden requerir un ajuste de precio y cronograma.</p>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Contacto</h2>
+        <p class="text-muted-foreground">Para solicitar un reembolso o resolver dudas, contáctame por los canales del sitio. Indica tu referencia de pago, nombre y concepto para ubicar la transacción.</p>
+      </div>
+
+      <div class="pt-2">
+        <a href="/contacto" class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors">Contactar</a>
+      </div>
+    </div>
+  </Container>
+</Layout>

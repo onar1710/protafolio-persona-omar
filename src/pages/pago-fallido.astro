@@ -1,0 +1,19 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+---
+
+<Layout title="Pago no completado - Omar Fuentes" description="El pago no pudo completarse." >
+  <PageHeader title="Pago no completado" description="No se pudo completar el pago o quedó pendiente." />
+
+  <Container as="section" class="pb-24">
+    <div class="max-w-2xl mx-auto rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+      <p class="text-muted-foreground">Puedes intentar nuevamente o escribirme para ayudarte.</p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <a href="/pagar" class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors">Intentar de nuevo</a>
+        <a href="/contacto" class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold border border-black/10 dark:border-white/10 text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </Container>
+</Layout>

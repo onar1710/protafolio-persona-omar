@@ -1,0 +1,18 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+---
+
+<Layout title="Pago exitoso - Omar Fuentes" description="Pago recibido correctamente." >
+  <PageHeader title="Pago exitoso" description="Gracias. Tu pago fue recibido." />
+
+  <Container as="section" class="pb-24">
+    <div class="max-w-2xl mx-auto rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+      <p class="text-muted-foreground">En breve te contactaré para confirmar el inicio del proyecto.</p>
+      <div class="mt-6">
+        <a href="/" class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors">Volver al inicio</a>
+      </div>
+    </div>
+  </Container>
+</Layout>
