@@ -10,13 +10,14 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "npm run build:vercel",
-    "build:vercel": "cross-env ADAPTER=vercel astro build && pagefind --site dist && npm run copy-sitemap",
+    "build:vercel": "cross-env ADAPTER=vercel astro build && pagefind --site dist && npm run copy-sitemap && npm run patch-vercel-runtime",
     "build:netlify": "cross-env ADAPTER=netlify astro build && pagefind --site dist && npm run copy-sitemap",
     "build:cloudflare": "cross-env ADAPTER=cloudflare astro build && pagefind --site dist && npm run copy-sitemap",
     "preview": "astro preview",
     "deploy": "npm run build:cloudflare && wrangler deploy",
     "preview:worker": "wrangler dev",
     "astro": "astro",
+    "patch-vercel-runtime": "node -e \"const fs=require('fs'); const path=require('path'); const root=path.join('.vercel','output','functions'); if(!fs.existsSync(root)) { console.warn('patch-vercel-runtime: no .vercel/output/functions found; skipping.'); process.exit(0); } const walk=(dir)=>{ for(const ent of fs.readdirSync(dir,{withFileTypes:true})) { const p=path.join(dir,ent.name); if(ent.isDirectory()) walk(p); else if(ent.isFile() && ent.name==='.vc-config.json') { const raw=fs.readFileSync(p,'utf8'); if(raw.includes('nodejs18.x')) { fs.writeFileSync(p, raw.replaceAll('nodejs18.x','nodejs20.x'), 'utf8'); console.log('patched', p); } } } }; walk(root);\"",
     "copy-sitemap": "node -e \"const fs=require('fs'); const path=require('path'); const dstDist='dist/sitemap.xml'; const candidates=['dist/sitemap-index.xml','dist/sitemap-0.xml','dist/sitemap.xml']; const src=candidates.find(p=>fs.existsSync(p)); if(!src) { console.warn('No sitemap file found in dist/. Expected one of: '+candidates.join(', ')+'. Continuing without sitemap copy.'); process.exit(0); } if(src!==dstDist) fs.copyFileSync(src,dstDist); const vercelStaticDir=path.join('.vercel','output','static'); if(fs.existsSync(vercelStaticDir)) { const dstVercel=path.join(vercelStaticDir,'sitemap.xml'); fs.copyFileSync(dstDist,dstVercel); }\""
   },
   "dependencies": {
