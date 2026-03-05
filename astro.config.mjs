@@ -12,6 +12,9 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import dotenv from 'dotenv';
 
+import { remarkImageAlt } from './src/utils/remark-image-alt.js';
+import { rehypeImgDimensions } from './src/utils/rehype-img-dimensions.js';
+
 // Load environment variables
 dotenv.config();
 
@@ -126,6 +129,10 @@ function getAdapter() {
 export default defineConfig({
   site: 'https://www.omarfuentes.com',
   output: 'static',
+  markdown: {
+    remarkPlugins: [remarkImageAlt],
+    rehypePlugins: [rehypeImgDimensions],
+  },
   image: {
     domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co', 'localhost'],
   },

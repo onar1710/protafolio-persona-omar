@@ -12,10 +12,13 @@ export function remarkImageAlt() {
         const filename = node.url.split('/').pop().split('.')[0];
         node.alt = filename.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
       }
-      
-      // Convertir a nodo HTML img
-      node.type = 'html';
-      node.value = `<img src="${node.url}" alt="${node.alt}" title="${node.alt}" loading="lazy" decoding="async" />`;
+
+      node.title = node.title || node.alt;
+
+      node.data ??= {};
+      node.data.hProperties ??= {};
+      node.data.hProperties.loading ??= 'lazy';
+      node.data.hProperties.decoding ??= 'async';
     });
   };
 }
