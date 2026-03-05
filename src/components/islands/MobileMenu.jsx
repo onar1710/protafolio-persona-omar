@@ -139,7 +139,7 @@ export default function MobileMenu({
               <div className="pt-6 md:pt-8 border-t border-foreground/10 flex flex-col gap-4 mt-auto">
                  <a 
                     href={ACTION_LINKS.primary.href}
-                    className="w-full py-3 px-4 bg-primary text-white text-center font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/25"
+                    className="w-full py-3 px-4 bg-primary text-black text-center font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/25"
                   >
                     {labels.getStarted}
                   </a>

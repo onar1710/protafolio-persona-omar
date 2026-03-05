@@ -14,7 +14,7 @@ const { id, message, link, linkText } = Astro.props;
 <div 
   id="announcement-banner" 
   data-banner-id={id}
-  class="bg-primary hover:bg-primary/90 transition-colors text-white relative overflow-hidden hidden"
+  class="bg-primary hover:bg-primary/90 transition-colors text-black relative overflow-hidden hidden"
   role="alert"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +24,7 @@ const { id, message, link, linkText } = Astro.props;
             {link && (
                 <a 
                     href={link} 
-                    class="underline decoration-white/50 hover:decoration-white transition-all underline-offset-4"
+                    class="underline decoration-current/50 hover:decoration-current transition-all underline-offset-4"
                     aria-label={linkText || "View announcement details"}
                 >
                     {linkText}
@@ -33,7 +33,7 @@ const { id, message, link, linkText } = Astro.props;
         </div>
         <button 
             id="dismiss-banner"
-            class="p-1 hover:bg-white/20 rounded-full transition-colors shrink-0"
+            class="p-1 hover:bg-black/10 rounded-full transition-colors shrink-0"
             aria-label="Dismiss announcement"
         >
             <X className="w-4 h-4" />

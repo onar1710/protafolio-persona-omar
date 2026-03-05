@@ -35,7 +35,7 @@ export default function DevSearchModal({ onClose, labels }) {
       <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
         <button
             onClick={onClose}
-            className="px-8 py-3 bg-primary text-white rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all text-sm font-semibold active:scale-95"
+            className="px-8 py-3 bg-primary text-black rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all text-sm font-semibold active:scale-95"
         >
             {labels?.gotIt || "Entendido"}
         </button>

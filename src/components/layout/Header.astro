@@ -79,7 +79,7 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
       <span class="md:hidden lg:inline text-base font-semibold">{t['brand.name'] || siteConfig.name}</span>
     </a>
     <div class="flex-1 flex justify-center mx-4 lg:mx-8">
-      <DesktopNav client:idle links={links} currentPath={Astro.url.pathname} />
+      <DesktopNav client:media="(min-width: 768px)" links={links} currentPath={Astro.url.pathname} />
     </div>
 
     {/* Mobile/Flyout Menu */}
@@ -106,14 +106,14 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
       </a>
       <a 
         href={primaryHref}
-        class="hidden md:block px-4 py-2 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary/90 transition-all"
+        class="hidden md:block px-4 py-2 text-sm font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-all"
       >
         {t['hero.getStarted'] || ACTION_LINKS.primary.label}
       </a>
       
       <div class="md:hidden">
         <MobileMenu 
-          client:idle 
+          client:media="(max-width: 767px)" 
           links={links} 
           currentPath={Astro.url.pathname} 
           labels={{

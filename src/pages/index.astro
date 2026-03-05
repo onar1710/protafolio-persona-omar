@@ -8,6 +8,12 @@ import artImage from '~/assets/blog/art.jpg';
 import blocksImage from '~/assets/blog/blocks.jpg';
 import searchImage from '~/assets/blog/search.jpg';
 import posicionamientoImage from '~/assets/blog/posicionar-mi-web-primeros-lugares-google.jpg';
+import resultadosMediblesImage from '~/assets/images/resultados/resultados-medibles.jpg';
+import sitiosRapidosImage from '~/assets/images/resultados/sitios-rapidos-listos-seo.jpg';
+import traficoOrganicoImage from '~/assets/images/resultados/120-trafico-organico.jpg';
+import menosTiempoCargaImage from '~/assets/images/resultados/menos-tiempo-carga-web.jpg';
+import primeraPaginaGoogleImage from '~/assets/images/resultados/primera-pagina-google.jpg';
+import googleLogoImage from '~/assets/images/logo-google.png';
 import Layout from '~/layouts/Layout.astro';
 import Schema from '~/components/layout/Schema.astro';
 import Hero from '~/components/sections/Hero.astro';
@@ -234,14 +240,14 @@ const logos = [
 	                </div>
 	                
 	                <div class="w-full h-32 bg-black/20 rounded-xl border border-white/5 backdrop-blur-sm overflow-hidden relative">
-	                    <img
-	                        src="/images/resultados/Resultados-medibles.jpg"
+	                    <Image
+	                        src={resultadosMediblesImage}
 	                        alt="Resultados medibles"
-	                        width="1200"
-	                        height="320"
 	                        class="absolute inset-0 w-full h-full object-cover opacity-60"
 	                        loading="lazy"
 	                        decoding="async"
+	                        widths={[320, 640, 960]}
+	                        sizes="(max-width: 768px) 100vw, 640px"
 	                    />
 	                    <div class="absolute inset-0 bg-linear-to-r from-black/60 via-black/20 to-transparent"></div>
 	                    <div class="absolute inset-0 flex items-center justify-center text-xs font-mono text-white font-bold text-center px-4">
@@ -255,7 +261,15 @@ const logos = [
 	        <!-- Tall Item -->
 	        <BentoItem class="md:row-span-2 group">
 	                <div class="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-black/50 to-transparent z-10"></div>
-	                <img src="/images/resultados/Sitios-r%C3%A1pidos-listos-SEO.jpg" alt="Sitios rápidos y listos para SEO" width="1200" height="900" class="absolute inset-0 w-full h-full object-cover object-center opacity-55 group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+	                <Image
+	                    src={sitiosRapidosImage}
+	                    alt="Sitios rápidos y listos para SEO"
+	                    class="absolute inset-0 w-full h-full object-cover object-center opacity-55 group-hover:scale-105 transition-transform duration-700"
+	                    loading="lazy"
+	                    decoding="async"
+	                    widths={[447, 894, 1200]}
+	                    sizes="(max-width: 768px) 100vw, 447px"
+	                />
 	                
 	                <div class="relative z-20 h-full flex flex-col justify-end">
 	                <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-4">
@@ -268,14 +282,14 @@ const logos = [
 
 	        <!-- Small Item 1 -->
 	        <BentoItem class="relative overflow-hidden flex flex-col justify-center text-center hover:bg-white/10 transition-colors">
-	            <img
-	                src="/images/resultados/120%25-Tr%C3%A1fico-Org%C3%A1nico.jpg"
+	            <Image
+	                src={traficoOrganicoImage}
 	                alt="+120% Tráfico Orgánico"
-	                width="1200"
-	                height="900"
 	                class="absolute inset-0 w-full h-full object-cover opacity-25"
 	                loading="lazy"
 	                decoding="async"
+	                widths={[447, 894, 1200]}
+	                sizes="(max-width: 768px) 100vw, 447px"
 	            />
 	            <div class="absolute inset-0 bg-black/40"></div>
 	            <div class="relative z-10">
@@ -289,14 +303,14 @@ const logos = [
 
 	        <!-- Small Item 2 -->
 	        <BentoItem class="relative overflow-hidden flex flex-col justify-center text-center hover:bg-white/10 transition-colors">
-	            <img
-	                src="/images/resultados/menos-tiempo-carga-web.jpg"
+	            <Image
+	                src={menosTiempoCargaImage}
 	                alt="70% menos tiempo de carga"
-	                width="1200"
-	                height="900"
 	                class="absolute inset-0 w-full h-full object-cover opacity-25"
 	                loading="lazy"
 	                decoding="async"
+	                widths={[447, 894, 1200]}
+	                sizes="(max-width: 768px) 100vw, 447px"
 	            />
 	            <div class="absolute inset-0 bg-black/40"></div>
 	            <div class="relative z-10">
@@ -310,14 +324,14 @@ const logos = [
         
 	        <!-- Wide Item -->
 	        <BentoItem class="relative overflow-hidden md:col-span-2 flex items-center justify-between gap-8 group">
-	            <img
-	                src="/images/resultados/Primera-p%C3%A1gina-Google.jpg"
+	            <Image
+	                src={primeraPaginaGoogleImage}
 	                alt="Primera página en Google"
-	                width="1200"
-	                height="600"
 	                class="absolute inset-0 w-full h-full object-cover opacity-25"
 	                loading="lazy"
 	                decoding="async"
+	                widths={[600, 900, 1200]}
+	                sizes="(max-width: 768px) 100vw, 900px"
 	            />
 	            <div class="absolute inset-0 bg-black/40"></div>
 	            <div class="relative z-10">
@@ -325,11 +339,11 @@ const logos = [
 	                    <p class="text-muted-foreground max-w-sm">SEO técnico + contenido bien estructurado para competir en búsquedas locales.</p>
 	            </div>
 	            <div class="relative z-10 w-32 h-32 shrink-0 bg-linear-to-tr from-purple-950 to-indigo-900 rounded-2xl flex items-center justify-center shadow-lg transform rotate-6 group-hover:rotate-12 transition-transform">
-	                <img
-	                    src="/logo-google.png"
+	                <Image
+	                    src={googleLogoImage}
 	                    alt="Google"
-	                    width="96"
-	                    height="96"
+	                    width={96}
+	                    height={96}
 	                    class="w-24 h-24 object-contain"
 	                    loading="lazy"
 	                    decoding="async"
@@ -346,7 +360,7 @@ const logos = [
                     <h2 class="text-3xl md:text-5xl font-display font-bold mb-4">Servicios de diseño web profesional en Colombia</h2>
                     <p class="text-muted-foreground">Especializado en crear sitios web que funcionan: rápidos, optimizados para SEO y diseñados para convertir visitantes en clientes.</p>
                 </div>
-                <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors w-fit">
                     Quiero un sitio que genere resultados →
                 </a>
             </div>
@@ -368,7 +382,7 @@ const logos = [
                     <p class="text-sm text-muted-foreground mb-6"><span class="font-semibold text-foreground">Ideal para:</span> Negocios locales en Cali, Medellín y Bogotá que necesitan visibilidad online.</p>
 
                     <div class="mt-auto">
-                        <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20sitio%20web%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                        <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20sitio%20web%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors w-fit">
                             Cotizar mi proyecto web →
                         </a>
                     </div>
@@ -390,7 +404,7 @@ const logos = [
                     <p class="text-sm text-muted-foreground mb-6"><span class="font-semibold text-foreground">Ideal para:</span> Emprendedores y empresas que venden productos online.</p>
 
                     <div class="mt-auto">
-                        <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                        <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors w-fit">
                             Quiero una tienda online →
                         </a>
                     </div>
@@ -412,7 +426,7 @@ const logos = [
                     <p class="text-sm text-muted-foreground mb-6"><span class="font-semibold text-foreground">Ideal para:</span> Empresas con sitio actual que no genera resultados.</p>
 
                     <div class="mt-auto">
-                        <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors w-fit">
+                        <a href={`/contacto`} class="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors w-fit">
                             Analizar mi sitio actual →
                         </a>
                     </div>
@@ -616,7 +630,7 @@ const logos = [
         <div class="text-center mt-12">
           <a 
             href="/blog" 
-            class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-black rounded-lg font-medium hover:bg-primary/90 transition-colors"
           >
             Ver todos los artículos
             <ArrowRight className="w-4 h-4" />
@@ -722,8 +736,9 @@ const logos = [
                     <form class="space-y-6" action="https://formsubmit.co/joseomarfernandez747@gmail.com" method="POST">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium mb-2">Nombre *</label>
+                                <label for="home-quote-name" class="block text-sm font-medium mb-2">Nombre *</label>
                                 <input 
+                                    id="home-quote-name"
                                     type="text" 
                                     name="name" 
                                     required
@@ -733,8 +748,9 @@ const logos = [
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium mb-2">Email *</label>
+                                <label for="home-quote-email" class="block text-sm font-medium mb-2">Email *</label>
                                 <input 
+                                    id="home-quote-email"
                                     type="email" 
                                     name="email" 
                                     required
@@ -745,8 +761,9 @@ const logos = [
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-medium mb-2">WhatsApp</label>
+                            <label for="home-quote-whatsapp" class="block text-sm font-medium mb-2">WhatsApp</label>
                             <input 
+                                id="home-quote-whatsapp"
                                 type="tel" 
                                 name="whatsapp"
                                 class="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -755,8 +772,9 @@ const logos = [
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-medium mb-2">Tipo de proyecto *</label>
+                            <label for="home-quote-project-type" class="block text-sm font-medium mb-2">Tipo de proyecto *</label>
                             <select 
+                                id="home-quote-project-type"
                                 name="project_type"
                                 required
                                 class="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -772,8 +790,9 @@ const logos = [
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-medium mb-2">Mensaje *</label>
+                            <label for="home-quote-message" class="block text-sm font-medium mb-2">Mensaje *</label>
                             <textarea 
+                                id="home-quote-message"
                                 name="message" 
                                 rows="4"
                                 required
@@ -783,14 +802,14 @@ const logos = [
                         </div>
                         
                         <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <input type="checkbox" name="terms" required class="rounded">
-                            <label>Acepto los términos y condiciones</label>
+                            <input id="home-quote-terms" type="checkbox" name="terms" required class="rounded">
+                            <label for="home-quote-terms">Acepto los términos y condiciones</label>
                         </div>
                         
                         <div class="flex flex-col sm:flex-row gap-4">
                             <button 
                                 type="submit"
-                                class="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-colors"
+                                class="flex-1 bg-primary text-black hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-colors"
                             >
                                 <Rocket className="inline-block w-4 h-4 mr-2" />
                                 Enviar Cotización Gratis
