@@ -1,5 +1,5 @@
 ---
-import { Github } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import MobileMenu from '~/components/islands/MobileMenu';
 import DesktopNav from '~/components/islands/DesktopNav';
 import Search from '~/components/islands/Search';
@@ -95,6 +95,15 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
         }}
         lang={lang}
       />}
+      <a 
+        href={ACTION_LINKS.social.linkedin}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-foreground hover:text-foreground/70 dark:text-white dark:hover:text-blue-300 transition-colors hidden md:block"
+        aria-label="LinkedIn"
+      >
+        <Linkedin className="w-5 h-5" />
+      </a>
       <a 
         href={ACTION_LINKS.social.github}
         target="_blank" 

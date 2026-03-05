@@ -22,7 +22,7 @@ import Section from '~/components/layout/Section.astro';
 import LatestPosts from '~/components/sections/LatestPosts.astro';
 import BentoGrid from '~/components/sections/BentoGrid.astro';
 import BentoItem from '~/components/ui/BentoItem.astro';
-import { Cpu, Globe, Zap, BarChart, ShieldCheck, Settings, FileCode, Search, Moon, Eye, ArrowRight, Mail, Phone, MessageCircle, CheckCircle, Clock, Lock, Rocket } from 'lucide-react';
+import { Cpu, Globe, Zap, BarChart, ShieldCheck, Settings, FileCode, Search, Moon, Eye, ArrowRight, Mail, Phone, MessageCircle, CheckCircle, Clock, Lock, Rocket, Star } from 'lucide-react';
 import FeaturesList from '~/components/sections/FeaturesList.astro';
 import FeatureItem from '~/components/ui/FeatureItem.astro';
 import Container from '~/components/ui/Container.astro';
@@ -51,6 +51,41 @@ const logos = [
   { name: 'React', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', width: 512, height: 512, description: t['logo.react.desc'] },
   { name: 'Tailwind CSS', src: '/tailwind-logo.svg', description: t['logo.tailwind.desc'] },
   { name: 'Framer Motion', src: '/framer-motion.png', description: t['logo.framer.desc'] },
+];
+
+const googleReviewsUrl = 'https://share.google/URJBIY6tzhrTMEJXL';
+
+const googleReviews = [
+  {
+    author: 'Ayeuri Melo Sanchez',
+    rating: 5,
+    text: 'De los mejores desarrolladores que he conocido, me hizo una página web de consultoría para Republica Dominicana y quedo fenomenal, lo recomiendo al 100%'
+  },
+  {
+    author: 'Plomeria Aquaimperio',
+    rating: 5,
+    text: 'Omar muchas gracias por su servicios me gusto mucho la página, recomedadicimo, sabe hacer muy bien su trabajo y muy atento a los detalles, gracias omar por ese gran trabajo'
+  },
+  {
+    author: 'Jorge Capacho',
+    rating: 5,
+    text: 'Omar parcero le quiero dar las gracias por su apoyo su trabajo la página web quedó como la quería gracias a usted puedo seguir con mi Emprendimiento lleno éxitos y bendiciones, recomiendo su trabajo'
+  },
+  {
+    author: 'Jaime Mantilla',
+    rating: 5,
+    text: 'Muy profesionales son excelentes para la creación de páginas me ayudó con mi emprendimiento de venta de cuentas de Indrive recomendado'
+  },
+  {
+    author: 'Gladys Hernández',
+    rating: 5,
+    text: 'Contraté a Omar para armar mi sitio web de productos para perros. Necesitaba algo profesional para vender collares,...'
+  },
+  {
+    author: 'David',
+    rating: 5,
+    text: 'Hola me pareció muy profesional, es muy dedicado me sorprendió que en 4 días ya tenía mi web de negocios casi lista lo recomiendo abiertamente'
+  },
 ];
 
 ---
@@ -197,8 +232,8 @@ const logos = [
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "ratingCount": "20",
+                "ratingValue": "5.0",
+                "ratingCount": "6",
                 "bestRating": "5",
                 "worstRating": "1"
             },
@@ -489,34 +524,108 @@ const logos = [
         </Stats>
     </Section>
 
-    <Section class="py-0 overflow-visible">
-        <Testimonials title="Lo que dicen mis clientes">
-          <Testimonial 
-            text="Antes de trabajar con Omar, teníamos una idea pero no sabíamos cómo ejecutarla online. En menos de un mes teníamos una tienda completa funcionando. Lo mejor: el sitio carga instantáneamente y hemos recibido comentarios increíbles sobre lo fácil que es comprar. Las ventas lo comprueban."
-            author="Daniela Ruiz"
-            role="Fundadora de Mundo Gaming"
-          />
-          <Testimonial 
-            text="Necesitábamos un sitio que generara confianza para clientes empresariales. Omar entregó un diseño profesional que nos ha traído 4-5 cotizaciones semanales solo del sitio web."
-            author="Carlos Leal"
-            role="Director de Leexms"
-          />
-          <Testimonial 
-            text="Pasamos de estar invisible en Google a primera página para nuestras keywords principales en 4 meses. El tráfico orgánico creció +200% y las llamadas de clientes no paran."
-            author="Andrés Ferrary"
-            role="Dueño de Ferrarycucina"
-          />
-          <Testimonial 
-            text="La velocidad de nuestro nuevo sitio es increíble. Los clientes comentan lo fácil que es navegar y las conversiones mejoraron +150% vs el sitio anterior."
-            author="María Gómez"
-            role="Gerente de Tienda Online"
-          />
-          <Testimonial 
-            text="Omar no solo diseñó, nos enseñó a manejar nuestro sitio. La capacitación fue excelente y el soporte post-lanzamiento ha sido fundamental para nuestro crecimiento."
-            author="Luis Torres"
-            role="Emprendedor Local"
-          />
-        </Testimonials>
+    <Section class="py-24">
+      <Container>
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div class="max-w-3xl">
+            <h2 class="text-3xl md:text-5xl font-display font-bold mb-4">Reseñas reales en Google</h2>
+            <div class="flex items-center gap-3 text-muted-foreground" aria-label="Valoración 5.0 en Google">
+              <Image src={googleLogoImage} alt="Google" width={72} height={24} class="h-6 w-[72px] object-contain" loading="lazy" decoding="async" />
+              <span class="font-semibold text-foreground">5.0</span>
+              <span class="text-foreground" aria-hidden="true">★★★★★</span>
+            </div>
+          </div>
+          <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-black font-semibold hover:bg-primary/90 transition-colors w-fit">
+            <span>Ver en Google</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+
+        <div class="relative">
+          <div data-reviews-track class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [-ms-overflow-style:none] [scrollbar-width:none]">
+            {googleReviews.map((review) => (
+              <article class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start rounded-2xl border border-black/10 bg-white text-black p-5 md:p-6 shadow-sm" aria-label={`Reseña de ${review.author}`}>
+                <div class="flex flex-col gap-4">
+                  <div class="flex flex-col items-center">
+                    <Image src={googleLogoImage} alt="Google" width={64} height={24} class="h-6 w-16 object-contain" loading="lazy" decoding="async" />
+                  </div>
+
+                  <div class="flex items-center justify-center gap-1" aria-label={`${review.rating} de 5 estrellas`}>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star className={`w-4 h-4 ${i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} aria-hidden="true" />
+                    ))}
+                  </div>
+
+                  <div class="text-base font-semibold text-center">{review.author}</div>
+                  <p class="text-sm leading-relaxed text-black/80">{review.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <script is:inline>
+          (() => {
+            const track = document.querySelector('[data-reviews-track]');
+            if (!track) return;
+
+            const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+            if (media?.matches) return;
+
+            let timer;
+            let paused = false;
+
+            const getStep = () => {
+              const first = track.querySelector('article');
+              if (!first) return 400;
+              const rect = first.getBoundingClientRect();
+              return rect.width + 24;
+            };
+
+            const tick = () => {
+              if (paused) return;
+              const step = getStep();
+              const max = track.scrollWidth - track.clientWidth;
+
+              if (track.scrollLeft + step >= max - 4) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+              } else {
+                track.scrollBy({ left: step, behavior: 'smooth' });
+              }
+            };
+
+            const start = () => {
+              stop();
+              timer = window.setInterval(tick, 4500);
+            };
+
+            const stop = () => {
+              if (timer) window.clearInterval(timer);
+              timer = undefined;
+            };
+
+            const pause = () => {
+              paused = true;
+            };
+
+            const resume = () => {
+              paused = false;
+            };
+
+            track.addEventListener('mouseenter', pause);
+            track.addEventListener('mouseleave', resume);
+            track.addEventListener('focusin', pause);
+            track.addEventListener('focusout', resume);
+
+            document.addEventListener('visibilitychange', () => {
+              if (document.hidden) stop();
+              else start();
+            });
+
+            start();
+          })();
+        </script>
+      </Container>
     </Section>
 
     <!-- Blog Section -->
