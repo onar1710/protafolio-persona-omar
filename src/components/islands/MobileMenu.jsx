@@ -1,8 +1,30 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Github } from 'lucide-react';
-import * as Icons from 'lucide-react';
+import {
+  Menu,
+  X,
+  Github,
+  Zap,
+  CreditCard,
+  Newspaper,
+  FileClock,
+  LayoutGrid,
+  Palette,
+  Building2,
+  Mail,
+} from 'lucide-react';
 import { ACTION_LINKS } from '~/site.config';
+
+const ICONS = {
+  Zap,
+  CreditCard,
+  Newspaper,
+  FileClock,
+  LayoutGrid,
+  Palette,
+  Building2,
+  Mail,
+};
 
 export default function MobileMenu({ 
   links, 
@@ -91,7 +113,7 @@ export default function MobileMenu({
                                </div>
                                <ul className="pl-4 flex flex-col gap-3 md:gap-2 border-l-2 border-foreground/10 ml-2 m-0 list-none">
                                   {link.children.map(child => {
-                                      const Icon = child.icon ? Icons[child.icon] : null;
+                                      const Icon = child.icon ? ICONS[child.icon] : null;
                                       return (
                                       <li key={child.href}>
                                         <a 

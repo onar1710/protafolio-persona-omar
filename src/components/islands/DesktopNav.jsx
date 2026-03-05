@@ -1,7 +1,27 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown } from 'lucide-react';
-import * as Icons from 'lucide-react';
+import {
+  ChevronDown,
+  Zap,
+  CreditCard,
+  Newspaper,
+  FileClock,
+  LayoutGrid,
+  Palette,
+  Building2,
+  Mail,
+} from 'lucide-react';
+
+const ICONS = {
+  Zap,
+  CreditCard,
+  Newspaper,
+  FileClock,
+  LayoutGrid,
+  Palette,
+  Building2,
+  Mail,
+};
 
 export default function DesktopNav({ links, currentPath = '/' }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -90,7 +110,7 @@ export default function DesktopNav({ links, currentPath = '/' }) {
                    <div className="p-2 bg-background/95 backdrop-blur-xl border border-foreground/10 rounded-xl shadow-xl shadow-black/5 overflow-hidden">
                        <ul className="flex flex-col gap-1 m-0 p-0 list-none">
                          {link.children.map((child) => {
-                           const Icon = child.icon ? Icons[child.icon] : null;
+                           const Icon = child.icon ? ICONS[child.icon] : null;
                            return (
                            <li key={child.href} role="none">
                              <a

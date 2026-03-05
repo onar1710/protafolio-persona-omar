@@ -85,7 +85,7 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
     {/* Mobile/Flyout Menu */}
     <div class="flex items-center gap-4 flex-shrink-0">
       {siteConfig.search.enabled && <Search 
-        client:idle 
+        client:media="(min-width: 768px)" 
         placeholder={t['search.placeholder']} 
         devModalLabels={{
             title: t['dev.search.title'],
