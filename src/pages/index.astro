@@ -51,11 +51,6 @@ const logos = [
 
 <Layout title="Diseño Web SEO en Colombia - Omar Fuentes | Sitios que Aparecen en Google" description="Creo diseños web profesionales que rankean en Google, cargan rápido y convierten visitantes en clientes reales. +120% tráfico orgánico comprobado. Ayudo a negocios en Cali, Medellín, Bogotá y Barranquilla y toda Colombia." keywords="diseño web colombia, diseño web cali, diseño web medellin, diseño web bogota, paginas web colombia, desarrollador web freelance, seo tecnico, optimizacion web, landing page, tienda online, ecommerce, desarrollo web colombia, posicionamiento google, sitios web rapidos, web design colombia, freelancer colombia">
     <Fragment slot="head">
-        <meta name="author" content="Omar Fuentes" />
-        <meta
-            name="keywords"
-            content="diseño web colombia, diseño web cali, diseño web medellin, diseño web bogota, paginas web colombia, desarrollador web freelance, seo tecnico, optimizacion web, landing page, tienda online, ecommerce"
-        />
     </Fragment>
     <Schema item={{
             "@context": "https://schema.org",
@@ -75,17 +70,51 @@ const logos = [
                 "query-input": "required name=search_term_string"
             },
             "publisher": {
-                "@type": "Person",
-                "@id": `${Astro.site}#person`,
-                "name": "Omar Fuentes",
-                "url": Astro.site,
-                "sameAs": [
-                    "https://www.linkedin.com/in/omarfuentes052/",
-                    "https://github.com/onar1710",
-                    "https://twitter.com/omarfuentes052",
-                    "https://www.facebook.com/omarfuentes052",
-                    "https://www.youtube.com/@OmarFuentes052"
-                ]
+                "@id": `${Astro.site}#organization`
+            }
+        }} />
+    <Schema item={{
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": `${Astro.site}#person`,
+            "name": "Omar Fuentes",
+            "url": Astro.site,
+            "image": new URL('/imagen-destacada-omarfuentes.jpg', Astro.site).toString(),
+            "jobTitle": "Diseñador Web Freelance",
+            "worksFor": {
+                "@id": `${Astro.site}#organization`
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Cali",
+                "addressRegion": "Valle del Cauca",
+                "addressCountry": "CO"
+            },
+            "sameAs": [
+                "https://www.linkedin.com/in/omarfuentes052/",
+                "https://github.com/onar1710",
+                "https://twitter.com/omarfuentes052",
+                "https://www.facebook.com/omarfuentes052",
+                "https://www.youtube.com/@OmarFuentes052"
+            ]
+        }} />
+    <Schema item={{
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${Astro.site}/#webpage`,
+            "url": `${Astro.site}/`,
+            "name": "Diseño Web SEO en Colombia - Omar Fuentes | Sitios que Aparecen en Google",
+            "description": "Creo diseños web profesionales que rankean en Google, cargan rápido y convierten visitantes en clientes reales.",
+            "inLanguage": "es-CO",
+            "isPartOf": {
+                "@id": `${Astro.site}#website`
+            },
+            "about": {
+                "@id": `${Astro.site}#person`
+            },
+            "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": new URL('/imagen-destacada-omarfuentes.jpg', Astro.site).toString()
             }
         }} />
     <Schema item={{
@@ -97,6 +126,9 @@ const logos = [
             "url": `${Astro.site}/`,
             "telephone": "+57 310 785 1074",
             "email": "joseomarfernandez747@gmail.com",
+            "provider": {
+                "@id": `${Astro.site}#person`
+            },
             "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "CO",
@@ -205,8 +237,11 @@ const logos = [
 	                    <img
 	                        src="/images/resultados/Resultados-medibles.jpg"
 	                        alt="Resultados medibles"
+	                        width="1200"
+	                        height="320"
 	                        class="absolute inset-0 w-full h-full object-cover opacity-60"
 	                        loading="lazy"
+	                        decoding="async"
 	                    />
 	                    <div class="absolute inset-0 bg-linear-to-r from-black/60 via-black/20 to-transparent"></div>
 	                    <div class="absolute inset-0 flex items-center justify-center text-xs font-mono text-white font-bold text-center px-4">
@@ -220,7 +255,7 @@ const logos = [
 	        <!-- Tall Item -->
 	        <BentoItem class="md:row-span-2 group">
 	                <div class="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-black/50 to-transparent z-10"></div>
-	                <img src="/images/resultados/Sitios-r%C3%A1pidos-listos-SEO.jpg" alt="Sitios rápidos y listos para SEO" class="absolute inset-0 w-full h-full object-cover object-center opacity-55 group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+	                <img src="/images/resultados/Sitios-r%C3%A1pidos-listos-SEO.jpg" alt="Sitios rápidos y listos para SEO" width="1200" height="900" class="absolute inset-0 w-full h-full object-cover object-center opacity-55 group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
 	                
 	                <div class="relative z-20 h-full flex flex-col justify-end">
 	                <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-4">
@@ -236,8 +271,11 @@ const logos = [
 	            <img
 	                src="/images/resultados/120%25-Tr%C3%A1fico-Org%C3%A1nico.jpg"
 	                alt="+120% Tráfico Orgánico"
+	                width="1200"
+	                height="900"
 	                class="absolute inset-0 w-full h-full object-cover opacity-25"
 	                loading="lazy"
+	                decoding="async"
 	            />
 	            <div class="absolute inset-0 bg-black/40"></div>
 	            <div class="relative z-10">
@@ -254,8 +292,11 @@ const logos = [
 	            <img
 	                src="/images/resultados/menos-tiempo-carga-web.jpg"
 	                alt="70% menos tiempo de carga"
+	                width="1200"
+	                height="900"
 	                class="absolute inset-0 w-full h-full object-cover opacity-25"
 	                loading="lazy"
+	                decoding="async"
 	            />
 	            <div class="absolute inset-0 bg-black/40"></div>
 	            <div class="relative z-10">
@@ -272,8 +313,11 @@ const logos = [
 	            <img
 	                src="/images/resultados/Primera-p%C3%A1gina-Google.jpg"
 	                alt="Primera página en Google"
+	                width="1200"
+	                height="600"
 	                class="absolute inset-0 w-full h-full object-cover opacity-25"
 	                loading="lazy"
+	                decoding="async"
 	            />
 	            <div class="absolute inset-0 bg-black/40"></div>
 	            <div class="relative z-10">
@@ -284,8 +328,11 @@ const logos = [
 	                <img
 	                    src="/logo-google.png"
 	                    alt="Google"
+	                    width="96"
+	                    height="96"
 	                    class="w-24 h-24 object-contain"
 	                    loading="lazy"
+	                    decoding="async"
 	                />
 	            </div>
 	        </BentoItem>

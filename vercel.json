@@ -1,3 +1,16 @@
 {
-  "version": 2
+  "version": 2,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "omarfuentes.com"
+        }
+      ],
+      "destination": "https://www.omarfuentes.com/$1",
+      "permanent": true
+    }
+  ]
 }

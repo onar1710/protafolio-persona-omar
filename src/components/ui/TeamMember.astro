@@ -21,6 +21,10 @@ const { name, role, image, twitter, github, linkedin } = Astro.props;
         <img 
             src={image} 
             alt={name} 
+            width="192"
+            height="192"
+            loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110" 
         />
     ) : (

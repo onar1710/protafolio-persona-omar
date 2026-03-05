@@ -79,13 +79,13 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
       <span class="md:hidden lg:inline text-base font-semibold">{t['brand.name'] || siteConfig.name}</span>
     </a>
     <div class="flex-1 flex justify-center mx-4 lg:mx-8">
-      <DesktopNav client:load links={links} currentPath={Astro.url.pathname} />
+      <DesktopNav client:idle links={links} currentPath={Astro.url.pathname} />
     </div>
 
     {/* Mobile/Flyout Menu */}
     <div class="flex items-center gap-4 flex-shrink-0">
       {siteConfig.search.enabled && <Search 
-        client:load 
+        client:idle 
         placeholder={t['search.placeholder']} 
         devModalLabels={{
             title: t['dev.search.title'],
@@ -113,7 +113,7 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
       
       <div class="md:hidden">
         <MobileMenu 
-          client:load 
+          client:idle 
           links={links} 
           currentPath={Astro.url.pathname} 
           labels={{

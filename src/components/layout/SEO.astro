@@ -52,8 +52,7 @@ const robots = [
 <meta name="generator" content={Astro.generator} />
 
 <!-- DNS Prefetch for Performance -->
-<link rel="dns-prefetch" href="//fonts.googleapis.com" />
-<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
 
 <!-- Robots -->
 <meta name="robots" content={robots} />
@@ -130,13 +129,3 @@ const robots = [
 <meta name="distribution" content="global" />
 <meta name="rating" content="general" />
 <meta name="revisit-after" content="7 days" />
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NBYYE8QMXG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NBYYE8QMXG');
-</script>

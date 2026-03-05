@@ -39,6 +39,11 @@ export default function Search({ placeholder = "Search...", devModalLabels, lang
       link.href = '/pagefind/pagefind-ui.css';
       document.head.appendChild(link);
 
+      const customLink = document.createElement('link');
+      customLink.rel = 'stylesheet';
+      customLink.href = '/pagefind-custom.css';
+      document.head.appendChild(customLink);
+
       // 2. Load JS
       const script = document.createElement('script');
       script.src = '/pagefind/pagefind-ui.js';
@@ -64,6 +69,12 @@ export default function Search({ placeholder = "Search...", devModalLabels, lang
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (import.meta.env.DEV) return;
+    loadPagefind().catch(() => {});
   }, [open]);
 
   return (

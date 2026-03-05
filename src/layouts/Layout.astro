@@ -71,6 +71,7 @@ const dir = isRtl(lang) ? 'rtl' : 'ltr';
         <Schema item={{
             "@context": "https://schema.org",
             "@type": "Organization",
+            "@id": `${Astro.site}#organization`,
             "name": brandName,
             "url": Astro.site,
             "logo": new URL(siteConfig.logo.src, Astro.site).toString(),
@@ -97,6 +98,20 @@ const dir = isRtl(lang) ? 'rtl' : 'ltr';
           :theme {
             --color-primary: var(--primary);
           }
+
+          .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px 16px;
+            z-index: 100;
+          }
+
+          .skip-link:focus {
+            top: 0;
+          }
         </style>
         {/* Pagefind UI assets are now lazily loaded in the Search component to improve LCP/FCP */}
         {/* siteConfig.search.enabled && import.meta.env.PROD && (
@@ -109,6 +124,7 @@ const dir = isRtl(lang) ? 'rtl' : 'ltr';
         <slot name="head" />
 		</head>
 		<body class="min-h-screen flex flex-col antialiased bg-background text-foreground selection:bg-primary selection:text-white">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
         <div class="fixed inset-0 z-[-1] bg-background"></div>
 
         <div class="fixed top-0 w-full z-50 flex flex-col items-stretch">
@@ -126,12 +142,12 @@ const dir = isRtl(lang) ? 'rtl' : 'ltr';
             )}
             <Header availableLangs={availableLangs} />
         </div>
-		<main data-pagefind-body>
+		<main id="main-content" tabindex="-1" data-pagefind-body>
 			<slot />
 		</main>
         <CookieConsent />
 		<Footer />
-		<SpeedInsights />
-		<VercelAnalytics />
+		{import.meta.env.PROD && <SpeedInsights />}
+		{import.meta.env.PROD && <VercelAnalytics />}
 	</body>
 </html>

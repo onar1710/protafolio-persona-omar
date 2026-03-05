@@ -20,17 +20,6 @@ const allPosts = await getCollection('blog', ({ data }) => {
 // Extraer el nombre del archivo del slug actual
 const currentFileName = currentSlug ? currentSlug.split('/').pop()?.replace('.html', '') || '' : '';
 
-// Debug para ver qué está pasando
-console.log('CurrentSlug:', currentSlug);
-console.log('CurrentFileName:', currentFileName);
-
-// Debug para ver la estructura de los posts
-console.log('All posts structure:', allPosts.map(p => ({
-  id: p.id,
-  slug: p.slug,
-  title: p.data.title
-})));
-
 // Construir la ruta correcta según el sistema de rutas
 const getPostPath = (post) => {
   // Extraer solo el slug sin el idioma
@@ -61,12 +50,6 @@ const relatedPosts = allPosts
   })
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
   .slice(0, 3);
-
-console.log('Slug actual:', currentArticleSlug);
-console.log('Posts relacionados:', relatedPosts.map(p => ({ 
-  title: p.data.title, 
-  slug: p.id.split('/').pop()?.replace('.md', '')
-})));
 ---
 
 <section class="mt-20 border-t border-black/10 dark:border-white/10 pt-12">
