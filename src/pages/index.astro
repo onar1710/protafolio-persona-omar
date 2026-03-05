@@ -550,9 +550,10 @@ const googleReviews = [
                     <Image src={googleLogoImage} alt="Google" width={64} height={24} class="h-6 w-16 object-contain" loading="lazy" decoding="async" />
                   </div>
 
-                  <div class="flex items-center justify-center gap-1" aria-label={`${review.rating} de 5 estrellas`}>
+                  <div class="flex items-center justify-center gap-1">
+                    <span class="sr-only">{review.rating} de 5 estrellas</span>
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star className={`w-4 h-4 ${i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} aria-hidden="true" />
+                      <Star className={`w-4 h-4 ${i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} aria-hidden="true" focusable="false" />
                     ))}
                   </div>
 
