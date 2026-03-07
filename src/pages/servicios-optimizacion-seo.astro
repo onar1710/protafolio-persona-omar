@@ -1,0 +1,538 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Schema from '~/components/layout/Schema.astro';
+import Section from '~/components/layout/Section.astro';
+import Container from '~/components/ui/Container.astro';
+import ContactForm from '~/components/islands/ContactForm.jsx';
+import { ArrowRight, BarChart3, Check, ChevronRight, FileSearch, LineChart, Search, ShieldCheck, Target, TrendingUp } from 'lucide-react';
+
+const pageTitle = 'Servicios de Optimización SEO: Eleva Tu Sitio Web al Top de los Buscadores';
+const pageKeywords = 'optimización SEO, servicios SEO freelancer, mejorar ranking web, tráfico orgánico, palabras clave sitio web, backlinks éticos, auditoría SEO gratuita, conversión web, estrategia off-page, SEO on-page';
+const pageDescription = 'Como experto, ofrezco optimización SEO personalizada para elevar tu sitio web en buscadores. Aumenta tráfico y conversiones con planes flexibles. ¡Auditoría gratis!';
+
+const benefits = [
+  {
+    title: 'Tráfico orgánico explosivo',
+    description: 'Atrae visitantes cualificados sin depender de campañas pagadas y construye un canal de adquisición más rentable.'
+  },
+  {
+    title: 'Mejora en posiciones',
+    description: 'Trabajo las palabras clave correctas para que tu sitio gane visibilidad frente a competidores directos.'
+  },
+  {
+    title: 'Conversión máxima',
+    description: 'Optimizo estructura, mensajes y páginas clave para convertir visitas en consultas, leads y ventas.'
+  },
+  {
+    title: 'Reportes claros',
+    description: 'Recibes seguimiento con métricas útiles: tráfico, rankings, oportunidades y avances medibles.'
+  }
+];
+
+const process = [
+  'Evaluación inicial gratuita del sitio y detección de fallos críticos.',
+  'Búsqueda de palabras clave con intención comercial y oportunidades reales.',
+  'Optimización on-page avanzada en títulos, descripciones, contenido, enlazado y velocidad.',
+  'Estrategia off-page inteligente con enlaces de calidad y autoridad progresiva.',
+  'Monitoreo continuo y ajustes mensuales según datos y cambios del algoritmo.'
+];
+
+const plans = [
+  {
+    name: 'Básico',
+    price: '$150 USD',
+    description: 'Evaluación + Optimización on-page básica + Reporte mensual',
+    highlight: 'Perfecto para proyectos pequeños. Empieza a subir posiciones rápido.',
+    features: [
+      'Auditoría SEO inicial',
+      'Optimización de títulos y metadescripciones',
+      'Ajustes básicos de contenido y estructura',
+      'Reporte mensual de progreso'
+    ]
+  },
+  {
+    name: 'Premium',
+    price: '$400 USD',
+    description: 'Todo lo básico + Búsqueda de palabras clave + Enlaces éticos + Contenido optimizado (2 piezas/mes)',
+    highlight: 'Para crecimiento acelerado. Multiplica tu tráfico en meses.',
+    featured: true,
+    features: [
+      'Todo lo del plan Básico',
+      'Keyword research estratégico',
+      'Link building ético',
+      '2 piezas de contenido optimizado al mes',
+      'Prioridad en implementación'
+    ]
+  },
+  {
+    name: 'Avanzado',
+    price: '$800 USD',
+    description: 'Todo lo premium + Estrategia off-page completa + Optimización técnica profunda + Soporte prioritario',
+    highlight: 'Para proyectos ambiciosos. Domina tu nicho a gran escala.',
+    features: [
+      'Todo lo del plan Premium',
+      'Optimización técnica avanzada',
+      'Estrategia off-page completa',
+      'Soporte prioritario',
+      'Seguimiento más intensivo'
+    ]
+  }
+];
+
+const faqs = [
+  {
+    question: '¿Cuánto tiempo toma ver resultados?',
+    answer: 'Normalmente los impactos más fuertes se notan entre 3 y 6 meses, aunque muchas mejoras técnicas y de indexación pueden verse en pocas semanas.'
+  },
+  {
+    question: '¿Es seguro para mi sitio?',
+    answer: 'Sí. Trabajo con SEO ético para evitar riesgos de penalización y construir resultados sostenibles.'
+  },
+  {
+    question: '¿Qué pasa si no estoy satisfecho?',
+    answer: 'Incluyo revisiones en el primer mes para ajustar la estrategia y alinear el trabajo con tus objetivos.'
+  },
+  {
+    question: '¿Incluye optimización para móviles?',
+    answer: 'Sí. La experiencia móvil forma parte de la optimización porque afecta posicionamiento, usabilidad y conversión.'
+  }
+];
+
+const testimonials = [
+  {
+    quote: 'Gracias a esta optimización, mi sitio pasó de 500 visitas mensuales a más de 5,000. Las conversiones se triplicaron.',
+    name: 'María López',
+    role: 'Propietaria de E-commerce',
+    metric: 'De 500 a 5,000 clics mensuales',
+    image: '/assets/500-5000-clik-optimizacio-seo.jpg',
+    imageAlt: 'Evidencia de crecimiento de 500 a 5000 clics con optimización SEO',
+    avatar: '/assets/testimonio-mujer-seo.jpg',
+    avatarAlt: 'Foto de María López',
+    accent: 'blue'
+  },
+  {
+    quote: 'En solo 4 meses, rankeo en las primeras posiciones para mis keywords principales. Recomendado al 100%.',
+    name: 'Juan Pérez',
+    role: 'Emprendedor digital',
+    metric: 'Primeras posiciones en 4 meses',
+    image: '/assets/4-meses-ranking.jpg',
+    imageAlt: 'Captura de resultados de ranking logrados en 4 meses',
+    avatar: '/assets/testimonios-hombre-seo.jpg',
+    avatarAlt: 'Foto de Juan Pérez',
+    accent: 'purple'
+  }
+];
+
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={pageKeywords}>
+  <Schema item={{
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${Astro.site}servicios-optimizacion-seo#service`,
+    name: pageTitle,
+    description: pageDescription,
+    serviceType: 'Optimización SEO',
+    provider: {
+      '@type': 'Person',
+      name: 'Omar Fuentes'
+    },
+    areaServed: 'Colombia',
+    offers: plans.map((plan) => ({
+      '@type': 'Offer',
+      price: plan.price.replace(/[^0-9]/g, ''),
+      priceCurrency: 'USD',
+      name: plan.name,
+      description: plan.description
+    }))
+  }} />
+  <Schema item={{
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  }} />
+
+  <Section class="overflow-hidden pt-16 md:pt-24">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]"></div>
+      <div class="absolute right-0 top-24 h-[320px] w-[320px] rounded-full bg-blue-500/10 blur-[120px]"></div>
+      <div class="absolute left-0 bottom-0 h-[320px] w-[320px] rounded-full bg-purple-500/10 blur-[120px]"></div>
+    </div>
+
+    <Container class="relative z-10">
+      <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            Optimización SEO personalizada
+          </div>
+
+          <h1 class="mt-6 max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">
+            Servicios de Optimización SEO: Eleva Tu Sitio Web al Top de los Buscadores
+          </h1>
+
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-foreground/70 md:text-xl">
+            ¿Estás harto de que tu sitio web pase desapercibido en las búsquedas? Imagina multiplicar tu tráfico orgánico, atraer clientes ideales y ver cómo tus conversiones se disparan sin derrochar en anuncios pagados. Como freelancer especializado en SEO, transformo sitios web invisibles en potentes generadores de oportunidades.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="#contacto-seo" aria-label="Solicitar evaluación SEO gratuita" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-black transition hover:bg-primary/90">
+              Solicitar evaluación gratuita
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <a href="#planes" aria-label="Ver planes de optimización SEO" class="inline-flex items-center justify-center gap-2 rounded-full border border-foreground/15 bg-background/70 px-6 py-3 text-sm font-semibold transition hover:border-primary/40 hover:bg-foreground/5">
+              Ver planes
+              <ChevronRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div class="mt-10 grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-foreground/10 bg-foreground/5 p-5 backdrop-blur-sm">
+              <div class="text-3xl font-bold text-primary">300%</div>
+              <p class="mt-2 text-sm text-foreground/70">Hasta de incremento de tráfico en 6 meses según el enfoque presentado.</p>
+            </div>
+            <div class="rounded-2xl border border-foreground/10 bg-foreground/5 p-5 backdrop-blur-sm">
+              <div class="text-3xl font-bold text-primary">3-6 meses</div>
+              <p class="mt-2 text-sm text-foreground/70">Horizonte habitual para ver impactos grandes y sostenibles.</p>
+            </div>
+            <div class="rounded-2xl border border-foreground/10 bg-foreground/5 p-5 backdrop-blur-sm">
+              <div class="text-3xl font-bold text-primary">100%</div>
+              <p class="mt-2 text-sm text-foreground/70">Estrategia adaptada al tipo de sitio, sector y objetivos del proyecto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 rounded-[2rem] bg-linear-to-br from-primary/20 via-transparent to-blue-500/20 blur-2xl"></div>
+          <div class="relative overflow-hidden rounded-[2rem] border border-foreground/10 bg-background/80 p-8 shadow-2xl shadow-black/20 backdrop-blur-xl">
+            <div class="flex items-start justify-between gap-4 border-b border-foreground/10 pb-6">
+              <div>
+                <p class="text-sm font-medium uppercase tracking-[0.18em] text-primary">Diagnóstico SEO</p>
+                <h2 class="mt-3 text-2xl font-bold">Por qué tu sitio necesita optimización ahora mismo</h2>
+              </div>
+              <div class="rounded-2xl bg-primary/10 p-3 text-primary">
+                <Search className="h-6 w-6" />
+              </div>
+            </div>
+
+            <div class="mt-6 space-y-5 text-sm leading-7 text-foreground/70">
+              <p>
+                En un entorno donde la mayoría de usuarios no pasa de la primera página, descuidar el SEO es perder visibilidad, contactos y ventas cada día.
+              </p>
+              <p>
+                Mi servicio no es un parche temporal. Es una estrategia completa basada en datos, herramientas de análisis y optimización continua para atraer tráfico relevante y convertirlo mejor.
+              </p>
+            </div>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-foreground/10 bg-foreground/5 p-5">
+                <div class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400">
+                  <TrendingUp className="h-5 w-5" />
+                </div>
+                <h3 class="font-semibold">Ranking más fuerte</h3>
+                <p class="mt-2 text-sm text-foreground/65">Avanza en búsquedas relevantes con optimización on-page y técnica.</p>
+              </div>
+              <div class="rounded-2xl border border-foreground/10 bg-foreground/5 p-5">
+                <div class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                  <Target className="h-5 w-5" />
+                </div>
+                <h3 class="font-semibold">Más leads calificados</h3>
+                <p class="mt-2 text-sm text-foreground/65">Atrae visitas con intención real de compra o contacto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section class="py-24">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold md:text-5xl">Los beneficios de una optimización SEO bien ejecutada</h2>
+        <p class="mt-4 text-lg text-foreground/70">
+          No se trata solo de subir posiciones. Se trata de construir una fuente estable de tráfico, autoridad y conversiones para tu negocio.
+        </p>
+      </div>
+
+      <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {benefits.map((item, index) => (
+          <article class="group rounded-3xl border border-foreground/10 bg-foreground/5 p-7 transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-foreground/7">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+              {index === 0 && <TrendingUp className="h-6 w-6" />}
+              {index === 1 && <LineChart className="h-6 w-6" />}
+              {index === 2 && <Target className="h-6 w-6" />}
+              {index === 3 && <BarChart3 className="h-6 w-6" />}
+            </div>
+            <h3 class="text-xl font-semibold">{item.title}</h3>
+            <p class="mt-3 text-sm leading-7 text-foreground/70">{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </Section>
+
+  <Section class="py-24 bg-foreground/3">
+    <Container>
+      <div class="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div>
+          <h2 class="text-3xl font-bold md:text-5xl">Mi proceso probado: de la evaluación al dominio digital</h2>
+          <p class="mt-5 text-lg leading-8 text-foreground/70">
+            Trabajo con un método claro, con foco en técnica, contenido, autoridad y medición. Cada fase busca impacto real en visibilidad y negocio.
+          </p>
+
+          <div class="mt-8 rounded-3xl border border-primary/20 bg-primary/10 p-6">
+            <div class="flex items-center gap-3">
+              <div class="rounded-2xl bg-primary/15 p-3 text-primary">
+                <ShieldCheck className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 class="font-semibold">SEO ético y sostenible</h3>
+                <p class="text-sm text-foreground/70">Sin atajos riesgosos. Sin prácticas que comprometan tu sitio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          {process.map((step, index) => (
+            <div class="flex gap-4 rounded-3xl border border-foreground/10 bg-background/80 p-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-base font-bold text-black">
+                {index + 1}
+              </div>
+              <div>
+                <p class="text-base leading-7 text-foreground/80">{step}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section class="py-24 bg-foreground/3">
+    <Container>
+      <div class="grid gap-8 xl:grid-cols-[minmax(0,1.25fr)_360px] xl:items-start">
+        <div class="min-w-0">
+          <h2 class="text-3xl font-bold md:text-5xl">Resultados reales y respuestas claras</h2>
+          <p class="mt-4 max-w-3xl text-lg text-foreground/70">
+            El objetivo es que tu sitio deje de ser invisible y empiece a generar oportunidades constantes. Eso exige estrategia, ejecución y seguimiento.
+          </p>
+
+          <div class="mt-10 grid gap-6 lg:grid-cols-2">
+            {testimonials.map((testimonial) => (
+              <article class="flex h-full flex-col overflow-hidden rounded-[2rem] border border-foreground/10 bg-background/85 shadow-xl shadow-black/10 backdrop-blur-sm">
+                <div class="relative aspect-[16/10] overflow-hidden border-b border-foreground/10 bg-foreground/5">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.imageAlt}
+                    width="1600"
+                    height="1000"
+                    class="h-full w-full object-cover transition duration-500 hover:scale-[1.02]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                <div class="flex h-full flex-col p-7 pt-0">
+                  <div class="-mt-10 mb-5 flex items-end justify-between gap-4">
+                    <div class="flex items-center gap-4 rounded-full bg-background/95 pr-5 shadow-lg shadow-black/15 ring-1 ring-foreground/10 backdrop-blur-sm">
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.avatarAlt}
+                        width="160"
+                        height="160"
+                        class="h-20 w-20 rounded-full object-cover border-4 border-background shrink-0"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div class="pr-1">
+                        <p class="text-base font-semibold text-foreground leading-tight">{testimonial.name}</p>
+                        <p class="mt-1 text-sm text-foreground/65 leading-tight">{testimonial.role}</p>
+                      </div>
+                    </div>
+
+                    <div class={`rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] ${testimonial.accent === 'blue' ? 'bg-blue-500/10 text-blue-300' : 'bg-purple-500/10 text-purple-300'}`}>
+                      {testimonial.metric}
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-4">
+                    <div class={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${testimonial.accent === 'blue' ? 'bg-blue-500/10 text-blue-400' : 'bg-purple-500/10 text-purple-400'}`}>
+                      {testimonial.accent === 'blue' ? <FileSearch className="h-5 w-5" /> : <LineChart className="h-5 w-5" />}
+                    </div>
+                    <p class="text-lg leading-8 text-foreground/85">&quot;{testimonial.quote}&quot;</p>
+                  </div>
+
+                  <div class="mt-auto border-t border-foreground/10 pt-5 text-sm text-foreground/55">
+                    Caso real de cliente con resultados visibles tras la optimización SEO.
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <aside class="h-fit rounded-[2rem] border border-foreground/10 bg-background/80 p-8 xl:mt-[10.5rem]">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-medium uppercase tracking-[0.18em] text-primary">Crecimiento estimado</p>
+              <h3 class="mt-2 text-2xl font-bold">Impacto visual del servicio</h3>
+            </div>
+            <div class="rounded-2xl bg-primary/10 p-3 text-primary">
+              <BarChart3 className="h-6 w-6" />
+            </div>
+          </div>
+
+          <div class="mt-10 space-y-6">
+            <div>
+              <div class="mb-2 flex items-center justify-between text-sm font-medium">
+                <span>Tráfico orgánico</span>
+                <span>+250%</span>
+              </div>
+              <div class="h-3 overflow-hidden rounded-full bg-foreground/10">
+                <div class="h-full w-[88%] rounded-full bg-linear-to-r from-primary to-emerald-400"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="mb-2 flex items-center justify-between text-sm font-medium">
+                <span>Visibilidad de palabras clave</span>
+                <span>+180%</span>
+              </div>
+              <div class="h-3 overflow-hidden rounded-full bg-foreground/10">
+                <div class="h-full w-[76%] rounded-full bg-linear-to-r from-blue-400 to-primary"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="mb-2 flex items-center justify-between text-sm font-medium">
+                <span>Conversión</span>
+                <span>+120%</span>
+              </div>
+              <div class="h-3 overflow-hidden rounded-full bg-foreground/10">
+                <div class="h-full w-[68%] rounded-full bg-linear-to-r from-purple-400 to-primary"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </Container>
+  </Section>
+
+  <Section id="planes" class="py-24">
+    <Container>
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl font-bold md:text-5xl">Precios</h2>
+          <p class="mt-4 text-lg text-foreground/70">
+            Elige el plan de optimización SEO que mejor encaje con tu proyecto. Si no encaja, preparo una propuesta a medida.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-14 grid gap-6 lg:grid-cols-3">
+        {plans.map((plan) => (
+          <article class={`relative flex h-full flex-col rounded-[2rem] border p-8 ${plan.featured ? 'border-primary bg-primary/10 shadow-xl shadow-primary/10' : 'border-foreground/10 bg-foreground/5'}`}>
+            {plan.featured && (
+              <div class="absolute right-6 top-6 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-black">
+                Más elegido
+              </div>
+            )}
+            <div>
+              <h3 class="text-2xl font-bold">{plan.name}</h3>
+              <div class="mt-4 text-4xl font-bold text-primary">{plan.price}</div>
+              <p class="mt-4 text-sm leading-7 text-foreground/75">{plan.description}</p>
+              <p class="mt-4 text-sm font-medium text-foreground/90">{plan.highlight}</p>
+            </div>
+
+            <div class="mt-8 space-y-3">
+              {plan.features.map((feature) => (
+                <div class="flex items-start gap-3 text-sm text-foreground/80">
+                  <div class="mt-0.5 rounded-full bg-primary/15 p-1 text-primary">
+                    <Check className="h-3.5 w-3.5" />
+                  </div>
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <a href="#contacto-seo" class={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${plan.featured ? 'bg-primary text-black hover:bg-primary/90' : 'border border-foreground/15 bg-background/70 hover:border-primary/40 hover:bg-foreground/5'}`}>
+              Solicitar este plan
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </Section>
+
+  <Section class="py-24">
+    <Container>
+      <div class="mx-auto max-w-6xl">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl font-bold md:text-5xl">Preguntas frecuentes</h2>
+          <p class="mt-4 text-lg text-foreground/70">
+            Respuestas rápidas para ayudarte a tomar una decisión con claridad.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 lg:grid-cols-2 lg:gap-5">
+          {faqs.map((faq) => (
+            <article class="rounded-3xl border border-foreground/10 bg-foreground/5 p-6 h-full" aria-labelledby={faq.question}>
+              <h3 class="text-lg font-semibold">{faq.question}</h3>
+              <p class="mt-3 text-sm leading-7 text-foreground/70">{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section id="contacto-seo" class="py-24">
+    <Container>
+      <div class="overflow-hidden rounded-[2.5rem] border border-primary/20 bg-linear-to-br from-primary/10 via-background to-blue-500/10 p-8 md:p-12">
+        <div class="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Actúa ahora</p>
+            <h2 class="mt-4 text-3xl font-bold md:text-5xl">No permitas que la competencia te deje atrás</h2>
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-foreground/75">
+              Solicita tu evaluación SEO gratuita hoy y descubre cómo puedo impulsar tu proyecto. Completa el formulario o envíame un mensaje a joseomarfernandez747@gmail.com.
+            </p>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-3xl border border-foreground/10 bg-background/70 p-5">
+                <h3 class="font-semibold">Incluye en tu consulta</h3>
+                <div class="mt-4 space-y-3 text-sm text-foreground/70">
+                  <div class="flex gap-3"><span class="text-primary">01</span><span>Nombre</span></div>
+                  <div class="flex gap-3"><span class="text-primary">02</span><span>Email</span></div>
+                  <div class="flex gap-3"><span class="text-primary">03</span><span>Sitio Web</span></div>
+                  <div class="flex gap-3"><span class="text-primary">04</span><span>Mensaje</span></div>
+                </div>
+              </div>
+
+              <div class="rounded-3xl border border-foreground/10 bg-background/70 p-5">
+                <h3 class="font-semibold">Canales directos</h3>
+                <div class="mt-4 space-y-3 text-sm text-foreground/70">
+                  <p>Email: joseomarfernandez747@gmail.com</p>
+                  <p>WhatsApp: +57 310 785 1074</p>
+                  <p>Respuesta estimada: menos de 4 horas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mx-auto w-full max-w-xl">
+            <ContactForm client:visible />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+</Layout>

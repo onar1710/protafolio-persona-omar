@@ -2,29 +2,15 @@
 import Layout from '~/layouts/Layout.astro';
 import PageHeader from '~/components/layout/PageHeader.astro';
 import Container from '~/components/ui/Container.astro';
-
-const params = Astro.url.searchParams;
-const refPayco = params.get('ref_payco');
-const codResponse = params.get('x_cod_response') || params.get('cod_response');
-const isApproved = codResponse === '1';
-const isRejected = codResponse === '2';
 ---
 
-<Layout title="Confirmación de pago - Omar Fuentes" description="Confirmación de pago ePayco." >
-  <PageHeader title="Confirmación de pago" description="Estamos validando el estado de tu transacción." />
+<Layout title="Confirmación - Omar Fuentes" description="Contacto" >
+  <PageHeader title="Contacto" description="Redirigiendo..." />
 
   <Container as="section" class="pb-24">
-    {(isApproved || isRejected) && (
-      <meta http-equiv="refresh" content={`1;url=${isApproved ? '/pago-exitoso' : '/pago-fallido'}`} />
-    )}
+    <meta http-equiv="refresh" content="0;url=/contacto" />
     <div class="max-w-2xl mx-auto rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
-      <p class="text-muted-foreground">Si el pago fue aprobado, en unos instantes verás la confirmación.</p>
-      {refPayco && (
-        <p class="mt-4 text-sm text-muted-foreground">Referencia: <span class="font-semibold text-foreground">{refPayco}</span></p>
-      )}
-      {codResponse && (
-        <p class="mt-2 text-sm text-muted-foreground">Estado: <span class="font-semibold text-foreground">{codResponse}</span></p>
-      )}
+      <p class="text-muted-foreground">Redirigiendo a contacto...</p>
       <div class="mt-6 flex flex-col sm:flex-row gap-3">
         <a href="/" class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors">Volver al inicio</a>
         <a href="/contacto" class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold border border-black/10 dark:border-white/10 text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Contactar por WhatsApp</a>

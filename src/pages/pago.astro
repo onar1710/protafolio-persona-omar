@@ -1,0 +1,228 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Container from '~/components/ui/Container.astro';
+
+export const prerender = false;
+
+const params = Astro.url.searchParams;
+
+const concept = params.get('concept') || 'Pago de servicio';
+const amountStr = params.get('amount') || '';
+const amountDigits = amountStr.replace(/[^0-9]/g, '');
+const amountCop = Number.parseInt(amountDigits, 10);
+
+const hasAmount = amountDigits.trim().length > 0;
+const montoCop = Number.isFinite(amountCop) && amountCop > 0 ? amountCop : 0;
+const montoCentavos = montoCop * 100;
+
+const referencia = params.get('ref') || undefined;
+const descripcion = concept;
+
+const wompiPublicKey = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY || '';
+---
+
+<Layout title="Pago - Omar Fuentes" description="Pago seguro con Wompi" keywords="pago, wompi, pago seguro, pse, nequi" >
+  <Container as="section" class="pb-24">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-foreground">Pago</h1>
+        <p class="mt-2 text-sm text-muted-foreground">Pago seguro con Wompi.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div class="order-1 lg:order-1">
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+            <h2 class="text-xl font-bold">Detalles</h2>
+
+            <div class="mt-5 rounded-2xl border border-black/10 bg-white p-4 text-black">
+              <div class="grid gap-4">
+                <div>
+                  <label for="concept" class="block text-sm font-semibold">Concepto</label>
+                  <input id="concept" name="concept" value={concept} class="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-black" />
+                </div>
+                <div>
+                  <label for="amount" class="block text-sm font-semibold">Monto (COP)</label>
+                  <input id="amount" name="amount" inputmode="numeric" value={hasAmount ? amountDigits : ''} class="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-black" />
+                  <p class="mt-2 text-xs text-black/60">Escribe solo números.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pagar" class="order-2 lg:order-2 lg:col-start-2">
+          <div class="max-w-md mx-auto p-6 border border-black/10 dark:border-white/10 rounded-2xl bg-black/5 dark:bg-white/5">
+            <h2 class="text-2xl font-bold mb-2 text-center">Pagar con Wompi</h2>
+            <p class="text-sm text-muted-foreground mb-6 text-center">Pago seguro con tarjeta, PSE, Nequi, Daviplata y más.</p>
+            {!wompiPublicKey && (
+              <p class="mb-4 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-foreground">
+                Falta configurar Wompi. Revisa PUBLIC_WOMPI_PUBLIC_KEY en tu .env.
+              </p>
+            )}
+            <div id="wompi-widget-root" class="flex justify-center"></div>
+            <div id="wompi-empty" class="mt-4">
+              <button type="button" class="inline-flex w-full justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-black opacity-60 cursor-not-allowed" disabled>
+                Pagar con Wompi
+              </button>
+              <p class="mt-3 text-sm text-muted-foreground text-center">Escribe un monto para habilitar el botón de pago.</p>
+            </div>
+            <p id="wompi-error" class="hidden mt-4 text-sm text-red-500 text-center"></p>
+          </div>
+        </div>
+
+        <div class="order-3 lg:order-3 lg:col-start-1">
+          <div class="rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
+            <div class="space-y-3 text-sm">
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-muted-foreground">Concepto</span>
+                <span id="details-concept" class="font-semibold text-foreground text-right">{concept}</span>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-muted-foreground">Monto</span>
+                <span id="details-amount" class="font-semibold text-foreground">{montoCop > 0 ? `${montoCop.toLocaleString('es-CO')} COP` : '—'}</span>
+              </div>
+              <div id="details-error" class="hidden rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-foreground">
+                Escribe un monto válido (solo números). Ej: 250000
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-2xl border border-black/10 bg-white p-4 text-black">
+              <p class="text-sm text-black/70">
+                Si necesitas ajustar el monto o el concepto, escríbeme por WhatsApp antes de pagar.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <img src="/images/payments/visa.svg" alt="Visa" width="56" height="16" class="h-4 w-auto" loading="lazy" decoding="async" />
+                <img src="/images/payments/mastercard.svg" alt="Mastercard" width="56" height="16" class="h-4 w-auto" loading="lazy" decoding="async" />
+                <img src="/images/payments/pse-seeklogo.png" alt="PSE" width="56" height="16" class="h-5 w-auto" loading="lazy" decoding="async" />
+                <img src="/images/payments/nequi-seeklogo.png" alt="Nequi" width="56" height="16" class="h-5 w-auto" loading="lazy" decoding="async" />
+                <img src="/images/payments/daviplata-seeklogo.png" alt="Daviplata" width="56" height="16" class="h-5 w-auto" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center">
+        <a href="/contacto" class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold border border-black/10 dark:border-white/10 text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors">¿Necesitas ayuda? Contáctame</a>
+      </div>
+    </div>
+  </Container>
+
+  <script is:inline define:vars={{ referencia, wompiPublicKey }}>
+    (function () {
+      const conceptEl = document.getElementById('concept');
+      const amountEl = document.getElementById('amount');
+      const detailsConceptEl = document.getElementById('details-concept');
+      const detailsAmountEl = document.getElementById('details-amount');
+      const detailsErrorEl = document.getElementById('details-error');
+
+      const widgetRoot = document.getElementById('wompi-widget-root');
+      const emptyEl = document.getElementById('wompi-empty');
+      const errorEl = document.getElementById('wompi-error');
+
+      const publicKey = String(wompiPublicKey || '');
+
+      let currentReference = (typeof referencia === 'string' && referencia) ? referencia : '';
+      if (!currentReference) {
+        currentReference = 'orden-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+      }
+
+      function formatCop(n) {
+        try { return n.toLocaleString('es-CO') + ' COP'; } catch { return String(n) + ' COP'; }
+      }
+
+      function sanitizeDigits(v) {
+        return String(v || '').replace(/[^0-9]/g, '');
+      }
+
+      function setHidden(el, hidden) {
+        if (!el) return;
+        el.classList.toggle('hidden', !!hidden);
+      }
+
+      function setText(el, text) {
+        if (!el) return;
+        el.textContent = text;
+      }
+
+      function clearWidget() {
+        if (widgetRoot) widgetRoot.innerHTML = '';
+      }
+
+      async function renderWidget() {
+        const conceptVal = String(conceptEl?.value || '').trim() || 'Pago de servicio';
+        const amountDigits = sanitizeDigits(amountEl?.value);
+        const montoCop = parseInt(amountDigits, 10);
+
+        setText(detailsConceptEl, conceptVal);
+
+        const isValid = Number.isFinite(montoCop) && montoCop > 0;
+        setText(detailsAmountEl, isValid ? formatCop(montoCop) : '—');
+        setHidden(detailsErrorEl, !(amountDigits && !isValid));
+
+        setHidden(errorEl, true);
+        if (!isValid) {
+          clearWidget();
+          setHidden(emptyEl, false);
+          return;
+        }
+
+        if (!publicKey) {
+          clearWidget();
+          setHidden(emptyEl, true);
+          setText(errorEl, 'Wompi no está configurado.');
+          setHidden(errorEl, false);
+          return;
+        }
+
+        setHidden(emptyEl, true);
+
+        const montoCentavos = montoCop * 100;
+
+        try {
+          const res = await fetch('/api/generar-firma', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ referencia: currentReference, montoCentavos }),
+          });
+
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || !data?.firma) {
+            throw new Error('firma');
+          }
+
+          clearWidget();
+
+          const widgetScript = document.createElement('script');
+          widgetScript.src = 'https://checkout.wompi.co/widget.js';
+          widgetScript.setAttribute('data-render', 'button');
+          widgetScript.setAttribute('data-public-key', publicKey);
+          widgetScript.setAttribute('data-currency', 'COP');
+          widgetScript.setAttribute('data-amount-in-cents', String(montoCentavos));
+          widgetScript.setAttribute('data-reference', currentReference);
+          widgetScript.setAttribute('data-description', conceptVal);
+          widgetScript.setAttribute('data-signature:integrity', data.firma);
+          widgetScript.setAttribute('data-button-label', 'Pagar ' + (montoCop).toLocaleString('es-CO') + ' COP');
+          widgetScript.setAttribute('data-redirect-url', window.location.origin + '/gracias?ref=' + encodeURIComponent(currentReference));
+
+          widgetRoot?.appendChild(widgetScript);
+        } catch {
+          clearWidget();
+          setText(errorEl, 'No se pudo inicializar el pago.');
+          setHidden(errorEl, false);
+        }
+      }
+
+      let t;
+      function schedule() {
+        window.clearTimeout(t);
+        t = window.setTimeout(renderWidget, 250);
+      }
+
+      conceptEl?.addEventListener('input', schedule);
+      amountEl?.addEventListener('input', schedule);
+
+      renderWidget();
+    })();
+  </script>
+</Layout>

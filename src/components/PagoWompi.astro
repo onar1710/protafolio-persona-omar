@@ -1,0 +1,96 @@
+---
+type Props = {
+  referencia?: string;
+  montoCentavos?: number;
+  descripcion?: string;
+};
+
+const { referencia: referenciaProp, montoCentavos: montoCentavosProp, descripcion: descripcionProp } = Astro.props as Props;
+
+const referencia =
+  typeof referenciaProp === 'string' && referenciaProp.trim().length > 0
+    ? referenciaProp
+    : 'orden-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+
+const montoCentavos = typeof montoCentavosProp === 'number' && Number.isFinite(montoCentavosProp) && montoCentavosProp > 0
+  ? Math.floor(montoCentavosProp)
+  : 250000;
+
+const descripcion = typeof descripcionProp === 'string' && descripcionProp.trim().length > 0
+  ? descripcionProp
+  : 'Pago de servicio';
+
+const publicKey = import.meta.env.PUBLIC_WOMPI_PUBLIC_KEY;
+---
+
+<div class="max-w-md mx-auto p-6 border border-black/10 dark:border-white/10 rounded-2xl bg-black/5 dark:bg-white/5">
+  <h2 class="text-2xl font-bold mb-2 text-center">Pagar con Wompi</h2>
+  <p class="text-sm text-muted-foreground mb-6 text-center">Pago seguro con tarjeta, PSE, Nequi, Daviplata y más.</p>
+
+  <div id="wompi-widget-root" class="flex justify-center"></div>
+
+  <p id="wompi-error" class="hidden mt-4 text-sm text-red-500 text-center"></p>
+
+  <p class="text-xs text-muted-foreground mt-4 text-center">
+    Al continuar, serás redirigido al checkout de Wompi.
+  </p>
+</div>
+
+<script is:inline define:vars={{ referencia, montoCentavos, descripcion, publicKey }}>
+  (async function () {
+    const errorEl = document.getElementById('wompi-error');
+    const root = document.getElementById('wompi-widget-root');
+
+    function showError(msg) {
+      if (!errorEl) return;
+      errorEl.textContent = msg;
+      errorEl.classList.remove('hidden');
+    }
+
+    if (!root) {
+      showError('No se pudo inicializar el pago.');
+      return;
+    }
+
+    if (!publicKey) {
+      showError('Wompi no está configurado.');
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/generar-firma', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ referencia, montoCentavos }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data?.firma) {
+        showError('No se pudo generar la firma de pago.');
+        return;
+      }
+
+      const widgetScript = document.createElement('script');
+      widgetScript.src = 'https://checkout.wompi.co/widget.js';
+      widgetScript.setAttribute('data-render', 'button');
+      widgetScript.setAttribute('data-public-key', publicKey);
+      widgetScript.setAttribute('data-currency', 'COP');
+      widgetScript.setAttribute('data-amount-in-cents', String(montoCentavos));
+      widgetScript.setAttribute('data-reference', referencia);
+      widgetScript.setAttribute('data-description', descripcion);
+      widgetScript.setAttribute('data-signature:integrity', data.firma);
+      widgetScript.setAttribute(
+        'data-button-label',
+        'Pagar ' + (montoCentavos / 100).toLocaleString('es-CO') + ' COP ahora'
+      );
+      widgetScript.setAttribute(
+        'data-redirect-url',
+        window.location.origin + '/gracias?ref=' + encodeURIComponent(referencia)
+      );
+
+      root.appendChild(widgetScript);
+    } catch (e) {
+      showError('Error inicializando el pago.');
+    }
+  })();
+</script>

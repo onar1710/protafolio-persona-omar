@@ -20,34 +20,6 @@ const t = useTranslations(lang);
           </p>
         </div>
 
-        <div class="w-full">
-          <p class="text-sm text-muted-foreground/80">
-            Pagos seguros con ePayco. <a href="/politica-de-reembolso" class="underline underline-offset-4 hover:text-foreground transition-colors">Política de reembolso</a>
-          </p>
-          <div class="mt-3 flex flex-col gap-3">
-            <div class="flex items-center">
-              <img src="/images/payments/epayco%20(1).png" alt="ePayco" width="180" height="48" class="h-12 w-auto opacity-95" loading="lazy" decoding="async" />
-            </div>
-
-            <div class="flex flex-wrap items-center gap-3">
-              <img src="/images/payments/visa.svg" alt="Visa" width="56" height="16" class="h-4 w-auto opacity-90" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-              <span style="display:none" class="rounded-full border border-foreground/10 px-3 py-1 text-xs text-muted-foreground">Visa</span>
-
-              <img src="/images/payments/mastercard.svg" alt="Mastercard" width="56" height="16" class="h-4 w-auto opacity-90" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-              <span style="display:none" class="rounded-full border border-foreground/10 px-3 py-1 text-xs text-muted-foreground">Mastercard</span>
-
-              <img src="/images/payments/pse-seeklogo.png" alt="PSE" width="70" height="20" class="h-5 w-auto opacity-90" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-              <span style="display:none" class="rounded-full border border-foreground/10 px-3 py-1 text-xs text-muted-foreground">PSE</span>
-
-              <img src="/images/payments/nequi-seeklogo.png" alt="Nequi" width="56" height="16" class="h-4 w-auto opacity-90" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-              <span style="display:none" class="rounded-full border border-foreground/10 px-3 py-1 text-xs text-muted-foreground">Nequi</span>
-
-              <img src="/images/payments/daviplata-seeklogo.png" alt="Daviplata" width="56" height="16" class="h-4 w-auto opacity-90" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
-              <span style="display:none" class="rounded-full border border-foreground/10 px-3 py-1 text-xs text-muted-foreground">Daviplata</span>
-            </div>
-          </div>
-        </div>
-
         <div class="mt-4 w-full">
           <h3 class="text-sm font-semibold text-foreground mb-2">{t['footer.newsletter.title']}</h3>
           <form class="flex gap-2 max-w-sm w-full">
@@ -93,14 +65,31 @@ const t = useTranslations(lang);
       ))}
     </div>
 
+    <div class="mb-12 rounded-2xl border border-black/10 bg-white px-4 py-3 text-black">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div class="flex items-center gap-4">
+          <img src="/images/payments/wompi.svg" alt="Wompi" width="290" height="85" class="h-11 w-auto origin-left scale-125" loading="lazy" decoding="async" />
+          <span class="text-sm font-semibold text-black">Pago seguro con</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <img src="/images/payments/visa.svg" alt="Visa" width="56" height="16" class="h-4 w-auto" loading="lazy" decoding="async" />
+          <img src="/images/payments/mastercard.svg" alt="Mastercard" width="56" height="16" class="h-4 w-auto" loading="lazy" decoding="async" />
+          <img src="/images/payments/pse-seeklogo.png" alt="PSE" width="56" height="16" class="h-5 w-auto" loading="lazy" decoding="async" />
+          <img src="/images/payments/nequi-seeklogo.png" alt="Nequi" width="56" height="16" class="h-5 w-auto" loading="lazy" decoding="async" />
+          <img src="/images/payments/daviplata-seeklogo.png" alt="Daviplata" width="56" height="16" class="h-5 w-auto" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+
     <div class="pt-8 border-t border-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="text-muted-foreground text-sm">
         {(t['footer.copyright'] || '').replace('{year}', today.getFullYear().toString())}
       </div>
-      
-      <div class="flex gap-4">
-        <a href={ACTION_LINKS.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-foreground transition-colors" aria-label="LinkedIn">
-          <Linkedin className="w-5 h-5" strokeWidth={1.5} />
+	  
+	  <div class="flex gap-4">
+		<a href={ACTION_LINKS.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-foreground transition-colors" aria-label="LinkedIn">
+		  <Linkedin className="w-5 h-5" strokeWidth={1.5} />
         </a>
         <a href={ACTION_LINKS.social.youtube} target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-foreground transition-colors" aria-label="YouTube">
           <Youtube className="w-5 h-5" strokeWidth={1.5} />

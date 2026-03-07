@@ -35,7 +35,7 @@ Así que ponte cómodo, tómate tu tiempo y lee esta guía completa. Sé que te 
     <h4 style="color: white; margin: 0; font-size: 1.25rem; font-weight: 600;">¿Buscas una agencia SEO seria y transparente?</h4>
   </div>
   <p style="color: #e2e8f0; margin-bottom: 1rem; font-size: 0.95rem;">Somos especialistas en posicionamiento web en Colombia. Te mostramos resultados reales, no promesas.</p>
-  <a href="/servicios/" style="background: #00008B; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='#000066'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#00008B'; this.style.transform='translateY(0)'">
+  <a href="/servicios-optimizacion-seo" style="background: #00008B; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='#000066'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#00008B'; this.style.transform='translateY(0)'">
     VER NUESTROS SERVICIOS SEO
   </a>
 </div>
@@ -199,7 +199,7 @@ To Grow combina SEO con inbound marketing y automatización. No solo te traen tr
 <div style="background: #4a2bac; border: 2px solid #00008B; border-radius: 0.75rem; padding: 1.5rem; margin: 2rem 0; text-align: center;">
   <h4 style="color: white; margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 600;">¿Ya sabes cuál necesitas pero quieres una segunda opinión?</h4>
   <p style="color: #e2e8f0; margin-bottom: 1rem; font-size: 0.95rem;">Te ayudamos a elegir la mejor opción para tu negocio.</p>
-  <a href="/contacto/" style="background: #00008B; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='#000066'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#00008B'; this.style.transform='translateY(0)'">
+  <a href="https://wa.me/573107851074?text=Hola%20Omar,%20quiero%20una%20asesor%C3%ADa%20gratuita%20sobre%20servicios%20SEO." style="background: #00008B; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='#000066'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#00008B'; this.style.transform='translateY(0)'">
     ASESORÍA GRATUITA
   </a>
 </div>
@@ -412,7 +412,7 @@ Ya tienes la información. Ahora la decisión es tuya.
     <h4 style="color: white; margin: 0; font-size: 1.25rem; font-weight: 600;">¿Listo para Posicionar tu Negocio en Google?</h4>
   </div>
   <p style="color: #e2e8f0; margin-bottom: 1rem; font-size: 0.95rem;">Contrata servicios SEO transparentes con nosotros.</p>
-  <a href="/contacto/" style="background: #00008B; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='#000066'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#00008B'; this.style.transform='translateY(0)'">
+  <a href="/servicios-optimizacion-seo" style="background: #00008B; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='#000066'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#00008B'; this.style.transform='translateY(0)'">
     COMENZAR AHORA
   </a>
   <p style="color: #e2e8f0; margin-top: 1rem; font-size: 0.85rem;">Sin contratos largos, sin promesas falsas. Solo resultados reales.</p>

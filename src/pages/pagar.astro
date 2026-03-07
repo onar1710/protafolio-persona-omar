@@ -3,163 +3,21 @@ import Layout from '~/layouts/Layout.astro';
 import PageHeader from '~/components/layout/PageHeader.astro';
 import Container from '~/components/ui/Container.astro';
 
-const publicKey = import.meta.env.PUBLIC_EPAYCO_PUBLIC_KEY;
-const test = import.meta.env.PUBLIC_EPAYCO_TEST === 'true';
+export const prerender = false;
 
-const canonical = new URL('/pagar', Astro.site).toString();
-const confirmationUrl = new URL('/api/epayco/confirmacion', Astro.site).toString();
-
-const debug = Astro.url.searchParams.get('debug') === '1';
-const hasPublicKey = typeof publicKey === 'string' && publicKey.trim().length > 0;
+const nextUrl = `/pago${Astro.url.search || ''}`;
 ---
 
-<Layout title="Pagar - Omar Fuentes" description="Pago seguro con ePayco. Tarjetas, PSE, Nequi y Daviplata." keywords="pagar, epayco, pago seguro, nequi, pse" >
-  <PageHeader 
-    title="Pagar"
-    description="Paga 100% seguro con ePayco (tarjetas, PSE, Nequi, Daviplata)."
-  />
+<Layout title="Pagar - Omar Fuentes" description="Contacto" >
+  <PageHeader title="Contacto" description="Redirigiendo..." />
 
   <Container as="section" class="pb-24">
-    {debug && (
-      <div class="sticky top-2 z-50 max-w-2xl mx-auto mb-4 rounded-2xl border border-yellow-500/30 bg-yellow-400/20 p-4 text-sm text-foreground">
-        <p class="font-semibold">Debug ePayco</p>
-        <p>PUBLIC_EPAYCO_PUBLIC_KEY: <span class="font-bold">{hasPublicKey ? 'CARGADA' : 'VACÍA / NO LEÍDA'}</span></p>
-        <p>PUBLIC_EPAYCO_TEST: <span class="font-bold">{test ? 'true' : 'false'}</span></p>
-      </div>
-    )}
-
-    <div class="max-w-2xl mx-auto mb-4 rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-4 text-sm text-muted-foreground">
-      <p>
-        Antes de pagar, revisa la <a href="/politica-de-reembolso" class="underline underline-offset-4 hover:text-foreground transition-colors">política de reembolso</a>.
-      </p>
-    </div>
+	<meta http-equiv="refresh" content={`0;url=${nextUrl}`} />
     <div class="max-w-2xl mx-auto rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6">
-      <div class="space-y-4">
-        <div id="formMessage" class="hidden rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-foreground"></div>
-
-        <div>
-          <label for="concept" class="block text-sm font-semibold text-foreground">Concepto</label>
-          <input id="concept" name="concept" type="text" class="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-background px-4 py-3 text-foreground" placeholder="Ej: Adelanto diseño web" />
-        </div>
-
-        <div>
-          <label for="email" class="block text-sm font-semibold text-foreground">Email (opcional)</label>
-          <input id="email" name="email" type="email" class="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-background px-4 py-3 text-foreground" placeholder="correo@dominio.com" />
-          <p class="mt-2 text-sm text-muted-foreground">Si lo escribes, el recibo llegará a tu correo.</p>
-        </div>
-
-        <div>
-          <label for="amount" class="block text-sm font-semibold text-foreground">Monto (COP)</label>
-          <input id="amount" name="amount" inputmode="numeric" pattern="[0-9]*" class="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-background px-4 py-3 text-foreground" placeholder="Ej: 300000" />
-          <p class="mt-2 text-sm text-muted-foreground">Puedes escribir el valor exacto acordado por WhatsApp.</p>
-        </div>
-
-        <button id="payButton" class="inline-flex w-full justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors">
-          Pagar con ePayco
-        </button>
-
-        <p class="text-xs text-muted-foreground">Al continuar aceptas los términos y condiciones y las políticas del sitio.</p>
+	  <p class="text-muted-foreground">Redirigiendo a pago...</p>
+      <div class="mt-6">
+		<a href={nextUrl} class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors">Ir a pago</a>
       </div>
     </div>
-
-    <div id="epayco-config" data-public-key={publicKey} data-test={test ? 'true' : 'false'} data-response-url={new URL('/pago-confirmacion', Astro.site).toString()} data-confirmation-url={confirmationUrl}></div>
-
-    <script src="https://checkout.epayco.co/checkout.js" is:inline></script>
-    <script is:inline>
-      (function () {
-        const cfg = document.getElementById('epayco-config');
-        const publicKey = cfg?.getAttribute('data-public-key') || '';
-        const test = (cfg?.getAttribute('data-test') || 'false') === 'true';
-        const responseUrl = cfg?.getAttribute('data-response-url') || '';
-        const confirmationUrl = cfg?.getAttribute('data-confirmation-url') || '';
-
-        const conceptEl = document.getElementById('concept');
-        const amountEl = document.getElementById('amount');
-        const payButton = document.getElementById('payButton');
-        const emailEl = document.getElementById('email');
-
-        const params = new URLSearchParams(window.location.search);
-        const suggested = params.get('amount');
-        const concept = params.get('concept');
-        if (suggested && amountEl) amountEl.value = suggested;
-        if (concept && conceptEl) conceptEl.value = concept;
-
-        function onlyDigits(value) {
-          return String(value || '').replace(/[^0-9]/g, '');
-        }
-
-        function cleanText(value) {
-          return String(value || '').trim();
-        }
-
-        function setMessage(text) {
-          const el = document.getElementById('formMessage');
-          if (!el) return;
-          if (!text) {
-            el.classList.add('hidden');
-            el.textContent = '';
-            return;
-          }
-          el.textContent = text;
-          el.classList.remove('hidden');
-        }
-
-        function toInvoiceId() {
-          return 'INV-' + Date.now();
-        }
-
-        payButton?.addEventListener('click', function () {
-          setMessage('');
-          const amount = onlyDigits(amountEl?.value);
-          const name = (conceptEl?.value || 'Pago de servicio').trim();
-
-          const email = cleanText(emailEl?.value);
-
-          if (!publicKey) {
-            setMessage('Falta configurar ePayco. Intenta nuevamente en unos segundos o contáctame.');
-            return;
-          }
-          if (!amount || Number(amount) <= 0) {
-            setMessage('Escribe un monto válido en COP (solo números).');
-            return;
-          }
-
-          const handler = window.ePayco?.checkout?.configure({
-            key: publicKey,
-            test: test,
-          });
-
-          if (!handler || !handler.open) {
-            setMessage('No fue posible iniciar el checkout. Intenta recargar la página.');
-            return;
-          }
-
-          const data = {
-            name: name,
-            description: name,
-            invoice: toInvoiceId(),
-            currency: 'cop',
-            test: test,
-            amount: String(amount),
-            tax_base: '0',
-            tax: '0',
-            tax_ico: '0',
-            country: 'co',
-            lang: 'es',
-            external: 'true',
-            response: responseUrl,
-            confirmation: confirmationUrl,
-
-            email_billing: email || undefined,
-          };
-
-          handler.open(data);
-        });
-
-        conceptEl?.addEventListener('input', function () { setMessage(''); });
-        amountEl?.addEventListener('input', function () { setMessage(''); });
-        emailEl?.addEventListener('input', function () { setMessage(''); });
-      })();
-    </script>
   </Container>
 </Layout>
