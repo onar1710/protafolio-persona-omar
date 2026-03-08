@@ -129,6 +129,7 @@ function getAdapter() {
 export default defineConfig({
   site: 'https://www.omarfuentes.com',
   output: 'static',
+  trailingSlash: 'never',
   markdown: {
     remarkPlugins: [remarkImageAlt],
     rehypePlugins: [rehypeImgDimensions],

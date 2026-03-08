@@ -16,29 +16,6 @@
   text-decoration: none;
 }
 
-:where(
-  [class*="rounded-2xl border border-foreground/10 bg-foreground/5"],
-  [class*="rounded-3xl border border-foreground/10 bg-foreground/5"],
-  [class*="rounded-3xl border border-foreground/10 bg-background/80"],
-  [class*="rounded-[2rem] border border-foreground/10 bg-background/80"],
-  [class*="rounded-[2rem] border border-foreground/10 bg-background/85"]
-) {
-  border-color: rgba(255, 255, 255, 0.14) !important;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.94) 0%, rgba(10, 15, 30, 0.9) 100%) !important;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24) !important;
-  backdrop-filter: blur(10px);
-}
-
-:where(
-  [class*="rounded-2xl border border-foreground/10 bg-foreground/5"],
-  [class*="rounded-3xl border border-foreground/10 bg-foreground/5"],
-  [class*="rounded-3xl border border-foreground/10 bg-background/80"],
-  [class*="rounded-[2rem] border border-foreground/10 bg-background/80"],
-  [class*="rounded-[2rem] border border-foreground/10 bg-background/85"]
-):hover {
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.3) !important;
-}
-
 /* Dropdown menu z-index fix */
 .dropdown-menu {
   z-index: 9999 !important;
@@ -50,5 +27,15 @@ lite-youtube {
   max-width: 100%; /* Ensure it's responsive */
   border-radius: 0.5rem; /* Round corners */
   margin-block: 2rem;
-    margin-block: 2rem;
+}
+
+[data-projects-track]::-webkit-scrollbar,
+[data-reviews-track]::-webkit-scrollbar {
+  display: none;
+}
+
+[data-projects-track],
+[data-reviews-track] {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

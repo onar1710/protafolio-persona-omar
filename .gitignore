@@ -10,6 +10,20 @@ dist/
 # Vercel
 .vercel/
 
+# Wrangler
+.wrangler/
+
+# Lighthouse reports (local)
+lighthouse-*.report.html
+lighthouse-*.report.json
+lighthouse-*.html
+lighthouse-*.json
+.lighthouse-*.json
+lighthouse-report.html
+lighthouse-report.json
+lighthouse-prod.json
+lighthouse-final-corrected-report.json
+
 # logs
 npm-debug.log*
 yarn-debug.log*

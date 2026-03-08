@@ -1,0 +1,1186 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Schema from '~/components/layout/Schema.astro';
+import Section from '~/components/layout/Section.astro';
+import Container from '~/components/ui/Container.astro';
+import { Image, Picture } from 'astro:assets';
+import googleLogoImage from '~/assets/images/logo-google.png';
+import heroImage from '~/assets/images/PAGINAS-WEB-BUCARAMAGA.webp';
+import DisenoWebBucaramangaClient from '~/components/common/DisenoWebBucaramangaClient.jsx';
+
+const pageTitle = 'Diseño Web Bucaramanga con Posicionamiento en Google | Diseños que Venden';
+const pageDescription = 'Diseño web Bucaramanga con posicionamiento SEO en Google desde el día 1. +12 años de experiencia: webs atractivas que venden de verdad, más clientes y ventas para tu negocio local. ¡Cotiza gratis ahora!';
+const pageKeywords = 'diseño web bucaramanga, diseño web en bucaramanga, paginas web bucaramanga, diseño de páginas web bucaramanga, diseño de paginas web bucaramanga, páginas web bucaramanga, diseño páginas web bucaramanga, diseño web personalizado bucaramanga, páginas web vendedoras bucaramanga, diseño web para empresas bucaramanga, diseño de páginas web en bucaramanga, diseño web bucaramanga personalizado';
+const whatsappHref = 'https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20sitio%20web%20y%20quiero%20cotizar%20un%20proyecto.';
+
+---
+
+<Layout title={pageTitle} description={pageDescription} keywords={pageKeywords}>
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md">
+    Saltar al contenido principal
+  </a>
+  
+  <!-- Preload critical resources for LCP optimization -->
+  <link rel="preload" href={heroImage.src} as="image" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <Schema item={{
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${Astro.site}diseno-web-bucaramanga#service`,
+    name: pageTitle,
+    description: pageDescription,
+    serviceType: 'Diseño web en Bucaramanga con posicionamiento SEO en Google',
+    areaServed: 'Bucaramanga',
+    provider: {
+      '@type': 'Person',
+      name: 'Omar Fuentes'
+    }
+  }} />
+  <Section class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Background con gradiente más profesional -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+    
+    <!-- Elementos decorativos más sutiles -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute left-1/4 top-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute right-1/4 bottom-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <Container class="relative z-10">
+      <div id="main-content" class="mx-auto max-w-7xl">
+        <div class="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh] text-center lg:text-left">
+          <!-- Columna izquierda - Contenido mejorado -->
+          <div class="space-y-8 mx-auto lg:mx-0 max-w-2xl">
+            <!-- Badge superior -->
+            <div class="inline-flex justify-center lg:justify-start">
+              <span class="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm px-6 py-3 text-sm font-medium text-blue-300">
+                <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></span>
+                Expertos en Diseño Web Bucaramanga
+              </span>
+            </div>
+
+            <!-- Título principal más impactante -->
+            <div class="space-y-4">
+              <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1]">
+                <span class="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+                  Diseño Web
+                </span>
+                <br/>
+                <span class="bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-400 bg-clip-text text-transparent">
+                  Bucaramanga
+                </span>
+              </h1>
+              <p class="text-2xl md:text-3xl lg:text-4xl font-semibold">
+                <span class="bg-gradient-to-r from-lime-400 via-green-400 to-emerald-500 bg-clip-text text-transparent">Vende</span> y <span class="bg-gradient-to-r from-lime-400 via-green-400 to-emerald-500 bg-clip-text text-transparent">Posiciona</span>
+              </p>
+              <p class="text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-lime-400 via-green-400 to-emerald-500 bg-clip-text text-transparent">
+                En Google
+              </p>
+            </div>
+
+            <!-- Indicadores de confianza -->
+            <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <div class="flex items-center rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-3">
+                <svg class="w-5 h-5 text-yellow-400 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <span class="text-white font-medium">12+ años experiencia</span>
+              </div>
+              <div class="flex items-center rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-3">
+                <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <span class="text-white font-medium">SEO garantizado</span>
+              </div>
+              <div class="flex items-center rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-3">
+                <svg class="w-5 h-5 text-orange-400 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-white font-medium">Resultados reales</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna derecha - Imagen libre -->
+          <div class="flex justify-center lg:justify-end lg:items-center">
+            <div class="relative w-full max-w-lg">
+              <Picture
+                src={heroImage}
+                alt="Diseño Web Profesional Bucaramanga"
+                class="w-full h-auto"
+                width={1200}
+                height={600}
+                widths={[320, 480, 640, 768, 1024, 1200]}
+                sizes="(max-width: 1024px) 100vw, 512px"
+                formats={['avif', 'webp']}
+                loading="eager"
+                decoding="sync"
+                fetchpriority="high"
+              />
+              <!-- Overlay de fusión en la parte inferior -->
+              <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de texto y tarjetas de ancho completo debajo de la imagen -->
+        <div class="mt-16 w-full">
+          <!-- Propuesta de valor -->
+          <div class="text-center mb-12">
+            <p class="text-xl text-white leading-relaxed max-w-4xl mx-auto">
+              Con más de 12 años creando páginas web para empresas y negocios en Bucaramanga, sé con certeza que una verdadera identidad digital en Google representa tu marca y tu empresa aquí en la ciudad. Esto se logra con un diseño web en Bucaramanga que no solo se vea bonito, sino que venda, convierta y posicione #1 en Google.
+            </p>
+          </div>
+
+          <!-- Tarjetas de ancho completo -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
+            <!-- Tarjeta 1 -->
+            <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 w-full">
+              <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <h3 class="text-white font-bold text-lg">Posicionamiento SEO</h3>
+              </div>
+              <p class="text-white/90 leading-relaxed">Aparece en Google cuando tus clientes te busquen en Bucaramanga</p>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 w-full">
+              <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3 class="text-white font-bold text-lg">Diseño que genera confianza</h3>
+              </div>
+              <p class="text-white/90 leading-relaxed">Webs profesionales que reflejan la calidad de tu negocio</p>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 w-full">
+              <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-lime-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <h3 class="text-white font-bold text-lg">Resultados medibles</h3>
+              </div>
+              <p class="text-white/90 leading-relaxed">Más visitas, más contactos, más ventas para tu negocio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- CTA Section mejorada -->
+  <Section class="py-16 bg-gradient-to-br from-blue-900/20 via-background to-purple-900/20">
+    <Container>
+      <div class="text-center">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white px-12" style="overflow: visible !important;">
+          La confianza de negocios locales en Bucaramanga
+        </h2>
+        
+        <div class="max-w-4xl mx-auto mb-8">
+          <p class="text-xl text-white leading-relaxed mb-4">
+            He trabajado con diferentes negocios en Bucaramanga y tengo la experiencia real para ayudarte. Sé que estás aquí porque quieres una presencia digital que genere clientes constantemente, que aumente tus ventas sin morir en el intento.
+          </p>
+          <p class="text-xl text-white font-semibold leading-relaxed">
+            ¿Sabes qué? Te puedo ayudar con tu diseño web en Bucaramanga.
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contactar por WhatsApp"
+            class="group relative inline-flex items-center justify-center gap-4 rounded-2xl bg-[#25D366] hover:bg-[#128C7E] px-10 py-5 text-lg font-bold text-white shadow-2xl shadow-black/40 transition-all duration-300 hover:scale-105 hover:shadow-[#25D366]/50 min-w-[300px]"
+          >
+            <!-- Icono WhatsApp real -->
+            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.42 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.18-.31.08-1.26.33.33-1.22.09-.34-.2-.32a8.188 8.188 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.12.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.15-.52 0-.23-.15-1.06-.39-2.02-1.23-.75-.66-1.25-1.47-1.4-1.72-.12-.24-.01-.39.11-.5.13-.13.28-.34.4-.52.12-.18.14-.34.02-.51-.12-.17-.54-1.32-.75-1.8-.2-.48-.41-.42-.56-.43-.14 0-.3-.01-.47-.01z"/>
+            </svg>
+            
+            <!-- Texto del botón -->
+            <div class="flex flex-col items-center">
+              <span class="text-xl font-bold">Hablar por WhatsApp</span>
+              <span class="text-sm font-medium opacity-90">+57 310 785 1074</span>
+            </div>
+          </a>
+          
+          <!-- Efecto de brillo mejorado -->
+          <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+          
+          <div class="text-center sm:text-left space-y-2">
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              <span class="text-sm text-white">Respuesta inmediata</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <span class="text-sm text-white">Estrategia personalizada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section class="py-16 bg-gradient-to-br from-primary/5 via-background to-blue-500/5">
+    <Container>
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="text-white text-4xl font-bold md:text-6xl leading-[1.3]">
+            ¿Por Qué Trabajar Conmigo en Tu Diseño Web en Bucaramanga?
+          </h2>
+          <p class="mt-6 text-xl leading-[2.2rem] text-foreground/80 max-w-3xl mx-auto overflow-visible pb-4">
+            Porque te entregaré una página web que desde el primer día trabajará para traerte clientes y ventas.
+          </p>
+        </div>
+
+        <div class="space-y-12">
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">SEO desde el Día 1</h3>
+              <p class="text-lg leading-8 text-foreground/80">Optimizo tu página web para aumentar la visibilidad de tu marca, atraer clientes y mejorar tus leads. No esperas meses para ver resultados. Desde que tu sitio está en línea, ya está posicionándose para las palabras clave que tus clientes buscan en Bucaramanga.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">Diseño Responsive</h3>
+              <p class="text-lg leading-8 text-foreground/80">Te creo una página web responsive y optimizada para móviles, que se vea perfectamente y funcione sin problemas en cualquier pantalla. Hoy en día, más del 80% de las búsquedas en Google se realizan desde dispositivos móviles, por lo que tener un web optimizada para móviles es crucial para captar la mayoría de tus clientes potenciales.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">Investigación Completa</h3>
+              <p class="text-lg leading-8 text-foreground/80">Antes de crear tu sitio web, realizo una investigación exhaustiva de palabras clave utilizando herramientas profesionales como SEMrush. Analizo la competencia, mido las palabras clave de tu negocio y estudio exactamente cómo buscan las personas tus productos o servicios. Esto me permite entender la intención de búsqueda y crear una estrategia SEO efectiva desde el primer día.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">Rendimiento Excepcional</h3>
+              <p class="text-lg leading-8 text-foreground/80">Google ama las páginas rápidas. Por eso trabajo en el rendimiento, accesibilidad, mejores prácticas y SEO desde el primer día. Esto es diseño web creado por un profesional con excelencia y calidad en tu proyecto.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">Calidad Garantizada</h3>
+              <p class="text-lg leading-8 text-foreground/80">No te voy a vender humo, te voy a vender calidad. Crearé un diseño web de calidad desde el día 1 con todas las mejores prácticas que Google necesita para posicionarte top 1 y eso significa más visibilidad, más conversiones, más clientes reales para tu negocio en Bucaramanga.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">Resultados Reales</h3>
+              <p class="text-lg leading-8 text-foreground/80">Te entrego un diseño 100% preparado para convertir clientes y generar ventas desde el primer día. Cada elemento está estratégicamente posicionado para maximizar conversiones. Y lo más importante: no te abandono. Siempre estaré disponible para darte las mejores sugerencias después de la entrega, asegurando que tu sitio web siga creciendo y mejorando con tu negocio en Bucaramanga.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section class="py-24 bg-gradient-to-br from-blue-500/5 via-background to-purple-500/5">
+    <Container>
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="text-white text-4xl font-bold md:text-6xl">
+            Páginas Web Vendedoras y Llamativas
+          </h2>
+        </div>
+
+        <div class="space-y-16">
+          <div class="max-w-5xl mx-auto">
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                <p class="text-lg leading-8 text-foreground">
+                  Yo te diseño una página web donde tu negocio va a tener una identidad y presencia digital profesional. Cuando alguien entre a tu página web, sentirá que está frente a un negocio serio y establecido que sabe lo que hace.
+                </p>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                <p class="text-lg leading-8 text-foreground">
+                  Tus productos o servicios estarán bien detallados y armados. Con descripciones claras, imágenes de calidad, todo enfocado en lo que realmente vendes. Nada de información confusa o incompleta.
+                </p>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                <p class="text-lg leading-8 text-foreground">
+                  Tus ofertas y beneficios serán visibles. La persona entenderá inmediatamente qué ofreces y por qué eres la mejor opción en Bucaramanga.
+                </p>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                <p class="text-lg leading-8 text-foreground">
+                  Las soluciones que ofreces serán claras y directas.
+                </p>
+              </div>
+              
+              <div class="mt-8 pt-6 border-t border-white/20">
+                <p class="text-xl font-semibold text-white">
+                  Aquí es donde demuestro mis 12 años armando páginas web vendedoras en Bucaramanga. Sé exactamente qué contenido convierte y cómo presentarlo en la web de mis clientes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carrusel de Ejemplos de Páginas Vendedoras -->
+          <div class="mt-16">
+            <h3 class="text-4xl md:text-5xl font-bold text-white text-center mb-12">Ejemplos de Páginas Vendedoras</h3>
+            
+            <div class="relative">
+              <div data-projects-track class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none]">
+                
+                <!-- Proyecto 1 -->
+                <div class="min-w-[280px] sm:min-w-[300px] md:min-w-[320px] lg:min-w-[340px] snap-start border border-white/20 bg-white/10 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300">
+                  <div class="flex flex-col gap-3">
+                    <img src="/images/proyecto-imagen-ferrarycucina.png" alt="Ferrary Cucina" class="w-full h-40 object-cover rounded-lg" width="340" height="160" loading="lazy" decoding="async" />
+                    <h4 class="text-lg font-bold text-white">Ferrary Cucina</h4>
+                    <p class="text-sm text-white/80">Remodelación de apartamento con diseño moderno y gestión de proyectos</p>
+                    <div class="flex items-center gap-2 text-xs text-white/60">
+                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                      <span>Diseño Completo</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="min-w-[280px] sm:min-w-[300px] md:min-w-[320px] lg:min-w-[340px] snap-start border border-white/20 bg-white/10 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
+                  <div class="flex flex-col gap-3">
+                    <img src="/images/proyecto-imagen-omarytplay.png" alt="Omar YT Play" class="w-full h-40 object-cover rounded-lg" width="340" height="160" loading="lazy" decoding="async" />
+                    <h4 class="text-lg font-bold text-white">Omar YT Play</h4>
+                    <p class="text-sm text-white/80">Plataforma multimedia con diseño moderno y responsivo</p>
+                    <div class="flex items-center gap-2 text-xs text-white/60">
+                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                      <span>Desarrollo Full</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="min-w-[280px] sm:min-w-[300px] md:min-w-[320px] lg:min-w-[340px] snap-start border border-white/20 bg-white/10 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300">
+                  <div class="flex flex-col gap-3">
+                    <img src="/images/proyecto-imagen-plemria.png" alt="Plemria" class="w-full h-40 object-cover rounded-lg" width="340" height="160" loading="lazy" decoding="async" />
+                    <h4 class="text-lg font-bold text-white">Plemria</h4>
+                    <p class="text-sm text-white/80">Servicios profesionales con diseño corporativo</p>
+                    <div class="flex items-center gap-2 text-xs text-white/60">
+                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                      <span>SEO Optimizado</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Proyecto 4 -->
+                <div class="min-w-[280px] sm:min-w-[300px] md:min-w-[320px] lg:min-w-[340px] snap-start border border-white/20 bg-white/10 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300">
+                  <div class="flex flex-col gap-3">
+                    <img src="/images/proyecto-imagen-productosperros.png" alt="Productos Perros" class="w-full h-40 object-cover rounded-lg" width="340" height="160" loading="lazy" decoding="async" />
+                    <h4 class="text-lg font-bold text-white">Productos Perros</h4>
+                    <p class="text-sm text-white/80">Tienda online con catálogo y sistema de pagos</p>
+                    <div class="flex items-center gap-2 text-xs text-white/60">
+                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                      <span>E-commerce</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- Segundo CTA Section -->
+  <Section class="py-16 bg-gradient-to-br from-green-900/20 via-background to-emerald-900/20">
+    <Container>
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+          ¿Listo para tener una página web que crezca tu negocio?
+        </h2>
+        
+        <div class="max-w-3xl mx-auto mb-8">
+          <p class="text-lg text-white leading-relaxed">
+            Hablemos ahora sobre cómo puedo crear un diseño web profesional que genere clientes y ventas para tu negocio en Bucaramanga.
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Quiero mi diseño web que crezca"
+            class="group relative inline-flex items-center justify-center gap-4 rounded-2xl bg-[#25D366] hover:bg-[#128C7E] px-10 py-5 text-lg font-bold text-white shadow-2xl shadow-black/40 transition-all duration-300 hover:scale-105 hover:shadow-[#25D366]/50 min-w-[300px]"
+          >
+            <!-- Icono WhatsApp -->
+            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.42 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.18-.31.08-1.26.33.33-1.22.09-.34-.2-.32a8.188 8.188 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.12.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.15-.52 0-.23-.15-1.06-.39-2.02-1.23-.75-.66-1.25-1.47-1.4-1.72-.12-.24-.01-.39.11-.5.13-.13.28-.34.4-.52.12-.18.14-.34.02-.51-.1-.17-.31-.5-.5-.87-.4-.73-.4-1.33.01-1.48.01-.15.01-.34.06-.57.08z"/>
+            </svg>
+            
+            <!-- Button text con número -->
+            <div class="flex flex-col items-center">
+              <span class="text-xl font-bold">quiero un diseño web que crezca</span>
+              <span class="text-sm font-medium opacity-90">+57 310 785 1074</span>
+            </div>
+          </a>
+          
+          <!-- Efecto de brillo mejorado -->
+          <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+          
+          <div class="text-center sm:text-left space-y-2">
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              <span class="text-sm text-white">Respuesta inmediata</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <span class="text-sm text-white">Estrategia personalizada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section id="tipos-diseno" class="py-24 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
+    <Container>
+      <div class="mx-auto max-w-7xl">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-purple-300 mb-8">
+            <span class="mr-2 h-2 w-2 rounded-full bg-purple-400 animate-pulse"></span>
+            Especialistas en múltiples industrias
+          </div>
+          
+          <h2 class="text-white text-4xl md:text-6xl font-bold mb-6">
+            Tipos de Diseño Web que Desarrollo
+          </h2>
+          
+          <p class="text-xl text-white/90 max-w-3xl mx-auto">
+            Experiencia comprobada en múltiples industrias y nichos de mercado en Bucaramanga
+          </p>
+        </div>
+
+        <!-- Grid de categorías con diseño mejorado -->
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-12">
+          <!-- Fila 1 -->
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Empresas y negocios</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Restaurantes</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Barberías</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-lime-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM4 8h8v2H4zM4 13h5v2H4zM4 18h5v2H4z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Consultorios médicos</span>
+            </div>
+          </div>
+
+          <!-- Fila 2 -->
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 11c1.66 0 2.99-1.34 2.99-3S8.66 5 7 5s-3 1.34-3 3 1.34 3 3 3zm8 0c1.66 0 2.99-1.34 2.99-3S16.66 5 15 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm0 1c-2.33 0-7 1.17-7 3.5V19h14v-3.5c0-2.33-4.67-3.5-7-3.5zM7 13c-2.33 0-7 1.17-7 3.5V19h7v-2.5c0-.85.25-2.05 1.09-3.06C7.22 13.33 6.66 13 7 13z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Dentistas</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Abogados</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4.5 10.5c.83 0 1.5-.67 1.5-1.5S5.33 7.5 4.5 7.5s-3 1.34-3 3 1.34 3 3 3zm8 0c1.66 0 2.99-1.34 2.99-3S13.66 7.5 12 7.5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm0 1c-2.33 0-7 1.17-7 3.5V19h14v-3.5c0-2.33-4.67-3.5-7-3.5zM17 5c.83 0 1.5-.67 1.5-1.5S17.83 2 17 2s-1.5.67-1.5 1.5S16.17 5 17 5zm0 1.5c-1.66 0-5 .83-5 2.5V10h10V9c0-1.67-3.34-2.5-5-2.5z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Mascotas y veterinarios</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM4 8h8v2H4zM4 13h5v2H4zM4 18h5v2H4z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Droguerías</span>
+            </div>
+          </div>
+
+          <!-- Fila 3 -->
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Panaderías</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-teal-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-teal-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Autolavados</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M2 18v2h20v-2H2zm1-3h1.5c.19 0 .34-.16.34-.34 0-.09-.03-.17-.08-.24l-1.09-1.42c.2-.24.33-.54.33-.87 0-.83-.67-1.5-1.5-1.5S2 11.3 2 12.13c0 .33.13.63.33.87l-1.09 1.42c-.05.07-.08.15-.08.24 0 .18.15.34.34.34H2zm7.5-3h1.5c.19 0 .34-.16.34-.34 0-.09-.03-.17-.08-.24l-1.09-1.42c.2-.24.33-.54.33-.87 0-.83-.67-1.5-1.5-1.5S9 11.3 9 12.13c0 .33.13.63.33.87l-1.09 1.42c-.05.07-.08.15-.08.24 0 .18.15.34.34.34H10.5zm7.5 0h1.5c.19 0 .34-.16.34-.34 0-.09-.03-.17-.08-.24l-1.09-1.42c.2-.24.33-.54.33-.87 0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5c0 .33.13.63.33.87l-1.09 1.42c-.05.07-.08.15-.08.24 0 .18.15.34.34.34H18z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Tiendas de zapatos</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Venta de productos</span>
+            </div>
+          </div>
+
+          <!-- Fila 4 -->
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-lime-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-lime-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Inmobiliarias</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9 3.43 7.57 2 6.14 3.43 4.71 2 3.29 3.43 2 4.86 3.43 5.29 2 6.71 3.43 8.14 2 9.57 3.43 11 2 12.43 3.43 14 7l3.57-3.57z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Gimnasios</span>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/40">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-violet-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Sitios informativos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section class="py-24 bg-gradient-to-br from-orange-500/5 via-background to-red-500/5">
+    <Container>
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="text-white text-4xl font-bold md:text-6xl">
+            Diseño Web Personalizado
+          </h2>
+          <p class="mt-6 text-xl leading-9 text-foreground/80 max-w-3xl mx-auto">
+            Cada diseño web que desarrollo es único, hecho desde cero para tu negocio.
+          </p>
+        </div>
+
+        <div class="space-y-12">
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">No trabajo con plantillas genéricas</h3>
+              <p class="text-lg leading-8 text-foreground/80">Cada diseño web que desarrollo es único, creado desde cero para tu negocio. Me ajusto a tus necesidades, a cómo quieres que se vea tu página, a lo que necesitas comunicar.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">Tu negocio es único</h3>
+              <p class="text-lg leading-8 text-foreground/80">Tu marca, tu identidad, lo que vendes, cómo lo vendes. Todo eso merece un diseño que refleje exactamente quién eres. No una plantilla que usan otros 500 negocios.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl md:text-3xl font-bold text-foreground mb-4">Identidad Inconfundible</h3>
+              <p class="text-lg leading-8 text-foreground/80">Te voy a crear un diseño web profesional con tu marca, tus colores, tu personalidad. Una página que cuando la vean en Google, sea inconfundible. Que la gente la identifique inmediatamente como TUYA.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 text-center">
+          <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="quiero mi diseño personalizado"
+              class="group relative inline-flex items-center justify-center gap-4 rounded-2xl bg-[#25D366] hover:bg-[#128C7E] px-10 py-5 text-lg font-bold text-white shadow-2xl shadow-black/40 transition-all duration-300 hover:scale-105 hover:shadow-[#25D366]/50 min-w-[300px]"
+            >
+              <!-- Icono WhatsApp -->
+              <svg class="w-6 h-6 text-purple-400 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              
+              <!-- Button text con número -->
+              <div class="flex flex-col items-center">
+                <span class="text-xl font-bold">quiero mi diseño personalizado</span>
+                <span class="text-sm font-medium opacity-90">+57 310 785 1074</span>
+              </div>
+            </a>
+            
+            <!-- Efecto de brillo mejorado -->
+            <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+            
+            <div class="text-center sm:text-left space-y-2">
+              <div class="flex items-center space-x-2">
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <span class="text-sm text-white">Respuesta inmediata</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span class="text-sm text-white">Estrategia personalizada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- Reseñas Google Section -->
+  <Section class="py-24">
+    <Container>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div class="max-w-3xl">
+          <h2 class="text-white text-4xl font-bold md:text-6xl mb-4">Reseñas reales en Google</h2>
+          <div class="flex items-center gap-3 text-white" aria-label="Valoración 5.0 en Google">
+            <Image src={googleLogoImage} alt="Google" width={72} height={24} class="h-6 w-[72px] object-contain" loading="lazy" decoding="async" />
+            <span class="font-semibold text-white">5.0</span>
+            <span class="text-white" aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+        <a href="https://share.google/URJBIY6tzhrTMEJXL" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-lime-500 text-black font-semibold hover:bg-lime-400 transition-colors w-fit">
+          <span>Ver en Google</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="relative">
+        <div data-reviews-track class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none]">
+          
+          <!-- Proyecto 1 -->
+          <div class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start border border-white/20 bg-white text-black p-5 md:p-6 shadow-sm">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col items-center">
+                <Image src={googleLogoImage} alt="Google" width={72} height={24} class="h-6 w-[72px] object-contain" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="flex items-center justify-center gap-1">
+                <span class="sr-only">5 de 5 estrellas</span>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+
+              <div class="text-base font-semibold text-center">Ayeuri Melo Sanchez</div>
+              <p class="text-sm leading-relaxed text-black/80">De los mejores desarrolladores que he conocido, me hizo una página web de consultoría para Republica Dominicana y quedo fenomenal, lo recomiendo al 100%</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 -->
+          <div class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start border border-white/20 bg-white text-black p-5 md:p-6 shadow-sm">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col items-center">
+                <Image src={googleLogoImage} alt="Google" width={72} height={24} class="h-6 w-[72px] object-contain" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="flex items-center justify-center gap-1">
+                <span class="sr-only">5 de 5 estrellas</span>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+
+              <div class="text-base font-semibold text-center">Plomeria Aquaimperio</div>
+              <p class="text-sm leading-relaxed text-black/80">Omar muchas gracias por su servicios me gusto mucho la página, recomedadicimo, sabe hacer muy bien su trabajo y muy atento a los detalles, gracias omar por ese gran trabajo</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 -->
+          <div class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start border border-white/20 bg-white text-black p-5 md:p-6 shadow-sm">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col items-center">
+                <Image src={googleLogoImage} alt="Google" width={72} height={24} class="h-6 w-[72px] object-contain" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="flex items-center justify-center gap-1">
+                <span class="sr-only">5 de 5 estrellas</span>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+
+              <div class="text-base font-semibold text-center">Jorge Capacho</div>
+              <p class="text-sm leading-relaxed text-black/80">Omar parcero le quiero dar las gracias por su apoyo su trabajo la página web quedó como la quería gracias a usted puedo seguir con mi Emprendimiento lleno éxitos y bendiciones, recomiendo su trabajo</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 4 -->
+          <div class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start border border-white/20 bg-white text-black p-5 md:p-6 shadow-sm">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col items-center">
+                <Image src={googleLogoImage} alt="Google" width={72} height={24} class="h-6 w-[72px] object-contain" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="flex items-center justify-center gap-1">
+                <span class="sr-only">5 de 5 estrellas</span>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+
+              <div class="text-base font-semibold text-center">Jaime Mantilla</div>
+              <p class="text-sm leading-relaxed text-black/80">Muy profesionales son excelentes para la creación de páginas me ayudó con mi emprendimiento de venta de cuentas de Indrive recomendado</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 5 -->
+          <div class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start border border-white/20 bg-white text-black p-5 md:p-6 shadow-sm">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col items-center">
+                <Image src={googleLogoImage} alt="Google" width={72} height={24} class="h-6 w-[72px] object-contain" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="flex items-center justify-center gap-1">
+                <span class="sr-only">5 de 5 estrellas</span>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+
+              <div class="text-base font-semibold text-center">Jaime Mantilla</div>
+              <p class="text-sm leading-relaxed text-black/80">Muy profesionales son excelentes para la creación de páginas me ayudó con mi emprendimiento de venta de cuentas de Indrive recomendado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- Preguntas Frecuentes Section -->
+  <Section class="py-24 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
+    <Container>
+      <div class="mx-auto max-w-4xl">
+        <div class="text-center mb-16">
+          <h2 class="text-white text-4xl font-bold md:text-6xl mb-4">Preguntas Frecuentes</h2>
+          <p class="text-xl text-white/90 max-w-3xl mx-auto">
+            Todo lo que necesitas saber sobre diseño web profesional en Bucaramanga
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Cuánto tiempo toma desarrollar una página web profesional?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>El tiempo de desarrollo varía según la complejidad. Una página web básica toma 1-2 semanas, mientras que un sitio web completo con e-commerce puede tomar 3-4 semanas. Siempre te doy un cronograma detallado antes de comenzar.</p>
+            </div>
+          </details>
+
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Incluyen el posicionamiento SEO en Google?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>Sí, todas mis páginas web incluyen SEO básico desde el día 1: optimización de velocidad, meta etiquetas, estructura semántica y palabras clave locales. Esto asegura que Google pueda indexar tu sitio correctamente desde el lanzamiento.</p>
+            </div>
+          </details>
+
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Qué tipo de negocios has ayudado en Bucaramanga?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>Tengo experiencia con restaurantes, consultorios médicos, abogados, gimnasios, tiendas online, salones de belleza, talleres mecánicos, inmobiliarias y muchos más. Cada industria requiere un enfoque diferente y sé cómo adaptar el diseño a tus necesidades específicas.</p>
+            </div>
+          </details>
+
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Las páginas web son compatibles con móviles?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>Absolutamente. Todas mis páginas web son 100% responsive y se ven perfectamente en celulares, tablets y computadoras. Hoy más del 80% de los usuarios navegan desde móviles, así que es fundamental que tu sitio funcione impecablemente en todos los dispositivos.</p>
+            </div>
+          </details>
+
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Ofrecen mantenimiento después de la entrega?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>Sí, ofrezco planes de mantenimiento mensual que incluyen actualizaciones de seguridad, copias de respaldo, mejoras de rendimiento y soporte técnico. También estoy disponible para cambios y mejoras según tu negocio crece.</p>
+            </div>
+          </details>
+
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Cómo garantizan que mi página web venda?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>Con más de 12 años de experiencia sé exactamente qué elementos convierten: llamadas a la acción claras, diseños que generan confianza, textos persuasivos, formularios optimizados y procesos de compra sencillos. Cada elemento está estratégicamente diseñado para maximizar conversiones.</p>
+            </div>
+          </details>
+
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Puedo integrar sistemas de pago como Wompi?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>Sí, integro pasarelas de pago como Wompi, PayU, MercadoPago y otras. También puedo conectar sistemas de inventario, CRM, email marketing y cualquier otra herramienta que necesites para automatizar tu negocio.</p>
+            </div>
+          </details>
+
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Qué incluye el precio final de la página web?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>El precio incluye diseño personalizado, desarrollo completo, optimización SEO, configuración de hosting, dominio por primer año, certificado SSL, y capacitación para que puedas administrar tu sitio. Sin costos ocultos ni sorpresas.</p>
+            </div>
+          </details>
+
+          <details class="border-b border-white/20 pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Cómo funciona el proceso de diseño?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>1) Consulta inicial para entender tus objetivos, 2) Propuesta detallada con diseño y cotización, 3) Desarrollo del diseño aprobado, 4) Revisión y ajustes, 5) Lanzamiento y capacitación. Te mantengo informado en cada etapa del proceso.</p>
+            </div>
+          </details>
+
+          <details class="pb-4 group">
+            <summary class="list-none cursor-pointer">
+              <div class="flex items-center justify-between py-3">
+                <h3 class="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  ¿Por qué elegirte sobre otras agencias en Bucaramanga?
+                </h3>
+                <svg class="w-5 h-5 text-white/60 group-hover:text-blue-300 transition-all duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div class="text-white/80 leading-relaxed mt-3">
+              <p>Porque soy local, entiendo el mercado de Bucaramanga, tengo 12+ años de experiencia comprobada, ofrezco precios justos sin intermediarios, atención personalizada directa conmigo, y resultados reales que puedes verificar con mis clientes locales.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- CTA Final -->
+        <div class="text-center mt-16">
+          <p class="text-white/90 text-lg mb-6">¿Tienes otra pregunta?</p>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 rounded-full bg-[#25D366] hover:bg-[#128C7E] px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-black/40 transition-all duration-300 hover:scale-105 hover:shadow-[#25D366]/50"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.42 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.18-.31.08-1.26.33.33-1.22.09-.34-.2-.32a8.188 8.188 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.12.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.15-.52 0-.23-.15-1.06-.39-2.02-1.23-.75-.66-1.25-1.47-1.4-1.72-.12-.24-.01-.39.11-.5.13-.13.28-.34.4-.52.12-.18.14-.34.02-.51-.1-.17-.31-.5-.5-.87-.4-.73-.4-1.33.01-1.48.01-.15.01-.34.06-.57.08z"/>
+            </svg>
+            <span>Consultar por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <DisenoWebBucaramangaClient client:visible />
+
+</Layout>
