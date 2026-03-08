@@ -1,22 +1,22 @@
 /* Light Theme (Default) */
 :root {
-  --background: #4a2bac;
+  --background: #2f30f7;
   --foreground: #ffffff;
   --muted: #d4f5d0;
   --muted-foreground: #1a7f0e; /* Verde oscuro para texto secundario */
   --primary-foreground: #ffffff;
-  --link-color: #29d51a; /* Verde brillante para enlaces internos */
+  --link-color: #69f838; /* Verde brillante para enlaces internos */
 }
 
 /* Dark Theme */
 .dark {
-  --background: #2d1b69;
+  --background: #2f30f7;
   --foreground: #ffffff;
-  --color-primary: #29d51a; /* Verde brillante como primario */
+  --color-primary: #69f838; /* Verde brillante como primario */
   --muted: #1e1a3d;
   --muted-foreground: #86efac; /* Verde claro para texto secundario */
   --primary-foreground: #ffffff;
-  --link-color: #29d51a; /* Verde brillante para enlaces internos en tema oscuro */
+  --link-color: #69f838; /* Verde brillante para enlaces internos en tema oscuro */
 }
 
 body {
