@@ -55,7 +55,7 @@ Si publicas un artículo pobre, superficial o que no responde bien a la intenci�
 
 ## Pero, ¿cómo puedes posicionar en Google?
 
-Después de toda esta explicación, aún te estarás preguntando **cómo posicionar mi web en los primeros lugares de Google**. Necesitas aplicar estrategias claras y bien estructuradas. No se trata de suerte ni de publicar contenido al azar, no se trata solo de mantener un esfuerzo duro, sino de trabajar con intención y método. Si necesitas ayuda profesional con [mis servicios de SEO](/precios), te explico el paso a paso correcto:
+Después de toda esta explicación, aún te estarás preguntando **cómo posicionar mi web en los primeros lugares de Google**. Necesitas aplicar estrategias claras y bien estructuradas. No se trata de suerte ni de publicar contenido al azar, no se trata solo de mantener un esfuerzo duro, sino de trabajar con intención y método. Si necesitas ayuda profesional con mis servicios de SEO, te explico el paso a paso correcto:
 
 ### 1. Hacer una investigación de palabras clave
 
@@ -154,7 +154,7 @@ Google ahora valora muchísimo la experiencia auténtica. Por eso debes incluir:
 
 - **Experiencias personales y casos reales**. "Cuando trabajé con este sitio, aplicamos **X estrategia** y obtuvimos **Y resultado**". Esto le dice a Google que no estás copiando información de otros, sino que tienes **conocimiento de primera mano**.
 
-- **Ejemplos específicos y accionables**. No digas solo "usa palabras clave". Explica cómo buscarlas, qué herramientas usar, qué métricas revisar. Esto es fundamental tanto para el SEO como para evitar [errores de diseño web](/blog/errores-diseno-web) que perjudican tu posicionamiento.
+- **Ejemplos específicos y accionables**. No digas solo "usa palabras clave". Explica cómo buscarlas, qué herramientas usar, qué métricas revisar. Esto es fundamental tanto para el SEO como para evitar errores de diseño web que perjudican tu posicionamiento.
 
 - **Respuestas a preguntas secundarias**. ¿Recuerdas esas preguntas que viste en "La gente también pregunta"? Respóndelas en tu artículo. Google detecta cuando cubres esas dudas relacionadas.
 
@@ -239,16 +239,15 @@ La velocidad de carga y la experiencia en dispositivos móviles.
 
 Puedes tener el mejor artículo del mundo, pero si tu página tarda 10 segundos en cargar o se ve horrible en un celular, Google no te va a posicionar arriba
 
-Google ama la velocidad y el mobile-friendliness porque mide la experiencia real del usuario. Mira, si tu página carga en 10 segundos o mas se ve horrible en celular, te penaliza directo en los rankings. No quieres caer en eso, ¿verdad? Así que ten mucho cuidado en este punto clave. De hecho, un buen [diseño web freelance](/blog/diseno-web-freelance-guia-completa) es fundamental para evitar problemas técnicos.
+Google ama la velocidad y el mobile-friendliness porque mide la experiencia real del usuario. Mira, si tu página carga en 10 segundos o mas se ve horrible en celular, te penaliza directo en los rankings. No quieres caer en eso, ¿verdad? Así que ten mucho cuidado en este punto clave. De hecho, un buen diseño web freelance es fundamental para evitar problemas técnicos.
 
 Vamos paso a paso, tú lo vas haciendo:
 
 - **Core Web Vitals**: Optimiza para LCP <2.5s (tiempo de carga) e INP <200ms (respuesta). Si sale rojo en las métricas, arréglalo ahora baja el peso de imágenes y minifica código. Algunas herramientas que te podrían ayudar optimizar y corregir esto:
 
-**TinyPNG**. Baja el peso de imágenes para comprimir sin perder calidad.
+TinyPNG. Baja el peso de imágenes para comprimir sin perder calidad.
 
-**WebsitePlanet Minifier**. Minifica código con WebsitePlanet Minifier (JS/CSS gratis online).
-
+WebsitePlanet Minifier. Minifica código con WebsitePlanet Minifier (JS/CSS gratis online).
 
 - **Mobile-First**: Antes de lanzar tu sitio, pruébalo primero en móvil. Google prioriza la indexación mobile-first: si no es 100% responsive (se adapta perfectamente a pantallas pequeñas), lo ignorará en búsquedas móviles y penalizará su ranking.
 
@@ -337,7 +336,7 @@ Pero con el tiempo, probando, ajustando, analizando datos reales, entendí que p
 
 Sé que todo esto puede parecer abrumador, especialmente si estás empezando o si simplemente no tienes el tiempo para hacer todo el proceso. Investigar palabras clave, analizar competencia, redactar contenido optimizado, ajustar metadatos, monitorear resultados... es trabajo que requiere tiempo y experiencia.
 
-Si prefieres enfocarte en tu negocio mientras alguien se encarga de hacer que tu contenido posicione, ese es exactamente el servicio que ofrezco. En [omarfuentes.com](/) trabajo con clientes que necesitan optimización SEO real y redacción de artículos que realmente posicionan, no solo contenido genérico que se pierda en el montón.
+Si prefieres enfocarte en tu negocio mientras alguien se encarga de hacer que tu contenido posicione, ese es exactamente el servicio que ofrezco. Trabajo con clientes que necesitan optimización SEO real y redacción de artículos que realmente posicionan, no solo contenido genérico que se pierda en el montón.
 
 No te voy a prometer primeros lugares en una semana, porque eso sería mentirte. Pero sí te puedo garantizar que voy a aplicar exactamente lo que te enseñé aquí, con la experiencia de haberlo hecho cientos de veces y los ajustes que solo se aprenden con la práctica constante.
 
