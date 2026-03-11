@@ -8,11 +8,13 @@ import { isRtl, useTranslations } from '~/i18n/utils';
 
 interface Props {
   title: string;
+  seoTitle?: string;
   description: string;
   keywords?: string;
   pubDate: Date;
   updatedDate?: Date;
   heroImage?: ImageMetadata;
+  heroImageUrl?: string;
   youtubeId?: string;
   audioUrl?: string; // Add audioUrl prop
   isVideo?: boolean;
@@ -23,7 +25,7 @@ interface Props {
   tags?: string[];
 }
 
-const { title, description, keywords, pubDate, updatedDate, heroImage, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs, tags } = Astro.props;
+const { title, seoTitle, description, keywords, pubDate, updatedDate, heroImage, heroImageUrl, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs, tags } = Astro.props;
 const { lang = defaultLang } = Astro.params;
 const t = useTranslations(lang);
 
@@ -33,14 +35,21 @@ const currentSlug = Astro.url.pathname;
 // Extraer tags del frontmatter si existen
 const finalTags = tags || [];
 
+const resolvedImageUrl = heroImage?.src || heroImageUrl;
+
+const publishedDate = pubDate instanceof Date ? pubDate : new Date(pubDate);
+const modifiedDate = updatedDate ? (updatedDate instanceof Date ? updatedDate : new Date(updatedDate)) : undefined;
+const publishedIso = Number.isNaN(publishedDate.getTime()) ? undefined : publishedDate.toISOString();
+const modifiedIso = modifiedDate && !Number.isNaN(modifiedDate.getTime()) ? modifiedDate.toISOString() : undefined;
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": title,
   "description": description,
-  "datePublished": pubDate.toISOString(),
-  ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
-  ...(heroImage && { "image": new URL(heroImage.src, Astro.site).toString() }),
+  ...(publishedIso && { "datePublished": publishedIso }),
+  ...(modifiedIso && { "dateModified": modifiedIso }),
+  ...(resolvedImageUrl && { "image": new URL(resolvedImageUrl, Astro.site).toString() }),
   "author": {
       "@type": "Person",
       "name": "Omar Fuentes",
@@ -62,16 +71,16 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
 <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
 
 <Layout 
-  title={title} 
+  title={seoTitle || title} 
   description={description} 
   keywords={keywords} 
-  image={heroImage?.src} 
+  image={resolvedImageUrl} 
   article={true} 
   noindex={noindex} 
   nofollow={nofollow} 
   availableLangs={availableLangs}
-  publishedTime={pubDate.toISOString()}
-  modifiedTime={updatedDate?.toISOString()}
+  publishedTime={publishedIso}
+  modifiedTime={modifiedIso}
   tags={finalTags}
 >
   <ScrollProgress />
@@ -91,6 +100,18 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
                   alt=""
                   widths={[480, 640, 768, 1024, 1280]}
                   sizes="(min-width: 1024px) 768px, (min-width: 768px) 700px, 100vw"
+                  loading="eager"
+                  fetchpriority="high"
+                  class="w-full object-cover aspect-video"
+                />
+            </div>
+        )}
+
+        {!heroImage && heroImageUrl && !youtubeId && (
+            <div class="rounded-2xl overflow-hidden mb-8 border border-black/10 dark:border-white/10 shadow-2xl">
+                <img
+                  src={heroImageUrl}
+                  alt=""
                   loading="eager"
                   fetchpriority="high"
                   class="w-full object-cover aspect-video"
@@ -144,6 +165,6 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
       <slot />
     </div>
 
-    <RelatedPosts currentSlug={currentSlug} currentLang={lang} />
+    {currentSlug !== '/blog/como-posicionar-mi-web-en-los-primeros-lugares-de-google' && <RelatedPosts currentSlug={currentSlug} currentLang={lang} />}
   </article>
 </Layout>

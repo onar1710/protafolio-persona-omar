@@ -43,7 +43,7 @@ const t = useTranslations(lang);
              title={post.data.title}
              description={post.data.description}
              pubDate={post.data.pubDate}
-             heroImage={post.data.heroImage}
+             heroImage={post.data.heroImageUrl || post.data.heroImage}
              slug={`/blog/${post.id.replace(/\.[^/.]+$/, "")}`}
              isVideo={post.data.isVideo}
           />

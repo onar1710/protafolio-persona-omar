@@ -6,6 +6,7 @@ const cliTarget = process.argv[2] || 'src/pages/servicios-optimizacion-seo.astro
 const targetPath = path.isAbsolute(cliTarget) ? cliTarget : path.join(projectRoot, cliTarget);
 const source = fs.readFileSync(targetPath, 'utf8');
 const normalizedTarget = cliTarget.replaceAll('\\', '/');
+const isMarkdownTarget = /\.(md|mdx)$/i.test(normalizedTarget);
 const isSeoServicesPage = normalizedTarget.endsWith('src/pages/servicios-optimizacion-seo.astro');
 const isHomePage = normalizedTarget.endsWith('src/pages/index.astro');
 const hasHeroComponentH1 = isHomePage && source.includes("import Hero from '~/components/sections/Hero.astro';") && source.includes('<Hero');
@@ -20,6 +21,171 @@ const imgTagsWithLazy = imgTags.filter((tag) => /loading="lazy"/.test(tag));
 const imgTagsWithDecoding = imgTags.filter((tag) => /decoding="async"|decoding="sync"/.test(tag));
 const externalHttpUrls = [...source.matchAll(/http:\/\//g)];
 const externalHttpsUrlsOutsideSchema = [...source.matchAll(/https:\/\//g)].filter(() => false);
+
+function getFrontmatter(raw) {
+  if (!raw.startsWith('---')) return null;
+  const end = raw.indexOf('\n---', 3);
+  if (end === -1) return null;
+
+  const block = raw.slice(3, end).trim();
+  const lines = block.split(/\r?\n/);
+  const data = {};
+
+  for (const line of lines) {
+    const match = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
+    if (!match) continue;
+    const key = match[1];
+    let value = match[2]?.trim() ?? '';
+    value = value.replace(/^['"]|['"]$/g, '');
+    data[key] = value;
+  }
+
+  return data;
+}
+
+function scoreMarkdownChecks(raw) {
+  const fm = getFrontmatter(raw) || {};
+
+  const md = raw.replace(/^---[\s\S]*?\n---\s*/m, '');
+
+  const mdImages = [...md.matchAll(/!\[([^\]]*)\]\(([^)]+)\)/g)];
+  const mdImagesWithAlt = mdImages.filter((m) => (m[1] || '').trim().length > 0);
+  const mdHasAnyImage = mdImages.length > 0 || Boolean(fm.heroImageUrl || fm.heroImage);
+
+  const mdHttpUrls = [...md.matchAll(/http:\/\//g)];
+  const mdHasInternalLinks = /\[[^\]]+\]\((\/(?!\/)|#)/.test(md);
+
+  const mdHeadingCount = (md.match(/^#{2,6}\s+/gm) || []).length;
+  const mdH1Count = (md.match(/^#\s+/gm) || []).length;
+  const mdH2Count = (md.match(/^##\s+/gm) || []).length;
+
+  const markdownChecks = {
+    performance: [
+      {
+        label: 'No inline script blocks detected in page body',
+        passed: !md.includes('<script'),
+        weight: 10,
+      },
+      {
+        label: 'No blocking iframe embeds detected',
+        passed: !md.includes('<iframe'),
+        weight: 10,
+      },
+      {
+        label: 'No obvious third-party remote asset URLs',
+        passed: mdHttpUrls.length === 0,
+        weight: 10,
+      },
+      {
+        label: 'Content includes visual media when expected',
+        passed: mdHasAnyImage,
+        weight: 10,
+      },
+    ],
+    accessibility: [
+      {
+        label: 'Images include alt text when using markdown images',
+        passed: mdImages.length === 0 || mdImagesWithAlt.length === mdImages.length,
+        weight: 25,
+      },
+      {
+        label: 'Single main H1 present',
+        passed: mdH1Count === 0,
+        weight: 25,
+      },
+      {
+        label: 'Readable section structure present',
+        passed: mdH2Count >= 3,
+        weight: 25,
+      },
+      {
+        label: 'Page contains multiple headings for structure',
+        passed: mdHeadingCount >= 4,
+        weight: 25,
+      },
+    ],
+    bestPractices: [
+      {
+        label: 'No http URLs in page source',
+        passed: mdHttpUrls.length === 0,
+        weight: 30,
+      },
+      {
+        label: 'Frontmatter includes publish date',
+        passed: Boolean(fm.pubDate),
+        weight: 20,
+      },
+      {
+        label: 'Frontmatter includes keywords when applicable',
+        passed: Boolean(fm.keywords),
+        weight: 20,
+      },
+      {
+        label: 'Avoids deprecated presentational markup detected',
+        passed: !md.includes('<font') && !md.includes('document.write'),
+        weight: 30,
+      },
+    ],
+    seo: [
+      {
+        label: 'Meta description is defined in frontmatter',
+        passed: Boolean(fm.description),
+        weight: 18,
+      },
+      {
+        label: 'Primary page title is defined in frontmatter',
+        passed: Boolean(fm.title || fm.seoTitle),
+        weight: 18,
+      },
+      {
+        label: 'Single H1 supports heading hierarchy',
+        passed: mdH1Count === 0,
+        weight: 14,
+      },
+      {
+        label: 'Descriptive internal links exist',
+        passed: mdHasInternalLinks,
+        weight: 12,
+      },
+      {
+        label: 'Images include descriptive alt text when using markdown images',
+        passed: mdImages.length === 0 || mdImagesWithAlt.length === mdImages.length,
+        weight: 10,
+      },
+      {
+        label: 'Page contains rich content and section depth',
+        passed: mdH2Count >= 3,
+        weight: 10,
+      },
+      {
+        label: 'HTTPS-only references in source',
+        passed: mdHttpUrls.length === 0,
+        weight: 18,
+      },
+    ],
+  };
+
+  const results = Object.fromEntries(
+    Object.entries(markdownChecks).map(([category, items]) => [
+      category,
+      {
+        score: scoreCategory(items),
+        passed: items.filter((item) => item.passed).map((item) => item.label),
+        failed: items.filter((item) => !item.passed).map((item) => item.label),
+      },
+    ]),
+  );
+
+  return {
+    scores: {
+      performance: results.performance.score,
+      accessibility: results.accessibility.score,
+      bestPractices: results.bestPractices.score,
+      seo: results.seo.score,
+    },
+    details: results,
+  };
+}
 
 const baseChecks = {
   performance: [
@@ -455,16 +621,18 @@ function scoreCategory(items) {
   return Math.round((earnedWeight / totalWeight) * 100);
 }
 
-const results = Object.fromEntries(
-  Object.entries(checks).map(([category, items]) => [
-    category,
-    {
-      score: scoreCategory(items),
-      passed: items.filter((item) => item.passed).map((item) => item.label),
-      failed: items.filter((item) => !item.passed).map((item) => item.label),
-    },
-  ]),
-);
+const results = isMarkdownTarget
+  ? scoreMarkdownChecks(source).details
+  : Object.fromEntries(
+      Object.entries(checks).map(([category, items]) => [
+        category,
+        {
+          score: scoreCategory(items),
+          passed: items.filter((item) => item.passed).map((item) => item.label),
+          failed: items.filter((item) => !item.passed).map((item) => item.label),
+        },
+      ]),
+    );
 
 const summary = {
   page: normalizedTarget,

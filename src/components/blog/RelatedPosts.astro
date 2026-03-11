@@ -65,7 +65,7 @@ const relatedPosts = allPosts
           description={post.data.description}
           pubDate={post.data.pubDate}
           slug={getPostPath(post)}
-          heroImage={post.data.heroImage}
+          heroImage={post.data.heroImageUrl || post.data.heroImage}
           isVideo={post.data.isVideo}
         />
       </div>
