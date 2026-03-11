@@ -38,18 +38,42 @@ const getCurrentSlug = () => {
 
 const currentArticleSlug = getCurrentSlug();
 
-// Mostrar 3 posts excluyendo el actual dinámicamente
-const relatedPosts = allPosts
-  .filter(post => {
-    // Extraer el slug del post
-    const postSlugParts = post.id.split('/');
-    const postSlug = postSlugParts[postSlugParts.length - 1].replace(/\.[^/.]+$/, "");
-    
-    // Excluir el artículo actual
-    return postSlug !== currentArticleSlug;
-  })
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
-  .slice(0, 3);
+// Mostrar posts relacionados específicos para SEO y posicionamiento web
+const getRelatedPosts = () => {
+  // Artículos específicos relacionados con SEO y posicionamiento
+  const seoRelatedSlugs = [
+    'algoritmo-de-google',
+    'diseno-web-seo', 
+    'errores-diseno-web',
+    'diseno-web-freelance-guia-completa'
+  ];
+  
+  // Si el artículo actual es de SEO, mostrar artículos relacionados de SEO
+  if (seoRelatedSlugs.includes(currentArticleSlug)) {
+    return allPosts
+      .filter(post => {
+        const postSlugParts = post.id.split('/');
+        const postSlug = postSlugParts[postSlugParts.length - 1].replace(/\.[^/.]+$/, "");
+        
+        // Excluir el artículo actual y solo mostrar artículos relacionados de SEO
+        return postSlug !== currentArticleSlug && seoRelatedSlugs.includes(postSlug);
+      })
+      .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+      .slice(0, 3);
+  }
+  
+  // Para otros artículos, mostrar los más recientes (comportamiento original)
+  return allPosts
+    .filter(post => {
+      const postSlugParts = post.id.split('/');
+      const postSlug = postSlugParts[postSlugParts.length - 1].replace(/\.[^/.]+$/, "");
+      return postSlug !== currentArticleSlug;
+    })
+    .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+    .slice(0, 3);
+};
+
+const relatedPosts = getRelatedPosts();
 ---
 
 <section class="mt-20 border-t border-black/10 dark:border-white/10 pt-12">

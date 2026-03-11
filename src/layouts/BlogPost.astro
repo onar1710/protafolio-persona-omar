@@ -165,6 +165,6 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
       <slot />
     </div>
 
-    {currentSlug !== '/blog/como-posicionar-mi-web-en-los-primeros-lugares-de-google' && <RelatedPosts currentSlug={currentSlug} currentLang={lang} />}
+    <RelatedPosts currentSlug={currentSlug} currentLang={lang} />
   </article>
 </Layout>
