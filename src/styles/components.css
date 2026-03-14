@@ -151,3 +151,28 @@ lite-youtube {
 .prose tr:hover {
   background-color: #f3f4f6;
 }
+
+/* Forzar texto negro en CTA cards */
+#cta-cards .bg-white h3.cta-card-title {
+  color: #000000 !important;
+}
+
+#cta-cards .bg-white p.cta-card-text {
+  color: #000000 !important;
+}
+
+#cta-cards .bg-white .cta-card-title {
+  color: #000000 !important;
+}
+
+#cta-cards .bg-white .cta-card-text {
+  color: #000000 !important;
+}
+
+#cta-cards h3 {
+  color: #000000 !important;
+}
+
+#cta-cards p {
+  color: #000000 !important;
+}
