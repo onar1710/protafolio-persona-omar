@@ -30,6 +30,7 @@ Dependiendo del profesional, los servicios pueden variar, pero en general, un di
 - **SEO técnico:** Optimizar el sitio para que aparezca en Google
 - **Responsive design:** Asegurar que el sitio funcione perfecto en móviles, tablets y escritorio
 - **Performance:** Hacer que el sitio cargue rápido y funcione fluido
+- **Estrategia de enlaces:** Ayudarte a **[conseguir backlinks para tu sitio web](/blog/como-conseguir-backlinks-para-tu-sitio-web)** para mejorar autoridad. Algunos freelancers también conocen **[sitios web que crean backlinks para ti](/blog/sitios-web-que-crean-backlinks-para-ti)** de forma segura.
 
 Algunos freelancers nos especializamos solo en diseño, otros solo en programación, y otros (como yo) hacemos ambas cosas. Por eso es importante preguntar desde el principio qué servicios específicos ofrece cada profesional.
 

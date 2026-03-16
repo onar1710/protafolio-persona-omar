@@ -44,7 +44,7 @@ Después viene el dominio. Elige un nombre que represente tu marca, que sea fác
 
 Una vez elegido el dominio hay dos cosas que debes hacer de inmediato, apuntar los DNS correctamente y activar tu certificado SSL. Esto no es opcional. El SSL le dice a Google y a tus visitantes que tu sitio es seguro, y es una de las bases fundamentales para arrancar con el pie derecho.
 
-Con el tema claro, las palabras clave definidas, el dominio elegido y la seguridad configurada ahí sí estás listo para empezar a construir."
+Con el tema claro, las palabras clave definidas, el dominio elegido y la seguridad configurada ahí sí estás listo para empezar a construir. Una parte fundamental de este proceso es aprender **[cómo conseguir backlinks para tu sitio web](/blog/como-conseguir-backlinks-para-tu-sitio-web)**, ya que los enlaces externos son cruciales para el posicionamiento. Si prefieres soluciones más automatizadas, también puedes explorar **[sitios web que crean backlinks para ti](/blog/sitios-web-que-crean-backlinks-para-ti)** de forma segura."
 
 ---
 

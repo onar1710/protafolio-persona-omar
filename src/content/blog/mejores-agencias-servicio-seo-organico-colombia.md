@@ -46,7 +46,7 @@ Así que ponte cómodo, tómate tu tiempo y lee esta guía completa. Sé que te 
 
 Mira, antes de mostrarte la lista, déjame contarte cómo llegué a estas 15 agencias SEO en Colombia. No fue fácil. Pasé semanas revisando más de 50 empresas de posicionamiento web. Entré una por una a sus Google Reviews, leí lo que decían sus clientes reales en Clutch y Trustpilot. Incluso me metí a foros especializados para ver qué opinaba la gente cuando nadie los estaba viendo.
 
-Revisé qué agencias SEO Colombia realmente tienen casos de éxito verificables. No me quedé con lo que decían en sus páginas web. Busqué pruebas: testimonios con nombres reales, empresas que pudieras contactar, resultados medibles.
+Revisé qué agencias SEO Colombia realmente tienen casos de éxito verificables. No me quedé con lo que decían en sus páginas web. Busqué pruebas: testimonios con nombres reales, empresas que pudieras contactar, resultados medibles. Además, verifiqué si ofrecen servicios para **[conseguir backlinks para tu sitio web](/blog/como-conseguir-backlinks-para-tu-sitio-web)**, ya que esto es fundamental para el SEO. Algunas agencias también utilizan **[sitios web que crean backlinks para ti](/blog/sitios-web-que-crean-backlinks-para-ti)** como parte de sus estrategias.
 
 ¿Por qué hice todo esto? Porque sé lo que se siente gastar dinero en SEO y no ver resultados. Quería asegurarme de que cada empresa de SEO en esta lista tenga casos reales, clientes contentos y metodologías comprobadas. No encontrarás aquí agencias que solo prometen. Estas 15 realmente entregan.
 
