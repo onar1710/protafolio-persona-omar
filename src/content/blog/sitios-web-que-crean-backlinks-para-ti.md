@@ -33,7 +33,7 @@ La clave está en saber diferenciar unos de otros y usar las herramientas correc
 
 ## Los mejores generadores de backlinks gratuitos que funcionan
 
-![Los mejores generadores de backlinks gratuitos que funcionan](/src/assets/blog/plataformas-de-contenido-donde-puedes-crear-backlinks.jpg)
+![Los mejores generadores de backlinks gratuitos que funcionan](~/assets/blog/plataformas-de-contenido-donde-puedes-crear-backlinks.jpg)
 
 Después de años probando diferentes plataformas, he encontrado estas herramientas que realmente te ayudan a conseguir backlinks de calidad sin riesgos.
 
@@ -68,7 +68,7 @@ Recuerda que al implementar estas estrategias, es fundamental evitar cometer los
 
 **Mi experiencia personal**: He notado que los enlaces de esta herramienta tienen un **impacto más duradero** en el posicionamiento que los de otros generadores gratuitos.
 
-![Estrategia de backlinks](/src/assets/blog/herramientas-de-presentacion-de-documentos.jpg)
+![Estrategia de backlinks](~/assets/blog/herramientas-de-presentacion-de-documentos.jpg)
 
 ### 3. SEO Review Tools Backlink Generator
 
@@ -90,7 +90,7 @@ Estos no son generadores automáticos, pero son **sitios web autorizados** donde
 
 ### 4. Medium: La joya oculta del link building
 
-![Estrategia de backlinks](/src/assets/blog/los-mejores-generadores-de-backlinks-gratuitos-que-funcionan.jpg)
+![Estrategia de backlinks](~/assets/blog/los-mejores-generadores-de-backlinks-gratuitos-que-funcionan.jpg)
 
 Medium es una de las **plataformas más subestimadas** para conseguir backlinks. Con su alta autoridad de dominio (DA 94+), cualquier enlace que coloques aquí tiene un impacto significativo.
 
@@ -143,7 +143,7 @@ Estas plataformas están diseñadas específicamente para crear backlinks, pero 
 
 ### 7. Getlink: Conexión con medios de autoridad
 
-![Estrategia de backlinks](/src/assets/blog/realmente-existen-sitios-web-que-crean-backlinks-para-ti.jpg)
+![Estrategia de backlinks](~/assets/blog/realmente-existen-sitios-web-que-crean-backlinks-para-ti.jpg)
 
 Getlink es diferente a los generadores masivos. Funciona conectándote con **medios afines a tu temática** que están dispuestos a publicar tu contenido.
 
@@ -187,7 +187,7 @@ Slideshare es una red de profesionales con **millones de usuarios** activos. Aqu
 
 **Resultados que he obtenido**: Una buena presentación en Slideshare puede generar **5-10 backlinks de calidad** y cientos de visitas referidas.
 
-![Estrategia de backlinks](/src/assets/blog/generadores-de-backlinks-que-debes-evitar.jpg)
+![Estrategia de backlinks](~/assets/blog/generadores-de-backlinks-que-debes-evitar.jpg)
 
 ### 10. Scribd: La biblioteca digital
 

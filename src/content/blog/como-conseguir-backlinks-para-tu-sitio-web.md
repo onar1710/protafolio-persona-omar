@@ -17,7 +17,7 @@ Hoy te voy a explicar paso a paso cómo conseguir backlinks para tu sitio web de
 
 ## ¿Qué son exactamente los backlinks y por qué son tan cruciales?
 
-![Qué son los backlinks cruciales](/src/assets/blog/que-son-backlinks-cruciales.jpg)
+![Qué son los backlinks cruciales](~/assets/blog/que-son-backlinks-cruciales.jpg)
 
 Antes de enseñarte cómo conseguirlos, necesitas entender por qué Google valora tanto los backlinks. Piénsalo de esta manera: un backlink es como una **recomendación**. Cuando otro sitio web enlaza hacia el tuyo, le está diciendo a Google: "Oye, este contenido es bueno y vale la pena visitarlo".
 
@@ -47,7 +47,7 @@ La calidad se mide por:
 
 ## Estrategias probadas para conseguir backlinks de calidad
 
-![Estrategias probadas para backlinks](/src/assets/blog/estrategias-probadas-backlinks.jpg)
+![Estrategias probadas para backlinks](~/assets/blog/estrategias-probadas-backlinks.jpg)
 
 Vamos a lo práctico. Estas son las técnicas que me han dado mejores resultados a lo largo de los años. No todas funcionarán para ti, pero te recomiendo probar varias y ver cuál se adapta mejor a tu nicho y recursos.
 
@@ -117,7 +117,7 @@ Esta estrategia es casi como encontrar dinero en la calle. Muchos sitios tienen 
 
 El guest blogging sigue siendo una de las estrategias **más efectivas** cuando se hace correctamente. No se trata de escribir para cualquier sitio, sino de elegir sabiamente.
 
-![Guest Blogging](/src/assets/blog/futuro-backlinks.jpg)
+![Guest Blogging](~/assets/blog/futuro-backlinks.jpg)
 
 **Cómo lo hago yo**:
 
@@ -218,7 +218,7 @@ Si trabajas con otras empresas, proveedores o clientes, tienes **oportunidades d
 
 No puedes hacer todo **manualmente**. Estas herramientas me han ahorrado cientos de horas y me han permitido conseguir enlaces que nunca habría encontrado solo.
 
-![Herramientas esenciales para backlinks](/src/assets/blog/herramientas-esenciales-backlinks.jpg)
+![Herramientas esenciales para backlinks](~/assets/blog/herramientas-esenciales-backlinks.jpg)
 
 ### Para investigación y análisis
 
@@ -242,7 +242,7 @@ No puedes hacer todo **manualmente**. Estas herramientas me han ahorrado cientos
 
 He cometido casi todos estos errores cuando empecé. Aprende de mi experiencia y evítalos.
 
-![Errores comunes que debes evitar](/src/assets/blog/errores-comunes-evitar.jpg)
+![Errores comunes que debes evitar](~/assets/blog/errores-comunes-evitar.jpg)
 
 ### Error #1: Comprar backlinks de baja calidad
 
@@ -314,7 +314,7 @@ Conseguir el enlace es solo el **principio**. Necesitas monitorizar:
 
 Sé que todo esto puede parecer **abrumador**. Por eso te voy a dar un plan paso a paso para tus primeros tres meses.
 
-![Plan de acción 90 días](/src/assets/blog/plan-accion-90-dias.jpg)
+![Plan de acción 90 días](~/assets/blog/plan-accion-90-dias.jpg)
 
 ### Mes 1: Fundamentos y primeras victorias
 
@@ -362,7 +362,7 @@ Si necesitas ayuda profesional, considera contratar a las **mejores agencias de 
 
 Cuando ya dominas lo básico, estas técnicas avanzadas pueden marcar la diferencia.
 
-![Consejos avanzados para backlinks](/src/assets/blog/consejos-avanzados-backlinks.jpg)
+![Consejos avanzados para backlinks](~/assets/blog/consejos-avanzados-backlinks.jpg)
 
 ### Link Baiting emocional
 
@@ -392,7 +392,7 @@ Encuentra artículos populares pero desactualizados y crea versiones mejoradas. 
 
 Conseguir backlinks es importante, pero mantener un **perfil saludable** es crucial para no penalizarte.
 
-![Perfil de enlaces saludable](/src/assets/blog/perfil-enlaces-saludable.jpg)
+![Perfil de enlaces saludable](~/assets/blog/perfil-enlaces-saludable.jpg)
 
 ### Auditorías periódicas
 
@@ -443,7 +443,7 @@ La experiencia, experiencia, autoridad y confianza (E-E-A-T) son más importante
 
 Conseguir backlinks para tu sitio web no es una carrera de velocidad, es un maratón. Requiere estrategia, constancia y enfocarse en el valor real antes que en los enlaces por sí mismos.
 
-![Conclusión perfil sólido](/src/assets/blog/conclusion-perfil-solido.jpg)
+![Conclusión perfil sólido](~/assets/blog/conclusion-perfil-solido.jpg)
 
 Recuerda siempre estos principios:
 
