@@ -1,0 +1,102 @@
+---
+import { Github, Linkedin } from 'lucide-react';
+import MobileMenu from '~/components/islands/MobileMenu';
+import DesktopNav from '~/components/islands/DesktopNav';
+import Search from '~/components/islands/Search';
+
+import { NAV_LINKS, ACTION_LINKS, siteConfig } from '~/config-en/site.config';
+
+const links = NAV_LINKS;
+const primaryHref = ACTION_LINKS.primary.href;
+---
+
+<header class="w-full transition-all duration-300 border-b border-foreground/10 bg-background/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/en" class="flex items-center gap-3 text-xl font-bold tracking-tight text-primary dark:text-white group">
+      {siteConfig.logo && (
+        siteConfig.logo.strategy === 'switch' ? (
+          <>
+            <img 
+              src={siteConfig.logo.src} 
+              alt={siteConfig.logo.alt} 
+              width="44"
+              height="44"
+              class="h-11 w-auto group-hover:rotate-6 transition-transform duration-300 dark:hidden block"
+            />
+            <img 
+              src={siteConfig.logo.srcDark || siteConfig.logo.src} 
+              alt={siteConfig.logo.alt} 
+              width="44"
+              height="44"
+              class="h-11 w-auto group-hover:rotate-6 transition-transform duration-300 hidden dark:block"
+            />
+          </>
+        ) : (
+          <img 
+            src={siteConfig.logo.src} 
+            alt={siteConfig.logo.alt} 
+            width="44"
+            height="44"
+            class={`h-11 w-auto group-hover:rotate-6 transition-transform duration-300 ${
+              siteConfig.logo.strategy === 'invert' ? 'dark:invert' : ''
+            }`}
+          />
+        )
+      )}
+      <span class="md:hidden lg:inline text-base font-semibold">{siteConfig.name}</span>
+    </a>
+    <div class="flex-1 flex justify-center mx-4 lg:mx-8">
+      <DesktopNav client:load links={links} currentPath={Astro.url.pathname} />
+    </div>
+
+    <div class="flex items-center gap-4 flex-shrink-0">
+      {siteConfig.search.enabled && <Search 
+        client:idle 
+        placeholder="Search..." 
+        devModalLabels={{
+            title: "Search",
+            description: "Use search to find content on the site.",
+            gotIt: "Got it",
+            doc: "Search"
+        }}
+        lang="en"
+      />}
+      <a 
+        href={ACTION_LINKS.social.linkedin}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-foreground hover:text-foreground/70 dark:text-white dark:hover:text-blue-300 transition-colors hidden md:block"
+        aria-label="LinkedIn"
+      >
+        <Linkedin className="w-5 h-5" />
+      </a>
+      <a 
+        href={ACTION_LINKS.social.github}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-foreground hover:text-foreground/70 dark:text-white dark:hover:text-blue-300 transition-colors hidden md:block"
+        aria-label="GitHub"
+      >
+        <Github className="w-5 h-5" />
+      </a>
+      <a 
+        href={primaryHref}
+        class="hidden md:block px-4 py-2 text-sm font-medium bg-primary text-black rounded-full hover:bg-primary/90 transition-all"
+      >
+        {ACTION_LINKS.primary.label}
+      </a>
+      
+      <div class="md:hidden">
+        <MobileMenu 
+          client:load 
+          links={links} 
+          currentPath={Astro.url.pathname} 
+          labels={{
+            menu: "Menu",
+            getStarted: ACTION_LINKS.primary.label
+          }}
+        />
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,10 +1,13 @@
 ---
 import Layout from './Layout.astro';
+import LayoutEn from '../layouts-en/Layout.astro';
 import { Image } from 'astro:assets';
 import AudioPlayer from '~/components/common/AudioPlayer.astro';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
 import { defaultLang } from '~/i18n/ui';
 import { isRtl, useTranslations } from '~/i18n/utils';
+import TableOfContents from '~/components/blog/TableOfContents.astro';
+import type { MarkdownHeading } from 'astro';
 
 interface Props {
   title: string;
@@ -23,11 +26,17 @@ interface Props {
   nofollow?: boolean;
   availableLangs?: string[];
   tags?: string[];
+  headings?: MarkdownHeading[];
+  lang?: string;
 }
 
-const { title, seoTitle, description, keywords, pubDate, updatedDate, heroImage, heroImageUrl, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs, tags } = Astro.props;
-const { lang = defaultLang } = Astro.params;
+const { title, seoTitle, description, keywords, pubDate, updatedDate, heroImage, heroImageUrl, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs, tags, headings = [], lang: langProp } = Astro.props;
+const { lang: langParam = defaultLang } = Astro.params;
+const lang = langProp || langParam;
 const t = useTranslations(lang);
+
+const LayoutComponent = lang === 'en' ? LayoutEn : Layout;
+const backHref = lang === 'en' ? '/en/blog' : '/blog';
 
 // Obtener el slug actual para los posts relacionados
 const currentSlug = Astro.url.pathname;
@@ -70,7 +79,7 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
 
-<Layout 
+<LayoutComponent 
   title={seoTitle || title} 
   description={description} 
   keywords={keywords} 
@@ -86,7 +95,7 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
   <ScrollProgress />
   <article class="max-w-4xl mx-auto px-6 py-20">
     <div class="mb-8">
-        <a href={`/blog`} class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+        <a href={backHref} class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={`w-4 h-4 ${isRtl(lang) ? 'rotate-180' : ''}`}><path d="m15 18-6-6 6-6"/></svg>
             {t['blog.back']}
         </a>
@@ -162,9 +171,33 @@ import ScrollProgress from '~/components/layout/ScrollProgress.astro';
     </div>
 
     <div class="prose prose-lg mx-auto prose-img:rounded-xl prose-headings:font-display prose-headings:font-bold prose-a:text-primary hover:prose-a:text-primary/80 dark:prose-invert max-w-none">
-      <slot />
+      {headings.length > 0 && (
+        <div id="toc-container" class="not-prose my-8 rounded-2xl border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] p-6">
+          <TableOfContents headings={headings} sticky={false} collapsible={true} defaultOpen={false} title={lang === 'es' ? 'Tabla de contenido' : 'On this page'} />
+        </div>
+      )}
+      <div id="post-content" class="blog-content">
+        <slot />
+      </div>
     </div>
 
     <RelatedPosts currentSlug={currentSlug} currentLang={lang} />
   </article>
-</Layout>
+</LayoutComponent>
+
+<script>
+  const toc = document.getElementById('toc-container');
+  const content = document.getElementById('post-content');
+
+  if (toc && content) {
+    const firstH2 = content.querySelector('h2');
+    if (firstH2 && firstH2.parentElement) {
+      firstH2.insertAdjacentElement('beforebegin', toc);
+    } else {
+      const firstParagraph = content.querySelector('p');
+      if (firstParagraph && firstParagraph.parentElement) {
+        firstParagraph.insertAdjacentElement('afterend', toc);
+      }
+    }
+  }
+</script>

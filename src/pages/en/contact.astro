@@ -1,0 +1,72 @@
+---
+import Layout from '~/layouts-en/Layout.astro';
+import ContactForm from '~/components/islands/ContactForm.jsx';
+import { Mail, MapPin, Phone } from 'lucide-react';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+import Grid from '~/components/ui/Grid.astro';
+import { useTranslations } from '~/i18n/utils';
+
+const t = useTranslations('en');
+---
+
+<Layout title="Contact - Omar Fuentes" description="Contact Omar Fuentes: +57 310 785 1074 | contact@omarfuentes.com | Web design and SEO.">
+  <PageHeader 
+      title="Contact"
+      description="Tell me about your project and I'll reply with a clear plan. Web design, development and technical SEO."
+  />
+
+  <Container as="section" class="pb-24">
+      <Grid cols={2} class="gap-12">
+          <div class="space-y-8">
+              <h2 class="text-2xl font-bold mb-6">Contact information</h2>
+              
+              <div class="flex items-start gap-4">
+                  <div class="p-3 rounded-lg bg-primary/10 text-primary">
+                      <Mail className="w-6 h-6" />
+                  </div>
+                  <div>
+                      <h3 class="font-bold mb-1">Email</h3>
+                      <p class="text-muted-foreground">contact@omarfuentes.com</p>
+                      <p class="text-muted-foreground">Reply within 4 hours</p>
+                  </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                  <div class="p-3 rounded-lg bg-primary/10 text-primary">
+                      <Phone className="w-6 h-6" />
+                  </div>
+                  <div>
+                      <h3 class="font-bold mb-1">Phone / WhatsApp</h3>
+                      <p class="text-muted-foreground">+57 310 785 1074</p>
+                      <p class="text-muted-foreground">Mon-Fri 9am-6pm (Colombia)</p>
+                  </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                  <div class="p-3 rounded-lg bg-primary/10 text-primary">
+                      <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                      <h3 class="font-bold mb-1">Location</h3>
+                      <p class="text-muted-foreground">Floridablanca, Santander</p>
+                      <p class="text-muted-foreground">Colombia</p>
+                  </div>
+              </div>
+          </div>
+
+          <div>
+              <div class="p-6 rounded-2xl bg-linear-to-br from-primary/20 to-purple-500/20 border border-white/10">
+                  <h3 class="font-bold mb-4">What to include for a fast reply</h3>
+                  <div class="space-y-2 text-sm text-white/80">
+                      <p>→ Website type (landing page, catalog, blog, ecommerce)</p>
+                      <p>→ Goal (sales, leads, brand, SEO)</p>
+                      <p>→ Ideal delivery date</p>
+                      <p>→ References (2-3 sites you like)</p>
+                  </div>
+              </div>
+              <ContactForm client:load />
+          </div>
+      </Grid>
+  </Container>
+</Layout>

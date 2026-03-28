@@ -1,0 +1,121 @@
+---
+import Layout from '~/layouts-en/Layout.astro';
+import { ArrowRight, Star, Users, TrendingUp } from 'lucide-react';
+
+const projects = [
+  {
+    title: 'LEEXMS SRL',
+    description: 'Digital accounting transformation in Dominican Republic. Next.js 14, advanced SEO and legal compliance in 1 week.',
+    image: '/images/caso-estudio-web-leexms.png',
+    tags: ["Next.js 14", "Advanced SEO", "Professional Services"],
+    link: '/en/portfolio/leexms',
+    stats: ['15+ pages', '95+ PageSpeed', '1 week development'],
+    url: 'https://leexms.com/',
+    rel: 'noopener noreferrer nofollow'
+  },
+  {
+    title: 'Ferrary Kitchen',
+    description: 'My flagship remodeling project. Visual portfolio that generates 4-5 weekly quotes in Bogotá.',
+    image: '/images/proyecto-imagen-ferrarycucina.png',
+    tags: ["Web Design", "Next.js", "Local SEO"],
+    link: '/en/portfolio/ferrarykitchen',
+    stats: ['4-5 quotes/week', 'Google first page']
+  },
+  {
+    title: 'Dog Products',
+    description: 'Pet eCommerce store with fast shipping and optimized shopping experience.',
+    image: '/images/proyecto-imagen-productosperros.png',
+    tags: ["eCommerce", "Logistics", "Marketing"],
+    link: '/en/portfolio/dog-products',
+    stats: ['Fast shipping', 'Satisfied customers']
+  },
+  {
+    title: 'World Games',
+    description: 'My gaming store that converts: 100+ products, review blog and Amazon Associates.',
+    image: '/images/proyecto-imagen-omarytplay.png',
+    tags: ["eCommerce", "Next.js", "Amazon Associates"],
+    link: '/en/portfolio/world-games',
+    stats: ['100+ products', '15 categories', '95/100 Lighthouse']
+  },
+  {
+    title: 'Plumbing Aqua Imperio',
+    description: 'Local plumbing service with emergency response and service areas.',
+    image: '/images/proyecto-imagen-plemria.png',
+    tags: ["Local SEO", "Service Business", "Emergency"],
+    link: '/en/portfolio/plumbing',
+    stats: ['24/7 emergency', 'Local coverage']
+  }
+];
+---
+
+<Layout title="Portfolio Projects - Omar Fuentes" description="Our complete portfolio of web design, development and SEO projects.">
+  <section class="pt-40 pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl font-bold mb-6">Portfolio Projects</h1>
+        <p class="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+          Explore our complete portfolio of successful web design, development, and SEO projects that have helped businesses grow online.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <div class="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+            <div class="aspect-video overflow-hidden">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3 text-white">{project.title}</h3>
+              <p class="text-gray-300 mb-4">{project.description}</p>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-blue-600/20 text-blue-400 text-xs rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {project.stats && (
+                <div class="mb-4 space-y-1">
+                  {project.stats.map((stat) => (
+                    <div class="flex items-center text-sm text-gray-400">
+                      <Star className="w-4 h-4 text-yellow-500 mr-2" />
+                      {stat}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div class="flex gap-3">
+                <a 
+                  href={project.link}
+                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                >
+                  View Details
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </a>
+                {project.url && (
+                  <a 
+                    href={project.url}
+                    target="_blank"
+                    rel={project.rel}
+                    class="text-gray-400 hover:text-gray-300 text-sm transition-colors"
+                  >
+                    Visit Site →
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

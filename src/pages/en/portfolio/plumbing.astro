@@ -1,0 +1,445 @@
+---
+import Layout from '~/layouts-en/Layout.astro';
+import { ArrowRight, Star, Users, TrendingUp, Clock, Target, Zap, Shield, Award, CheckCircle, ExternalLink, FileText } from 'lucide-react';
+
+const project = {
+  title: "Aqua Imperio Plumbing - My Local Services Project",
+  description: "This project was key: I transformed a traditional plumbing service into the main option for Bogotá residents. I used HTML5, local SEO and content strategy to dominate 'plumber Bogotá' searches.",
+  cliente: "Aqua Imperio Plumbing",
+  fecha: "2026",
+  tipo: "Service Website",
+  tecnologias: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Local SEO"],
+  url: "https://aqua-imperio-plumbing.com/",
+  imagen: "/images/proyecto-imagen-plemria.png",
+  stats: {
+    development: "1 week",
+    pages: "15+ pages",
+    services: "12 specialized services",
+    seo: "Complete Local SEO"
+  },
+  results: [
+    "✅ Site ranking #1 for 'plumber Bogotá' - clients call directly",
+    "✅ Specialization in Ridgid technology - clients know they use professional equipment",
+    "✅ WhatsApp as main channel - immediate response for plumbing emergencies",
+    "✅ Complete Schema markup - Google understands exactly what services they offer",
+    "✅ 100% responsive - clients find from mobile anytime",
+    "✅ Educational content that converts - articles that answer real client questions"
+  ]
+};
+
+const techStack = [
+  { name: "HTML5", description: "Semantic structure optimized for SEO", icon: "📄" },
+  { name: "CSS3", description: "Professional visual design and responsive", icon: "🎨" },
+  { name: "JavaScript", description: "Interactivity and UX optimization", icon: "⚡" },
+  { name: "Bootstrap 5", description: "CSS framework for rapid development", icon: "🅱️" },
+  { name: "Local SEO", description: "Optimization for geographic searches", icon: "🗺️" },
+  { name: "Schema Markup", description: "Structured data for Google", icon: "🔍" }
+];
+
+const phases = [
+  {
+    title: "My Day 1-2: Understanding Bogotá Plumbing",
+    week: "Day 1-2",
+    tasks: [
+      "Day 1-2: I analyzed the competition - what other plumbers did, how to differentiate Aqua Imperio",
+      "Day 2: Deep research - I discovered Ridgid technology was their competitive advantage",
+      "Day 3: Keyword research - I found real searches: 'plumber Bogotá urgent', 'unclog pipes price'",
+      "Day 4: I designed the architecture - 15 pages covering every plumbing service they offer"
+    ]
+  },
+  {
+    title: "Days 3-4: Creating Digital Presence",
+    week: "Day 3-4",
+    tasks: [
+      "Day 5: Visual design that inspires trust - aqua blue colors, professional but friendly design",
+      "Day 6: Responsive development - clients search for plumbers from mobile during emergencies",
+      "Day 7: I implemented all pages - each service optimized for conversion",
+      "Day 8: I integrated WhatsApp - main channel for plumbing emergencies"
+    ]
+  },
+  {
+    title: "Days 5-7: Local SEO and Magic",
+    week: "Day 5-7",
+    tasks: [
+      "Day 9: Intensive local SEO - meta tags for Bogotá, Chapinero, Usaquén",
+      "Day 10: Complete Schema markup - Google knows they are professional plumbers",
+      "Day 11: Speed optimization - when there's a leak, every second counts",
+      "Day 12: Final testing and deploy - site ready to receive clients 24/7"
+    ]
+  }
+];
+
+const features = [
+  {
+    icon: "🔧",
+    title: "Rigid Specialization That Sells",
+    description: "I highlighted their professional Ridgid technology. Clients know this isn't just any plumber - they're experts with first-class equipment."
+  },
+  {
+    icon: "🗺️",
+    title: "Local SEO That Dominates Bogotá",
+    description: "I optimized so they appear when someone searches 'plumber Bogotá urgent'. Clients find Aqua Imperio first."
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp for Real Emergencies",
+    description: "I integrated WhatsApp as the main channel. When there's a leak, clients need immediate response, not complex forms."
+  },
+  {
+    icon: "📱",
+    title: "Design for Mobile Emergencies",
+    description: "Plumbing emergencies happen on mobile. I designed a mobile experience where the WhatsApp button is always visible."
+  },
+  {
+    icon: "🔍",
+    title: "Schema That Google Understands",
+    description: "I implemented complete LocalBusiness Schema. Google knows exactly what services they offer, where they operate and how to contact them."
+  },
+  {
+    icon: "📚",
+    title: "Content That Answers Real Questions",
+    description: "I created educational articles about common plumbing problems. Clients read, trust, and then call Aqua Imperio."
+  }
+];
+
+const metrics = [
+  {
+    icon: "🎯",
+    title: "Local Ranking",
+    value: "#1",
+    description: "For 'plumber Bogotá' searches"
+  },
+  {
+    icon: "⚡",
+    title: "Page Speed",
+    value: "95+",
+    description: "Lighthouse score mobile/desktop"
+  },
+  {
+    icon: "📱",
+    title: "Mobile Score",
+    value: "100",
+    description: "Perfect mobile experience"
+  },
+  {
+    icon: "🔍",
+    title: "SEO Score",
+    value: "100",
+    description: "Complete local optimization"
+  }
+];
+---
+
+<Layout title="Aqua Imperio Plumbing - Local Services Website | Omar Fuentes" description="Complete local services website for Aqua Imperio Plumbing in Bogotá. HTML5, CSS3, JavaScript, Bootstrap 5 development with local SEO optimization dominating 'plumber Bogotá' searches.">
+  <div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+      <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Clock class="w-4 h-4 mr-1" /> 1 week development
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-700 dark:text-green-300 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 mr-1" /> Completed
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+              {project.title}
+            </h1>
+            
+            <p class="text-xl text-muted-foreground mb-8">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              {project.tecnologias.map(tech => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-foreground/5 text-foreground border border-foreground/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                View live project
+              </a>
+              <a 
+                href="/en/portfolio/projects"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+              >
+                <ArrowRight className="w-5 h-5" />
+                View more projects
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+              <img 
+                src={project.imagen}
+                alt={project.title}
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Stats -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {Object.entries(project.stats).map(([key, value]) => (
+            <div key={key} class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+              <div class="text-3xl font-bold text-primary mb-2">{value}</div>
+              <div class="text-muted-foreground capitalize">{key}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Tech Stack</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Modern technologies for rapid development and exceptional performance
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech, index) => (
+            <div key={index} class="bg-background rounded-xl border p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">{tech.icon}</div>
+                <div>
+                  <h3 class="font-semibold mb-2">{tech.name}</h3>
+                  <p class="text-sm text-muted-foreground">{tech.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete functionalities that make this site an effective business tool
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 hover:shadow-lg transition-shadow">
+              <div class="text-3xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Process -->
+    <section id="proceso" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Development Process</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Structured methodology in 1 week to guarantee successful delivery and exceptional quality.
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {phases.map((phase, index) => (
+            <div key={index} class="relative">
+              <div class="flex items-start gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-primary/20">
+                    {index + 1}
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-6">
+                    <h3 class="text-2xl font-bold text-foreground">{phase.title}</h3>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                      {phase.week}
+                    </span>
+                  </div>
+                  <div class="bg-background rounded-2xl border border-foreground/10 p-6">
+                    <ul class="space-y-3">
+                      {phase.tasks.map((task, taskIndex) => (
+                        <li key={taskIndex} class="flex items-start gap-3 text-muted-foreground">
+                          <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <span class="text-foreground">{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {index < phases.length - 1 && (
+                <div class="absolute left-8 top-16 w-0.5 h-20 bg-gradient-to-b from-primary/20 to-transparent"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Performance Metrics</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Exceptional results in speed, SEO and user experience
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 text-center">
+              <div class="text-4xl mb-4">{metric.icon}</div>
+              <div class="text-3xl font-bold text-primary mb-2">{metric.value}</div>
+              <div class="font-semibold mb-2">{metric.title}</div>
+              <p class="text-sm text-muted-foreground">{metric.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Project Results</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete delivery with all service functionalities implemented
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-8">
+          <ul class="space-y-4">
+            {project.results.map((result, index) => (
+              <li key={index} class="flex items-start gap-3">
+                <span class="text-green-500 mt-1">{result.split(' ')[0]}</span>
+                <span class="text-foreground">{result.substring(result.indexOf(' ') + 1)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Personal Experience -->
+    <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">My Experience with Aqua Imperio Plumbing</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            This project taught me that local service success comes from understanding emergency needs
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="space-y-8 text-muted-foreground leading-relaxed">
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🔧 The Real Challenge</h3>
+              <p>Plumbing emergencies are urgent. When someone has a leak, they don't research - they call the first option they find. My challenge: make Aqua Imperio the first option for Bogotá residents.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">💡 My Emergency-First Approach</h3>
+              <p>I designed everything around emergency response. WhatsApp as the main channel, mobile-first design, instant loading. I didn't just build a website - I built an emergency response system.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🎯 The Local Domination Result</h3>
+              <p>The client's message: 'Omar, we're getting calls directly from Google search. People find us first and call immediately. The Ridgid specialization makes clients trust us immediately.' That's local market domination.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">📚 My Big Learning</h3>
+              <p>Aqua Imperio taught me that local services succeed when you understand the urgency. Emergency services aren't about marketing - they're about being found when someone needs help NOW.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="flex justify-center mb-6">
+            <Star class="w-8 h-8 text-yellow-500 fill-current" />
+          </div>
+          <blockquote class="text-xl text-muted-foreground mb-8 leading-relaxed">
+            "The site exceeded our expectations. Now clients find us through Google and call directly. The WhatsApp integration has made emergency response much faster. The Ridgid specialization really sets us apart."
+          </blockquote>
+          <div>
+            <div class="font-semibold">Aqua Imperio Plumbing</div>
+            <div class="text-sm text-muted-foreground">Satisfied Client</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">Does Your Local Service Need Emergency Response Design?</h2>
+        <p class="text-xl text-muted-foreground mb-8">
+          As I demonstrated with Aqua Imperio, local services dominate when they understand emergency needs and optimize for immediate response
+        </p>
+        
+        <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 mb-8">
+          <p class="text-lg text-muted-foreground mb-4">
+            <strong>My approach:</strong> I build emergency response systems for local services. Your clients will find you first and call immediately when they need help.
+          </p>
+          <p class="text-sm text-muted-foreground">
+            #1 local ranking • WhatsApp integration • Mobile emergency design • 95+ speed
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20the%20Aqua%20Imperio%20case%20and%20I%20need%20local%20service%20design" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-lg font-medium hover:bg-primary/90 transition-colors">
+          <Shield class="w-5 h-5" />
+          Design My Emergency Response
+        </a>
+          <a href="/en/portfolio/projects" class="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-lg font-medium hover:bg-accent transition-colors">
+            <ArrowRight className="w-5 h-5" />
+            View More Local Projects
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

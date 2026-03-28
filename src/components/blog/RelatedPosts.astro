@@ -12,9 +12,17 @@ interface Props {
 const { currentSlug, currentLang = defaultLang } = Astro.props;
 const t = useTranslations(currentLang);
 
-// Obtener todos los posts del blog (sin filtrar por lang ya que no tienen ese campo)
+const isEnglishRoute = (currentLang === 'en') || (typeof currentSlug === 'string' && currentSlug.startsWith('/en/blog'));
+
+// Obtener todos los posts del blog
 const allPosts = await getCollection('blog', ({ data }) => {
   return !data.draft;
+});
+
+// Filtrar por idioma usando el prefijo del id dentro de la colección
+const languageFilteredPosts = allPosts.filter((post) => {
+  const isEn = post.id.startsWith('en/');
+  return isEnglishRoute ? isEn : !isEn;
 });
 
 // Extraer el nombre del archivo del slug actual
@@ -25,7 +33,7 @@ const getPostPath = (post) => {
   // Extraer solo el slug sin el idioma
   const slugParts = post.id.split('/');
   const slug = slugParts[slugParts.length - 1].replace(/\.[^/.]+$/, ""); // quitar .md
-  return `/blog/${slug}`;
+  return isEnglishRoute ? `/en/blog/${slug}` : `/blog/${slug}`;
 };
 
 // Extraer el slug del artículo actual de la URL
@@ -50,7 +58,7 @@ const getRelatedPosts = () => {
   
   // Si el artículo actual es de SEO, mostrar artículos relacionados de SEO
   if (seoRelatedSlugs.includes(currentArticleSlug)) {
-    return allPosts
+    return languageFilteredPosts
       .filter(post => {
         const postSlugParts = post.id.split('/');
         const postSlug = postSlugParts[postSlugParts.length - 1].replace(/\.[^/.]+$/, "");
@@ -63,7 +71,7 @@ const getRelatedPosts = () => {
   }
   
   // Para otros artículos, mostrar los más recientes (comportamiento original)
-  return allPosts
+  return languageFilteredPosts
     .filter(post => {
       const postSlugParts = post.id.split('/');
       const postSlug = postSlugParts[postSlugParts.length - 1].replace(/\.[^/.]+$/, "");
@@ -76,40 +84,38 @@ const getRelatedPosts = () => {
 const relatedPosts = getRelatedPosts();
 ---
 
-<section class="mt-20 border-t border-black/10 dark:border-white/10 pt-12">
-  <h2 class="text-3xl font-display font-bold mb-8 text-center">
-    {t['blog.relatedPosts'] || 'Artículos Relacionados'}
-  </h2>
-  
-  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-    {relatedPosts.map((post) => (
-      <div class="transform transition-all duration-300 hover:scale-105">
-        <BlogCard
-          title={post.data.title}
-          description={post.data.description}
-          pubDate={post.data.pubDate}
-          slug={getPostPath(post)}
-          heroImage={post.data.heroImageUrl || post.data.heroImage}
-          isVideo={post.data.isVideo}
-        />
-      </div>
-    ))}
-  </div>
-  
-  <div class="mt-12 text-center">
-    <a 
-      href="/blog" 
-      class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-black rounded-full font-semibold hover:bg-primary/90 transition-colors"
-    >
-      <span>Ver todos los artículos</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14"/>
-        <path d="m12 5 7 7-7 7"/>
-      </svg>
-    </a>
-  </div>
-  
-  {relatedPosts.length === 0 && (
-    <p class="text-center text-muted-foreground">No hay artículos relacionados disponibles.</p>
-  )}
-</section>
+{relatedPosts.length > 0 && (
+  <section class="mt-20 border-t border-black/10 dark:border-white/10 pt-12">
+    <h2 class="text-3xl font-display font-bold mb-8 text-center">
+      {t['blog.relatedPosts'] || (isEnglishRoute ? 'Related Posts' : 'Artículos Relacionados')}
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      {relatedPosts.map((post) => (
+        <div class="transform transition-all duration-300 hover:scale-105">
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            slug={getPostPath(post)}
+            heroImage={post.data.heroImageUrl || post.data.heroImage}
+            isVideo={post.data.isVideo}
+          />
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center">
+      <a 
+        href={isEnglishRoute ? '/en/blog' : '/blog'}
+        class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-black rounded-full font-semibold hover:bg-primary/90 transition-colors"
+      >
+        <span>{isEnglishRoute ? 'View all posts' : 'Ver todos los artículos'}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+)}

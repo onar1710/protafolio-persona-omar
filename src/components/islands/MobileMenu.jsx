@@ -12,6 +12,8 @@ import {
   Palette,
   Building2,
   Mail,
+  Search,
+  Cpu,
 } from 'lucide-react';
 import { ACTION_LINKS } from '~/site.config';
 
@@ -24,6 +26,8 @@ const ICONS = {
   Palette,
   Building2,
   Mail,
+  Search,
+  Cpu,
 };
 
 export default function MobileMenu({ 

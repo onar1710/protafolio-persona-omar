@@ -1,0 +1,416 @@
+---
+import Layout from '~/layouts-en/Layout.astro';
+import Button from '~/components/ui/Button.astro';
+import Section from '~/components/layout/Section.astro';
+import Container from '~/components/ui/Container.astro';
+import Grid from '~/components/ui/Grid.astro';
+import Heading from '~/components/ui/Heading.astro';
+import Text from '~/components/ui/Text.astro';
+import Badge from '~/components/ui/Badge.astro';
+import Card from '~/components/ui/Card.astro';
+import { ArrowRight, ChevronRight, Check, Palette, Type, Layers, Sparkles, Zap, Shield, Smartphone } from 'lucide-react';
+
+const colors = [
+    { name: 'Primary', class: 'bg-primary', text: 'text-white', description: 'Primary color for important actions', usage: 'Primary buttons, active links, highlighted elements' },
+    { name: 'Primary Light', class: 'bg-primary/20', text: 'text-primary', description: 'Subtle variation of primary', usage: 'Hover states, section backgrounds, secondary elements' },
+    { name: 'Background', class: 'bg-background', text: 'text-foreground border border-foreground/10', description: 'Main site background', usage: 'Main background of all pages' },
+    { name: 'Foreground', class: 'bg-foreground', text: 'text-background', description: 'Main text and elements', usage: 'Main titles, important text, active elements' },
+    { name: 'Muted', class: 'bg-muted', text: 'text-muted-foreground', description: 'Secondary elements and subtle text', usage: 'Secondary text, metadata, complementary information' },
+    { name: 'Success', class: 'bg-green-500', text: 'text-white', description: 'Positive states and success', usage: 'Confirmations, success messages, positive indicators' },
+    { name: 'Warning', class: 'bg-amber-500', text: 'text-white', description: 'Alerts and attention', usage: 'Warnings, important notifications, pending states' },
+    { name: 'Error', class: 'bg-red-500', text: 'text-white', description: 'Errors and critical actions', usage: 'Error messages, delete buttons, critical states' },
+    { name: 'Info', class: 'bg-blue-500', text: 'text-white', description: 'Information and help', usage: 'Tooltips, informational messages, help elements' },
+];
+
+const gradients = [
+    { name: 'Primary Gradient', class: 'bg-gradient-to-r from-primary to-indigo-600', text: 'text-white', description: 'Primary gradient for highlighted elements', usage: 'Heroes, important CTAs, premium cards' },
+    { name: 'Success Gradient', class: 'bg-gradient-to-r from-green-500 to-emerald-600', text: 'text-white', description: 'Gradient for positive elements', usage: 'Success sections, testimonials, positive metrics' },
+    { name: 'Sunset Gradient', class: 'bg-gradient-to-r from-amber-500 to-orange-600', text: 'text-white', description: 'Warm gradient for attention-grabbing', usage: 'Promotions, special banners, urgent elements' },
+    { name: 'Cool Gradient', class: 'bg-gradient-to-r from-blue-500 to-cyan-600', text: 'text-white', description: 'Cool gradient for tech elements', usage: 'Technical sections, product features, modern elements' },
+];
+
+const typography = [
+    { name: 'Display 7xl', class: 'text-7xl font-display font-bold', label: 'Transform Your Digital Presence', usage: 'Page heroes, main titles, impactful statements' },
+    { name: 'Display 5xl', class: 'text-5xl font-display font-bold', label: 'Professional Web Design', usage: 'Main sections, service titles, important headers' },
+    { name: 'Display 3xl', class: 'text-3xl font-display font-bold', label: 'Creative Solutions', usage: 'Important subtitles, section titles, highlighted elements' },
+    { name: 'Heading 2xl', class: 'text-2xl font-bold', label: 'User Experience', usage: 'Component titles, content headers, secondary sections' },
+    { name: 'Heading xl', class: 'text-xl font-semibold', label: 'Custom Development', usage: 'Card titles, section subtitles, navigation elements' },
+    { name: 'Heading lg', class: 'text-lg font-semibold', label: 'Optimization and Performance', usage: 'Small titles, list headers, form elements' },
+    { name: 'Body Base', class: 'text-base', label: 'We create modern, fast, and SEO-optimized websites that convert visitors into customers.', usage: 'Main content text, descriptions, informative paragraphs' },
+    { name: 'Body Small', class: 'text-sm text-muted-foreground', label: 'Web development with the best technologies and market practices.', usage: 'Secondary text, footers, complementary information' },
+    { name: 'Body XS', class: 'text-xs text-muted-foreground', label: 'Last updated: 2024', usage: 'Metadata, dates, technical information, small labels' },
+];
+
+const components = [
+    {
+        icon: Palette,
+        title: 'Colors',
+        description: 'Consistent and accessible palette',
+        features: ['CSS Variables', 'Dark Mode', 'WCAG Accessibility']
+    },
+    {
+        icon: Type,
+        title: 'Typography',
+        description: 'Clear visual hierarchy',
+        features: ['Font system', 'Responsive', 'Optimized']
+    },
+    {
+        icon: Layers,
+        title: 'Components',
+        description: 'Reusable and consistent',
+        features: ['Atomic design', 'Documented', 'Tested']
+    },
+    {
+        icon: Sparkles,
+        title: 'Animations',
+        description: 'Fluid micro-interactions',
+        features: ['Framer Motion', 'Performant', 'Accessible']
+    }
+];
+---
+
+<Layout title="System Design - Omar Fuentes" description="Our visual language and components for creating consistent and professional web experiences.">
+    <Section class="pt-40 pb-24">
+        <Container>
+            <div class="text-center mb-16">
+                <Heading level={1} class="mb-6">System Design</Heading>
+                <Text variant="lead" class="max-w-3xl mx-auto mb-8">
+                    A consistent visual language and reusable components that ensure quality and consistency in every web project we develop.
+                </Text>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <Badge variant="accent" class="text-green-500 bg-green-500/10 border-green-500/20">
+                        <Check class="w-4 h-4 mr-1" /> Accessible
+                    </Badge>
+                    <Badge variant="accent" class="text-blue-500 bg-blue-500/10 border-blue-500/20">
+                        <Zap class="w-4 h-4 mr-1" /> Fast
+                    </Badge>
+                    <Badge variant="accent" class="text-purple-500 bg-purple-500/10 border-purple-500/20">
+                        <Shield class="w-4 h-4 mr-1" /> Scalable
+                    </Badge>
+                </div>
+            </div>
+
+            {/* Colors Section */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">01</span>
+                    Colors
+                </Heading>
+                <Text class="mb-8 text-muted-foreground">
+                    Our color palette is designed to create clear visual hierarchy and maintain accessibility at all levels.
+                </Text>
+                <Grid cols={3}>
+                    {colors.map((color) => (
+                        <div class="group">
+                            <div class={`h-32 rounded-xl mb-4 shadow-sm ${color.class} ${color.name === 'Background' ? 'border border-foreground/10' : ''} group-hover:scale-105 transition-transform`}></div>
+                            <h3 class="font-bold mb-1">{color.name}</h3>
+                            <p class="text-sm text-muted-foreground mb-2">{color.description}</p>
+                            <p class="text-xs text-muted-foreground mb-2 font-medium">{color.usage}</p>
+                            <code class="text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block">.{color.class}</code>
+                        </div>
+                    ))}
+                </Grid>
+
+                {/* Gradients Section */}
+                <div class="mt-16">
+                    <Heading level={3} class="mb-6">Color Gradients</Heading>
+                    <Text class="mb-8 text-muted-foreground">
+                        Predefined gradients to create visual impact and hierarchy in important elements.
+                    </Text>
+                    <Grid cols={2}>
+                        {gradients.map((gradient) => (
+                            <div class="group">
+                                <div class={`h-24 rounded-xl mb-4 shadow-sm ${gradient.class} group-hover:scale-105 transition-transform`}></div>
+                                <h3 class="font-bold mb-1">{gradient.name}</h3>
+                                <p class="text-sm text-muted-foreground mb-2">{gradient.description}</p>
+                                <p class="text-xs text-muted-foreground mb-2 font-medium">{gradient.usage}</p>
+                                <code class="text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block">.{gradient.class}</code>
+                            </div>
+                        ))}
+                    </Grid>
+                </div>
+            </div>
+
+            {/* Typography Section */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">02</span>
+                    Typography
+                </Heading>
+                <Text class="mb-8 text-muted-foreground">
+                    Typography system optimized for readability and visual hierarchy, adapted for all devices.
+                </Text>
+                <div class="space-y-8 border border-foreground/10 rounded-2xl p-8 bg-background/50 backdrop-blur-sm">
+                    {typography.map((type) => (
+                         <div class="flex flex-col md:flex-row md:items-center gap-4 border-b border-foreground/5 last:border-0 pb-8 last:pb-0">
+                            <div class="w-48 shrink-0">
+                                <span class="text-muted-foreground text-sm font-mono">{type.name}</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class={type.class}>{type.label}</div>
+                                <p class="text-xs text-muted-foreground mt-2 font-medium">{type.usage}</p>
+                            </div>
+                         </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Components Overview */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">03</span>
+                    Main Components
+                </Heading>
+                <Grid cols={2} class="gap-8">
+                    {components.map((component) => (
+                        <div class="p-8 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all group">
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                <component.icon class="w-6 h-6" />
+                            </div>
+                            <Heading level={3} class="text-lg mb-2">{component.title}</Heading>
+                            <Text class="mb-4">{component.description}</Text>
+                            <div class="space-y-2">
+                                {component.features.map((feature) => (
+                                    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                                        <Check class="w-4 h-4 text-green-500" />
+                                        {feature}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </Grid>
+            </div>
+
+            {/* Interactive Components */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">04</span>
+                    Interactive Components
+                </Heading>
+                
+                <div class="grid gap-12">
+                    {/* Buttons */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Buttons</Heading>
+                        <Text class="mb-6 text-sm text-muted-foreground">Buttons for different actions and contexts in the interface.</Text>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Primary Buttons</h4>
+                                <div class="flex flex-wrap gap-4 mb-4">
+                                    <Button>Get Started</Button>
+                                    <Button variant="secondary">View Projects</Button>
+                                    <Button variant="outline">Contact</Button>
+                                    <Button variant="ghost">More Info</Button>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Usage: Primary CTAs, important actions, key navigation</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Buttons with Icons</h4>
+                                <div class="flex flex-wrap gap-4 mb-4">
+                                     <Button>
+                                        Explore Services <ArrowRight size={18} />
+                                    </Button>
+                                    <Button variant="outline">
+                                        <ChevronRight size={18} /> View Details
+                                    </Button>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Usage: Actions with visual direction, content links, navigation</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Button States</h4>
+                                <div class="flex flex-wrap gap-4 mb-4">
+                                    <Button disabled>Disabled</Button>
+                                    <Button class="opacity-75 cursor-not-allowed">Loading...</Button>
+                                    <Button variant="outline" class="border-red-500 text-red-500 hover:bg-red-500 hover:text-white">Danger</Button>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Usage: Form states, critical actions, feedback</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Badges */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                         <Heading level={3} class="text-xl mb-6">Labels and States</Heading>
+                         <Text class="mb-6 text-sm text-muted-foreground">Visual indicators for states and content categories.</Text>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">System States</h4>
+                                <div class="flex flex-wrap gap-3 mb-4">
+                                    <Badge variant="accent">Available</Badge>
+                                    <Badge variant="accent" class="text-blue-500 bg-blue-500/10 border-blue-500/20">New</Badge>
+                                    <Badge variant="accent" class="text-amber-500 bg-amber-500/10 border-amber-500/20">In Progress</Badge>
+                                    <Badge variant="accent" class="text-red-500 bg-red-400/10 border-red-500/20">Urgent</Badge>
+                                    <Badge variant="secondary">Standard</Badge>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Usage: Project states, status indicators, content filters</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Categories and Tags</h4>
+                                <div class="flex flex-wrap gap-3 mb-4">
+                                    <Badge variant="outline">Frontend</Badge>
+                                    <Badge variant="outline" class="border-green-500 text-green-500">Backend</Badge>
+                                    <Badge variant="outline" class="border-purple-500 text-purple-500">UI/UX</Badge>
+                                    <Badge variant="outline" class="border-orange-500 text-orange-500">Mobile</Badge>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Usage: Content categorization, skill tags, technical filters</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Cards */}
+                     <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Cards</Heading>
+                        <Text class="mb-6 text-sm text-muted-foreground">Versatile containers for organizing information and content.</Text>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Standard Cards</h4>
+                                <Grid cols={2} class="gap-6 mb-4">
+                                    <div class="p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-colors group cursor-pointer">
+                                        <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                            <Smartphone />
+                                        </div>
+                                        <Heading level={4} class="text-lg mb-2">Responsive Design</Heading>
+                                        <Text small>
+                                            Perfect adaptation to all devices. Optimized experience for mobile, tablets, and desktop.
+                                        </Text>
+                                    </div>
+                                     <div class="p-6 rounded-2xl bg-linear-to-br from-primary to-indigo-600 text-white shadow-xl shadow-primary/25">
+                                        <Heading level={4} class="text-lg mb-2">SEO Optimization</Heading>
+                                        <p class="text-white/80 text-sm mb-4">
+                                            We improve your positioning with advanced SEO techniques and optimized content.
+                                        </p>
+                                        <button class="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium backdrop-blur-sm transition-colors">
+                                            View Services
+                                        </button>
+                                    </div>
+                                </Grid>
+                                <p class="text-xs text-muted-foreground">Usage: Service presentation, product features, portfolio</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Content Cards</h4>
+                                <Grid cols={3} class="gap-4 mb-4">
+                                    <div class="p-4 rounded-xl border border-foreground/10 bg-background">
+                                        <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-3">
+                                            <Check class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Verified</h5>
+                                        <p class="text-xs text-muted-foreground">Project completed and reviewed</p>
+                                    </div>
+                                    <div class="p-4 rounded-xl border border-foreground/10 bg-background">
+                                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-3">
+                                            <Zap class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Fast</h5>
+                                        <p class="text-xs text-muted-foreground">Optimized for maximum speed</p>
+                                    </div>
+                                    <div class="p-4 rounded-xl border border-foreground/10 bg-background">
+                                        <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-3">
+                                            <Shield class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Secure</h5>
+                                        <p class="text-xs text-muted-foreground">Data protection guaranteed</p>
+                                    </div>
+                                </Grid>
+                                <p class="text-xs text-muted-foreground">Usage: Key features, benefits, competitive advantages</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Forms */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Form Elements</Heading>
+                        <Text class="mb-6 text-sm text-muted-foreground">Interactive components for user data capture.</Text>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-sm">Input Fields</h4>
+                                <div class="space-y-4 mb-4">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Full Name</label>
+                                        <input type="text" placeholder="Enter your name" class="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Email Address</label>
+                                        <input type="email" placeholder="email@example.com" class="w-full px-4 py-2 border border-foreground/20 rounded-lg bg-background focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+                                    </div>
+                                </div>
+                                <p class="text-xs text-muted-foreground">Usage: Contact forms, registration, content search</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Use Cases */}
+            <div class="mb-24">
+                <Heading level={2} class="mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">06</span>
+                    Use Cases and Applications
+                </Heading>
+                <Text class="mb-8 text-muted-foreground">
+                    Practical examples of how we apply our design system in different contexts and projects.
+                </Text>
+                
+                <div class="space-y-12">
+                    {/* Landing Page Example */}
+                    <div class="p-8 border border-foreground/10 rounded-2xl bg-background/50 backdrop-blur-sm">
+                        <Heading level={3} class="text-xl mb-6">Main Landing Page</Heading>
+                        <Text class="mb-6 text-sm text-muted-foreground">Typical structure of a landing page using our system.</Text>
+                        
+                        <div class="space-y-6">
+                            <div class="p-6 rounded-xl bg-gradient-to-r from-primary to-indigo-600 text-white">
+                                <h4 class="text-3xl font-display font-bold mb-4">Hero Section</h4>
+                                <p class="text-lg mb-6 text-white/90">We use Display 7xl for the main title and gradients for visual impact.</p>
+                                <div class="space-y-2">
+                                    <p class="text-sm text-white/80">• Title: text-7xl font-display font-bold</p>
+                                    <p class="text-sm text-white/80">• Background: bg-gradient-to-r from-primary to-indigo-600</p>
+                                    <p class="text-sm text-white/80">• CTA: Primary button with hover effects</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-6 rounded-xl border border-foreground/10 bg-background">
+                                <h4 class="text-2xl font-bold mb-4">Features Section</h4>
+                                <div class="grid grid-cols-3 gap-4 mb-4">
+                                    <div class="p-4 rounded-lg border border-foreground/10">
+                                        <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-2">
+                                            <Check class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Feature 1</h5>
+                                        <p class="text-xs text-muted-foreground">Brief description</p>
+                                    </div>
+                                    <div class="p-4 rounded-lg border border-foreground/10">
+                                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-2">
+                                            <Zap class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Feature 2</h5>
+                                        <p class="text-xs text-muted-foreground">Brief description</p>
+                                    </div>
+                                    <div class="p-4 rounded-lg border border-foreground/10">
+                                        <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-2">
+                                            <Shield class="w-4 h-4" />
+                                        </div>
+                                        <h5 class="font-semibold text-sm mb-1">Feature 3</h5>
+                                        <p class="text-xs text-muted-foreground">Brief description</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-xs text-muted-foreground">• Cards: Border radius 2xl, hover effects</p>
+                                    <p class="text-xs text-muted-foreground">• Icons: Semantic colors (green=success, blue=speed, purple=security)</p>
+                                    <p class="text-xs text-muted-foreground">• Titles: text-lg font-semibold</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </Section>
+</Layout>

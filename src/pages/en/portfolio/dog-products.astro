@@ -1,0 +1,454 @@
+---
+import Layout from '~/layouts-en/Layout.astro';
+import { Clock, CheckCircle, ExternalLink, ArrowRight, Star, ShoppingCart, Heart, Search, Menu, X, Shield, Truck, RefreshCw } from 'lucide-react';
+
+const project = {
+  title: "Dog Products - My Lovely Pet Store",
+  description: "This project was adorable: I created a complete eCommerce store for pet products with functional cart and fast shipping. I used HTML5, CSS3 and vanilla JavaScript to build an experience that pet owners love.",
+  cliente: "Dog Products",
+  fecha: "2024-2025",
+  tipo: "eCommerce / Online Store",
+  tecnologias: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "SEO"],
+  url: "https://dog-products.vercel.app/",
+  imagen: "/images/proyecto-imagen-productosperros.png",
+  stats: {
+    pages: "70+ pages",
+    products: "50+ products", 
+    categories: "7 categories",
+    weeks: "2 weeks development"
+  },
+  results: [
+    "✅ Store with 50+ products that pet owners actually buy",
+    "✅ Functional cart with localStorage - products don't disappear if they reload",
+    "✅ Blog with pet owner tips - builds trust and ranks in Google",
+    "✅ 100% responsive - owners buy from mobile while walking their dogs",
+    "✅ Local SEO Colombia - appears when searching 'buy dog food'",
+    "✅ Favorites system - customers save products to buy later"
+  ]
+};
+
+const techStack = [
+  { name: "HTML5", description: "Semantic markup for SEO and accessibility", icon: "📝" },
+  { name: "CSS3", description: "Modern styles with Grid, Flexbox and animations", icon: "🎨" },
+  { name: "JavaScript ES6+", description: "Vanilla functionality without frameworks", icon: "⚡" },
+  { name: "LocalStorage", description: "Cart and favorites persistence", icon: "💾" },
+  { name: "Local SEO", description: "Optimization for Colombian market", icon: "🎯" }
+];
+
+const phases = [
+  {
+    title: "Research and Planning",
+    week: "Day 1-2",
+    tasks: [
+      "Day 1: Colombian competition analysis and main keywords",
+      "Day 2: Information architecture with 70+ pages and technical definition HTML5 + CSS3 + Vanilla JS"
+    ]
+  },
+  {
+    title: "UI/UX Design",
+    week: "Day 3-4",
+    tasks: [
+      "Day 3: Design system with green-nature palette and reusable components",
+      "Day 4: Homepage design, categories, individual products and interactive prototypes"
+    ]
+  },
+  {
+    title: "Frontend Development",
+    week: "Day 5-6",
+    tasks: [
+      "Day 5: HTML5 + CSS3 + reusable components project setup",
+      "Day 6: Main pages, routing system and JavaScript functionality"
+    ]
+  },
+  {
+    title: "Content and SEO",
+    week: "Day 7-8",
+    tasks: [
+      "Day 7: Creation of 50+ product pages with optimized descriptions",
+      "Day 8: On-page SEO, meta tags, headings, URLs and local SEO Colombia"
+    ]
+  },
+  {
+    title: "Testing and Deploy",
+    week: "Day 9-10",
+    tasks: [
+      "Day 9: Functional testing, cross-browser, responsive and Lighthouse optimization",
+      "Day 10: Deploy on Vercel with custom domain and CDN setup"
+    ]
+  }
+];
+
+const features = [
+  {
+    icon: "🛒",
+    title: "Complete Cart System",
+    description: "Functional shopping cart with localStorage, data persistence, header counter and automatic total calculation."
+  },
+  {
+    icon: "❤️",
+    title: "Wishlist System",
+    description: "Favorites system with persistence, visual counter and ability to move products between favorites and cart."
+  },
+  {
+    icon: "📱",
+    title: "100% Responsive Design",
+    description: "Mobile-first approach with optimized breakpoints for mobile, tablet and desktop. Perfect experience on all devices."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO Colombia",
+    description: "Optimization for Colombian market with geo-specific keywords, prices in COP, and localized content for Bogotá, Medellín, Cali."
+  },
+  {
+    icon: "📦",
+    title: "Fast Shipping Integration",
+    description: "Shipping system with real-time calculation and multiple delivery options for pet products."
+  },
+  {
+    icon: "🎯",
+    title: "Pet Owner Content",
+    description: "Blog with tips and guides for pet owners that builds trust and positions in Google searches."
+  }
+];
+
+const metrics = [
+  {
+    icon: "📄",
+    title: "Total Pages",
+    value: "70+",
+    description: "Complete store structure"
+  },
+  {
+    icon: "🛒",
+    title: "Products Listed",
+    value: "50+",
+    description: "Pet products catalog"
+  },
+  {
+    icon: "📱",
+    title: "Mobile Score",
+    value: "100",
+    description: "Perfect mobile experience"
+  },
+  {
+    icon: "⚡",
+    title: "Performance",
+    value: "95+",
+    description: "Lighthouse score"
+  }
+];
+---
+
+<Layout title="Dog Products - Pet eCommerce Store | Omar Fuentes" description="Complete pet products eCommerce store with functional cart and blog. HTML5, CSS3, JavaScript development with responsive design and local SEO optimization for Colombia.">
+  <div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+      <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Clock class="w-4 h-4 mr-1" /> 2 weeks development
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-700 dark:text-green-300 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 mr-1" /> Completed
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+              {project.title}
+            </h1>
+            
+            <p class="text-xl text-muted-foreground mb-8">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              {project.tecnologias.map(tech => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-foreground/5 text-foreground border border-foreground/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                View live project
+              </a>
+              <a 
+                href="/en/portfolio/projects"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+              >
+                <ArrowRight className="w-5 h-5" />
+                View more projects
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+              <img 
+                src={project.imagen}
+                alt={project.title}
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Stats -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {Object.entries(project.stats).map(([key, value]) => (
+            <div key={key} class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+              <div class="text-3xl font-bold text-primary mb-2">{value}</div>
+              <div class="text-muted-foreground capitalize">{key}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Tech Stack</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Modern technologies for rapid development and exceptional performance
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech, index) => (
+            <div key={index} class="bg-background rounded-xl border p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">{tech.icon}</div>
+                <div>
+                  <h3 class="font-semibold mb-2">{tech.name}</h3>
+                  <p class="text-sm text-muted-foreground">{tech.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete functionalities that make this site an effective business tool
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 hover:shadow-lg transition-shadow">
+              <div class="text-3xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Process -->
+    <section id="proceso" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Development Process</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Structured methodology in 2 weeks to guarantee successful delivery and exceptional quality.
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {phases.map((phase, index) => (
+            <div key={index} class="relative">
+              <div class="flex items-start gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-primary/20">
+                    {index + 1}
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-6">
+                    <h3 class="text-2xl font-bold text-foreground">{phase.title}</h3>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                      {phase.week}
+                    </span>
+                  </div>
+                  <div class="bg-background rounded-2xl border border-foreground/10 p-6">
+                    <ul class="space-y-3">
+                      {phase.tasks.map((task, taskIndex) => (
+                        <li key={taskIndex} class="flex items-start gap-3 text-muted-foreground">
+                          <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <span class="text-foreground">{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {index < phases.length - 1 && (
+                <div class="absolute left-8 top-16 w-0.5 h-20 bg-gradient-to-b from-primary/20 to-transparent"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Performance Metrics</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Exceptional results in speed, SEO and user experience
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 text-center">
+              <div class="text-4xl mb-4">{metric.icon}</div>
+              <div class="text-3xl font-bold text-primary mb-2">{metric.value}</div>
+              <div class="font-semibold mb-2">{metric.title}</div>
+              <p class="text-sm text-muted-foreground">{metric.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Project Results</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete delivery with all eCommerce functionalities implemented
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-8">
+          <ul class="space-y-4">
+            {project.results.map((result, index) => (
+              <li key={index} class="flex items-start gap-3">
+                <span class="text-green-500 mt-1">{result.split(' ')[0]}</span>
+                <span class="text-foreground">{result.substring(result.indexOf(' ') + 1)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Personal Experience -->
+    <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">My Experience with Dog Products</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            This project taught me that eCommerce success comes from understanding pet owner needs and creating a shopping experience they love
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="space-y-8 text-muted-foreground leading-relaxed">
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🐕 The Real Challenge</h3>
+              <p>Pet owners are passionate about their pets. They don't just buy products - they research, compare, and look for the best for their furry friends. My challenge: create a store that respects this love and makes shopping enjoyable.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">💡 My Pet-First Approach</h3>
+              <p>I didn't just build a store - I built a community for pet owners. The blog provides real value, the cart remembers their selections, and the favorites system lets them plan purchases. I designed it for how people actually shop for their pets.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🎯 The Conversion Magic</h3>
+              <p>The beauty: pet owners read the blog articles, trust the recommendations, then add products to cart. The localStorage means their cart persists even if they close the browser. It's a shopping experience built for real pet owners.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">📚 My Big Learning</h3>
+              <p>Dog Products taught me that successful eCommerce isn't about transactions - it's about relationships. When you genuinely help pet owners make good choices for their pets, sales follow naturally.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="flex justify-center mb-6">
+            <Star class="w-8 h-8 text-yellow-500 fill-current" />
+          </div>
+          <blockquote class="text-xl text-muted-foreground mb-8 leading-relaxed">
+            "The store exceeded our expectations. The cart system works perfectly and customers love the favorites feature. The blog content really helps pet owners make informed decisions about our products."
+          </blockquote>
+          <div>
+            <div class="font-semibold">Dog Products</div>
+            <div class="text-sm text-muted-foreground">Satisfied Client</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">Does Your eCommerce Need a Pet-First Approach?</h2>
+          <p class="text-xl text-muted-foreground mb-8">
+            As I demonstrated with Dog Products, eCommerce success comes from understanding your audience's passion and creating shopping experiences they genuinely enjoy
+          </p>
+        
+        <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 mb-8">
+          <p class="text-lg text-muted-foreground mb-4">
+            <strong>My approach:</strong> I build eCommerce stores that respect your customers' passion. Your customers will trust your recommendations and enjoy shopping from your store.
+          </p>
+          <p class="text-sm text-muted-foreground">
+            50+ products catalog • Functional cart • Favorites system • Pet blog • 95+ performance
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20the%20Dog%20Products%20case%20and%20I%20want%20an%20eCommerce%20store" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-lg font-medium hover:bg-primary/90 transition-colors">
+          <Shield class="w-5 h-5" />
+          Build My Pet Store
+        </a>
+          <a href="/en/portfolio/projects" class="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-lg font-medium hover:bg-accent transition-colors">
+            <ArrowRight className="w-5 h-5" />
+            View More Projects
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

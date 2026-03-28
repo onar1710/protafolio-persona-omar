@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts-en/Layout.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import Container from '~/components/ui/Container.astro';
+---
+
+<Layout title="Refund Policy - Omar Fuentes" description="Refund and cancellation policy for digital services." >
+  <PageHeader 
+    title="Refund Policy"
+    description="Clear information about refunds, cancellations, and scope changes."
+  />
+
+  <Container as="section" class="pb-24">
+    <div class="max-w-3xl mx-auto rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Digital Services</h2>
+        <p class="text-muted-foreground">The services offered (web design, development, SEO, consulting, and similar) are digital and executed in stages. For this reason, refunds depend on project progress.</p>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Refunds</h2>
+        <p class="text-muted-foreground">If the project has not yet started, you can request a refund of the payment (minus processing costs if applicable). If the project has already started, a partial refund proportional to the work not yet executed may be possible.</p>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Phase-based Payments</h2>
+        <p class="text-muted-foreground">When the service is paid in phases or advances, each phase is considered an independent deliverable. Once a phase has begun, the corresponding amount for that phase may not be refundable.</p>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Cancellations and Changes</h2>
+        <p class="text-muted-foreground">If you decide to cancel, we can close the project with the material developed to date and agree on the corresponding value. Scope changes may require a price and schedule adjustment.</p>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-foreground">Contact</h2>
+        <p class="text-muted-foreground">To request a refund or resolve doubts, contact me through the site channels. Indicate your payment reference, name, and concept to locate the transaction.</p>
+      </div>
+
+      <div class="pt-2">
+        <a href="/contact" class="inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold bg-primary text-black hover:bg-primary/90 transition-colors">Contact</a>
+      </div>
+    </div>
+  </Container>
+</Layout>

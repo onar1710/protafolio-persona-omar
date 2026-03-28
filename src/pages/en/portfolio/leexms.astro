@@ -1,0 +1,425 @@
+---
+import Layout from '../../../layouts-en/Layout.astro';
+import { Clock, CheckCircle, ExternalLink, ArrowRight, Star, Users, TrendingUp, Target, Zap, Shield, Award, FileText, Globe, BarChart, Search, FileCode } from 'lucide-react';
+
+const project = {
+  title: "LEEXMS SRL - My Digital Accounting Transformation",
+  description: "This project was special: I completely transformed a traditional accounting services firm into a digital powerhouse. I used Next.js 14, advanced SEO and met all legal regulations in just 1 week of intense work.",
+  cliente: "LEEXMS SRL",
+  fecha: "2024-2025",
+  tipo: "Corporate Website / Professional Services",
+  tecnologias: ["Next.js 14", "React 18", "Bootstrap 5", "Schema.org SEO"],
+  url: "https://leexms.com",
+  imagen: "/images/caso-estudio-web-leexms.png",
+  stats: {
+    pages: "15+ pages",
+    services: "6 main services", 
+    blog: "Complete blog system",
+    weeks: "1 week development"
+  },
+  results: [
+    "✅ Complete digital transformation in 1 week of dedicated work",
+    "✅ 6 detailed service pages with SEO ranking in Google Dominican Republic",
+    "✅ Blog system with Schema.org markup - articles already indexing!",
+    "✅ Complete legal compliance (GDPR, Cookies, Terms) - no worries",
+    "✅ 95+ Performance on PageSpeed - instant loading",
+    "✅ Local SEO optimized for Dominican Republic - clients find LEEXMS",
+    "✅ WhatsApp Business integrated - clients write directly",
+    "✅ Optimized build: 28.3KB First Load - faster than competitors"
+  ]
+};
+
+const techStack = [
+  { name: "Next.js 14", description: "React framework with App Router for SSG and performance", icon: "🚀" },
+  { name: "React 18", description: "Interactive UI components and reusables", icon: "⚛️" },
+  { name: "Bootstrap 5", description: "CSS framework for professional responsive design", icon: "🎨" },
+  { name: "Schema.org", description: "Structured SEO for maximum Google visibility", icon: "🔍" },
+  { name: "React CountUp", description: "Number animations for statistics", icon: "📊" }
+];
+
+const phases = [
+  {
+    title: "Intensive Week: Complete Transformation in 7 Days",
+    week: "Single Week (Days 1-7)",
+    tasks: [
+      "Day 1-2: Immersive discovery - I sat with LEEXMS to understand their business, clients and what made them unique in Dominican Republic",
+      "Day 3: Complete architecture - I designed the entire structure, 6 main services, and how to highlight their 25+ years of experience",
+      "Day 4: UI/UX design in Figma - I created a modern but professional visual identity that conveyed immediate trust",
+      "Day 5: Next.js 14 setup and base development - I prepared the entire structure for ultra-rapid development and optimal performance",
+      "Day 6: Intensive development - 15+ static pages, blog with Schema.org, WhatsApp integration, everything optimized",
+      "Day 7: Final testing and deploy - detailed review, image optimization, production deployment"
+    ]
+  }
+];
+
+const features = [
+  {
+    icon: "🏢",
+    title: "Design That Inspires Trust",
+    description: "I created a visual identity that reflects 25+ years of accounting experience but with a modern touch. I wanted visitors to feel professionalism from the first second."
+  },
+  {
+    icon: "📊",
+    title: "6 Services That Convert",
+    description: "I structured each service page to answer exactly what clients search for in Dominican Republic. SEO designed from the user, not from Google."
+  },
+  {
+    icon: "🔍",
+    title: "SEO That Actually Works",
+    description: "I implemented complete Schema.org because I know Google rewards well-structured content. Results: articles indexing in days, not weeks."
+  },
+  {
+    icon: "📝",
+    title: "Blog with Real Authority",
+    description: "I designed the blog system highlighting Lic. Lergio as the author. I wanted to build real authority, not just content for content's sake."
+  },
+  {
+    icon: "⚖️",
+    title: "Legal Without Headaches",
+    description: "I ensured everything complied with GDPR and digital regulations. LEEXMS can operate peacefully knowing they're 100% legally covered."
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp That Generates Clients",
+    description: "I integrated WhatsApp Business because I know the Dominican market - people prefer to write directly. Leads arrive on their own."
+  }
+];
+
+const metrics = [
+  {
+    icon: "⚡",
+    title: "Performance",
+    value: "95+",
+    description: "PageSpeed Insight score mobile and desktop"
+  },
+  {
+    icon: "📄",
+    title: "Static Pages",
+    value: "21",
+    description: "Generated statically for maximum speed"
+  },
+  {
+    icon: "🔍",
+    title: "SEO Score",
+    value: "100",
+    description: "Schema.org markup implementation"
+  },
+  {
+    icon: "⚖️",
+    title: "Legal Compliance",
+    value: "100%",
+    description: "GDPR and digital regulations met"
+  }
+];
+---
+
+<Layout title="LEEXMS SRL - Accounting Services Website | Omar Fuentes" description="Complete digital transformation for LEEXMS SRL accounting firm in Dominican Republic. Next.js 14, React 18, Bootstrap 5 development with advanced SEO and legal compliance.">
+  <div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+      <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Clock class="w-4 h-4 mr-1" /> 1 week development
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-700 dark:text-green-300 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 mr-1" /> Completed
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+              {project.title}
+            </h1>
+            
+            <p class="text-xl text-muted-foreground mb-8">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              {project.tecnologias.map(tech => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-foreground/5 text-foreground border border-foreground/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                View live project
+              </a>
+              <a 
+                href="/en/portfolio/projects"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+              >
+                <ArrowRight className="w-5 h-5" />
+                View more projects
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+              <img 
+                src={project.imagen}
+                alt={project.title}
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Stats -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {Object.entries(project.stats).map(([key, value]) => (
+            <div key={key} class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+              <div class="text-3xl font-bold text-primary mb-2">{value}</div>
+              <div class="text-muted-foreground capitalize">{key}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Tech Stack</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Modern technologies for rapid development and exceptional performance
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech, index) => (
+            <div key={index} class="bg-background rounded-xl border p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">{tech.icon}</div>
+                <div>
+                  <h3 class="font-semibold mb-2">{tech.name}</h3>
+                  <p class="text-sm text-muted-foreground">{tech.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete functionalities that make this site an effective business tool
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 hover:shadow-lg transition-shadow">
+              <div class="text-3xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Process -->
+    <section id="proceso" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Development Process</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Intensive methodology in 1 week to guarantee successful delivery and exceptional quality.
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {phases.map((phase, index) => (
+            <div key={index} class="relative">
+              <div class="flex items-start gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-primary/20">
+                    {index + 1}
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-6">
+                    <h3 class="text-2xl font-bold text-foreground">{phase.title}</h3>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                      {phase.week}
+                    </span>
+                  </div>
+                  <div class="bg-background rounded-2xl border border-foreground/10 p-6">
+                    <ul class="space-y-3">
+                      {phase.tasks.map((task, taskIndex) => (
+                        <li key={taskIndex} class="flex items-start gap-3 text-muted-foreground">
+                          <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <span class="text-foreground">{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Performance Metrics</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Exceptional results in speed, SEO and user experience
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 text-center">
+              <div class="text-4xl mb-4">{metric.icon}</div>
+              <div class="text-3xl font-bold text-primary mb-2">{metric.value}</div>
+              <div class="font-semibold mb-2">{metric.title}</div>
+              <p class="text-sm text-muted-foreground">{metric.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Project Results</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete delivery with all corporate functionalities implemented
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-8">
+          <ul class="space-y-4">
+            {project.results.map((result, index) => (
+              <li key={index} class="flex items-start gap-3">
+                <span class="text-green-500 mt-1">{result.split(' ')[0]}</span>
+                <span class="text-foreground">{result.substring(result.indexOf(' ') + 1)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Personal Experience -->
+    <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">My Experience with LEEXMS SRL</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            This project taught me that digital transformation can revolutionize professional services in record time
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="space-y-8 text-muted-foreground leading-relaxed">
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🔨 The Real Challenge</h3>
+              <p>LEEXMS had a common problem: they were excellent accountants but their digital presence was from another era. Traditional firms struggle to compete in today's digital world. My mission: transform them into a digital powerhouse in just 1 week.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">💡 My Intensive Approach</h3>
+              <p>I worked 7 days straight, 8+ hours daily. This wasn't just development - it was complete business transformation. I immersed myself in their world to understand exactly what Dominican clients need from accounting services.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🎯 The Lightning Result</h3>
+              <p>The client's message: 'Omar, we're getting calls from clients who found us on Google. Our blog articles are ranking, and WhatsApp integration is working perfectly.' That's digital transformation in record time.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">📚 My Big Learning</h3>
+              <p>LEEXMS taught me that professional services can compete digitally if you understand their market. In Dominican Republic, WhatsApp beats forms, local SEO beats global strategies, and speed beats features. Digital transformation isn't about technology - it's about business results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="flex justify-center mb-6">
+            <Star class="w-8 h-8 text-yellow-500 fill-current" />
+          </div>
+          <blockquote class="text-xl text-muted-foreground mb-8 leading-relaxed">
+            "The transformation exceeded our expectations. Now clients find us through Google and our articles are ranking. The WhatsApp integration has made communication much easier with Dominican clients who prefer direct messaging."
+          </blockquote>
+          <div>
+            <div class="font-semibold">LEEXMS SRL</div>
+            <div class="text-sm text-muted-foreground">Satisfied Client</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">Does Your Professional Service Need Digital Transformation?</h2>
+        <p class="text-xl text-muted-foreground mb-8">
+          As I demonstrated with LEEXMS, professional services can dominate their market digitally when they understand their local market and move fast
+        </p>
+        
+        <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 mb-8">
+          <p class="text-lg text-muted-foreground mb-4">
+            <strong>My approach:</strong> I transform professional services into digital powerhouses. Your clients will find you online and want to hire you before the first call.
+          </p>
+          <p class="text-sm text-muted-foreground">
+            1 week transformation • 95+ PageSpeed • Local market dominance
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20the%20LEEXMS%20case%20and%20I%20need%20digital%20transformation" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-lg font-medium hover:bg-primary/90 transition-colors">
+          <Shield class="w-5 h-5" />
+          Transform My Service Business
+        </a>
+          <a href="/en/portfolio/projects" class="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-lg font-medium hover:bg-accent transition-colors">
+            <ArrowRight className="w-5 h-5" />
+            View More Transformations
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

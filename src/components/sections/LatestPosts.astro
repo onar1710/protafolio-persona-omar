@@ -82,9 +82,11 @@ const cards = [
                 <h2 class="text-3xl font-display font-bold mb-4">{title}</h2>
                  <p class="text-muted-foreground">{subtitle}</p>
             </div>
-            <a href={resolvedViewAllHref} class="text-primary hover:text-primary/80 font-medium hidden md:block">
-                {viewAllText} {arrow}
-            </a>
+            {viewAllText && viewAllHref && (
+                <a href={resolvedViewAllHref} class="text-primary hover:text-primary/80 font-medium hidden md:block">
+                    {viewAllText} {arrow}
+                </a>
+            )}
          </div>
 
          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -102,7 +104,9 @@ const cards = [
          </div>
          
          <div class="mt-8 text-center md:hidden">
-             <a href={resolvedViewAllHref} class="text-primary font-medium">{viewAllText} {arrow}</a>
-         </div>
+            {viewAllText && viewAllHref && (
+                <a href={resolvedViewAllHref} class="text-primary font-medium">{viewAllText} {arrow}</a>
+            )}
+        </div>
     </div>
 </section>

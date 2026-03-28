@@ -25,8 +25,8 @@ export const siteConfig = {
   },
   contact: {
     email: {
-      support: 'joseomarfernandez747@gmail.com',
-      sales: 'joseomarfernandez747@gmail.com',
+      support: 'contact@omarfuentes.com',
+      sales: 'contact@omarfuentes.com',
     },
     phone: {
       main: '+57 310 785 1074',
@@ -67,10 +67,10 @@ export const siteConfig = {
 
 export const NAV_LINKS = [
   { 
-    href: '/caracteristicas', 
+    href: '/servicios', 
     label: 'Product',
     children: [
-        { href: '/caracteristicas', label: 'Features', description: 'What makes us different', icon: 'Zap' },
+        { href: '/servicios', label: 'Todos los servicios', description: 'What makes us different', icon: 'Zap' },
         { href: '/precios', label: 'Pricing', description: 'Plans for every team', icon: 'CreditCard' },
     ]
   },
@@ -114,7 +114,7 @@ export const FOOTER_LINKS = {
   product: {
     title: 'Product',
     links: [
-      { href: '/caracteristicas', label: 'Features' },
+      { href: '/servicios', label: 'Todos los servicios' },
       { href: '/sobre-mi', label: 'About' },
       { href: '/precios', label: 'Pricing' },
       { href: '/changelog', label: 'Changelog' },

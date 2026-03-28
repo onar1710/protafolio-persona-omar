@@ -1,0 +1,435 @@
+---
+import Layout from '../../../layouts-en/Layout.astro';
+import { Clock, CheckCircle, ExternalLink, ArrowRight, Star, Users, TrendingUp, Target, Zap, Shield, Award, FileText } from 'lucide-react';
+
+const project = {
+  title: "Ferrary Kitchen - My Star Remodeling Project",
+  description: "This project was incredible: I transformed Ferrary Kitchen's vision into a digital platform that generates 4-5 weekly quotes. I used Next.js, Tailwind CSS and created a visual portfolio that really sells their remodeling services in Bogotá.",
+  cliente: "Ferrary Kitchen",
+  fecha: "2024-2025",
+  tipo: "Corporate Website / Service Portfolio",
+  tecnologias: ["Next.js", "React", "Tailwind CSS", "Figma"],
+  url: "https://ferrarykitchen.co",
+  imagen: "/images/proyecto-imagen-ferrarycucina.png",
+  stats: {
+    pages: "15+ pages",
+    images: "50+ images", 
+    videos: "4 videos",
+    weeks: "3 weeks development"
+  },
+  results: [
+    "✅ Professional site that generates 4-5 weekly quotes - real clients!",
+    "✅ +50 optimized images and videos showing their work quality",
+    "✅ 6 featured projects that convert visitors into potential clients",
+    "✅ Integrated blog with 3 articles ranking in Google Bogotá",
+    "✅ Quote system that pre-qualifies clients before the call",
+    "✅ 100% responsive - clients view projects from their phones",
+    "✅ 95+ Performance on Lighthouse - faster than competitors",
+    "✅ Strategic CTAs that guide clients to contact"
+  ]
+};
+
+const techStack = [
+  { name: "Next.js 14+", description: "React framework with App Router for SSG", icon: "🚀" },
+  { name: "React 18", description: "UI library with reusable components", icon: "⚛️" },
+  { name: "Tailwind CSS", description: "Utility-first CSS framework for rapid design", icon: "🎨" },
+  { name: "TypeScript", description: "Static typing for greater robustness", icon: "📘" },
+  { name: "Figma", description: "Complete UI/UX design before coding", icon: "🎯" }
+];
+
+const phases = [
+  {
+    title: "My First Week: Understanding the Remodeling Business",
+    week: "Week 1",
+    tasks: [
+      "Day 1-2: I sat with Ferrary to understand their magic - how they transform spaces, what makes their projects unique",
+      "Day 3-4: I designed the perfect architecture - I wanted each project to show before/after, the complete process",
+      "Day 5-7: I created the design in Figma - I visualized how clients would navigate the site seeing their work quality"
+    ]
+  },
+  {
+    title: "Weeks 2-3: Development and Visual Magic",
+    week: "Weeks 2-3",
+    tasks: [
+      "Day 8-12: I developed the visual portfolio - each image optimized to show the quality of their remodels",
+      "Day 13-15: I implemented the smart quote system - pre-qualifies clients to save Ferrary time",
+      "Day 16-18: I created the blog with local SEO - articles that rank for 'remodeling Bogotá'",
+      "Day 19-21: Intensive testing and deploy - optimized every image for maximum speed"
+    ]
+  }
+];
+
+const features = [
+  {
+    icon: "🎨",
+    title: "Design That Sells Remodels",
+    description: "I created a visual identity that shows Ferrary's artisanal quality. I wanted visitors to feel the confidence of hiring experts with 25 years transforming spaces in Bogotá."
+  },
+  {
+    icon: "📱",
+    title: "100% Responsive for Mobile Clients",
+    description: "Clients search for remodels from their phones. I designed a perfect mobile experience where every project looks incredible and CTAs are within reach."
+  },
+  {
+    icon: "🖼️",
+    title: "Visual Portfolio That Impresses",
+    description: "I optimized 50+ images with Next.js Image so they load instantly. Each photo shows the real transformation - that's what converts visitors into clients."
+  },
+  {
+    icon: "🎬",
+    title: "Videos That Tell Stories",
+    description: "I integrated 4 transformation videos showing the complete process. Clients see how Ferrary turns ordinary spaces into extraordinary ones."
+  },
+  {
+    icon: "📝",
+    title: "Smart Quote System That Saves Time",
+    description: "I designed a form that pre-qualifies projects. Ferrary receives only serious clients, saving hours of unnecessary calls."
+  },
+  {
+    icon: "🔍",
+    title: "Local SEO for Bogotá",
+    description: "I optimized every page so it appears when someone searches 'kitchen remodeling Bogotá' or 'modern bathrooms Bogotá'. Clients find Ferrary first."
+  }
+];
+
+const metrics = [
+  {
+    icon: "🚀",
+    title: "Performance",
+    value: "95+",
+    description: "Lighthouse score on desktop and mobile"
+  },
+  {
+    icon: "📄",
+    title: "Pages Created",
+    value: "15+",
+    description: "Complete corporate site"
+  },
+  {
+    icon: "🖼️",
+    title: "Visual Content",
+    value: "50+",
+    description: "Optimized images and videos"
+  },
+  {
+    icon: "⏱️",
+    title: "Delivery Time",
+    value: "3",
+    description: "Complete weeks"
+  }
+];
+---
+
+<Layout title="Ferrary Kitchen - Kitchen Remodeling Bogotá | Omar Fuentes" description="Complete case study of corporate website development for remodeling company in Bogotá. Next.js, React, Tailwind CSS development generating 4-5 weekly client quotes.">
+  <div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+      <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Clock class="w-4 h-4 mr-1" /> 3 weeks development
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-700 dark:text-green-300 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 mr-1" /> Completed
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+              {project.title}
+            </h1>
+            
+            <p class="text-xl text-muted-foreground mb-8">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              {project.tecnologias.map(tech => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-foreground/5 text-foreground border border-foreground/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                View live project
+              </a>
+              <a 
+                href="/en/portfolio/projects"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+              >
+                <ArrowRight className="w-5 h-5" />
+                View more projects
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+              <img 
+                src={project.imagen}
+                alt={project.title}
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Stats -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {Object.entries(project.stats).map(([key, value]) => (
+            <div key={key} class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+              <div class="text-3xl font-bold text-primary mb-2">{value}</div>
+              <div class="text-muted-foreground capitalize">{key}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Tech Stack</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Modern technologies for rapid development and exceptional performance
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech, index) => (
+            <div key={index} class="bg-background rounded-xl border p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">{tech.icon}</div>
+                <div>
+                  <h3 class="font-semibold mb-2">{tech.name}</h3>
+                  <p class="text-sm text-muted-foreground">{tech.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete functionalities that make this site an effective business tool
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 hover:shadow-lg transition-shadow">
+              <div class="text-3xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Process -->
+    <section id="proceso" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Development Process</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Structured methodology in 3 weeks to guarantee successful delivery and exceptional quality.
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {phases.map((phase, index) => (
+            <div key={index} class="relative">
+              <div class="flex items-start gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-primary/20">
+                    {index + 1}
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-6">
+                    <h3 class="text-2xl font-bold text-foreground">{phase.title}</h3>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                      {phase.week}
+                    </span>
+                  </div>
+                  <div class="bg-background rounded-2xl border border-foreground/10 p-6">
+                    <ul class="space-y-3">
+                      {phase.tasks.map((task, taskIndex) => (
+                        <li key={taskIndex} class="flex items-start gap-3 text-muted-foreground">
+                          <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <span class="text-foreground">{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {index < phases.length - 1 && (
+                <div class="absolute left-8 top-16 w-0.5 h-20 bg-gradient-to-b from-primary/20 to-transparent"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Performance Metrics</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Exceptional results in speed, SEO and user experience
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 text-center">
+              <div class="text-4xl mb-4">{metric.icon}</div>
+              <div class="text-3xl font-bold text-primary mb-2">{metric.value}</div>
+              <div class="font-semibold mb-2">{metric.title}</div>
+              <p class="text-sm text-muted-foreground">{metric.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Project Results</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete delivery with all corporate functionalities implemented
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-8">
+          <ul class="space-y-4">
+            {project.results.map((result, index) => (
+              <li key={index} class="flex items-start gap-3">
+                <span class="text-green-500 mt-1">{result.split(' ')[0]}</span>
+                <span class="text-foreground">{result.substring(result.indexOf(' ') + 1)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Personal Experience -->
+    <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">My Experience with Ferrary Kitchen</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            This project taught me that web design can completely transform a service business
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="space-y-8 text-muted-foreground leading-relaxed">
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🔨 The Real Challenge</h3>
+              <p>Ferrary had a common problem: they did incredible work transforming spaces, but nobody knew it. Their projects were art, but their digital presence was invisible. My mission was to create a portfolio that sells their services before the first call.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">💡 My Different Approach</h3>
+              <p>Instead of a typical corporate site, I created a visual experience. Every page shows real transformations with before/after. I wanted visitors to feel the quality of Ferrary's work through photos and videos.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🎯 The Magical Result</h3>
+              <p>The client's call: 'Omar, we're receiving 4-5 weekly quotes just from the website'. Clients arrive already convinced because they saw the work quality. That's real digital transformation.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">📚 My Big Learning</h3>
+              <p>Ferrary taught me that for service businesses, visual portfolio is everything. Clients don't hire words, they hire results they can see. Good web design doesn't just show, it converts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="flex justify-center mb-6">
+            <Star class="w-8 h-8 text-yellow-500 fill-current" />
+          </div>
+          <blockquote class="text-xl text-muted-foreground mb-8 leading-relaxed">
+            "The site exceeded our expectations. Now clients find us through Google and arrive already convinced of our work quality from the photos. The form helps us greatly pre-qualify projects before making the visit."
+          </blockquote>
+          <div>
+            <div class="font-semibold">Ferrary Kitchen</div>
+            <div class="text-sm text-muted-foreground">Satisfied Client</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">Does Your Service Business Need a Portfolio That Sells?</h2>
+        <p class="text-xl text-muted-foreground mb-8">
+          As I demonstrated with Ferrary, it's not just about showing your work - it's about creating an experience that converts visitors into clients before the first call
+        </p>
+        
+        <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 mb-8">
+          <p class="text-lg text-muted-foreground mb-4">
+            <strong>My approach:</strong> I create visual portfolios that speak for you. Your clients will see your quality and want to hire you before talking to you.
+          </p>
+          <p class="text-sm text-muted-foreground">
+            4-5 weekly quotes • 95+ PageSpeed • Clients who arrive convinced
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20the%20Ferrary%20case%20and%20I%20want%20a%20portfolio%20that%20sells" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-lg font-medium hover:bg-primary/90 transition-colors">
+          <Shield class="w-5 h-5" />
+          Create My Visual Portfolio
+        </a>
+          <a href="/en/portfolio/projects" class="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-lg font-medium hover:bg-accent transition-colors">
+            <ArrowRight className="w-5 h-5" />
+            View More Transformations
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -10,6 +10,9 @@ import {
   Palette,
   Building2,
   Mail,
+  Search,
+  TrendingUp,
+  Cpu,
 } from 'lucide-react';
 
 const ICONS = {
@@ -21,6 +24,9 @@ const ICONS = {
   Palette,
   Building2,
   Mail,
+  Search,
+  TrendingUp,
+  Cpu,
 };
 
 export default function DesktopNav({ links, currentPath = '/' }) {

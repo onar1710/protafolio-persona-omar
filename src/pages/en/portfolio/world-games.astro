@@ -1,0 +1,414 @@
+---
+import Layout from '../../../layouts-en/Layout.astro';
+import { ArrowRight, Star, Users, TrendingUp, Clock, Target, Zap, Shield, Award, CheckCircle, ExternalLink, FileText } from 'lucide-react';
+
+const project = {
+  title: "World Games - My Converting Gaming Store",
+  description: "This project was fun: I created a complete gaming eCommerce store with 100+ products and review blog. I used Next.js, Tailwind CSS and Amazon Associates to build a platform that generates revenue while gamers enjoy the content.",
+  cliente: "World Games",
+  fecha: "2025",
+  tipo: "eCommerce / Website",
+  tecnologias: ["Next.js", "React", "Tailwind CSS", "Amazon Associates API"],
+  url: "https://worldgames.com",
+  imagen: "/images/proyecto-imagen-omarytplay.png",
+  stats: {
+    products: "100+ products",
+    categories: "15 categories",
+    performance: "95/100 Lighthouse",
+    weeks: "2 weeks development"
+  },
+  results: [
+    "✅ Complete store with 100+ products that gamers really want to buy",
+    "✅ Blog with detailed reviews that rank in Google and build trust",
+    "✅ 95/100 Performance - products load instantly, nobody abandons due to slowness",
+    "✅ 100% responsive - gamers buy from phone, tablet or PC",
+    "✅ SEO optimized for 'best gaming chair' and similar searches",
+    "✅ Amazon Associates integrated - every purchase generates automatic commissions"
+  ]
+};
+
+const techStack = [
+  { name: "Next.js 14+", description: "React framework with App Router for SSR/SSG", icon: "🚀" },
+  { name: "React 18", description: "UI library with reusable components", icon: "⚛️" },
+  { name: "Tailwind CSS", description: "Utility-first CSS framework for rapid design", icon: "🎨" },
+  { name: "TypeScript", description: "Static typing for greater robustness", icon: "📘" },
+  { name: "Amazon Associates", description: "Product integration and monetization", icon: "🛒" }
+];
+
+const phases = [
+  {
+    title: "My Week 1: Gaming Strategy and Design",
+    week: "Day 1-7",
+    tasks: [
+      "Day 1-2: Gaming world immersion - I analyzed what products gamers actually buy",
+      "Day 3-4: I designed the perfect architecture - 15 categories covering the entire gaming ecosystem",
+      "Day 5-6: I created the design in Figma - I visualized an experience gamers would love",
+      "Day 7: Next.js 14 setup - I prepared the entire structure for ultra-fast performance"
+    ]
+  },
+  {
+    title: "Week 2: Development and eCommerce Magic",
+    week: "Day 8-14",
+    tasks: [
+      "Day 8-10: I developed the store with 100+ products - each optimized for conversion",
+      "Day 11-12: I implemented the review blog - content that builds trust and ranks in Google",
+      "Day 13: I integrated Amazon Associates - every purchase generates automatic commissions",
+      "Day 14: Intensive testing and deploy - optimized for 95/100 on Lighthouse"
+    ]
+  }
+];
+
+const features = [
+  {
+    icon: "🎯",
+    title: "Catalog Gamers Will Love",
+    description: "I selected 100+ products that gamers actually search for. Each product with descriptions that convert and technical specifications that matter."
+  },
+  {
+    icon: "📄",
+    title: "Review Blog That Builds Trust",
+    description: "I created honest reviews and technical analysis that rank in Google. Gamers read, trust and then buy through my links."
+  },
+  {
+    icon: "⚡",
+    title: "Speed That Impresses",
+    description: "I optimized for 95/100 on Lighthouse because gamers don't wait. Every product loads instantly, nobody abandons due to slowness."
+  },
+  {
+    icon: "🛡️",
+    title: "SEO That Actually Ranks",
+    description: "I structured every page so Google understands the content. When someone searches 'best gaming chair', Mundo Gaming appears in top results."
+  },
+  {
+    icon: "💰",
+    title: "Amazon Associates That Works",
+    description: "I integrated every product with Amazon Associates. Every purchase generates automatic commissions while gamers get the best prices."
+  },
+  {
+    icon: "📱",
+    title: "Design for Mobile Gamers",
+    description: "Gamers compare products from their phones. I designed a perfect mobile experience where every buy button is within one tap."
+  }
+];
+
+const metrics = [
+  { label: "Performance", value: "95/100", icon: "📈" },
+  { label: "Accessibility", value: "98/100", icon: "✅" },
+  { label: "Best Practices", value: "100/100", icon: "🏆" },
+  { label: "SEO", value: "100/100", icon: "⭐" }
+];
+---
+
+<Layout title="World Games - Gaming eCommerce Store | Omar Fuentes" description="Complete gaming eCommerce store with 100+ products and review blog. Next.js, React, Tailwind CSS development with Amazon Associates integration for revenue generation.">
+  <div class="min-h-screen bg-background">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+      <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Clock class="w-4 h-4 mr-1" /> 2 weeks development
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-700 dark:text-green-300 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 mr-1" /> Completed
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+              {project.title}
+            </h1>
+            
+            <p class="text-xl text-muted-foreground mb-8">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              {project.tecnologias.map(tech => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-foreground/5 text-foreground border border-foreground/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-xl hover:bg-primary/90 transition-all font-semibold shadow-lg shadow-primary/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                View live project
+              </a>
+              <a 
+                href="/en/portfolio/projects"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-foreground/10 text-foreground rounded-xl hover:bg-foreground/20 transition-all font-semibold"
+              >
+                <ArrowRight className="w-5 h-5" />
+                View more projects
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+              <img 
+                src={project.imagen}
+                alt={project.title}
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Stats -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {Object.entries(project.stats).map(([key, value]) => (
+            <div key={key} class="text-center p-6 rounded-2xl border border-foreground/10 bg-background hover:border-primary/50 transition-all">
+              <div class="text-3xl font-bold text-primary mb-2">{value}</div>
+              <div class="text-muted-foreground capitalize">{key}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Tech Stack</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Modern technologies for rapid development and exceptional performance
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech, index) => (
+            <div key={index} class="bg-background rounded-xl border p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">{tech.icon}</div>
+                <div>
+                  <h3 class="font-semibold mb-2">{tech.name}</h3>
+                  <p class="text-sm text-muted-foreground">{tech.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete functionalities that make this site an effective business tool
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 hover:shadow-lg transition-shadow">
+              <div class="text-3xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Process -->
+    <section id="proceso" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Development Process</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Structured methodology in 2 weeks to guarantee successful delivery and exceptional quality.
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {phases.map((phase, index) => (
+            <div key={index} class="relative">
+              <div class="flex items-start gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-primary/20">
+                    {index + 1}
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-4 mb-6">
+                    <h3 class="text-2xl font-bold text-foreground">{phase.title}</h3>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                      {phase.week}
+                    </span>
+                  </div>
+                  <div class="bg-background rounded-2xl border border-foreground/10 p-6">
+                    <ul class="space-y-3">
+                      {phase.tasks.map((task, taskIndex) => (
+                        <li key={taskIndex} class="flex items-start gap-3 text-muted-foreground">
+                          <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <span class="text-foreground">{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              {index < phases.length - 1 && (
+                <div class="absolute left-8 top-16 w-0.5 h-20 bg-gradient-to-b from-primary/20 to-transparent"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Performance Metrics</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Exceptional results in speed, SEO and user experience
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div key={index} class="bg-background rounded-xl border p-8 text-center">
+              <div class="text-4xl mb-4">{metric.icon}</div>
+              <div class="text-3xl font-bold text-primary mb-2">{metric.value}</div>
+              <div class="font-semibold mb-2">{metric.label}</div>
+              <p class="text-sm text-muted-foreground">Lighthouse score</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Project Results</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            Complete delivery with all eCommerce functionalities implemented
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-8">
+          <ul class="space-y-4">
+            {project.results.map((result, index) => (
+              <li key={index} class="flex items-start gap-3">
+                <span class="text-green-500 mt-1">{result.split(' ')[0]}</span>
+                <span class="text-foreground">{result.substring(result.indexOf(' ') + 1)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Personal Experience -->
+    <section class="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">My Experience with World Games</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            This project taught me that eCommerce success comes from understanding your audience's passion
+          </p>
+        </div>
+        
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="space-y-8 text-muted-foreground leading-relaxed">
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🎮 The Real Challenge</h3>
+              <p>Gamers are a tough audience. They know exactly what they want, they compare prices obsessively, and they abandon slow sites instantly. My challenge: create a store that respects their intelligence and passion for gaming.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">💡 My Gamer-First Approach</h3>
+              <p>I didn't just build a store - I built a community hub. The review blog builds trust, the product selection is curated by actual gaming needs, and the mobile experience is designed for how gamers actually shop.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">🎯 The Conversion Magic</h3>
+              <p>The beauty: gamers read reviews, trust the recommendations, then buy through Amazon Associates. They get the best prices, I get commissions. It's a win-win that respects their research process.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">📚 My Big Learning</h3>
+              <p>Mundo Gaming taught me that successful eCommerce isn't about selling - it's about helping your audience make informed decisions. When you genuinely help people choose the right products, revenue follows naturally.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-20 bg-foreground/2">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-background rounded-2xl border p-12">
+          <div class="flex justify-center mb-6">
+            <Star class="w-8 h-8 text-yellow-500 fill-current" />
+          </div>
+          <blockquote class="text-xl text-muted-foreground mb-8 leading-relaxed">
+            "The store exceeded our expectations. The reviews help our readers make informed decisions, and the Amazon integration works perfectly. The performance is amazing - everything loads instantly."
+          </blockquote>
+          <div>
+            <div class="font-semibold">World Games</div>
+            <div class="text-sm text-muted-foreground">Satisfied Client</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">Does Your eCommerce Need a Gamer-First Approach?</h2>
+        <p class="text-xl text-muted-foreground mb-8">
+          As I demonstrated with World Games, eCommerce success comes from understanding your audience's passion and helping them make informed decisions
+        </p>
+        
+        <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 mb-8">
+          <p class="text-lg text-muted-foreground mb-4">
+            <strong>My approach:</strong> I build eCommerce stores that respect your audience. Your customers will trust your recommendations and buy with confidence.
+          </p>
+          <p class="text-sm text-muted-foreground">
+            100+ products catalog • Review blog • Amazon integration • 95+ performance
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20the%20World%20Games%20case%20and%20I%20want%20an%20eCommerce%20store" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-lg font-medium hover:bg-primary/90 transition-colors">
+          <Shield class="w-5 h-5" />
+          Build My eCommerce Store
+        </a>
+          <a href="/en/portfolio/projects" class="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-lg font-medium hover:bg-accent transition-colors">
+            <ArrowRight className="w-5 h-5" />
+            View More Projects
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

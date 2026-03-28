@@ -145,6 +145,15 @@ export default defineConfig({
               const pathname = url.pathname;
               return !noIndexUrls.includes(pathname);
           },
+          namespaces: {
+            xhtml: false,
+          },
+          serialize: (item) => {
+            if (item && typeof item === 'object' && 'links' in item) {
+              return { ...item, links: undefined };
+            }
+            return item;
+          },
           customPages: [],
           entryLimit: 10000
       }), 

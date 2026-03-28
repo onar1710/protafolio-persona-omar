@@ -1,18 +1,18 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import { languages } from '~/i18n/ui';
-import { useTranslations } from '~/i18n/utils';
+import LayoutEs from '~/layouts/Layout.astro';
+import LayoutEn from '~/layouts-en/Layout.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 
-export async function getStaticPaths() {
-  return Object.keys(languages).map((lang) => ({ params: { lang } }));
-}
+Astro.response.status = 404;
 
-const { lang } = Astro.params;
+const lang = getLangFromUrl(new URL(Astro.request.url));
 const t = useTranslations(lang);
+
+const Layout = lang === 'en' ? LayoutEn : LayoutEs;
 ---
 
 <Layout title={t['404.title']} description={t['404.description']}>
-  <div class="min-h-[80vh] flex flex-col items-center justify-center text-center relative overflow-hidden">
+  <div class="min-h-[100vh] flex flex-col items-center justify-center text-center relative overflow-hidden pt-0">
       <!-- Background Effect -->
       <div class="absolute inset-0 z-0 flex items-center justify-center opacity-20 pointer-events-none">
           <div class="w-[600px] h-[600px] bg-red-500/20 rounded-full blur-[120px]"></div>
@@ -27,7 +27,7 @@ const t = useTranslations(lang);
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="/"
+              href={lang === 'en' ? '/en' : '/'}
               class="px-8 py-3 bg-primary text-black font-medium rounded-full hover:bg-primary/90 transition-all hover:scale-105"
             >
               {t['404.backHome']}

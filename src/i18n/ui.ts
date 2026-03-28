@@ -16,7 +16,7 @@ export function parseProperties(content: string): Record<string, string> {
   return result;
 }
 
-const locales = import.meta.glob('./locales/es.properties', { query: '?raw', eager: true, import: 'default' });
+const locales = import.meta.glob('./locales/*.properties', { query: '?raw', eager: true, import: 'default' });
 
 export const languages: Record<string, string> = {};
 export const ui: Record<string, Record<string, string>> = {};

@@ -1,0 +1,989 @@
+---
+import { languages, defaultLang } from '~/i18n/ui';
+import { isRtl, useTranslations } from '~/i18n/utils';
+import Layout from '~/layouts-en/Layout.astro';
+import Schema from '~/components/layout/Schema.astro';
+import Hero from '~/components/sections/Hero.astro';
+import Section from '~/components/layout/Section.astro';
+import Container from '~/components/ui/Container.astro';
+import FAQ from '~/components/sections/FAQ.astro';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang = defaultLang } = Astro.params;
+const t = useTranslations(lang);
+
+---
+
+<Layout title="Web design services for small business and SEO | Grow Your Business Fast" description="Professional web design, development and SEO company in USA for small business. Shopify development services, WordPress web development and SEO specialist, responsive web design with HTML5. Local SEO services for small business and organic search engine optimization SEO company with proven results." keywords="web design company USA, web development company USA, SEO company USA, Shopify development services, WordPress web development and SEO specialist, responsive web design with HTML5, local SEO services for small business, organic search engine optimization SEO company, responsive web design company with SEO expertise, small business web design USA">
+    <Fragment slot="head">
+    </Fragment>
+    <Schema item={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": `${Astro.site}#website`,
+            "url": Astro.site,
+            "name": "Omar Fuentes - Web Design, Development and SEO Company in USA",
+            "description": "Professional web design, development and SEO company in USA for small business. Complete web solutions with local SEO that get results.",
+            "inLanguage": "en-US",
+            "isAccessibleForFree": true,
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": `${Astro.site}/search?q={search_term_string}`
+                },
+                "query-input": "required name=search_term_string"
+            },
+            "publisher": {
+                "@id": `${Astro.site}#organization`
+            }
+        }} />
+    <Schema item={{
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "@id": `${Astro.site}#service`,
+            "name": "Web Design, Development and SEO Company in USA",
+            "description": "Professional web design, development and SEO services for small businesses in USA",
+            "url": `${Astro.site}/`,
+            "telephone": "+57 310 785 1074",
+            "email": "joseomarfernandez747@gmail.com",
+            "provider": {
+                "@id": `${Astro.site}#person`
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US"
+            },
+            "areaServed": [
+                "United States"
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Web Services",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Shopify Development Services",
+                            "description": "Custom Shopify development and optimization"
+                        },
+                        "price": "499",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "WordPress Web Development and SEO",
+                            "description": "WordPress development with SEO optimization"
+                        },
+                        "price": "399",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Local SEO Services",
+                            "description": "Local SEO optimization for small businesses"
+                        },
+                        "price": "299",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    }
+                ]
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "ratingCount": "6",
+                "bestRating": "5",
+                "worstRating": "1"
+            }
+        }} />
+    
+    <Hero 
+        badge="🚀 Affordable web design for small businesses that want real results"
+        title="Web design services for small businesses"
+        highlight=""
+        description="Get a fast and modern website built for small businesses seeking greater visibility and consistent growth. Optimized for search engines and built to convert visitors into customers."
+        primaryCta={{ text: "Get a Quote", href: "https://wa.me/573107851074?text=Hi%20Omar,%20I%20saw%20your%20website%20and%20want%20a%20quote%20for%20web%20design%20services" }}
+        secondaryCta={{ text: "View services", href: "/en/services" }}
+    />
+
+    <!-- Small Business Industries Section -->
+    <Section class="py-20">
+        <Container>
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Industry-Specific Web Solutions
+                    </h2>
+                    <p class="text-lg text-white max-w-3xl mx-auto">
+                        Tailored small business websites that work specifically for your industry. Each site is designed with the features and functionality your customers expect, helping you stand out from competitors and attract more business.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Restaurants</h3>
+                        <p class="text-white/80 mb-4">Online menus, reservations, delivery systems</p>
+                        <a href="/en/restaurant-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Restaurant Web Design for Small Businesses →</a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Hair Salons</h3>
+                        <p class="text-white/80 mb-4">Online bookings, gallery, appointments</p>
+                        <a href="/en/hair-salon-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Hair Salon Web Design for Small Businesses →</a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Cleaning Services</h3>
+                        <p class="text-white/80 mb-4">Service scheduling, quotes, testimonials</p>
+                        <a href="/en/cleaning-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Cleaning Company Web Design for Small Businesses →</a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Construction</h3>
+                        <p class="text-white/80 mb-4">Project galleries, service areas, quotes</p>
+                        <a href="/en/construction-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Construction Company Web Design for Small Businesses →</a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Lawyers</h3>
+                        <p class="text-white/80 mb-4">Case studies, consultations, attorney profiles</p>
+                        <a href="/en/lawyer-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Lawyer Web Design for Small Businesses →</a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Real Estate</h3>
+                        <p class="text-white/80 mb-4">Property listings, virtual tours, agent profiles</p>
+                        <a href="/en/real-estate-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Real Estate Web Design for Small Businesses →</a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Electricians</h3>
+                        <p class="text-white/80 mb-4">Service requests, emergency calls, work areas</p>
+                        <a href="/en/electrician-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Electrician Web Design for Small Businesses →</a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Photographers</h3>
+                        <p class="text-white/80 mb-4">Portfolio galleries, booking systems, pricing</p>
+                        <a href="/en/photographer-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Photographer Web Design for Small Businesses →</a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Gyms</h3>
+                        <p class="text-white/80 mb-4">Class schedules, memberships, sign-ups</p>
+                        <a href="/en/gym-web-design" class="text-blue-300 hover:text-blue-200 font-semibold">Gym Web Design for Small Businesses →</a>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <p class="text-xl text-white font-semibold mb-4">
+                        Turn your small business website into a customer-generating machine that works for you 24/7.
+                    </p>
+                </div>
+            </div>
+        </Container>
+    </Section>
+
+    <!-- Benefits Section -->
+    <Section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+        <Container>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Why Small Businesses Choose Our Web Design Services
+                    </h2>
+                    <p class="text-lg text-white max-w-3xl mx-auto">
+                        We help small businesses grow online with websites designed to attract customers, generate leads, and increase sales.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Affordable web design services tailored for small businesses</h3>
+                        <p class="text-white/80">
+                            Get a professional website without overpaying, designed to fit your budget and business goals.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Responsive web design that works on all devices</h3>
+                        <p class="text-white/80">
+                            Your website will look and perform perfectly on mobile, tablet, and desktop.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Reliable web design focused on performance</h3>
+                        <p class="text-white/80">
+                            Fast-loading, secure, and stable websites that your customers can trust.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Complete web design and management solutions</h3>
+                        <p class="text-white/80">
+                            From design to maintenance, everything is handled so you can focus on your business.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Comprehensive web design built for growth</h3>
+                        <p class="text-white/80">
+                            A scalable website structure that grows with your business and supports long-term success.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                        <div class="w-12 h-12 mb-4 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">SEO-friendly web design that helps you rank on Google</h3>
+                        <p class="text-white/80">
+                            Built with a solid structure and best practices to improve your visibility and attract organic traffic from search engines.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </Section>
+
+    <!-- How It Works Section -->
+    <Section class="py-20">
+        <Container>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        How It Works & What to Expect
+                    </h2>
+                </div>
+                
+                <!-- How It Works -->
+                <div class="mb-20">
+                    <h3 class="text-2xl font-bold text-white mb-8 text-center">How It Works</h3>
+                    <p class="text-lg text-white/80 text-center mb-12">A simple process designed for small businesses</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <span class="text-2xl font-bold text-white">1</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-4">Contact & Free Consultation</h4>
+                            <p class="text-white/80">
+                                Tell us about your business, goals, and what you need. We'll guide you and recommend the best solution.
+                            </p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <span class="text-2xl font-bold text-white">2</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-4">Design & Development</h4>
+                            <p class="text-white/80">
+                                We create your website with a modern design, optimized for performance, SEO, and conversions.
+                            </p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <span class="text-2xl font-bold text-white">3</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-4">Review & Launch</h4>
+                            <p class="text-white/80">
+                                You review the site, request changes if needed, and once approved, we launch your website.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- What to Expect -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-8 text-center">What to Expect</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                            <div class="w-12 h-12 mb-4 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-3">Project Timeline</h4>
+                            <p class="text-white/80 text-sm">
+                                Most websites are completed in 3 to 7 days, depending on your needs and revisions.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                            <div class="w-12 h-12 mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-3">Communication</h4>
+                            <p class="text-white/80 text-sm">
+                                We stay in contact throughout the process via chat or email to ensure everything meets your expectations.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                            <div class="w-12 h-12 mb-4 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-3">Secure Payment</h4>
+                            <p class="text-white/80 text-sm">
+                                We accept secure payments via PayPal, so your investment is protected at all times.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+                            <div class="w-12 h-12 mb-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-3">Revisions Included</h4>
+                            <p class="text-white/80 text-sm">
+                                We include revisions to make sure your website looks and works exactly how you want.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </Section>
+
+    <!-- What You Get Section -->
+    <Section class="py-20 bg-white">
+        <Container>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        What You Get
+                    </h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        When you work with me, you get more than just a website:
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Result 1 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">A system that generates leads</h3>
+                            <p class="text-gray-700">Your website will be designed to capture visitor information and turn them into potential customers.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Result 2 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">A professional online presence</h3>
+                            <p class="text-gray-700">Modern design that builds trust and credibility with your potential customers.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Result 3 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Better visibility on Google</h3>
+                            <p class="text-gray-700">SEO-optimized structure that helps your website rank higher in search results.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Result 4 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">A website designed to grow with your business</h3>
+                            <p class="text-gray-700">Scalable solution that can expand as your business needs evolve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </Section>
+
+    <!-- Technologies Section -->
+    <Section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    Technologies We Use
+                </h2>
+                <p class="text-lg text-white max-w-3xl mx-auto">
+                    Modern technologies used to build fast, scalable, and high-performing websites for small businesses.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center relative">
+                        <span class="text-white font-bold text-xl">JS</span>
+                        <div class="absolute inset-0 bg-blue-500/30 rounded-xl blur-xl"></div>
+                    </div>
+                    <h3 class="font-semibold text-white">Next.js</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center relative">
+                        <span class="text-white font-bold text-xl">A</span>
+                        <div class="absolute inset-0 bg-purple-500/30 rounded-xl blur-xl"></div>
+                    </div>
+                    <h3 class="font-semibold text-white">Astro.js</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center relative">
+                        <span class="text-white font-bold text-xl">B</span>
+                        <div class="absolute inset-0 bg-indigo-500/30 rounded-xl blur-xl"></div>
+                    </div>
+                    <h3 class="font-semibold text-white">Bootstrap</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center relative">
+                        <span class="text-white font-bold text-xl">5</span>
+                        <div class="absolute inset-0 bg-orange-500/30 rounded-xl blur-xl"></div>
+                    </div>
+                    <h3 class="font-semibold text-white">HTML5</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center relative">
+                        <span class="text-white font-bold text-xl">W</span>
+                        <div class="absolute inset-0 bg-blue-600/30 rounded-xl blur-xl"></div>
+                    </div>
+                    <h3 class="font-semibold text-white">WordPress</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center relative">
+                        <span class="text-white font-bold text-xl">E</span>
+                        <div class="absolute inset-0 bg-green-500/30 rounded-xl blur-xl"></div>
+                    </div>
+                    <h3 class="font-semibold text-white">eCommerce</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center relative">
+                        <span class="text-white font-bold text-xl">S</span>
+                        <div class="absolute inset-0 bg-emerald-500/30 rounded-xl blur-xl"></div>
+                    </div>
+                    <h3 class="font-semibold text-white">Shopify</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center relative">
+                        <span class="text-white font-bold text-xl">CD</span>
+                        <div class="absolute inset-0 bg-pink-500/30 rounded-xl blur-xl"></div>
+                    </div>
+                    <h3 class="font-semibold text-white">Colorful Design</h3>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-lg text-white italic">
+                    "Resulting in visually engaging, functional, and high-performing websites"
+                </p>
+            </div>
+        </div>
+    </Section>
+
+    <!-- Why Work With Me Section -->
+    <Section class="py-20 bg-white">
+        <Container>
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                        Why Work With Me Instead of a Typical Agency
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Advantage 1 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2a3 3 0 00-5.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v2a3 3 0 005.356 1.857m0 0a3 3 0 005.356 1.857m0 0a3 3 0 005.356 1.857M7 20h10"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">You work directly with me — no middlemen or delays</h3>
+                            <p class="text-gray-700">Direct communication means faster decisions and better results for your project.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Advantage 2 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Faster delivery compared to traditional agencies</h3>
+                            <p class="text-gray-700">No bureaucracy means your website gets done in days, not months.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Advantage 3 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Focused on results, not just design</h3>
+                            <p class="text-gray-700">Every decision is made to help you get more customers and grow your business.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Advantage 4 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 2.493A1 1 0 008.618 7h6.764a1 1 0 01.948-.684L17.28 3a2 2 0 012 2h3.28a1 1 0 01.948.684l1.498 2.493A1 1 0 0018.618 7h-6.764a1 1 0 01-.948-.684L9.72 3.684A1 1 0 008.772 3H6a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Clear and direct communication</h3>
+                            <p class="text-gray-700">No corporate jargon or confusing processes — just straight talk about your needs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Advantage 5 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m8 0V6a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Built specifically for small businesses</h3>
+                            <p class="text-gray-700">I understand small business challenges and build solutions that work for your budget and goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </Section>
+
+    <!-- Testimonials Section -->
+    <Section class="py-24">
+        <Container>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                <div class="max-w-3xl">
+                    <h2 class="text-3xl md:text-5xl font-display font-bold mb-4">Real Reviews on Google</h2>
+                    <div class="flex items-center gap-3 text-muted-foreground" aria-label="Rating 5.0 on Google">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        <span class="font-semibold text-foreground">5.0</span>
+                        <span class="text-foreground" aria-hidden="true">★★★★★</span>
+                    </div>
+                </div>
+                <a href="https://www.google.com/search?q=Omar+Fuentes+Web+Design+Reviews" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-black font-semibold hover:bg-primary/90 transition-colors w-fit">
+                    <span>View on Google</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="relative">
+                <div data-reviews-track class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [-ms-overflow-style:none] [scrollbar-width:none]">
+                    <article class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start rounded-2xl border border-black/10 bg-white text-black p-5 md:p-6 shadow-sm" aria-label="Review from Michael Johnson">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col items-center">
+                                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="sr-only">5 out of 5 stars</span>
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                    <svg class={`w-4 h-4 ${i < 5 ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                ))}
+                            </div>
+
+                            <div class="text-base font-semibold text-center">Michael Johnson</div>
+                            <p class="text-sm leading-relaxed text-black/80">Excellent web design service! Omar created a professional website for my restaurant that increased our online orders by 40%. Highly recommend!</p>
+                        </div>
+                    </article>
+
+                    <article class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start rounded-2xl border border-black/10 bg-white text-black p-5 md:p-6 shadow-sm" aria-label="Review from Sarah Williams">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col items-center">
+                                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="sr-only">5 out of 5 stars</span>
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                    <svg class={`w-4 h-4 ${i < 5 ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                ))}
+                            </div>
+
+                            <div class="text-base font-semibold text-center">Sarah Williams</div>
+                            <p class="text-sm leading-relaxed text-black/80">Great experience working with Omar! He designed our salon website and it looks amazing. Fast loading and mobile-friendly. Our clients love it!</p>
+                        </div>
+                    </article>
+
+                    <article class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start rounded-2xl border border-black/10 bg-white text-black p-5 md:p-6 shadow-sm" aria-label="Review from David Martinez">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col items-center">
+                                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="sr-only">5 out of 5 stars</span>
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                    <svg class={`w-4 h-4 ${i < 5 ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                ))}
+                            </div>
+
+                            <div class="text-base font-semibold text-center">David Martinez</div>
+                            <p class="text-sm leading-relaxed text-black/80">Professional and affordable web design! Omar built our construction company website and it helped us get more local clients. SEO optimization really works!</p>
+                        </div>
+                    </article>
+
+                    <article class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start rounded-2xl border border-black/10 bg-white text-black p-5 md:p-6 shadow-sm" aria-label="Review from Emily Chen">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col items-center">
+                                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="sr-only">5 out of 5 stars</span>
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                    <svg class={`w-4 h-4 ${i < 5 ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                ))}
+                            </div>
+
+                            <div class="text-base font-semibold text-center">Emily Chen</div>
+                            <p class="text-sm leading-relaxed text-black/80">Amazing work! Omar created a beautiful website for my photography business. The gallery features are perfect and my clients love how easy it is to navigate.</p>
+                        </div>
+                    </article>
+
+                    <article class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start rounded-2xl border border-black/10 bg-white text-black p-5 md:p-6 shadow-sm" aria-label="Review from Robert Taylor">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col items-center">
+                                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="sr-only">5 out of 5 stars</span>
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                    <svg class={`w-4 h-4 ${i < 5 ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                ))}
+                            </div>
+
+                            <div class="text-base font-semibold text-center">Robert Taylor</div>
+                            <p class="text-sm leading-relaxed text-black/80">Great experience! Omar designed our gym website with class schedules and membership features. Our sign-ups increased by 35% in the first month!</p>
+                        </div>
+                    </article>
+
+                    <article class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start rounded-2xl border border-black/10 bg-white text-black p-5 md:p-6 shadow-sm" aria-label="Review from Jessica Brown">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col items-center">
+                                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="sr-only">5 out of 5 stars</span>
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                    <svg class={`w-4 h-4 ${i < 5 ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                ))}
+                            </div>
+
+                            <div class="text-base font-semibold text-center">Jessica Brown</div>
+                            <p class="text-sm leading-relaxed text-black/80">Omar built our cleaning service website and it's been fantastic! The quote request form brings us new leads every week. Highly recommend his services!</p>
+                        </div>
+                    </article>
+
+                    <article class="min-w-[82%] sm:min-w-[70%] md:min-w-[360px] lg:min-w-[380px] snap-start rounded-2xl border border-black/10 bg-white text-black p-5 md:p-6 shadow-sm" aria-label="Review from Daniel Wilson">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col items-center">
+                                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="sr-only">5 out of 5 stars</span>
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                    <svg class={`w-4 h-4 ${i < 5 ? 'fill-yellow-400 text-yellow-400' : 'text-black/20'}`} fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                ))}
+                            </div>
+
+                            <div class="text-base font-semibold text-center">Daniel Wilson</div>
+                            <p class="text-sm leading-relaxed text-black/80">Outstanding service! Omar created our real estate website with property listings and virtual tours. We're getting more qualified leads than ever before!</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <script is:inline>
+                (() => {
+                    const track = document.querySelector('[data-reviews-track]');
+                    if (!track) return;
+
+                    const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+                    if (media?.matches) return;
+
+                    let timer;
+                    let paused = false;
+
+                    const getStep = () => {
+                        const first = track.querySelector('article');
+                        if (!first) return 400;
+                        const rect = first.getBoundingClientRect();
+                        return rect.width + 24;
+                    };
+
+                    const tick = () => {
+                        if (paused) return;
+                        const step = getStep();
+                        const max = track.scrollWidth - track.clientWidth;
+
+                        if (track.scrollLeft + step >= max - 4) {
+                            track.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            track.scrollBy({ left: step, behavior: 'smooth' });
+                        }
+                    };
+
+                    const start = () => {
+                        timer = setInterval(tick, 3000);
+                    };
+
+                    const stop = () => {
+                        clearInterval(timer);
+                    };
+
+                    track.addEventListener('mouseenter', () => { paused = true; });
+                    track.addEventListener('mouseleave', () => { paused = false; });
+
+                    start();
+                })();
+            </script>
+        </Container>
+    </Section>
+
+    <!-- FAQ Section -->
+    <Section class="py-24">
+        <Container>
+            <div class="max-w-3xl mx-auto">
+                <FAQ items={[
+                    {
+                        question: "What makes your web design company in USA different?",
+                        answer: "We combine responsive web design with HTML5, expert SEO optimization, and conversion-focused strategies. As a full-service web development company in USA, we deliver complete solutions that rank in Google and convert visitors into customers."
+                    },
+                    {
+                        question: "How long does it take to see SEO results?",
+                        answer: "Most clients see first-page rankings within 3 months. Our organic search engine optimization SEO company focuses on sustainable growth, with average organic traffic increases of 150% and 70% faster loading times."
+                    },
+                    {
+                        question: "Do you offer Shopify development services?",
+                        answer: "Yes, we provide complete Shopify development services including custom theme development, app integration, and SEO optimization. Our e-commerce clients see average sales increases of 35% with faster loading stores."
+                    },
+                    {
+                        question: "What are your local SEO services for small business?",
+                        answer: "Our local SEO services include Google Business Profile optimization, local keyword ranking, customer review strategy, and local citation building. Clients typically see 60% more local calls and Google 3-pack placement."
+                    },
+                    {
+                        question: "Are you a WordPress web development and SEO specialist?",
+                        answer: "Yes, we specialize in WordPress web development and SEO with 500+ sites optimized. We offer custom theme development, plugin optimization, schema markup, and security maintenance with 95% first-page ranking success."
+                    },
+                    {
+                        question: "What is responsive web design with HTML5?",
+                        answer: "Responsive web design with HTML5 ensures your website works perfectly on all devices while following modern web standards. Our responsive web design company with SEO expertise creates mobile-first designs that increase mobile traffic by 60%."
+                    },
+                    {
+                        question: "How much do your web development services cost?",
+                        answer: "Our web development company in USA offers flexible pricing: Shopify development from $499, WordPress SEO from $399, and local SEO services from $299. All packages include ongoing support and optimization."
+                    },
+                    {
+                        question: "Do you work with small businesses only?",
+                        answer: "While we specialize in helping small businesses compete online, we work with businesses of all sizes. Our responsive web design and SEO strategies are scalable to meet your specific needs and budget."
+                    },
+                    {
+                        question: "What makes your SEO company in USA effective?",
+                        answer: "As an SEO company in USA, we combine technical expertise with local market knowledge. Our focus on Core Web Vitals, semantic HTML5, and conversion optimization delivers measurable results with average 120% traffic growth."
+                    }
+                ]} 
+                title="Frequently Asked Questions"
+                subtitle="Everything you need to know about our web design and SEO services" />
+            </div>
+        </Container>
+    </Section>
+
+    <!-- Final CTA -->
+    <Section class="py-24 bg-foreground/2">
+        <Container>
+            <div class="text-center">
+                <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">Ready to Grow Your Small Business with a Professional Website?</h2>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/573107851074?text=Hi%20Omar,%20I%20want%20a%20free%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold bg-primary text-black hover:bg-primary/90 transition-colors">
+                        Get Your Free Website Strategy Call
+                    </a>
+                    <a href="/en/contact" class="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                        View Portfolio
+                    </a>
+                </div>
+                <p class="text-muted-foreground max-w-2xl mx-auto mt-6">
+                    Let's build a website that grows your business and brings you real customers, not just traffic.
+                </p>
+            </div>
+        </Container>
+    </Section>
+
+</Layout>

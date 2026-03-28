@@ -3,7 +3,9 @@ import { Cookie, X } from 'lucide-react';
 import { ui, defaultLang } from '~/i18n/ui';
 import { isRtl, useTranslations } from '~/i18n/utils';
 
-const { lang = defaultLang } = Astro.params;
+// Detect if we're on an English page
+const isEnglishPage = Astro.url.pathname.startsWith('/en') || Astro.url.pathname.includes('/en/');
+const lang = isEnglishPage ? 'en' : (Astro.params.lang || defaultLang);
 const t = useTranslations(lang);
 
 const positionClasses = isRtl(lang)

@@ -1,6 +1,10 @@
 # dependencies
 node_modules/
 
+
+
+
+
 # build output
 dist/
 
@@ -50,5 +54,3 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-# Scripts folder (exclude from repository)
-scripts/

@@ -1,0 +1,389 @@
+---
+import Layout from '~/layouts-en/Layout.astro';
+import ContentSection from '~/components/sections/ContentSection.astro';
+import FeaturesList from '~/components/sections/FeaturesList.astro';
+import TeamSection from '~/components/sections/TeamSection.astro';
+import FeatureItem from '~/components/ui/FeatureItem.astro';
+import TeamMember from '~/components/ui/TeamMember.astro';
+import PageHeader from '~/components/layout/PageHeader.astro';
+import { Zap, Shield, Smartphone, Globe, Code, Layers, Check, Sparkles } from 'lucide-react';
+import Timeline from '~/components/sections/Timeline.astro';
+import Section from '~/components/layout/Section.astro';
+import Container from '~/components/ui/Container.astro';
+import Heading from '~/components/ui/Heading.astro';
+import Text from '~/components/ui/Text.astro';
+
+const timelineItems = [
+    { date: '2018', title: 'Development Beginnings', description: 'Started my journey learning HTML, CSS and JavaScript. My first projects were personal sites to understand web development fundamentals.' },
+    { date: '2019', title: 'First Professional Projects', description: 'Started building sites for local businesses in Colombia, focusing on speed, structure and clarity. Learned the importance of basic SEO and performance.' },
+    { date: '2020', title: 'Frontend Specialization', description: 'Deepened into React and modern JavaScript. Developed more complex applications and understood component architecture importance.' },
+    { date: '2021', title: 'SEO + Performance Focus', description: 'Specialized in technical SEO, Core Web Vitals and fast mobile experiences. Google Analytics and performance optimization certifications.' },
+    { date: '2022', title: 'Full Stack Expansion', description: 'Incorporated Node.js and backend to my skills. Could offer complete solutions and better understand the full web development cycle.' },
+    { date: '2023', title: 'Converting Websites', description: 'Focused on landing pages and sites designed to convert visits into leads and sales. Learned about user psychology and conversion rate optimization.' },
+    { date: '2024', title: 'Design Systems', description: 'Developed complete design systems for consistency and scalability. Implemented design tokens and reusable components.' },
+    { date: 'Today', title: 'Direct Work With You', description: 'Freelance: clear communication, defined deliverables and post-launch support. Specialize in projects needing measurable results.' },
+];
+---
+
+<Layout title="About Omar Fuentes - Web SEO Developer USA | Freelance" 
+        description="Meet Omar Fuentes: freelance web developer in USA with 5+ years experience. Specialist in technical SEO, web design and development of sites that convert." 
+        keywords="omar fuentes web developer, freelance web usa, about me web developer, seo expert usa, web designer freelance, developer portfolio, web developer usa"
+        image="/imagen-destacada-omarfuentes.jpg">
+<PageHeader title="About Me" description="Freelance web developer in USA specialized in creating fast, SEO-optimized sites designed to convert visitors into customers." />
+
+  <ContentSection
+    title="Hi, I'm Omar 👋"
+    image="/images/sobre-mi/sobre-mi-omar.jpg"
+    imageAlt="Omar Fuentes - Web Developer"
+  >
+    <Text>I'm a passionate web developer based in USA, specialized in creating digital experiences that actually work. My journey began in 2018 and since then I've helped dozens of businesses and entrepreneurs establish their online presence with measurable results.</Text>
+    <Text>My philosophy is simple: <strong>no complications, no fluff, just results</strong>. I specialize in transforming ideas into fast websites, SEO-optimized from day one and designed to convert visitors into customers.</Text>
+    <Text>What sets me apart is my comprehensive approach: I don't just build websites, I understand your business, your market and your goals. I work directly with you (no agencies or intermediaries) to ensure every line of code and every pixel aligns with your business objectives.</Text>
+    <Text>When I'm not coding, I'm probably learning about new technologies, optimizing some project's performance, or enjoying a good coffee while planning the next great digital idea.</Text>
+  </ContentSection>
+
+  <Container class="py-24">
+    <Heading level={2} class="text-center mb-12">My Journey</Heading>
+    <Timeline items={timelineItems} />
+  </Container>
+
+  <Section>
+      <Container>
+          <div class="mb-24">
+             <Heading level={2} class="text-center mb-12">How I Work</Heading>
+             <Text class="text-center mb-8 max-w-2xl mx-auto text-muted-foreground">
+                My methodology is based on transparent communication, clear deliverables and measurable results. Each project is unique, but the process follows these fundamental principles.
+             </Text>
+             <FeaturesList>
+                <FeatureItem title="Speed and Performance" description="I optimize Core Web Vitals to ensure your site loads in under 2 seconds. Implement lazy loading, code splitting and image optimization for maximum speed.">
+                    <Zap slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="Clean, Maintainable Code" description="No patches or temporary solutions. Organized structure with reusable components, clear comments and documentation so any developer can understand and maintain the project.">
+                    <Shield slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="Real Responsive Design" description="I don't just adapt, I optimize the experience for each device. Mobile-first approach with touch-friendly interactions and layouts that perfectly adapt to mobile, tablets and desktops.">
+                    <Smartphone slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="Advanced Technical SEO" description="I implement schema markup, dynamic metadata, automatic sitemaps, structured data and Core Web Vitals best practices. Plus keyword analysis and content optimization.">
+                    <Globe slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="Custom Development" description="I choose the perfect technology for your project: React/Next.js for complex applications, Astro for ultra-fast sites, or WordPress for easy content management. Technology serves the business, not the other way around.">
+                    <Code slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+                <FeatureItem title="24/7 Communication" description="I work directly with you, no intermediaries. Daily progress, weekly meetings and constant availability. You'll get my personal number and direct access for any questions or adjustments.">
+                    <Layers slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+             </FeaturesList>
+          </div>
+
+          <div>
+            <TeamSection title="What You Can Expect">
+              <TeamMember
+                name="Design & UX"
+                role="Clean, modern interfaces focused on conversion. Every element is designed to guide the user toward the desired action."
+                image="/images/sobre-mi/Diseño-UX.jpg"
+                github="https://github.com/onar1710"
+                linkedin="https://linkedin.com/in/omarfuentes052/"
+              />
+              <TeamMember
+                name="Development"
+                role="Fast implementation, clean code and scalable architecture. I use best practices and latest technologies to guarantee optimal performance."
+                image="/images/sobre-mi/Desarrollo.jpg"
+                github="https://github.com/onar1710"
+                linkedin="https://linkedin.com/in/omarfuentes052/"
+              />
+              <TeamMember
+                name="SEO & Performance"
+                role="Complete technical optimization: from Core Web Vitals to structured data. Your site will be prepared to compete and rank on Google."
+                image="/images/sobre-mi/SEO-Performance.jpg"
+                linkedin="https://linkedin.com/in/omarfuentes052/"
+              />
+              <TeamMember
+                name="Continuous Support"
+                role="Post-launch support with maintenance, updates and technical assistance. I don't leave you alone after launch."
+                image="/images/sobre-mi/Soporte.jpg"
+                github="https://github.com/onar1710"
+              />
+            </TeamSection>
+          </div>
+
+          {/* Skills Section */}
+          <div class="mb-24">
+             <Heading level={2} class="text-center mb-12">My Technical Skills</Heading>
+             <Text class="text-center mb-8 max-w-2xl mx-auto text-muted-foreground">
+                Technologies and tools I master to create complete, high-performance web solutions.
+             </Text>
+             
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Frontend Skills */}
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-4">
+                        <Code class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Frontend</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">React/Next.js</span>
+                                <span class="text-sm text-muted-foreground">Expert</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">TypeScript</span>
+                                <span class="text-sm text-muted-foreground">Advanced</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Tailwind CSS</span>
+                                <span class="text-sm text-muted-foreground">Expert</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Astro</span>
+                                <span class="text-sm text-muted-foreground">Advanced</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Backend Skills */}
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-4">
+                        <Layers class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Backend</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Node.js</span>
+                                <span class="text-sm text-muted-foreground">Advanced</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">REST APIs</span>
+                                <span class="text-sm text-muted-foreground">Expert</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">WordPress</span>
+                                <span class="text-sm text-muted-foreground">Advanced</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Databases</span>
+                                <span class="text-sm text-muted-foreground">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* SEO & Performance Skills */}
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4">
+                        <Globe class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">SEO & Performance</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Technical SEO</span>
+                                <span class="text-sm text-muted-foreground">Expert</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Core Web Vitals</span>
+                                <span class="text-sm text-muted-foreground">Expert</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Schema Markup</span>
+                                <span class="text-sm text-muted-foreground">Advanced</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Analytics</span>
+                                <span class="text-sm text-muted-foreground">Advanced</span>
+                            </div>
+                            <div class="w-full bg-foreground/10 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+          </div>
+
+          {/* Values Section */}
+          <div class="mb-24">
+             <Heading level={2} class="text-center mb-12">My Values and Philosophy</Heading>
+             <Text class="text-center mb-8 max-w-2xl mx-auto text-muted-foreground">
+                These are the principles that guide every project and every line of code I write.
+             </Text>
+             
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background text-center">
+                    <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 mx-auto mb-4">
+                        <Check class="w-8 h-8" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Transparency</h3>
+                    <p class="text-sm text-muted-foreground">Honest communication about timelines, costs and possibilities. No surprises or unrealistic promises.</p>
+                </div>
+                
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background text-center">
+                    <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 mx-auto mb-4">
+                        <Zap class="w-8 h-8" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Excellence</h3>
+                    <p class="text-sm text-muted-foreground">I commit to quality in every detail. Each project must exceed expectations.</p>
+                </div>
+                
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background text-center">
+                    <div class="w-16 h-16 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500 mx-auto mb-4">
+                        <Shield class="w-8 h-8" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Responsibility</h3>
+                    <p class="text-sm text-muted-foreground">I take full commitment with each project. Your success is my success and my reputation is on the line.</p>
+                </div>
+                
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background text-center">
+                    <div class="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 mx-auto mb-4">
+                        <Sparkles class="w-8 h-8" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Innovation</h3>
+                    <p class="text-sm text-muted-foreground">Always learning and applying latest technologies to give you a real competitive advantage.</p>
+                </div>
+             </div>
+          </div>
+
+          {/* Achievements Section */}
+          <div class="mb-24">
+             <Heading level={2} class="text-center mb-12">Achievements and Recognition</Heading>
+             <Text class="text-center mb-8 max-w-2xl mx-auto text-muted-foreground">
+                Some important milestones that mark my journey and the impact I've generated.
+             </Text>
+             
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mb-4">
+                        <Check class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">50+ Projects Completed</h3>
+                    <p class="text-sm text-muted-foreground mb-3">Websites launched and working for clients in USA and Latin America.</p>
+                    <div class="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span class="px-2 py-1 bg-green-500/10 text-green-500 rounded">2018-2024</span>
+                        <span>•</span>
+                        <span>95% satisfaction</span>
+                    </div>
+                </div>
+                
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mb-4">
+                        <Zap class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Perfect Core Web Vitals</h3>
+                    <p class="text-sm text-muted-foreground mb-3">Multiple projects with 100/100 score on Google PageSpeed Insights.</p>
+                    <div class="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span class="px-2 py-1 bg-blue-500/10 text-blue-500 rounded">2023-2024</span>
+                        <span>•</span>
+                        <span>Optimal performance</span>
+                    </div>
+                </div>
+                
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4">
+                        <Globe class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Top 3 on Google</h3>
+                    <p class="text-sm text-muted-foreground mb-3">Clients ranked in top positions for competitive keywords.</p>
+                    <div class="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span class="px-2 py-1 bg-purple-500/10 text-purple-500 rounded">SEO</span>
+                        <span>•</span>
+                        <span>Measurable results</span>
+                    </div>
+                </div>
+                
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500 mb-4">
+                        <Sparkles class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Google Certifications</h3>
+                    <p class="text-sm text-muted-foreground mb-3">Certified in Analytics, SEO and Performance Optimization by Google.</p>
+                    <div class="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span class="px-2 py-1 bg-amber-500/10 text-amber-500 rounded">2021</span>
+                        <span>•</span>
+                        <span>Continuous learning</span>
+                    </div>
+                </div>
+                
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500 mb-4">
+                        <Layers class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Design Systems</h3>
+                    <p class="text-sm text-muted-foreground mb-3">Development of complete design systems for companies and startups.</p>
+                    <div class="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span class="px-2 py-1 bg-red-500/10 text-red-500 rounded">2024</span>
+                        <span>•</span>
+                        <span>Scalability</span>
+                    </div>
+                </div>
+                
+                <div class="p-6 rounded-2xl border border-foreground/10 bg-background">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-4">
+                        <Smartphone class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Mobile-First Apps</h3>
+                    <p class="text-sm text-muted-foreground mb-3">Progressive web applications with native mobile experience.</p>
+                    <div class="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span class="px-2 py-1 bg-indigo-500/10 text-indigo-500 rounded">PWA</span>
+                        <span>•</span>
+                        <span>Advanced responsive</span>
+                    </div>
+                </div>
+             </div>
+          </div>
+      </Container>
+  </Section>
+</Layout>
