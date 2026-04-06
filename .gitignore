@@ -54,3 +54,6 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
+# AI Image Generator
+generador-imagenes-ai/
+
