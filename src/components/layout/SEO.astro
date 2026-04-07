@@ -35,6 +35,25 @@ import { siteConfig } from '~/site.config';
 const pathname = (Astro.url.pathname || '/').replace(/^\/es(?=\/|$)/, '') || '/';
 const canonicalURL = new URL(pathname, Astro.site).toString();
 
+// Detect if this is a blog article (English or Spanish)
+const isBlogArticle = (pathname.startsWith('/blog/') || pathname.startsWith('/en/blog/'))
+  && pathname !== '/blog'
+  && pathname !== '/en/blog';
+
+// Basic hreflang mapping for Spanish routes that have English equivalents
+const currentPath = pathname.replace(/\/$/, '') || '/';
+const hreflangMappings: Record<string, string> = {
+  '/herramientas/generador-estructura-articulos': '/en/tools/article-outline-generator',
+  '/herramientas': '/en/tools',
+};
+
+const englishAltPath = hreflangMappings[currentPath];
+const hreflangUrls = {
+  en: englishAltPath ? new URL(englishAltPath, Astro.site).toString() : undefined,
+  es: new URL(currentPath, Astro.site).toString(),
+  'x-default': new URL(currentPath, Astro.site).toString(),
+};
+
 const ogImageUrl = image || siteConfig.ogImage;
 
 const robots = [
@@ -57,6 +76,15 @@ const robots = [
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+
+<!-- Hreflang Tags for International SEO -->
+{!isBlogArticle && hreflangUrls.en && (
+  <>
+    <link rel="alternate" hreflang="en" href={hreflangUrls.en} />
+    <link rel="alternate" hreflang="es" href={hreflangUrls.es} />
+    <link rel="alternate" hreflang="x-default" href={hreflangUrls['x-default']} />
+  </>
+)}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

@@ -128,7 +128,6 @@ function getAdapter() {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.omarfuentes.com',
-  output: 'static',
   trailingSlash: 'never',
   markdown: {
     remarkPlugins: [remarkImageAlt],

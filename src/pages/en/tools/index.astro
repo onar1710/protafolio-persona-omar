@@ -1,0 +1,47 @@
+---
+import Layout from '~/layouts-en/Layout.astro';
+import { FileText, ArrowRight } from 'lucide-react';
+
+const availableLangs = ['en'];
+---
+
+<Layout
+  title="Tools | Omar Fuentes"
+  description="Tools and utilities for SEO, marketing, and content creation."
+  availableLangs={availableLangs}
+>
+  <div class="max-w-5xl mx-auto px-6 pt-36 md:pt-40 pb-24">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">Tools</h1>
+      <p class="text-muted-foreground text-lg">Fast utilities to help you create content and improve your SEO.</p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <a
+        href="/en/tools/article-outline-generator"
+        class="group block rounded-2xl border border-black/10 bg-[#ffffff] text-black shadow-sm p-6 hover:shadow-md transition-all"
+      >
+        <div class="rounded-xl bg-[#2f30f7] text-white px-4 py-3 mb-4">
+          <div class="text-xs font-semibold opacity-90">Tool</div>
+          <div class="text-xl font-display font-bold">AI Article Outline Generator</div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#2f30f7]/10 flex items-center justify-center shrink-0">
+            <FileText className="w-5 h-5 text-[#2f30f7]" />
+          </div>
+          <div class="text-sm text-black/70">
+            Generate a complete outline (H2/H3, FAQ, tables, and more) from a main keyword.
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <span class="inline-flex items-center justify-center gap-2 rounded-full bg-[#2f30f7] text-white px-5 py-2.5 text-sm font-semibold hover:opacity-95 transition-opacity">
+            Open tool
+            <ArrowRight className="w-4 h-4" />
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</Layout>

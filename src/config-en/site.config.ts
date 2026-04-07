@@ -78,6 +78,7 @@ export const NAV_LINKS = [
     label: 'Resources',
     children: [
         { href: '/en/blog', label: 'Blog', description: 'SEO tips & web design guides', icon: 'Newspaper' },
+        { href: '/en/tools', label: 'Tools', description: 'Content generators & utilities', icon: 'Cpu' },
         { href: '/en/support', label: 'Support', description: 'Technical help & maintenance', icon: 'FileClock' },
     ]
   },

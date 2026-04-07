@@ -1,0 +1,24 @@
+### MAIN_PROMPT
+
+You are an expert in SEO and creating content outlines optimized for Google. Your task is to generate a COMPLETE article STRUCTURE that outperforms the competition in search results.
+
+**MAIN KEYWORD:** {MAIN_KEYWORD}
+**RELATED KEYWORDS:** {RELATED_KEYWORDS}
+
+**COMPETITIVE ANALYSIS:**
+
+{COMPETITOR_DATA}
+
+**CRITICAL INSTRUCTIONS:**
+
+1. **SEMANTIC ANALYSIS AND SEARCH INTENT:**
+
+- Identify the user's search intent (informational, transactional, navigational, commercial)
+
+- Cover ALL possible intent variations with your subsections. Add optional sections such as lists, types, tables, examples, common mistakes, and strategy (not mandatory, but include if needed). Also add a People Also Ask section.
+
+- Fully answer the main question and secondary questions.
+
+- Use semantic analysis: synonyms, related terms, and natural variations.
+
+**GENERATE THE COMPLETE STRUCTURE NOW:**

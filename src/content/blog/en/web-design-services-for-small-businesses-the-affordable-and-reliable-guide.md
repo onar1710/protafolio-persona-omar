@@ -10,7 +10,7 @@ A few years back, I was sitting in a coffee shop with the owner of a local baker
 
 That conversation stuck with me because I've lived it dozens of times. Small businesses pour heart into their operations, but their websites often feel like an afterthought. They're either too flashy, too cluttered, or just plain outdated. And here's the thing: a solid site isn't a luxury; it's the front door to your business in a world where 70% of folks check online before buying.
 
-In my decade-plus tweaking sites for shops, restaurants, consultants – you name it – I've learned what works. Not the agency pitch with shiny portfolios, but the gritty realities: budgets that stretch thin, owners juggling everything, and the need for results that pay off fast. This isn't theory. It's from launching sites that doubled foot traffic or spiked online orders overnight.
+In my decade-plus tweaking sites for shops, [restaurants](/en/restaurant-web-design), consultants – you name it – I've learned what works. Not the agency pitch with shiny portfolios, but the gritty realities: budgets that stretch thin, owners juggling everything, and the need for results that pay off fast. This isn't theory. It's from launching sites that doubled foot traffic or spiked online orders overnight.
 
 We'll walk through the pitfalls I've seen, how to pick web design services for small businesses that actually deliver, and steps to make your site a growth engine. No fluff, just what I've tested in the real world. By the end, you'll know exactly what to look for – and avoid – so your investment sticks.
 

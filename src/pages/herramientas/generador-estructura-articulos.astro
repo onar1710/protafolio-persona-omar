@@ -1,0 +1,462 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import ArticleOutlineGenerator from '~/components/islands/ArticleOutlineGenerator.jsx';
+
+const availableLangs = ['es'];
+---
+
+<Layout
+  title="Generador de estructura de artículos SEO | Omar Fuentes"
+  description="Herramienta para generar la estructura completa de un artículo optimizado para SEO (H2/H3, FAQ, tablas y más)."
+  availableLangs={availableLangs}
+>
+  <ArticleOutlineGenerator client:load lang="es" />
+
+  <section class="max-w-5xl mx-auto px-6 pb-24">
+    <article class="prose max-w-none">
+      <h2>Generador gratis de esquemas de artículos con IA (crea estructuras SEO en segundos)</h2>
+
+      <p>
+        El contenido de calidad no empieza a escribirse: empieza a estructurarse.
+      </p>
+
+      <p>
+        Muchos redactores se enfrentan al mismo problema: tienen un tema, a veces hasta una lista de palabras clave, pero no saben cómo organizar el artículo. Sin una buena estructura, los contenidos se repiten, omiten subtemas clave y, con frecuencia, no logran posicionarse.
+      </p>
+
+      <p>
+        Nuestro generador gratuito de esquemas con IA resuelve ese problema al instante.
+      </p>
+
+      <p>
+        En lugar de pasar horas planificando, puedes generar un esquema completo optimizado para SEO en segundos. Solo ingresa tu tema y palabras clave, y la herramienta crea una estructura con encabezados, subtemas, preguntas frecuentes y secciones sugeridas.
+      </p>
+
+      <p>
+        Sin registro. Sin límites. Solo una forma más rápida de pasar de una idea a contenido organizado.
+      </p>
+
+      <p>
+        <strong>Prueba el generador gratis de esquemas con IA</strong>
+      </p>
+
+      <p>
+        Usa la herramienta de abajo para generar un esquema listo para escribir.
+      </p>
+
+      <h3>Tema o título</h3>
+      <h3>Palabra clave principal</h3>
+      <h3>Palabras clave secundarias (separadas por coma)</h3>
+      <h3>Tipo de contenido</h3>
+      <ul>
+        <li>Entrada de blog</li>
+        <li>Ensayo</li>
+        <li>Artículo de investigación</li>
+        <li>Otro</li>
+      </ul>
+
+      <h3>Generar esquema</h3>
+
+      <h3>Ejemplo de resultado para “Mejores recetas keto”</h3>
+
+      <p>
+        <strong>H1 Mejores recetas keto para principiantes</strong>
+      </p>
+
+      <h3>Introducción</h3>
+      <p>
+        Explica qué es la dieta keto y por qué las recetas keto son populares.
+      </p>
+
+      <h3>H2 Por qué funciona la dieta keto</h3>
+      <h4>H3 Entendiendo la cetosis</h4>
+      <h4>H3 Beneficios de las comidas bajas en carbohidratos</h4>
+
+      <h3>H2 Recetas keto fáciles para principiantes</h3>
+      <h4>H3 Ideas de desayuno keto</h4>
+      <h4>H3 Recetas sencillas de almuerzo</h4>
+      <h4>H3 Comidas rápidas de cena</h4>
+
+      <h3>H2 Errores comunes en la dieta keto</h3>
+      <h4>H3 Carbohidratos ocultos</h4>
+      <h4>H3 Tamaños de porción</h4>
+
+      <h3>H2 Plan de comidas semanal keto</h3>
+      <p>
+        Sugerencia de tabla
+      </p>
+
+      <h3>FAQ</h3>
+      <ul>
+        <li>¿Qué alimentos se pueden comer en keto?</li>
+        <li>¿Cuántos carbohidratos por día en keto?</li>
+      </ul>
+
+      <p>
+        Longitud estimada del artículo: 2500–3000 palabras
+      </p>
+
+      <h2>¿Qué es un generador de esquemas de artículos?</h2>
+
+      <p>
+        Un generador de esquemas de artículos es una herramienta que crea automáticamente la estructura de un artículo antes de empezar a escribir.
+      </p>
+
+      <p>
+        En lugar de empezar desde una página en blanco, los redactores reciben un marco claro que organiza las ideas en secciones y encabezados lógicos.
+      </p>
+
+      <p>
+        Los esquemas típicos incluyen:
+      </p>
+
+      <ul>
+        <li>un título principal (H1)</li>
+        <li>encabezados de sección (H2)</li>
+        <li>subencabezados de apoyo (H3 / H4)</li>
+        <li>puntos de discusión sugeridos</li>
+        <li>preguntas frecuentes</li>
+        <li>tablas o comparaciones opcionales</li>
+      </ul>
+
+      <p>
+        Esta estructura funciona como un plano de contenido, ayudando a organizar ideas y a crear artículos más fáciles de leer y de entender para los buscadores.
+      </p>
+
+      <p>
+        Los generadores con IA van más allá: analizan tus palabras clave y generan estructuras optimizadas para SEO e intención de búsqueda.
+      </p>
+
+      <h2>Tipos de generadores de esquemas</h2>
+
+      <p>
+        Existen distintos generadores según el objetivo de escritura.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Descripción</th>
+            <th>Ideal para</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Generador de esquemas de artículos con IA</td>
+            <td>Usa IA para crear estructuras de artículo automáticamente</td>
+            <td>Contenido de blogs</td>
+          </tr>
+          <tr>
+            <td>Generador de esquemas de blog</td>
+            <td>Diseñado específicamente para entradas de blog y contenido online</td>
+            <td>Marketing de contenidos</td>
+          </tr>
+          <tr>
+            <td>Generador de esquemas SEO</td>
+            <td>Enfocado en estructura de palabras clave y potencial de posicionamiento</td>
+            <td>Artículos SEO</td>
+          </tr>
+          <tr>
+            <td>Generador de esquemas de ensayo</td>
+            <td>Estructura académica con argumentos y conclusiones</td>
+            <td>Ensayos y trabajos de investigación</td>
+          </tr>
+          <tr>
+            <td>Generador de esquemas de contenido</td>
+            <td>Esquemas flexibles para distintos formatos</td>
+            <td>Redacción general</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        La mayoría de las herramientas modernas combinan varias de estas funciones para producir estructuras amigables para SEO.
+      </p>
+
+      <h2>¿Por qué usar un generador de esquemas con IA?</h2>
+
+      <p>
+        Usar un generador puede mejorar drásticamente el proceso de creación de contenido.
+      </p>
+
+      <h3>1. Ahorra horas de planificación</h3>
+
+      <p>
+        Crear esquemas manualmente requiere investigar competidores, identificar encabezados y organizar ideas. Un generador con IA lo hace en segundos.
+      </p>
+
+      <h3>2. Mejora la estructura SEO</h3>
+
+      <p>
+        Los buscadores dependen de los encabezados para entender la jerarquía de tu contenido. Un esquema estructurado mejora la indexación y relevancia.
+      </p>
+
+      <h3>3. Vence el bloqueo del escritor</h3>
+
+      <p>
+        Un esquema detallado elimina la parte más difícil de escribir: decidir qué escribir después.
+      </p>
+
+      <h3>4. Crea artículos más completos</h3>
+
+      <p>
+        Los esquemas generados por IA suelen incluir secciones que los redactores olvidan, como FAQs, comparaciones o errores comunes.
+      </p>
+
+      <h3>5. Escala la producción de contenido</h3>
+
+      <p>
+        Los equipos pueden generar múltiples estructuras rápidamente, facilitando la planificación de calendarios editoriales.
+      </p>
+
+      <h2>Cómo usar nuestro generador de esquemas de blog con IA</h2>
+
+      <p>
+        Usar el generador toma menos de un minuto.
+      </p>
+
+      <h3>Paso 1: Ingresa tu tema</h3>
+
+      <p>
+        Elige un tema específico.
+      </p>
+
+      <p>
+        <strong>Buen ejemplo</strong><br>
+        “cómo empezar un podcast”
+      </p>
+
+      <p>
+        <strong>Muy amplio</strong><br>
+        “podcasting”
+      </p>
+
+      <p>
+        Los temas específicos producen mejores esquemas.
+      </p>
+
+      <h3>Paso 2: Agrega tu palabra clave principal</h3>
+
+      <p>
+        Tu palabra clave principal es la consulta de búsqueda que quieres posicionar.
+      </p>
+
+      <p>
+        Ejemplo:
+      </p>
+
+      <p>
+        empezar un podcast
+      </p>
+
+      <h3>Paso 3: Agrega palabras clave relacionadas</h3>
+
+      <p>
+        Agregar palabras clave secundarias ayuda a la IA a cubrir más subtemas.
+      </p>
+
+      <p>
+        Ejemplo:
+      </p>
+
+      <ul>
+        <li>equipo de podcast</li>
+        <li>hosting de podcast</li>
+        <li>edición de podcast</li>
+        <li>marketing de podcast</li>
+      </ul>
+
+      <h3>Paso 4: Elige el tipo de contenido</h3>
+
+      <p>
+        Selecciona el formato que mejor se ajuste a tu contenido:
+      </p>
+
+      <ul>
+        <li>entrada de blog</li>
+        <li>ensayo</li>
+        <li>artículo de investigación</li>
+      </ul>
+
+      <h3>Paso 5: Genera tu esquema</h3>
+
+      <p>
+        Haz clic en Generar esquema y la IA creará una estructura completa con encabezados, secciones y flujo sugerido.
+      </p>
+
+      <h2>Ejemplos de esquemas generados por la herramienta</h2>
+
+      <p>
+        Aquí hay algunos ejemplos creados con el generador.
+      </p>
+
+      <h3>Ejemplo 1: Entrada de blog</h3>
+
+      <h4>Cómo empezar un podcast</h4>
+
+      <ul>
+        <li>H1 Cómo empezar un podcast</li>
+        <li>H2 Elegir el tema de tu podcast</li>
+        <li>H2 Equipo de podcast para principiantes</li>
+        <li>H2 Grabar y editar episodios</li>
+        <li>H2 Publicar tu podcast</li>
+        <li>H2 Crecer tu audiencia</li>
+        <li>Sección FAQ</li>
+      </ul>
+
+      <h3>Ejemplo 2: Artículo SEO</h3>
+
+      <h4>Mejores VPN</h4>
+
+      <ul>
+        <li>H1 Comparación de las mejores VPN</li>
+        <li>H2 Principales proveedores de VPN</li>
+        <li>H2 Comparación de velocidad y rendimiento</li>
+        <li>H2 Características de seguridad</li>
+        <li>H2 Precios y planes</li>
+        <li>H2 Cómo elegir la VPN adecuada</li>
+      </ul>
+
+      <h3>Ejemplo 3: Artículo de lista</h3>
+
+      <h4>10 herramientas de IA para marketing</h4>
+
+      <ul>
+        <li>H1 10 herramientas de IA para marketers</li>
+        <li>H2 Herramienta #1 Resumen</li>
+        <li>H2 Herramienta #2 Características</li>
+        <li>H2 Herramienta #3 Precios</li>
+        <li>Tabla comparativa</li>
+      </ul>
+
+      <h2>Mejores prácticas para esquemas de artículos SEO</h2>
+
+      <p>
+        Crear un esquema es el primer paso para posicionar contenido. Estas prácticas aseguran que tu esquema apoye el rendimiento SEO.
+      </p>
+
+      <h3>Adapta la intención de búsqueda</h3>
+
+      <p>
+        Distintas palabras clave requieren distintas estructuras de artículo.
+      </p>
+
+      <p>
+        Ejemplos:
+      </p>
+
+      <ul>
+        <li>palabras clave informativas → guías</li>
+        <li>palabras clave comerciales → comparaciones</li>
+        <li>palabras clave transaccionales → páginas de producto</li>
+      </ul>
+
+      <p>
+        Tu esquema debe coincidir con el objetivo de búsqueda del usuario.
+      </p>
+
+      <h3>Usa una jerarquía de encabezados clara</h3>
+
+      <p>
+        Estructura tu artículo de forma lógica:
+      </p>
+
+      <ul>
+        <li>H1 → tema principal</li>
+        <li>H2 → secciones principales</li>
+        <li>H3 → detalles de apoyo</li>
+      </ul>
+
+      <p>
+        Esto mejora la legibilidad y el SEO.
+      </p>
+
+      <h3>Incluye FAQs</h3>
+
+      <p>
+        Las secciones de FAQ apuntan a consultas de cola larga y a menudo aparecen en featured snippets.
+      </p>
+
+      <h3>Agrega tablas y comparaciones</h3>
+
+      <p>
+        Las tablas mejoran la legibilidad y ayudan a posicionarse en búsquedas de comparación.
+      </p>
+
+      <h3>Mantén las secciones enfocadas</h3>
+
+      <p>
+        Cada encabezado debe responder a una pregunta o tema específico.
+      </p>
+
+      <p>
+        Evita mezclar varias ideas en una sola sección.
+      </p>
+
+      <h2>Gente también pregunta</h2>
+
+      <h3>¿Cuál es el mejor generador de esquemas gratuito?</h3>
+
+      <p>
+        Los mejores generadores ofrecen encabezados estructurados, secciones amigables para SEO y FAQs. Las herramientas que permiten uso ilimitado sin registro son especialmente útiles para redactores y equipos de contenido.
+      </p>
+
+      <h3>¿Cómo funciona un generador de esquemas con IA?</h3>
+
+      <p>
+        Los generadores con IA analizan tu tema y palabras clave usando modelos de lenguaje. Luego crean una estructura jerárquica que refleja patrones comunes en artículos de alto rendimiento.
+      </p>
+
+      <h3>¿Puede la IA generar esquemas de blog automáticamente?</h3>
+
+      <p>
+        Sí. Las herramientas modernas de IA pueden generar esquemas completos de blog con encabezados, secciones sugeridas y FAQs en segundos.
+      </p>
+
+      <h3>¿Son buenos para SEO los esquemas generados por IA?</h3>
+
+      <p>
+        Sí, si se usan correctamente. Los esquemas con IA ayudan a organizar el contenido en torno a palabras clave e intención de búsqueda, lo que mejora la legibilidad y el rendimiento SEO.
+      </p>
+
+      <h2>FAQ</h2>
+
+      <h3>¿Es realmente gratis este generador de esquemas?</h3>
+
+      <p>
+        Sí. La herramienta es completamente gratuita y no requiere registro.
+      </p>
+
+      <h3>¿Puedo exportar el esquema?</h3>
+
+      <p>
+        Sí. Los esquemas se pueden copiar o descargar en formatos como Markdown para usarlos en editores como Notion, WordPress o Google Docs.
+      </p>
+
+      <h3>¿Soporta contenido extenso?</h3>
+
+      <p>
+        Sí. El generador puede producir esquemas adecuados para artículos SEO largos entre 2000 y 4000 palabras.
+      </p>
+
+      <h2>Conclusión</h2>
+
+      <p>
+        Todo buen artículo empieza con una estructura sólida.
+      </p>
+
+      <p>
+        Nuestro generador gratuito de esquemas con IA ayuda a los redactores a transformar ideas en marcos organizados en segundos. En lugar de luchar con la estructura, puedes empezar a escribir de inmediato con una guía clara.
+      </p>
+
+      <p>
+        Genera tu esquema, expande cada sección y publica artículos de alta calidad más rápido.
+      </p>
+
+      <p>
+        Prueba el generador ahora y crea tu próximo esquema de artículo al instante.
+      </p>
+    </article>
+  </section>
+</Layout>

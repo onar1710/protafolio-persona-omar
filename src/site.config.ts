@@ -79,6 +79,7 @@ export const NAV_LINKS = [
     label: 'Resources',
     children: [
         { href: '/blog', label: 'Blog', description: 'Latest updates & guides', icon: 'Newspaper' },
+        { href: '/herramientas', label: 'Tools', description: 'Content generators & utilities', icon: 'Cpu' },
         { href: '/soporte', label: 'Changelog', description: 'New features & fixes', icon: 'FileClock' },
     ]
   },
