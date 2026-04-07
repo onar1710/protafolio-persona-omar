@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 function normalizeRelatedKeywords(value) {
   return value
@@ -71,6 +71,58 @@ export default function ArticleOutlineGenerator({ lang = 'es', apiPath = '/api/g
   const [outline, setOutline] = useState('');
   const [copied, setCopied] = useState(false);
 
+  const turnstileSiteKey = typeof import.meta !== 'undefined' ? import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY : undefined;
+  const turnstileRef = useRef(null);
+  const turnstileWidgetIdRef = useRef(null);
+  const [turnstileToken, setTurnstileToken] = useState('');
+
+  useEffect(() => {
+    if (!turnstileSiteKey) return;
+    if (!turnstileRef.current) return;
+
+    const ensureScript = () => {
+      if (document.querySelector('script[data-turnstile-script="true"]')) return;
+      const s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      s.async = true;
+      s.defer = true;
+      s.dataset.turnstileScript = 'true';
+      document.head.appendChild(s);
+    };
+
+    ensureScript();
+
+    const tryRender = () => {
+      if (!window.turnstile) return false;
+      if (turnstileWidgetIdRef.current !== null) return true;
+
+      turnstileWidgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+        sitekey: turnstileSiteKey,
+        callback: (token) => setTurnstileToken(String(token || '')),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      });
+      return true;
+    };
+
+    const iv = window.setInterval(() => {
+      const ok = tryRender();
+      if (ok) window.clearInterval(iv);
+    }, 250);
+
+    return () => {
+      window.clearInterval(iv);
+      if (window.turnstile && turnstileWidgetIdRef.current !== null) {
+        try {
+          window.turnstile.remove(turnstileWidgetIdRef.current);
+        } catch {
+          // ignore
+        }
+        turnstileWidgetIdRef.current = null;
+      }
+    };
+  }, [turnstileSiteKey]);
+
   async function onGenerate(e) {
     e.preventDefault();
     setCopied(false);
@@ -92,6 +144,7 @@ export default function ArticleOutlineGenerator({ lang = 'es', apiPath = '/api/g
           mainKeyword: mk,
           relatedKeywords: normalizeRelatedKeywords(relatedKeywordsRaw),
           competitorData: competitorData.trim(),
+          turnstileToken,
         }),
       });
 
@@ -188,6 +241,12 @@ export default function ArticleOutlineGenerator({ lang = 'es', apiPath = '/api/g
               />
               <p className="text-xs text-muted-foreground mt-2">{labels.competitorHelp}</p>
             </div>
+
+            {turnstileSiteKey ? (
+              <div>
+                <div ref={turnstileRef} />
+              </div>
+            ) : null}
 
             {error && <p className="text-sm text-red-500">{error}</p>}
 

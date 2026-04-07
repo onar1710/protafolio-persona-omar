@@ -7,10 +7,54 @@ type Body = {
   mainKeyword?: string;
   relatedKeywords?: string[];
   competitorData?: string;
+  turnstileToken?: string;
 };
 
-const API_URL = 'https://api.x.ai/v1/chat/completions';
-const MODEL = 'grok-4-1-fast-reasoning';
+const GEMINI_MODEL = 'gemini-2.5-flash-lite';
+
+type TurnstileVerifyResponse = {
+  success: boolean;
+  challenge_ts?: string;
+  hostname?: string;
+  'error-codes'?: string[];
+};
+
+function getClientIp(request: Request) {
+  const xff = request.headers.get('x-forwarded-for');
+  if (!xff) return '';
+  return xff.split(',')[0]?.trim() ?? '';
+}
+
+async function verifyTurnstile(opts: { token: string; ip?: string }) {
+  const secret = import.meta.env.TURNSTILE_SECRET_KEY;
+  if (!secret) {
+    console.error('[generar-estructura-articulo] Missing TURNSTILE_SECRET_KEY');
+    return { ok: false as const, error: 'TURNSTILE_SECRET_KEY not configured' };
+  }
+
+  const form = new URLSearchParams();
+  form.set('secret', secret);
+  form.set('response', opts.token);
+  if (opts.ip) form.set('remoteip', opts.ip);
+
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: form.toString(),
+  });
+
+  const data = (await res.json().catch(() => null)) as TurnstileVerifyResponse | null;
+  if (!res.ok || !data) {
+    return { ok: false as const, error: 'Turnstile verification failed' };
+  }
+
+  if (!data.success) {
+    const codes = Array.isArray(data['error-codes']) ? data['error-codes'].join(', ') : '';
+    return { ok: false as const, error: codes ? `Turnstile rejected: ${codes}` : 'Turnstile rejected' };
+  }
+
+  return { ok: true as const };
+}
 
 function buildPrompt(opts: { lang: 'es' | 'en'; mainKeyword: string; relatedKeywords: string[]; competitorData: string }) {
   const { lang, mainKeyword, relatedKeywords, competitorData } = opts;
@@ -78,6 +122,7 @@ export const POST: APIRoute = async ({ request }) => {
       : [];
 
     const competitorData = typeof body?.competitorData === 'string' ? body.competitorData.trim() : '';
+    const turnstileToken = typeof body?.turnstileToken === 'string' ? body.turnstileToken.trim() : '';
 
     if (!mainKeyword) {
       return new Response(JSON.stringify({ error: 'Missing mainKeyword' }), {
@@ -86,10 +131,27 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const apiKey = import.meta.env.GROK_API_KEY;
+    if (!import.meta.env.DEV) {
+      if (!turnstileToken) {
+        return new Response(JSON.stringify({ error: 'Missing captcha token' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+
+      const verify = await verifyTurnstile({ token: turnstileToken, ip: getClientIp(request) });
+      if (!verify.ok) {
+        return new Response(JSON.stringify({ error: 'Captcha verification failed', details: verify.error }), {
+          status: 403,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+    }
+
+    const apiKey = import.meta.env.GEMINI_API_KEY;
     if (!apiKey) {
-      console.error('[generar-estructura-articulo] Missing GROK_API_KEY');
-      return new Response(JSON.stringify({ error: 'GROK_API_KEY not configured' }), {
+      console.error('[generar-estructura-articulo] Missing GEMINI_API_KEY');
+      return new Response(JSON.stringify({ error: 'GEMINI_API_KEY not configured' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -97,28 +159,35 @@ export const POST: APIRoute = async ({ request }) => {
 
     const prompt = buildPrompt({ lang, mainKeyword, relatedKeywords, competitorData });
 
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        messages: [
-          {
-            role: 'system',
-            content:
-              lang === 'es'
-                ? 'Eres un experto en SEO y creación de contenido optimizado. Generas estructuras de artículos que superan a la competencia en Google.'
-                : 'You are an SEO and content strategy expert. You generate article outlines that outperform competitors on Google.',
+    const systemInstruction =
+      lang === 'es'
+        ? 'Eres un experto en SEO y creación de contenido optimizado. Generas estructuras de artículos que superan a la competencia en Google.'
+        : 'You are an SEO and content strategy expert. You generate article outlines that outperform competitors on Google.';
+
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${encodeURIComponent(apiKey)}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          systemInstruction: {
+            parts: [{ text: systemInstruction }],
           },
-          { role: 'user', content: prompt },
-        ],
-        temperature: 0.7,
-        max_tokens: 3500,
-      }),
-    });
+          contents: [
+            {
+              role: 'user',
+              parts: [{ text: prompt }],
+            },
+          ],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 3500,
+          },
+        }),
+      }
+    );
 
     const rawText = await res.text();
     const data = (() => {
@@ -130,22 +199,25 @@ export const POST: APIRoute = async ({ request }) => {
     })();
 
     if (!res.ok) {
-      console.error('[generar-estructura-articulo] xAI API error', {
+      console.error('[generar-estructura-articulo] Gemini API error', {
         status: res.status,
         details: data || rawText,
       });
-      return new Response(JSON.stringify({
-        error: 'xAI API error',
-        details: data || rawText || `HTTP ${res.status}`,
-      }), {
-        status: 502,
-        headers: { 'Content-Type': 'application/json' },
-      });
+      return new Response(
+        JSON.stringify({
+          error: 'Gemini API error',
+          details: data || rawText || `HTTP ${res.status}`,
+        }),
+        {
+          status: 502,
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
     }
 
-    const outline = data?.choices?.[0]?.message?.content;
+    const outline = data?.candidates?.[0]?.content?.parts?.map((p: any) => p?.text).filter(Boolean).join('\n');
     if (typeof outline !== 'string' || !outline.trim()) {
-      return new Response(JSON.stringify({ error: 'Invalid response from xAI' }), {
+      return new Response(JSON.stringify({ error: 'Invalid response from Gemini' }), {
         status: 502,
         headers: { 'Content-Type': 'application/json' },
       });
