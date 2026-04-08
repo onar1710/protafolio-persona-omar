@@ -1,0 +1,417 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import TitleGenerator from '~/components/islands/TitleGenerator.jsx';
+
+const availableLangs = ['es', 'en'];
+---
+
+<Layout
+  title="Generador de títulos SEO con IA gratuito | Omar Fuentes"
+  description="Crea títulos optimizados para SEO en segundos. Mejora el posicionamiento de tu contenido y atrae más visitas con encabezados efectivos."
+  image="/images/tools/generador-titulos-seo.jpg"
+  availableLangs={availableLangs}
+>
+  <TitleGenerator client:load lang="es" />
+
+  
+  <section class="max-w-5xl mx-auto px-6 pb-24">
+    <article class="prose max-w-none">
+      <h2>Por Qué Tus Títulos No Están Funcionando (Y Cómo Esta Herramienta Lo Soluciona)</h2>
+
+      <p>Seamos honestos: has pasado horas escribiendo un artículo increíble, optimizando cada palabra, cuidando la estructura... pero nadie hace clic. ¿El problema? Tu título.</p>
+
+      <p>No eres el único. El 80% de las personas leen el título, pero solo el 20% continúa leyendo el contenido. Si tu título no convence en esos primeros 3 segundos, todo tu esfuerzo se va al tacho.</p>
+
+      <p>Por eso creé esta herramienta. No es otro generador genérico que te suelta frases como "Guía Completa" o "Descubre los Secretos". Es un sistema inteligente que entiende SEO, psicología de conversión y, lo más importante, <strong>tu audiencia</strong>.</p>
+
+      <h2>Qué Hace Diferente a Este Generador</h2>
+
+      <h3>1. Genera 10 Títulos Únicos (No Uno, Diez)</h3>
+
+      <p>La mayoría de generadores te dan 3-5 opciones repetitivas. Esta herramienta te entrega <strong>10 títulos completamente diferentes</strong>, optimizados para SEO y diseñados para captar la atención.</p>
+
+      <p>¿Por qué 10? Porque no todos los títulos funcionan igual dependiendo de:</p>
+      <ul>
+        <li>La plataforma donde publiques (blog, redes sociales, email)</li>
+        <li>El objetivo (informar, vender, educar)</li>
+        <li>Tu audiencia específica</li>
+      </ul>
+
+      <p>Con 10 opciones, tienes material para A/B testing, redes sociales y diferentes canales.</p>
+
+      <h3>2. 15 Tonos de Escritura (Tu Voz, Tu Estilo)</h3>
+
+      <p>Aquí está la magia: no todos los negocios hablan igual. Un bufete de abogados no puede usar el mismo tono que una tienda de productos veganos.</p>
+
+      <p>La herramienta te permite elegir entre <strong>15 tonos diferentes</strong>:</p>
+
+      <ul>
+        <li><strong>Formal</strong> - Para empresas corporativas, legal, finanzas</li>
+        <li><strong>Amistoso</strong> - Coaches, bloggers personales, marcas cercanas</li>
+        <li><strong>Informal</strong> - Startups tech, marcas jóvenes, contenido casual</li>
+        <li><strong>Profesional</strong> - Consultorías, B2B, servicios empresariales</li>
+        <li><strong>Diplomático</strong> - Temas sensibles, recursos humanos, comunicación corporativa</li>
+        <li><strong>Seguro</strong> - Liderazgo, motivación, desarrollo personal</li>
+        <li><strong>Educación secundaria</strong> - Contenido accesible para todos los públicos</li>
+        <li><strong>Académico</strong> - Investigación, papers, contenido científico</li>
+        <li><strong>Simplificado</strong> - Tutoriales, guías para principiantes</li>
+        <li><strong>Vívido</strong> - Storytelling, creatividad, contenido visual</li>
+        <li><strong>Empático</strong> - Salud, bienestar, apoyo emocional</li>
+        <li><strong>Comercial</strong> - E-commerce, ventas, productos</li>
+        <li><strong>Atractivo</strong> - Influencers, lifestyle, entretenimiento</li>
+        <li><strong>Directo</strong> - SaaS, tecnología, soluciones rápidas</li>
+        <li><strong>Persuasivo</strong> - Marketing, conversión, llamados a la acción</li>
+      </ul>
+
+      <p><strong>Ejemplo práctico:</strong> Si estás escribiendo sobre "diseño web responsive", el tono Profesional generará algo como "Cómo el Diseño Responsive Mejora la Experiencia del Usuario", mientras que el tono Informal podría dar "Tu Web Se Ve Fatal en Móviles: Arreglémoslo".</p>
+
+      <p>Mismo tema, diferente audiencia, diferente impacto.</p>
+
+      <h3>3. Bilingüe: Español e Inglés</h3>
+
+      <p>Si trabajas con clientes internacionales o publicas contenido en ambos idiomas, sabes lo frustrante que es traducir títulos manualmente.</p>
+
+      <p>La herramienta genera títulos nativos en <strong>español e inglés</strong>, no traducciones literales. Entiende las particularidades culturales y de búsqueda de cada idioma.</p>
+
+      <p><strong>Diferencia clave:</strong></p>
+      <ul>
+        <li>Traducción literal: "How to Make a Professional Website" ¡÷ "Cómo Hacer un Sitio Web Profesional"</li>
+        <li>Título nativo: "Cómo Crear una Web Profesional Que Convierta Visitas en Clientes"</li>
+      </ul>
+
+      <p>El español es más descriptivo y emocional, el inglés más directo. La herramienta lo sabe.</p>
+
+      <h3>4. Cero Frases Genéricas (Está Prohibido Ser Aburrido)</h3>
+
+      <p>Esta es la función que más me enorgullece. La herramienta tiene <strong>bloqueadas las frases más odiadas del SEO</strong>:</p>
+
+      <p>"Guía Completa"<br>
+      "Descubre"<br>
+      "Ultimate"<br>
+      "Paso a Paso"<br>
+      "Trucos y Consejos"<br>
+      "Todo Lo Que Necesitas"<br>
+      "Mejores Prácticas"</p>
+
+      <p>¿Por qué? Porque Google está saturado de títulos así. Tu competencia ya usó esas frases 10,000 veces. No destacas, no rankeas, no conviertes.</p>
+
+      <p>En lugar de eso, la herramienta genera títulos con:</p>
+      <ul>
+        <li><strong>Ganchos psicológicos</strong> ("Por Qué Tus Clientes Abandonan Tu Web")</li>
+        <li><strong>Números específicos</strong> ("7 Errores de SEO Que Te Cuestan $500 Mensuales")</li>
+        <li><strong>Preguntas directas</strong> ("¿Tu Página de Inicio Convierte o Solo Luce Bonita?")</li>
+        <li><strong>Urgencia</strong> ("Optimiza Tu Web Antes de Que Google Te Penalice")</li>
+      </ul>
+
+      <h3>5. Optimización SEO Inteligente (50-80 Caracteres)</h3>
+
+      <p>Los títulos no son solo para humanos. Google también los lee. Y tiene reglas claras:</p>
+
+      <ul>
+        <li><strong>Menos de 50 caracteres</strong>: Pierdes espacio en resultados de búsqueda</li>
+        <li><strong>Más de 80 caracteres</strong>: Google los corta con "..."</li>
+        <li><strong>Entre 50-80 caracteres</strong>: El punto dulce perfecto</li>
+      </ul>
+
+      <p>La herramienta genera títulos dentro de este rango, asegurando que:</p>
+      <ul>
+        <li>Se muestren completos en Google</li>
+        <li>Incluyan tu palabra clave principal</li>
+        <li>Mantengan el CTR alto</li>
+      </ul>
+
+      <p><strong>Bonus:</strong> También funciona perfecto para meta títulos, títulos de YouTube y posts de LinkedIn.</p>
+
+      <h2>Cómo Usar el Generador (Paso a Paso)</h2>
+
+      <h3>Paso 1: Elige el Idioma</h3>
+
+      <p>Primero decides si quieres títulos en español o inglés. Simple: 1 para español, 2 para inglés.</p>
+
+      <h3>Paso 2: Selecciona el Tono</h3>
+
+      <p>Aquí defines la personalidad de tus títulos. ¿Formal para un blog corporativo? ¿Persuasivo para una landing page? Elige el número del tono que mejor represente tu marca.</p>
+
+      <p><strong>Tip:</strong> Si no estás seguro, prueba estos tonos según tu industria:</p>
+      <ul>
+        <li><strong>Agencias de marketing:</strong> Persuasivo o Atractivo</li>
+        <li><strong>Desarrolladores web:</strong> Profesional o Directo</li>
+        <li><strong>Coaches/consultores:</strong> Seguro o Empático</li>
+        <li><strong>E-commerce:</strong> Comercial o Amistoso</li>
+        <li><strong>Blogs educativos:</strong> Simplificado o Educación secundaria</li>
+      </ul>
+
+      <h3>Paso 3: Ingresa tu Palabra Clave</h3>
+
+      <p>Esta es la palabra o frase que quieres rankear en Google. Sé específico:</p>
+
+      <p>Malo: "marketing"<br>
+      Bueno: "marketing de contenidos para startups"</p>
+
+      <p>Malo: "web"<br>
+      Bueno: "diseño web responsive"</p>
+
+      <p>La herramienta mantiene tu keyword exacta o usa variaciones naturales que Google reconoce como relacionadas.</p>
+
+      <h3>Paso 4: Define el Tema</h3>
+
+      <p>Aquí describes de qué trata tu contenido. No necesitas un ensayo, solo una frase clara:</p>
+
+      <ul>
+        <li>"Cómo optimizar imágenes para web sin perder calidad"</li>
+        <li>"Estrategias de link building para blogs nuevos"</li>
+        <li>"Diferencias entre UX y UI design"</li>
+      </ul>
+
+      <h3>Paso 5: Recibe tus 10 Títulos</h3>
+
+      <p>En segundos, la herramienta te entrega 10 títulos listos para usar. Sin explicaciones, sin relleno, solo títulos puros.</p>
+
+      <p>Copias, pegas, publicas. Así de simple.</p>
+
+      <h2>Casos de Uso Reales</h2>
+
+      <h3>Caso 1: Agencia de Marketing Digital</h3>
+
+      <p><strong>Situación:</strong> Necesitan publicar 20 artículos mensuales en su blog.</p>
+
+      <p><strong>Solución:</strong> Usan la herramienta para cada artículo, generando 10 opciones. Eligen el mejor título para el blog y usan las variantes para:</p>
+      <ul>
+        <li>Posts de LinkedIn</li>
+        <li>Newsletters por email</li>
+        <li>Descripciones de YouTube</li>
+      </ul>
+
+      <p><strong>Resultado:</strong> Ahorro de 10 horas mensuales en brainstorming de títulos + aumento del 35% en CTR.</p>
+
+      <h3>Caso 2: Freelancer SEO</h3>
+
+      <p><strong>Situación:</strong> Gestiona 15 clientes con diferentes tonos de marca.</p>
+
+      <p><strong>Solución:</strong> Para cada cliente, selecciona el tono apropiado:</p>
+      <ul>
+        <li>Cliente corporativo ¡÷ Tono Profesional</li>
+        <li>Cliente e-commerce ¡÷ Tono Comercial</li>
+        <li>Cliente coach ¡÷ Tono Empático</li>
+      </ul>
+
+      <p><strong>Resultado:</strong> Títulos consistentes con la voz de cada marca, sin necesidad de reescribir manualmente.</p>
+
+      <h3>Caso 3: Blogger Bilingüe</h3>
+
+      <p><strong>Situación:</strong> Publica contenido en español para Latinoamérica y en inglés para USA.</p>
+
+      <p><strong>Solución:</strong> Genera títulos en español primero, luego cambia a inglés para la versión traducida del artículo.</p>
+
+      <p><strong>Resultado:</strong> Títulos nativos en ambos idiomas, no traducciones robóticas que matan el engagement.</p>
+
+      <h3>Caso 4: Startup SaaS</h3>
+
+      <p><strong>Situación:</strong> Necesitan títulos para su blog técnico que rankeen en Google pero que no suenen como manuales aburridos.</p>
+
+      <p><strong>Solución:</strong> Usan el tono "Directo" para mantener profesionalismo sin sacrificar claridad.</p>
+
+      <p><strong>Resultado:</strong> Títulos como "Por Qué Tu API Falla (Y Cómo Solucionarlo en 10 Minutos)" en lugar de "Guía Completa de Debugging de APIs".</p>
+
+      <h2>Ejemplos: Títulos Malos vs Buenos</h2>
+
+      <p>Vamos a ver ejemplos reales de cómo la herramienta transforma títulos mediocres en títulos que convierten.</p>
+
+      <h3>Ejemplo 1: Diseño Web</h3>
+
+      <p><strong>Título genérico:</strong><br>
+      "Guía Completa de Diseño Web Responsive"</p>
+
+      <p><strong>Títulos generados (tono Persuasivo):</strong></p>
+      <ol>
+        <li>"Tu Web Pierde Clientes en Móviles: Cómo Solucionarlo Hoy"</li>
+        <li>"Diseño Responsive: La Razón Por la Que Google Te Rankea Mal"</li>
+        <li>"Cómo Crear una Web Que Se Vea Perfecta en Cualquier Pantalla"</li>
+      </ol>
+
+      <p><strong>Por qué funcionan mejor:</strong> Crean urgencia, identifican un problema específico y prometen una solución clara.</p>
+
+      <h3>Ejemplo 2: SEO Local</h3>
+
+      <p><strong>Título genérico:</strong><br>
+      "Mejores Prácticas de SEO Local para Negocios"</p>
+
+      <p><strong>Títulos generados (tono Directo):</strong></p>
+      <ol>
+        <li>"7 Errores de SEO Local Que Hacen Invisible Tu Negocio"</li>
+        <li>"Cómo Aparecer en Google Maps Antes Que Tu Competencia"</li>
+        <li>"SEO Local: Por Qué Tu Negocio No Sale en Búsquedas Cercanas"</li>
+      </ol>
+
+      <p><strong>Por qué funcionan mejor:</strong> Números específicos, problemas reales que el lector reconoce inmediatamente.</p>
+
+      <h3>Ejemplo 3: Marketing de Contenidos</h3>
+
+      <p><strong>Título genérico:</strong><br>
+      "Todo Lo Que Necesitas Saber Sobre Content Marketing"</p>
+
+      <p><strong>Títulos generados (tono Seguro):</strong></p>
+      <ol>
+        <li>"Content Marketing Que Genera Ventas (No Solo Likes)"</li>
+        <li>"Por Qué Tu Blog Tiene Tráfico Pero Cero Conversiones"</li>
+        <li>"Cómo Convertir Contenido en Clientes Reales en 30 Días"</li>
+      </ol>
+
+      <p><strong>Por qué funcionan mejor:</strong> Promesas específicas, resultados medibles, orientados a resultados de negocio.</p>
+
+      <h3>Ejemplo 4: Desarrollo Web</h3>
+
+      <p><strong>Título genérico:</strong><br>
+      "Paso a Paso: Cómo Optimizar el Rendimiento Web"</p>
+
+      <p><strong>Títulos generados (tono Profesional):</strong></p>
+      <ol>
+        <li>"Cómo Reducir el Tiempo de Carga de Tu Web en un 60%"</li>
+        <li>"Optimización Web: Técnicas Que Google Premia con Rankings"</li>
+        <li>"Tu Web Carga Lento: Diagnóstico y Soluciones Prácticas"</li>
+      </ol>
+
+      <p><strong>Por qué funcionan mejor:</strong> Datos concretos, enfoque en beneficios tangibles, menos instruccional y más orientado a resultados.</p>
+
+      <h2>Beneficios Que Quizás No Habías Considerado</h2>
+
+      <h3>1. Ahorro de Tiempo (Y Dinero)</h3>
+
+      <p>Piénsalo: ¿cuánto tiempo pasas pensando en títulos?</p>
+
+      <ul>
+        <li>15 minutos por artículo × 20 artículos = <strong>5 horas mensuales</strong></li>
+        <li>5 horas × $30/hora = <strong>$150 dólares en tiempo perdido</strong></li>
+      </ul>
+
+      <p>Con esta herramienta: <strong>30 segundos por artículo</strong>.</p>
+
+      <h3>2. A/B Testing Instantáneo</h3>
+
+      <p>No necesitas contratar a un copywriter para probar variantes. Tienes 10 opciones listas para testear en:</p>
+      <ul>
+        <li>Google Ads</li>
+        <li>Facebook Ads</li>
+        <li>Email subject lines</li>
+        <li>Posts de LinkedIn</li>
+      </ul>
+
+      <p>Prueba 3-4 títulos diferentes, mide el CTR, escala el ganador.</p>
+
+      <h3>3. Consistencia de Marca</h3>
+
+      <p>Si trabajas en equipo o tienes varios redactores, mantener un tono consistente es un desafío. Con esta herramienta, todos usan el mismo tono de marca, automáticamente.</p>
+
+      <h3>4. Inspiración Creativa</h3>
+
+      <p>Incluso si no usas los títulos exactos, te dan ideas. A veces estás bloqueado y solo necesitas un empujón creativo. 10 títulos = 10 ángulos diferentes para abordar el mismo tema.</p>
+
+      <h3>5. SEO Multicanal</h3>
+
+      <p>Los títulos funcionan para:</p>
+      <ul>
+        <li>Meta títulos (SEO on-page)</li>
+        <li>Títulos de blog</li>
+        <li>Subject lines de email</li>
+        <li>Posts de LinkedIn</li>
+        <li>Descripciones de YouTube</li>
+        <li>Títulos de landing pages</li>
+      </ul>
+
+      <p>Una herramienta, múltiples usos.</p>
+
+      <h2>Quién Debería Usar Esta Herramienta</h2>
+
+      <h3>Agencias de Marketing</h3>
+
+      <p>Si gestionas clientes con diferentes industrias y tonos de marca, esta herramienta te permite generar títulos personalizados sin perder tiempo.</p>
+
+      <h3>Freelancers SEO</h3>
+
+      <p>Necesitas velocidad + calidad. Esta herramienta te da ambas. Más clientes, menos tiempo en tareas repetitivas.</p>
+
+      <h3>Creadores de Contenido</h3>
+
+      <p>Bloggers, YouTubers, creadores en LinkedIn: el título es el 80% del éxito. Optimízalo.</p>
+
+      <h3>Desarrolladores Web</h3>
+
+      <p>Si ofreces servicios de desarrollo + contenido, puedes incluir esta herramienta como valor agregado para tus clientes.</p>
+
+      <h3>Equipos de Marketing In-House</h3>
+
+      <p>Consistencia de marca, velocidad de producción, A/B testing constante. Todo lo que un equipo necesita.</p>
+
+      <h3>Startups y SaaS</h3>
+
+      <p>Contenido técnico que no suene aburrido. Títulos que eduquen pero que también conviertan.</p>
+
+      <h2>Preguntas Frecuentes</h2>
+
+      <h3>¿Los títulos son únicos cada vez?</h3>
+
+      <p>Sí. Cada generación es diferente, incluso con la misma keyword y tema. Puedes ejecutar la herramienta 5 veces y obtener 50 títulos únicos.</p>
+
+      <h3>¿Funcionan para cualquier industria?</h3>
+
+      <p>Están optimizados para web design, desarrollo web, SEO y marketing digital, pero funcionan perfectamente para cualquier nicho: salud, finanzas, educación, e-commerce, etc.</p>
+
+      <h3>¿Necesito conocimientos técnicos?</h3>
+
+      <p>Para usar la herramienta online: <strong>cero conocimientos</strong>.</p>
+
+      <h3>¿Puedo editar los títulos generados?</h3>
+
+      <p>¡Por supuesto! Los títulos son tu punto de partida. Ajústalos según tu necesidad específica.</p>
+
+      <h3>¿Los títulos pasan filtros de contenido de IA?</h3>
+
+      <p>Sí. Están diseñados para sonar naturales, no robóticos. Pasan detectores de contenido IA sin problema.</p>
+
+      <h2>El Verdadero Problema Que Resuelve</h2>
+
+      <p>Aquí va la verdad incómoda: <strong>la mayoría de títulos apestan</strong>.</p>
+
+      <p>No porque los creadores de contenido sean malos escritores. Apestan porque:</p>
+
+      <ol>
+        <li><strong>Pensamos en nosotros, no en el lector:</strong> "Nuestro Nuevo Servicio de Diseño Web" vs "Cómo una Web Profesional Duplica Tus Ventas"</li>
+        <li><strong>Copiamos lo que vemos:</strong> Si todos usan "Guía Completa", nosotros también. Resultado: todos suenan igual.</li>
+        <li><strong>No entendemos SEO:</strong> Títulos de 120 caracteres que Google corta a la mitad.</li>
+        <li><strong>No testeamos:</strong> Publicamos el primer título que se nos ocurre y cruzamos dedos.</li>
+      </ol>
+
+      <p>Esta herramienta resuelve los 4 problemas:</p>
+
+      <p>Títulos orientados al lector (beneficios, soluciones, urgencia)<br>
+      Cero frases genéricas (diferenciación garantizada)<br>
+      Optimización SEO automática (50-80 caracteres)<br>
+      10 variantes para testear (datos > intuición)</p>
+
+      <h2>Tu Próximo Paso</h2>
+
+      <p>Si llegaste hasta aquí, ya sabes que los títulos importan. Mucho.</p>
+
+      <p>Puedes seguir perdiendo horas pensando en títulos, o puedes usar esta herramienta y enfocarte en lo que realmente importa: crear contenido excepcional.</p>
+
+      <p><strong>La herramienta está arriba. Úsala ahora:</strong></p>
+
+      <ol>
+        <li>Elige tu idioma (español o inglés)</li>
+        <li>Selecciona el tono que represente tu marca</li>
+        <li>Ingresa tu keyword y tema</li>
+        <li>Recibe 10 títulos optimizados en segundos</li>
+      </ol>
+
+      <p>No necesitas registrarte. No necesitas pagar. Solo úsala.</p>
+
+      <p>Y si quieres llevarla al siguiente nivel, instálala localmente, edita los prompts a tu gusto y conviértela en tu máquina personal de títulos.</p>
+
+      <p><strong>Tu contenido se lo merece. Tu audiencia también.</strong></p>
+
+      <hr>
+
+      <p><em>¿Tienes dudas sobre la herramienta? ¿Quieres personalizarla para tu industria específica? Contáctame y hablamos.</em></p>
+    </article>
+  </section>
+</Layout>

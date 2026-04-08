@@ -44,6 +44,7 @@ const isBlogArticle = (pathname.startsWith('/blog/') || pathname.startsWith('/en
 const currentPath = pathname.replace(/\/$/, '') || '/';
 const hreflangMappings: Record<string, string> = {
   '/herramientas/generador-estructura-articulos': '/en/tools/article-outline-generator',
+  '/herramientas/generador-titulos-seo': '/en/tools/seo-title-generator',
   '/herramientas': '/en/tools',
 };
 
@@ -55,6 +56,16 @@ const hreflangUrls = {
 };
 
 const ogImageUrl = image || siteConfig.ogImage;
+function getOgImageType(url: string) {
+  const lower = url.toLowerCase();
+  if (lower.endsWith('.png')) return 'image/png';
+  if (lower.endsWith('.webp')) return 'image/webp';
+  if (lower.endsWith('.gif')) return 'image/gif';
+  if (lower.endsWith('.jpeg') || lower.endsWith('.jpg')) return 'image/jpeg';
+  return 'image/png';
+}
+
+const ogImageType = getOgImageType(ogImageUrl);
 
 const robots = [
   noindex ? 'noindex' : 'index',
@@ -100,7 +111,7 @@ const robots = [
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(ogImageUrl, Astro.site).toString()} />
 <meta property="og:image:secure_url" content={new URL(ogImageUrl, Astro.site).toString()} />
-<meta property="og:image:type" content="image/png" />
+<meta property="og:image:type" content={ogImageType} />
 <meta property="og:image:width" content="1280" />
 <meta property="og:image:height" content="720" />
 <meta property="og:image:alt" content={title} />

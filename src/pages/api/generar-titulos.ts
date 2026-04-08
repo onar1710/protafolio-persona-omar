@@ -8,9 +8,9 @@ export const prerender = false;
 
 type Body = {
   lang?: 'es' | 'en';
-  mainKeyword?: string;
-  relatedKeywords?: string[];
-  competitorData?: string;
+  keyword?: string;
+  topic?: string;
+  tone?: string;
   turnstileToken?: string;
 };
 
@@ -22,6 +22,43 @@ type TurnstileVerifyResponse = {
   hostname?: string;
   'error-codes'?: string[];
 };
+
+function getClientIp(request: Request) {
+  const xff = request.headers.get('x-forwarded-for');
+  if (!xff) return '';
+  return xff.split(',')[0]?.trim() ?? '';
+}
+
+async function verifyTurnstile(opts: { token: string; ip?: string }) {
+  const secret = getServerEnv('TURNSTILE_SECRET_KEY');
+  if (!secret) {
+    console.error('[generar-titulos] Missing TURNSTILE_SECRET_KEY');
+    return { ok: false as const, error: 'TURNSTILE_SECRET_KEY not configured' };
+  }
+
+  const form = new URLSearchParams();
+  form.set('secret', secret);
+  form.set('response', opts.token);
+  if (opts.ip) form.set('remoteip', opts.ip);
+
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: form.toString(),
+  });
+
+  const data = (await res.json().catch(() => null)) as TurnstileVerifyResponse | null;
+  if (!res.ok || !data) {
+    return { ok: false as const, error: 'Turnstile verification failed' };
+  }
+
+  if (!data.success) {
+    const codes = Array.isArray(data['error-codes']) ? data['error-codes'].join(', ') : '';
+    return { ok: false as const, error: codes ? `Turnstile rejected: ${codes}` : 'Turnstile rejected' };
+  }
+
+  return { ok: true as const };
+}
 
 function loadLocalFallbackEnv() {
   try {
@@ -141,96 +178,14 @@ async function fetchGeminiWithRotation(opts: { payload: unknown; keys: string[] 
   return { ok: false as const, res: lastRes, keyIndex: -1, attempts, body };
 }
 
-function getClientIp(request: Request) {
-  const xff = request.headers.get('x-forwarded-for');
-  if (!xff) return '';
-  return xff.split(',')[0]?.trim() ?? '';
-}
+function buildPrompt(opts: { lang: 'es' | 'en'; keyword: string; topic: string; tone: string }) {
+  const { lang, keyword, topic, tone } = opts;
 
-async function verifyTurnstile(opts: { token: string; ip?: string }) {
-  const secret = getServerEnv('TURNSTILE_SECRET_KEY');
-  if (!secret) {
-    console.error('[generar-estructura-articulo] Missing TURNSTILE_SECRET_KEY');
-    return { ok: false as const, error: 'TURNSTILE_SECRET_KEY not configured' };
+  if (lang === 'es') {
+    return `Actúa como un experto en SEO y marketing de contenidos.\n\nGenera 10 títulos atractivos y optimizados para SEO, manteniendo la palabra clave exacta o una variación natural.\n\nKeyword: ${keyword}\nTema: ${topic}\nTono: ${tone}\n\nReglas:\n- Devuelve solo una lista numerada (10 líneas).\n- No vendas servicios; es para un artículo que enseña.\n- Evita frases tipo \"Guía completa\", \"Definitiva\", \"Paso a paso\".\n`;
   }
 
-  const form = new URLSearchParams();
-  form.set('secret', secret);
-  form.set('response', opts.token);
-  if (opts.ip) form.set('remoteip', opts.ip);
-
-  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: form.toString(),
-  });
-
-  const data = (await res.json().catch(() => null)) as TurnstileVerifyResponse | null;
-  if (!res.ok || !data) {
-    return { ok: false as const, error: 'Turnstile verification failed' };
-  }
-
-  if (!data.success) {
-    const codes = Array.isArray(data['error-codes']) ? data['error-codes'].join(', ') : '';
-    return { ok: false as const, error: codes ? `Turnstile rejected: ${codes}` : 'Turnstile rejected' };
-  }
-
-  return { ok: true as const };
-}
-
-function buildPrompt(opts: { lang: 'es' | 'en'; mainKeyword: string; relatedKeywords: string[]; competitorData: string }) {
-  const { lang, mainKeyword, relatedKeywords, competitorData } = opts;
-
-  const template = lang === 'es'
-    ? `Eres un experto en SEO y en la creación de esquemas de contenido optimizados para Google. Tu tarea es generar una ESTRUCTURA DE ARTÍCULO COMPLETA que supere a la competencia en los resultados de búsqueda.
-
-**PALABRA CLAVE PRINCIPAL:** {MAIN_KEYWORD}
-**PALABRAS CLAVE RELACIONADAS:** {RELATED_KEYWORDS}
-
-**ANÁLISIS DE LA COMPETENCIA:**
-
-{COMPETITOR_DATA}
-
-**INSTRUCCIONES IMPORTANTES:**
-
-1. **ANÁLISIS SEMÁNTICO Y BÚSQUEDA DE INTENCIÓN:**
-
-- Identifica la intención de búsqueda del usuario (informativa, transaccional, de navegación, comercial).
-
-- Cubre TODAS las posibles variaciones de intención con tus subsecciones. Añade secciones opcionales como listas, tipos, tablas, ejemplos, errores comunes y estrategia (no es obligatorio, pero inclúyelas si es necesario). Añade también una sección de "Otras preguntas de los usuarios".
-
-- Responde completamente a la pregunta principal y a las preguntas secundarias.
-
-- Utiliza el análisis semántico: sinónimos, términos relacionados y variaciones naturales.
-
-**GENERA LA ESTRUCTURA COMPLETA AHORA:**`
-    : `You are an expert in SEO and creating content outlines optimized for Google. Your task is to generate a COMPLETE article STRUCTURE that outperforms the competition in search results.
-
-**MAIN KEYWORD:** {MAIN_KEYWORD}
-**RELATED KEYWORDS:** {RELATED_KEYWORDS}
-
-**COMPETITIVE ANALYSIS:**
-
-{COMPETITOR_DATA}
-
-**CRITICAL INSTRUCTIONS:**
-
-1. **SEMANTIC ANALYSIS AND SEARCH INTENT:**
-
-- Identify the user's search intent (informational, transactional, navigational, commercial)
-
-- Cover ALL possible intent variations with your subsections. Add optional sections such as lists, types, tables, examples, common mistakes, and strategy (not mandatory, but include if needed). Also add a People Also Ask section.
-
-- Fully answer the main question and secondary questions.
-
-- Use semantic analysis: synonyms, related terms, and natural variations.
-
-**GENERATE THE COMPLETE STRUCTURE NOW:**`;
-
-  return template
-    .replaceAll('{MAIN_KEYWORD}', mainKeyword)
-    .replaceAll('{RELATED_KEYWORDS}', relatedKeywords.join(', '))
-    .replaceAll('{COMPETITOR_DATA}', competitorData || (lang === 'es' ? 'N/A' : 'N/A'));
+  return `Act like an SEO and content marketing expert.\n\nGenerate 10 engaging SEO-optimized blog post titles. Keep the exact keyword or a natural variation.\n\nKeyword: ${keyword}\nTopic: ${topic}\nTone: ${tone}\n\nRules:\n- Return only a numbered list (10 lines).\n- Do not sell services; write for an educational blog post.\n- Avoid phrases like \"Complete Guide\", \"Ultimate\", \"Step by Step\".\n`;
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -238,16 +193,27 @@ export const POST: APIRoute = async ({ request }) => {
     const body = (await request.json().catch(() => ({}))) as Body;
 
     const lang: 'es' | 'en' = body?.lang === 'en' ? 'en' : 'es';
-    const mainKeyword = typeof body?.mainKeyword === 'string' ? body.mainKeyword.trim() : '';
-    const relatedKeywords = Array.isArray(body?.relatedKeywords)
-      ? body.relatedKeywords.filter((k): k is string => typeof k === 'string').map((k) => k.trim()).filter(Boolean)
-      : [];
-
-    const competitorData = typeof body?.competitorData === 'string' ? body.competitorData.trim() : '';
+    const keyword = typeof body?.keyword === 'string' ? body.keyword.trim() : '';
+    const topic = typeof body?.topic === 'string' ? body.topic.trim() : '';
+    const tone = typeof body?.tone === 'string' ? body.tone.trim() : '';
     const turnstileToken = typeof body?.turnstileToken === 'string' ? body.turnstileToken.trim() : '';
 
-    if (!mainKeyword) {
-      return new Response(JSON.stringify({ error: 'Missing mainKeyword' }), {
+    if (!keyword) {
+      return new Response(JSON.stringify({ error: 'Missing keyword' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (!topic) {
+      return new Response(JSON.stringify({ error: 'Missing topic' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (!tone) {
+      return new Response(JSON.stringify({ error: 'Missing tone' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -272,19 +238,19 @@ export const POST: APIRoute = async ({ request }) => {
 
     const apiKeys = getGeminiApiKeys();
     if (!apiKeys.length) {
-      console.error('[generar-estructura-articulo] Missing GEMINI_API_KEY');
+      console.error('[generar-titulos] Missing GEMINI_API_KEY');
       return new Response(JSON.stringify({ error: 'GEMINI_API_KEY not configured' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    const prompt = buildPrompt({ lang, mainKeyword, relatedKeywords, competitorData });
-
     const systemInstruction =
       lang === 'es'
-        ? 'Eres un experto en SEO y creación de contenido optimizado. Generas estructuras de artículos que superan a la competencia en Google.'
-        : 'You are an SEO and content strategy expert. You generate article outlines that outperform competitors on Google.';
+        ? 'Eres un experto en SEO y redacción. Generas títulos claros y persuasivos para artículos educativos.'
+        : 'You are an SEO copywriting expert. You generate clear, persuasive titles for educational blog posts.';
+
+    const prompt = buildPrompt({ lang, keyword, topic, tone });
 
     const payload = {
       systemInstruction: {
@@ -297,8 +263,8 @@ export const POST: APIRoute = async ({ request }) => {
         },
       ],
       generationConfig: {
-        temperature: 0.7,
-        maxOutputTokens: 3500,
+        temperature: 0.75,
+        maxOutputTokens: 1200,
       },
     };
 
@@ -314,7 +280,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (!rotated.ok) {
       const status = rotated.res?.status || 502;
-      console.error('[generar-estructura-articulo] Gemini API error', {
+      console.error('[generar-titulos] Gemini API error', {
         status,
         attempts: rotated.attempts,
         details: data || rawText,
@@ -331,21 +297,21 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const outline = data?.candidates?.[0]?.content?.parts?.map((p: any) => p?.text).filter(Boolean).join('\n');
-    if (typeof outline !== 'string' || !outline.trim()) {
+    const titles = data?.candidates?.[0]?.content?.parts?.map((p: any) => p?.text).filter(Boolean).join('\n');
+    if (typeof titles !== 'string' || !titles.trim()) {
       return new Response(JSON.stringify({ error: 'Invalid response from Gemini' }), {
         status: 502,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    return new Response(JSON.stringify({ outline }), {
+    return new Response(JSON.stringify({ titles: titles.trim() }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Internal error';
-    console.error('[generar-estructura-articulo] Internal error', err);
+    console.error('[generar-titulos] Internal error', err);
     return new Response(JSON.stringify({ error: message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
