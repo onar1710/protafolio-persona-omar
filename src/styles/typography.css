@@ -115,7 +115,11 @@
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 0.75rem;
-    overflow: hidden;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 90%);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   }
@@ -172,6 +176,28 @@
     margin-top: 1.5rem !important;
     margin-bottom: 1.5rem !important;
     padding-left: 1.5rem !important;
+  }
+
+  .prose ul {
+    list-style: none;
+    padding-left: 0 !important;
+  }
+
+  .prose ul > li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .prose ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--color-primary);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20fill%3D'%23000'%20d%3D'M9%2016.17L4.83%2012l-1.42%201.41L9%2019%2021%207l-1.41-1.41z'%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20fill%3D'%23000'%20d%3D'M9%2016.17L4.83%2012l-1.42%201.41L9%2019%2021%207l-1.41-1.41z'%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
   }
 
   .prose li {

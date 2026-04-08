@@ -72,12 +72,13 @@ export default function ArticleOutlineGenerator({ lang = 'es', apiPath = '/api/g
   const [copied, setCopied] = useState(false);
 
   const turnstileSiteKey = typeof import.meta !== 'undefined' ? import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY : undefined;
+  const shouldUseTurnstile = Boolean(turnstileSiteKey) && typeof import.meta !== 'undefined' && !import.meta.env?.DEV;
   const turnstileRef = useRef(null);
   const turnstileWidgetIdRef = useRef(null);
   const [turnstileToken, setTurnstileToken] = useState('');
 
   useEffect(() => {
-    if (!turnstileSiteKey) return;
+    if (!shouldUseTurnstile) return;
     if (!turnstileRef.current) return;
 
     const ensureScript = () => {
@@ -121,7 +122,7 @@ export default function ArticleOutlineGenerator({ lang = 'es', apiPath = '/api/g
         turnstileWidgetIdRef.current = null;
       }
     };
-  }, [turnstileSiteKey]);
+  }, [shouldUseTurnstile]);
 
   async function onGenerate(e) {
     e.preventDefault();
@@ -242,7 +243,7 @@ export default function ArticleOutlineGenerator({ lang = 'es', apiPath = '/api/g
               <p className="text-xs text-muted-foreground mt-2">{labels.competitorHelp}</p>
             </div>
 
-            {turnstileSiteKey ? (
+            {shouldUseTurnstile ? (
               <div>
                 <div ref={turnstileRef} />
               </div>

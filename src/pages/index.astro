@@ -4,16 +4,14 @@ import { languages, defaultLang } from '~/i18n/ui';
 import { isRtl, useTranslations } from '~/i18n/utils';
 import { Image } from 'astro:assets';
 import bentoCode from '~/assets/bento-code.jpg';
-import artImage from '~/assets/blog/art.jpg';
-import blocksImage from '~/assets/blog/blocks.jpg';
 import searchImage from '~/assets/blog/search.jpg';
-import posicionamientoImage from '~/assets/blog/posicionar-mi-web-primeros-lugares-google.jpg';
 import resultadosMediblesImage from '~/assets/images/resultados/resultados-medibles.jpg';
 import sitiosRapidosImage from '~/assets/images/resultados/sitios-rapidos-listos-seo.jpg';
 import traficoOrganicoImage from '~/assets/images/resultados/120-trafico-organico.jpg';
 import menosTiempoCargaImage from '~/assets/images/resultados/menos-tiempo-carga-web.jpg';
 import primeraPaginaGoogleImage from '~/assets/images/resultados/primera-pagina-google.jpg';
 import googleLogoImage from '~/assets/images/logo-google.png';
+import BlogCard from '~/components/blog/BlogCard.astro';
 import Layout from '~/layouts/Layout.astro';
 import Schema from '~/components/layout/Schema.astro';
 import Hero from '~/components/sections/Hero.astro';
@@ -36,6 +34,8 @@ import FAQ from '~/components/sections/FAQ.astro';
 import LogoCloud from '~/components/sections/LogoCloud.astro';
 import TechStack from '~/components/sections/TechStack.astro';
 import OpenSourceNotification from '~/components/common/OpenSourceNotification.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -43,6 +43,11 @@ export async function getStaticPaths() {
 
 const { lang = defaultLang } = Astro.params;
 const t = useTranslations(lang);
+
+const latestBlogPosts = (await getCollection('blog'))
+  .filter((post) => !post.id.includes('/'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 
 const logos = [
   { name: 'Vite', src: 'https://vitejs.dev/logo.svg', description: t['logo.vite.desc'] },
@@ -676,101 +681,16 @@ const googleReviews = [
         </div>
         
         <div class="grid md:grid-cols-3 gap-8">
-          <!-- Artículo 1 -->
-          <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
-            <div class="aspect-video overflow-hidden">
-              <Image 
-                src={artImage} 
-                alt="Diseño Web Freelance: Guía Completa"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                <span>29 ene 2026</span>
-                <span>•</span>
-                <span>Diseño Web</span>
-              </div>
-              <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                Diseño Web Freelance: Guía Completa
-              </h3>
-              <p class="text-muted-foreground mb-4 line-clamp-3">
-                Aprende qué evaluar antes de contratar, señales de profesionalismo, proceso de trabajo y precios.
-              </p>
-              <a 
-                href="/blog/diseno-web-freelance-guia-completa" 
-                class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
-              >
-                Leer artículo
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </article>
-
-          <!-- Artículo 2 -->
-          <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
-            <div class="aspect-video overflow-hidden">
-              <Image 
-                src={blocksImage} 
-                alt="7 Errores de Diseño Web que Cuestan Clientes"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                <span>1 feb 2026</span>
-                <span>•</span>
-                <span>Errores</span>
-              </div>
-              <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                7 Errores de Diseño Web que Cuestan Clientes
-              </h3>
-              <p class="text-muted-foreground mb-4 line-clamp-3">
-                Descubre los errores más comunes que afectan conversión, velocidad y experiencia de usuario.
-              </p>
-              <a 
-                href="/blog/errores-diseno-web" 
-                class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
-              >
-                Leer artículo
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </article>
-
-          <!-- Artículo 3 -->
-          <article class="bg-background rounded-xl border overflow-hidden hover:shadow-lg transition-shadow group">
-            <div class="aspect-video overflow-hidden">
-              <Image 
-                src={posicionamientoImage} 
-                alt="Cómo posicionar mi web en los primeros lugares de Google"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                <span>24 feb 2026</span>
-                <span>•</span>
-                <span>SEO</span>
-              </div>
-              <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                Cómo posicionar mi web en los primeros lugares de Google
-              </h3>
-              <p class="text-muted-foreground mb-4 line-clamp-3">
-                Estrategias efectivas de SEO, optimización técnica, contenido de calidad y generación de autoridad online para dominar Google.
-              </p>
-              <a 
-                href="/blog/como-posicionar-mi-web-en-los-primeros-lugares-de-google" 
-                class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
-              >
-                Leer artículo
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </article>
+          {latestBlogPosts.map((post: CollectionEntry<'blog'>) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              heroImage={post.data.heroImageUrl || post.data.heroImage}
+              slug={`/blog/${post.id.replace(/\.[^/.]+$/, "")}`}
+              isVideo={post.data.isVideo}
+            />
+          ))}
         </div>
         
         <div class="text-center mt-12">
