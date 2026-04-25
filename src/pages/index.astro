@@ -1,0 +1,493 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Datos de proyectos del portafolio
+const featuredProjects = [
+  {
+    title: "LEEXMS SRL",
+    description: "Transformación digital contable con Next.js 14 y SEO avanzado",
+    image: "/images-portfolio/caso-estudio-web-leexms.png",
+    tags: ["Next.js", "SEO", "Servicios Profesionales"],
+    url: "/portfolio/leexms",
+    stats: ["15+ páginas", "95+ PageSpeed", "1 semana"]
+  },
+  {
+    title: "Ferrarycucina",
+    description: "Portafolio visual de remodelaciones que genera 4-5 cotizaciones semanales",
+    image: "/images-portfolio/proyecto-imagen-ferrarycucina.png",
+    tags: ["Diseño Web", "Next.js", "Local SEO"],
+    url: "/portfolio/ferrarycucina",
+    stats: ["4-5 cotizaciones/semana", "Primer página Google"]
+  },
+  {
+    title: "Productos Perros",
+    description: "Tienda eCommerce de mascotas con experiencia de compra optimizada",
+    image: "/images-portfolio/proyecto-imagen-productosperros.png",
+    tags: ["eCommerce", "Logística", "Marketing"],
+    url: "/portfolio/productos-para-perros",
+    stats: ["Envíos rápidos", "Clientes satisfechos"]
+  },
+  {
+    title: "Mundo Gaming",
+    description: "Tienda gaming con 100+ productos, blog de reseñas y Amazon Associates",
+    image: "/images-portfolio/proyecto-imagen-omarytplay.png",
+    tags: ["eCommerce", "Next.js", "Amazon Associates"],
+    url: "/portfolio/mundo-gaming",
+    stats: ["100+ productos", "15 categorías", "95/100 Lighthouse"]
+  },
+  {
+    title: "Plomería Aqua Imperio",
+    description: "Servicios de plomería en Bogotá con SEO local y tecnología Ridgid",
+    image: "/images-portfolio/proyecto-imagen-plemria.png",
+    tags: ["Servicios Locales", "SEO Local", "HTML5"],
+    url: "/portfolio/plomeria",
+    stats: ["15+ páginas", "SEO local completo", "1 semana desarrollo"]
+  },
+  ];
+
+// Servicios principales basados en la experiencia real
+const services = [
+  {
+    title: "Diseño y Desarrollo Web con SEO",
+    description: "Sitios web profesionales optimizados para Google desde el día 1",
+    features: ["Diseño responsive (móvil, tablet, desktop)", "SEO técnico completo", "Velocidad optimizada (Core Web Vitals)", "Arquitectura de contenido para ranking", "Schema markup y metadatos", "Google Analytics configurado"],
+    color: "blue",
+    ideal: "Negocios locales en Cali, Medellín y Bogotá que necesitan visibilidad online"
+  },
+  {
+    title: "Tiendas eCommerce optimizadas",
+    description: "Tiendas online diseñadas para vender con experiencia de compra que convierte",
+    features: ["Catálogo de productos optimizado", "Carrito y checkout fluido", "Pasarelas de pago integradas", "Diseño que genera confianza", "Velocidad extrema de carga", "SEO para productos"],
+    color: "yellow",
+    ideal: "Emprendedores y empresas que venden productos online"
+  },
+  {
+    title: "Rediseño Web + Optimización SEO",
+    description: "¿Tu sitio actual es lento, anticuado o no aparece en Google? Lo transformo completamente",
+    features: ["Auditoría completa del sitio actual", "Rediseño moderno y profesional", "Mejora de velocidad (60-80% más rápido)", "Optimización SEO técnico", "Migración sin perder posiciones", "Mantenimiento y soporte incluido"],
+    color: "green",
+    ideal: "Empresas con sitio actual que no genera resultados"
+  }
+];
+
+// Estadísticas basadas en resultados reales
+const stats = [
+  { value: "20+", label: "Negocios en Colombia" },
+  { value: "120%", label: "Tráfico Orgánico Promedio" },
+  { value: "0.8s", label: "Tiempo de Carga" },
+  { value: "<1h", label: "Respuesta Garantizada" }
+];
+
+// Tecnologías
+const technologies = [
+  { name: "Next.js", level: 95 },
+  { name: "React", level: 90 },
+  { name: "Astro", level: 85 },
+  { name: "WordPress", level: 88 },
+  { name: "Tailwind CSS", level: 92 },
+  { name: "Node.js", level: 88 },
+  { name: "SEO", level: 95 }
+];
+---
+
+<Layout 
+  title="Diseño y Desarrollo de Paginas Web en Colombia Sitios que Venden" 
+  description="Diseño de páginas web profesional a medida en Colombia. Desarrollador web especializado en sitios rápidos, SEO potente y diseños que convierten visitantes en clientes. ¡Haz crecer tu negocio hoy!"
+  keywords="diseño y desarrollo de páginas web en Colombia, creación de páginas web, diseñador de páginas web, desarrollo de páginas web, páginas web profesionales, páginas web a medida, páginas web para negocios, páginas web responsivas, páginas web con SEO, páginas web que venden, páginas web modernas, páginas web rápidas, constructor de páginas web, empresa de páginas web, servicios de páginas web, páginas web para empresas, páginas web ecommerce, páginas web locales, páginas web SEO, páginas web Colombia, desarrollador web freelance, diseño web, SEO, Next.js, React, portafolio, sitios web modernos"
+>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center pb-16 md:pb-24 lg:pb-32 bg-gradient-to-br from-white via-blue-50/30 to-yellow-50/30 relative overflow-hidden pt-8">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-in">
+          <div class="flex items-center space-x-2 mb-6">
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-500/10 text-primary-blue border border-blue-500/20">Desarrollador Web Freelance</span>
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-primary-green border border-green-500/20">Disponible</span>
+          </div>
+          
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+            Diseño y Desarrollo de <br/>
+            <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Paginas Web en Colombia</span>
+          </h1>
+          
+          <p class="text-xl text-black mb-8 max-w-lg">
+            Páginas web profesional a medida en Colombia. Desarrollador web especializado en sitios rápidos, SEO potente y diseños que convierten visitantes en clientes. ¡Haz crecer tu negocio hoy!
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="/portfolio/proyectos/" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gradient-to-r from-primary-blue to-accent-blue text-white hover:shadow-glow-blue">
+              Ver Proyectos
+            </a>
+            <a href="#contact" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white">
+              Hablar por WhatsApp
+            </a>
+          </div>
+          
+          <div class="w-full flex justify-between gap-4 md:gap-6">
+            {stats.map((stat) => (
+              <div class="text-center flex-1">
+                <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent leading-tight">
+                  {stat.value}
+                </div>
+                <div class="text-xs md:text-sm text-gray-600 leading-snug">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-3xl opacity-10 animate-float"></div>
+          <div class="relative bg-white rounded-3xl p-8 shadow-2xl">
+            <div class="aspect-video bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-2xl mx-auto mb-4 animate-pulse"></div>
+                <p class="text-black">Tu próximo proyecto aquí</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section id="projects" class="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
+          Proyectos <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Destacados</span>
+        </h2>
+        <p class="text-xl text-black max-w-3xl mx-auto">
+          Explora mis proyectos más recientes: diseño de páginas web profesionales con resultados reales que convierten y potencian a tus clientes hacia la compra.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredProjects.map((project) => (
+          <div class="bg-white rounded-2xl overflow-hidden transition-all duration-500 border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2">
+            <div class="relative aspect-video overflow-hidden">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-primary-blue/90 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            
+            <div class="p-6">
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag) => (
+                  <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-500/10 text-primary-blue border border-blue-500/20">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              <h3 class="text-xl md:text-2xl font-bold mb-2">{project.title}</h3>
+              <p class="text-gray-600 mb-4">{project.description}</p>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.stats.map((stat) => (
+                  <span class="text-sm text-gray-500">#{stat}</span>
+                ))}
+              </div>
+              
+              <a href={project.url} class="text-primary-blue font-semibold hover:underline">
+                Ver caso de estudio completo
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 md:py-24 lg:py-32">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
+          Servicios <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Profesionales</span>
+        </h2>
+        <p class="text-xl text-black max-w-3xl mx-auto">
+          Soluciones completas de desarrollo web diseñadas para impulsar tu negocio. Especialista en crear sitios web que generan resultados.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <div class="bg-white rounded-2xl p-8 transition-all duration-300 border border-gray-100 shadow-lg hover:shadow-xl hover:-translate-y-2">
+            <div class={`w-16 h-16 bg-gradient-to-r ${
+              service.color === 'blue' ? 'from-primary-blue to-accent-blue' :
+              service.color === 'yellow' ? 'from-primary-yellow to-accent-yellow' :
+              'from-primary-green to-accent-green'
+            } rounded-2xl flex items-center justify-center mb-6`}>
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            
+            <h3 class="text-xl md:text-2xl font-bold mb-4">{service.title}</h3>
+            <p class="text-gray-600 mb-6">{service.description}</p>
+            
+            <ul class="space-y-2">
+              {service.features.map((feature) => (
+                <li class="flex items-center text-sm text-gray-600">
+                  <svg class="w-4 h-4 text-primary-green mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Me Section -->
+  <section class="py-16 md:py-24 lg:py-32">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
+          Por qué los negocios en <span class="gradient-text">Colombia me eligen</span>
+        </h2>
+        <p class="text-xl text-black max-w-3xl mx-auto">
+          Porque no solo hago páginas web, sino soluciones que encajan con su negocio real: su presupuesto, su tiempo y sus objetivos de venta. Entiendo cómo piensan los clientes en Colombia, cómo se comportan en Google y cómo se convencen a través del diseño y la experiencia de la web.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-blue to-accent-blue rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Investigación de cómo la persona busca tu mercado</h3>
+            <p class="text-black">Trabajo primero en entender cómo busca tu cliente real: qué palabras usa, qué problemas tiene y qué le frena al tomar una decisión.</p>
+          </div>
+        </div>
+        
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-yellow to-accent-yellow rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Optimización off page para ganar confianza en Google</h3>
+            <p class="text-black">Construyo autoridad fuera de tu web (enlaces, menciones, presencia) para que Google te vea como una opción seria y confiable.</p>
+          </div>
+        </div>
+        
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-green to-accent-green rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">SEO Local: tu negocio aparece en Google</h3>
+            <p class="text-black">Optimizo tu presencia para que tu negocio aparezca cuando alguien cerca de ti busca tu servicio o producto por nombre o categoría. Incluyo configuración y optimización de Google Maps y tu Google Business Profile (Google My Business): registro, categorías, descripción, fotos, reseñas y datos de contacto.</p>
+          </div>
+        </div>
+        
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-blue to-accent-blue rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Sitios web de negocio 100% responsive</h3>
+            <p class="text-black">Diseño páginas que funcionan perfecto en celular, tablet y computador, porque la mayoría de tus clientes llegan por dispositivos móviles.</p>
+          </div>
+        </div>
+        
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-yellow to-accent-yellow rounded-full flex items-center justify-center text-white font-bold text-sm">5</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Cliente satisfecho con el diseño</h3>
+            <p class="text-black">Trabajo el diseño hasta que se vea profesional, se entienda rápido y refleje de verdad tu negocio y tu marca.</p>
+          </div>
+        </div>
+        
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-green to-accent-green rounded-full flex items-center justify-center text-white font-bold text-sm">6</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Optimización por 3 meses para mis clientes</h3>
+            <p class="text-black">Acompaño el sitio los primeros 3 meses ajustando contenido, estructura y métricas para que el resultado se vea en visitas y ventas reales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
+          Tecnologías <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Modernas</span>
+        </h2>
+        <p class="text-xl text-black max-w-3xl mx-auto">
+          Las mejores herramientas para crear sitios web de alto rendimiento
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {technologies.map((tech) => (
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-bold text-lg">{tech.name}</h3>
+              <span class="text-sm font-semibold bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">{tech.level}%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+              <div class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green h-3 rounded-full transition-all duration-1000" style={`width: ${tech.level}%`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews Section -->
+  <section class="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
+            Reseñas reales en <span class="gradient-text">Google</span>
+          </h2>
+          <div class="flex items-center gap-3 text-gray-600">
+            <div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold text-sm">G</div>
+            <span class="font-semibold text-gray-800">5.0</span>
+            <span class="text-yellow-400">{"\u2605".repeat(5)}</span>
+          </div>
+        </div>
+        <a href="https://share.google/URJBIY6tzhrTMEJXL" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Ver en Google
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-6 h-6 bg-white rounded flex items-center justify-center shadow-sm">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+            </div>
+            <span class="text-yellow-400">{"\u2605".repeat(5)}</span>
+          </div>
+          <div class="font-semibold mb-2">Ayeuri Melo Sanchez</div>
+          <p class="text-gray-600 text-sm">"De los mejores desarrolladores que he conocido, me hizo una página web de consultoría para República Dominicana y quedó fenomenal, lo recomiendo al 100%"</p>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-6 h-6 bg-white rounded flex items-center justify-center shadow-sm">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+            </div>
+            <span class="text-yellow-400">{"\u2605".repeat(5)}</span>
+          </div>
+          <div class="font-semibold mb-2">Plomeria Aquaimperio</div>
+          <p class="text-gray-600 text-sm">"Omar muchas gracias por su servicios me gustó mucho la página, recomendadísimo, sabe hacer muy bien su trabajo y muy atento a los detalles"</p>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-6 h-6 bg-white rounded flex items-center justify-center shadow-sm">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+            </div>
+            <span class="text-yellow-400">{"\u2605".repeat(5)}</span>
+          </div>
+          <div class="font-semibold mb-2">Jorge Capacho</div>
+          <p class="text-gray-600 text-sm">"Omar parcero le quiero dar las gracias por su apoyo su trabajo la página web quedó como la quería gracias a usted puedo seguir con mi Emprendimiento"</p>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-6 h-6 bg-white rounded flex items-center justify-center shadow-sm">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+            </div>
+            <span class="text-yellow-400">{"\u2605".repeat(5)}</span>
+          </div>
+          <div class="font-semibold mb-2">Jaime Mantilla</div>
+          <p class="text-gray-600 text-sm">"Muy profesionales son excelentes para la creación de páginas me ayudó con mi emprendimiento de venta de cuentas de Indrive recomendado"</p>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-6 h-6 bg-white rounded flex items-center justify-center shadow-sm">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+            </div>
+            <span class="text-yellow-400">{"\u2605".repeat(5)}</span>
+          </div>
+          <div class="font-semibold mb-2">Gladys Hernández</div>
+          <p class="text-gray-600 text-sm">"Contraté a Omar para armar mi sitio web de productos para perros. Necesitaba algo profesional para vender collares, excelente trabajo"</p>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-6 h-6 bg-white rounded flex items-center justify-center shadow-sm">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+            </div>
+            <span class="text-yellow-400">{"\u2605".repeat(5)}</span>
+          </div>
+          <div class="font-semibold mb-2">David</div>
+          <p class="text-gray-600 text-sm">"Hola me pareció muy profesional, es muy dedicado me sorprendió que en 4 días ya tenía mi web de negocios casi lista lo recomiendo abiertamente"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="py-16 md:py-24 lg:py-32 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green relative overflow-hidden">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-4xl text-center relative z-10">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white">
+        ¿Listo para crear tu sitio web?
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Transformemos tu visión en un sitio web profesional que genere resultados reales para tu negocio.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20portafolio%20y%20quiero%20desarrollar%20mi%20proyecto" 
+           target="_blank" 
+           class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gradient-to-r from-primary-yellow to-accent-yellow text-gray-800 hover:shadow-glow-yellow">
+          <svg class="w-5 h-5 mr-2 inline" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 2.16 3.916c2.359 2.359 4.734 2.359 5.511 2.359.297 0 .644-.074.792-.223.148-.148.671-.671.796-1.263.125-.592.125-1.099.084-1.203-.041-.104-.173-.165-.37-.264z"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+          </svg>
+          Hablar por WhatsApp
+        </a>
+        <a href="mailto:contacto@omarfuentes.com" class="bg-white text-gray-800 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+          Enviar Correo
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
