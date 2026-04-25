@@ -1,0 +1,457 @@
+---
+import Layout from '../../layouts/LayoutEN.astro';
+
+const stats = [
+  { value: '20+', label: 'Businesses Helped' },
+  { value: '120%', label: 'Avg Organic Traffic' },
+  { value: '0.8s', label: 'Load Time' },
+  { value: '<1h', label: 'Response Time' },
+];
+
+const howItWorks = [
+  { step: '1', title: 'Contact & Free Consultation', description: 'Tell us about your business, goals, and what you need. We\'ll guide you and recommend the best solution.' },
+  { step: '2', title: 'Design & Development', description: 'We create your website with a modern design, optimized for performance, SEO, and conversions.' },
+  { step: '3', title: 'Review & Launch', description: 'You review the site, request changes if needed, and once approved, we launch your website.' },
+];
+
+const whatToExpect = [
+  { title: 'Project Timeline', description: 'Most websites are completed in 3 to 7 days, depending on your needs and revisions.' },
+  { title: 'Communication', description: 'We stay in contact throughout the process via chat or email to ensure everything meets your expectations.' },
+  { title: 'Secure Payment', description: 'We accept secure payments via PayPal, so your investment is protected at all times.' },
+  { title: 'Revisions Included', description: 'We include revisions to make sure your website looks and works exactly how you want.' },
+];
+
+const industries = [
+  { name: 'Restaurants', description: 'Online menus, reservations, delivery systems', href: '/en/restaurant-web-design/', icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z', bgClass: 'from-orange-500 to-orange-600' },
+  { name: 'Hair Salons', description: 'Online bookings, gallery, appointments', href: '/en/hair-salon-web-design/', icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', bgClass: 'from-purple-500 to-purple-600' },
+  { name: 'Cleaning Services', description: 'Service scheduling, quotes, testimonials', href: '/en/cleaning-web-design/', icon: 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16', bgClass: 'from-blue-500 to-blue-600' },
+  { name: 'Construction', description: 'Project galleries, service areas, quotes', href: '/en/construction-web-design/', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', bgClass: 'from-yellow-500 to-yellow-600' },
+  { name: 'Lawyers', description: 'Case studies, consultations, attorney profiles', href: '/en/lawyer-web-design/', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', bgClass: 'from-indigo-500 to-indigo-600' },
+  { name: 'Real Estate', description: 'Property listings, virtual tours, agent profiles', href: '/en/real-estate-web-design/', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', bgClass: 'from-green-500 to-green-600' },
+  { name: 'Electricians', description: 'Service requests, emergency calls, work areas', href: '/en/electrician-web-design/', icon: 'M13 10V3L4 14h7v7l9-11h-7z', bgClass: 'from-red-500 to-red-600' },
+  { name: 'Photographers', description: 'Portfolio galleries, booking systems, pricing', href: '/en/photographer-web-design/', icon: 'M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z', bgClass: 'from-pink-500 to-pink-600' },
+  { name: 'Gyms', description: 'Class schedules, memberships, sign-ups', href: '/en/gym-web-design/', icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z', bgClass: 'from-teal-500 to-teal-600' },
+];
+
+const benefits = [
+  { title: 'Affordable web design services tailored for small businesses', description: 'Get a professional website without overpaying, designed to fit your budget and business goals.', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1', color: 'blue' },
+  { title: 'Responsive web design that works on all devices', description: 'Your website will look and perform perfectly on mobile, tablet, and desktop.', icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z', color: 'green' },
+  { title: 'Reliable web design focused on performance', description: 'Fast-loading, secure, and stable websites that your customers can trust.', icon: 'M13 10V3L4 14h7v7l9-11h-7z', color: 'purple' },
+  { title: 'Complete web design and management solutions', description: 'From design to maintenance, everything is handled so you can focus on your business.', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', color: 'orange' },
+  { title: 'Comprehensive web design built for growth', description: 'A scalable website structure that grows with your business and supports long-term success.', icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6', color: 'red' },
+  { title: 'SEO-friendly web design that helps you rank on Google', description: 'Built with a solid structure and best practices to improve your visibility and attract organic traffic from search engines.', icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', color: 'teal' },
+];
+
+const whatYouGet = [
+  { title: 'A system that generates leads', description: 'Your website will be designed to capture visitor information and turn them into potential customers.', icon: 'M13 10V3L4 14h7v7l9-11h-7z', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'A professional online presence', description: 'Modern design that builds trust and credibility with your potential customers.', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', bgClass: 'from-indigo-500 to-indigo-600' },
+  { title: 'Better visibility on Google', description: 'SEO-optimized structure that helps your website rank higher in search results.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'A website designed to grow with your business', description: 'Scalable solution that can expand as your business needs evolve.', icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6', bgClass: 'from-indigo-500 to-indigo-600' },
+];
+
+const technologies = [
+  { name: 'Next.js', label: 'JS', color: 'blue', icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5', bgClass: 'from-blue-500 to-blue-600' },
+  { name: 'Astro.js', label: 'A', color: 'purple', icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5', bgClass: 'from-purple-500 to-purple-600' },
+  { name: 'Bootstrap', label: 'B', color: 'indigo', icon: 'M4 6h16v12H4z', bgClass: 'from-indigo-500 to-indigo-600' },
+  { name: 'HTML5', label: '5', color: 'orange', icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5', bgClass: 'from-orange-500 to-orange-600' },
+  { name: 'WordPress', label: 'W', color: 'blue', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z', bgClass: 'from-blue-600 to-blue-700' },
+  { name: 'eCommerce', label: 'E', color: 'green', icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z', bgClass: 'from-green-500 to-green-600' },
+  { name: 'Shopify', label: 'S', color: 'emerald', icon: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z', bgClass: 'from-emerald-500 to-emerald-600' },
+  { name: 'Colorful Design', label: 'CD', color: 'pink', icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z', bgClass: 'from-pink-500 to-pink-600' },
+];
+
+const whyWorkWithMe = [
+  { title: 'You work directly with me — no middlemen or delays', description: 'Direct communication means faster decisions and better results for your project.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2a3 3 0 00-5.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v2a3 3 0 005.356 1.857m0 0a3 3 0 005.356 1.857m0 0a3 3 0 005.356 1.857M7 20h10', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'Faster delivery compared to traditional agencies', description: 'No bureaucracy means your website gets done in days, not months.', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', bgClass: 'from-indigo-500 to-indigo-600' },
+  { title: 'Focused on results, not just design', description: 'Every decision is made to help you get more customers and grow your business.', icon: 'M13 10V3L4 14h7v7l9-11h-7z', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'Clear and direct communication', description: 'No corporate jargon or confusing processes — just straight talk about your needs.', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 2.493A1 1 0 008.618 7h6.764a1 1 0 01.948-.684L17.28 3a2 2 0 012 2h3.28a1 1 0 01.948.684l1.498 2.493A1 1 0 0018.618 7h-6.764a1 1 0 01-.948-.684L9.72 3.684A1 1 0 008.772 3H6a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7', bgClass: 'from-indigo-500 to-indigo-600' },
+  { title: 'Built specifically for small businesses', description: 'I understand small business challenges and build solutions that work for your budget and goals.', icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m8 0V6a2 2 0 00-2-2h-4a2 2 0 00-2 2v2', bgClass: 'from-blue-500 to-blue-600' },
+];
+
+const testimonials = [
+  { name: 'Michael Johnson', text: 'Excellent web design service! Omar created a professional website for my restaurant that increased our online orders by 40%. Highly recommend!' },
+  { name: 'Sarah Williams', text: 'Great experience working with Omar! He designed our salon website and it looks amazing. Fast loading and mobile-friendly. Our clients love it!' },
+  { name: 'David Martinez', text: 'Professional and affordable web design! Omar built our construction company website and it helped us get more local clients. SEO optimization really works!' },
+  { name: 'Emily Chen', text: 'Amazing work! Omar created a beautiful website for my photography business. The gallery features are perfect and my clients love how easy it is to navigate.' },
+  { name: 'Robert Taylor', text: 'Great experience! Omar designed our gym website with class schedules and membership features. Our sign-ups increased by 35% in the first month!' },
+  { name: 'Jessica Brown', text: 'Omar built our cleaning service website and it\'s been fantastic! The quote request form brings us new leads every week. Highly recommend his services!' },
+  { name: 'Daniel Wilson', text: 'Outstanding service! Omar created our real estate website with property listings and virtual tours. We\'re getting more qualified leads than ever before!' },
+];
+
+const faqs = [
+  { question: 'What makes your web design company in USA different?', answer: 'We combine responsive web design with HTML5, expert SEO optimization, and conversion-focused strategies. As a full-service web development company in USA, we deliver complete solutions that rank in Google and convert visitors into customers.' },
+  { question: 'How long does it take to see SEO results?', answer: 'Most clients see first-page rankings within 3 months. Our organic search engine optimization SEO company focuses on sustainable growth, with average organic traffic increases of 150% and 70% faster loading times.' },
+  { question: 'Do you offer Shopify development services?', answer: 'Yes, we provide complete Shopify development services including custom theme development, app integration, and SEO optimization. Our e-commerce clients see average sales increases of 35% with faster loading stores.' },
+  { question: 'What are your local SEO services for small business?', answer: 'Our local SEO services include Google Business Profile optimization, local keyword ranking, customer review strategy, and local citation building. Clients typically see 60% more local calls and Google 3-pack placement.' },
+  { question: 'Are you a WordPress web development and SEO specialist?', answer: 'Yes, we specialize in WordPress web development and SEO with 500+ sites optimized. We offer custom theme development, plugin optimization, schema markup, and security maintenance with 95% first-page ranking success.' },
+  { question: 'What is responsive web design with HTML5?', answer: 'Responsive web design with HTML5 ensures your website works perfectly on all devices while following modern web standards. Our responsive web design company with SEO expertise creates mobile-first designs that increase mobile traffic by 60%.' },
+  { question: 'How much do your web development services cost?', answer: 'Our web development company in USA offers flexible pricing: Shopify development from $499, WordPress SEO from $399, and local SEO services from $299. All packages include ongoing support and optimization.' },
+  { question: 'Do you work with small businesses only?', answer: 'While we specialize in helping small businesses compete online, we work with businesses of all sizes. Our responsive web design and SEO strategies are scalable to meet your specific needs and budget.' },
+];
+---
+
+<Layout
+  title="Web Design, Development and SEO Company in USA for Small Business"
+  description="Professional web design, development and SEO services for small businesses in USA. Modern websites that rank on Google and convert visitors into customers."
+  keywords="web design company USA, web development company USA, SEO company USA, small business web services, affordable web design"
+>
+  <section id="home" class="min-h-screen flex items-center justify-center pb-16 md:pb-24 lg:pb-32 bg-gradient-to-br from-white via-blue-50/30 to-yellow-50/30 relative overflow-hidden pt-8">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-in">
+          <div class="flex items-center space-x-2 mb-6">
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-500/10 text-primary-blue border border-blue-500/20">Freelance Web Developer</span>
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-primary-green border border-green-500/20">Available</span>
+          </div>
+
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+            Web Design & Development <br />
+            <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">for Small Businesses in the USA</span>
+          </h1>
+
+          <p class="text-xl text-black mb-8 max-w-lg">
+            Modern websites built for speed, SEO, and conversions. I help small businesses get found on Google and turn visitors into customers.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="/en/portfolio/projects/" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gradient-to-r from-primary-blue to-accent-blue text-white hover:shadow-glow-blue">
+              View Projects
+            </a>
+            <a href="#contact" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white">
+              Message on WhatsApp
+            </a>
+          </div>
+
+          <div class="w-full flex justify-between gap-4 md:gap-6">
+            {stats.map((stat) => (
+              <div class="text-center flex-1">
+                <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent leading-tight">
+                  {stat.value}
+                </div>
+                <div class="text-xs md:text-sm text-gray-600 leading-snug">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-3xl opacity-10 animate-float"></div>
+          <div class="relative bg-white rounded-3xl p-8 shadow-2xl">
+            <div class="aspect-video bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-2xl mx-auto mb-4 animate-pulse"></div>
+                <p class="text-black">Your next project goes here</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Small Business Industries Section -->
+  <section class="py-20 section-featured">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Industry-Specific Web Solutions</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          Tailored small business websites that work specifically for your industry. Each site is designed with the features and functionality your customers expect.
+        </p>
+      </div>
+
+      <div class="grid grid-services gap-8">
+        {industries.map((industry) => (
+          <div class="card">
+            <div class={`w-12 h-12 mb-4 bg-gradient-to-br ${industry.bgClass} rounded-lg flex items-center justify-center`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={industry.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{industry.name}</h3>
+            <p class="text-gray-600 mb-4">{industry.description}</p>
+            <a href={industry.href} class="text-primary-blue font-semibold hover:underline">Learn more →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-section mb-4">Complete Web Solutions for Small Business</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          From design to development and SEO, we handle everything your small business needs to succeed online.
+        </p>
+      </div>
+      
+      <div class="grid grid-services gap-8">
+        <div class="card">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-blue to-accent-blue rounded-lg flex items-center justify-center text-white mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Web Design</h3>
+          <p class="text-gray-600">Modern, responsive designs that capture your brand and convert visitors into customers.</p>
+        </div>
+        
+        <div class="card">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-green to-accent-green rounded-lg flex items-center justify-center text-white mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4m-4-4h-12"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Web Development</h3>
+          <p class="text-gray-600">Clean, fast code using modern technologies for optimal performance and user experience.</p>
+        </div>
+        
+        <div class="card">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-yellow to-accent-yellow rounded-lg flex items-center justify-center text-white mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">SEO Optimization</h3>
+          <p class="text-gray-600">Strategic SEO to rank higher on Google and drive qualified organic traffic to your website.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works & What to Expect Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <!-- How It Works -->
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">How It Works</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          A simple process designed for small businesses
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        {howItWorks.map((item) => (
+          <div class="card text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-blue to-accent-blue rounded-full flex items-center justify-center">
+              <span class="text-2xl font-bold text-white">{item.step}</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{item.title}</h3>
+            <p class="text-gray-600">{item.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- What to Expect -->
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">What to Expect</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {whatToExpect.map((item) => (
+          <div class="card">
+            <h3 class="text-lg font-bold mb-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4 text-white">Why Small Businesses Choose Our Web Design Services</h2>
+        <p class="text-lg text-white/90 max-w-3xl mx-auto">
+          We help small businesses grow online with websites designed to attract customers, generate leads, and increase sales.
+        </p>
+      </div>
+
+      <div class="grid grid-services gap-8">
+        {benefits.map((benefit) => (
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
+            <div class="w-12 h-12 mb-4 bg-gradient-to-br from-{benefit.color}-500 to-{benefit.color}-600 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={benefit.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">{benefit.title}</h3>
+            <p class="text-white/80">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">What You Get</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          When you work with me, you get more than just a website:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {whatYouGet.map((item) => (
+          <div class="flex items-start gap-4">
+            <div class={`w-12 h-12 bg-gradient-to-br ${item.bgClass} rounded-xl flex items-center justify-center flex-shrink-0`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">{item.title}</h3>
+              <p class="text-gray-700">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="py-20 section-featured">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Technologies We Use</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          Modern technologies used to build fast, scalable, and high-performing websites for small businesses.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        {technologies.map((tech) => (
+          <div class="text-center">
+            <div class={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${tech.bgClass} rounded-xl flex items-center justify-center`}>
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={tech.icon} />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">{tech.name}</h3>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center">
+        <p class="text-lg text-gray-700 italic">
+          "Resulting in visually engaging, functional, and high-performing websites"
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Work With Me Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Why Work With Me Instead of a Typical Agency</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {whyWorkWithMe.map((advantage) => (
+          <div class="flex items-start gap-4">
+            <div class={`w-12 h-12 bg-gradient-to-br ${advantage.bgClass} rounded-xl flex items-center justify-center flex-shrink-0`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={advantage.icon} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">{advantage.title}</h3>
+              <p class="text-gray-700">{advantage.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-24 section-featured">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4 flex items-center justify-center gap-3">
+          Real Reviews on
+          <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </h2>
+        <div class="flex items-center justify-center gap-3 text-gray-900">
+          <span class="font-semibold text-2xl">5.0</span>
+          <span class="text-yellow-400 text-2xl">★★★★★</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {testimonials.map((testimonial) => (
+          <div class="card">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+            </div>
+            <div class="font-semibold text-lg mb-2">{testimonial.name}</div>
+            <p class="text-gray-600 text-sm">{testimonial.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Frequently Asked Questions</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Everything you need to know about our web design and SEO services
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq, index) => (
+          <div class="card">
+            <details class="group">
+              <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+                {faq.question}
+                <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="mt-4 text-gray-600">{faq.answer}</p>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green">
+    <div class="container text-center">
+      <h2 class="text-section mb-4 text-white">Ready to Grow Your Business Online?</h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Let's discuss how we can create a professional website that drives results for your small business.
+      </p>
+      <a href="https://wa.me/12025551234?text=Hi%20Omar,%20I%20want%20a%20free%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 bg-white text-primary-blue hover:shadow-xl">Start Your Project</a>
+    </div>
+  </section>
+</Layout>

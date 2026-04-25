@@ -1,0 +1,240 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyIcon from '../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "Productos Para Perros - Mi Tienda de Mascotas que Enamora",
+  description:
+    "Este proyecto fue adorable: creé una tienda eCommerce completa para productos de mascotas con carrito funcional y envíos rápidos. Usé HTML5, CSS3 y JavaScript vanilla para construir una experiencia que los dueños de mascotas aman.",
+  cliente: "Productos Para Perros",
+  fecha: "2024-2025",
+  tipo: "eCommerce / Tienda Online",
+  tecnologias: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "SEO"],
+  url: "https://web-productos-para-perros.vercel.app/",
+  imagen: "/images-portfolio/proyecto-imagen-productosperros.png",
+  stats: {
+    pages: "70+ páginas",
+    products: "50+ productos",
+    categories: "7 categorías",
+    weeks: "2 semanas desarrollo",
+  },
+  results: [
+    "✅ Tienda con 50+ productos que los dueños de mascotas realmente compran",
+    "✅ Carrito funcional con localStorage - los productos no se pierden si recargan",
+    "✅ Blog con consejos para dueños de mascotas - genera confianza y posiciona en Google",
+    "✅ 100% responsive - los dueños compran desde celular mientras pasean a sus perros",
+    "✅ SEO local Colombia - aparece cuando buscan 'comprar comida para perros'",
+    "✅ Sistema de favoritos - los clientes guardan productos para comprar después",
+  ],
+};
+
+const techStack = [
+  { name: "HTML5", description: "Markup semántico para SEO y accesibilidad", icon: "📝" },
+  { name: "CSS3", description: "Estilos modernos con Grid, Flexbox y animaciones", icon: "🎨" },
+  { name: "JavaScript ES6+", description: "Funcionalidad vanilla sin frameworks", icon: "⚡" },
+  { name: "LocalStorage", description: "Persistencia de carrito y favoritos", icon: "💾" },
+  { name: "SEO Local", description: "Optimización para mercado colombiano", icon: "🎯" },
+];
+
+const phases = [
+  {
+    title: "Investigación y Planificación",
+    week: "Día 1-2",
+    tasks: [
+      "Día 1: Análisis de competencia colombiana y keywords principales",
+      "Día 2: Arquitectura de información con 70+ páginas y definición técnica HTML5 + CSS3 + Vanilla JS",
+    ],
+  },
+  {
+    title: "Diseño UI/UX",
+    week: "Día 3-4",
+    tasks: [
+      "Día 3: Sistema de diseño con paleta verde-naturaleza y componentes reutilizables",
+      "Día 4: Diseño de homepage, categorías, productos individuales y prototipos interactivos",
+    ],
+  },
+  {
+    title: "Desarrollo Frontend",
+    week: "Día 5-6",
+    tasks: [
+      "Día 5: Setup del proyecto HTML5 + CSS3 + componentes reutilizables",
+      "Día 6: Páginas principales, sistema de routing y JavaScript funcional",
+    ],
+  },
+  {
+    title: "Contenido y SEO",
+    week: "Día 7-8",
+    tasks: [
+      "Día 7: Creación de 50+ páginas de productos con descripciones optimizadas",
+      "Día 8: SEO on-page, meta tags, headings, URLs y SEO local Colombia",
+    ],
+  },
+  {
+    title: "Testing y Deploy",
+    week: "Día 9-10",
+    tasks: [
+      "Día 9: Testing funcional, cross-browser, responsive y Lighthouse optimization",
+      "Día 10: Deploy en Vercel con dominio custom y CDN setup",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🛒",
+    title: "Sistema de Carrito Completo",
+    description:
+      "Carrito de compras funcional con localStorage, persistencia de datos, contador en header y cálculo automático de totales.",
+  },
+  {
+    icon: "❤️",
+    title: "Lista de Deseos",
+    description:
+      "Sistema de favoritos con persistencia, contador visual y capacidad de mover productos entre favoritos y carrito.",
+  },
+  {
+    icon: "📱",
+    title: "Diseño 100% Responsive",
+    description:
+      "Mobile-first approach con breakpoints optimizados para móvil, tablet y desktop. Experiencia perfecta en todos los dispositivos.",
+  },
+  {
+    icon: "🔍",
+    title: "SEO Local Colombia",
+    description:
+      "Optimización para mercado colombiano con keywords geo-específicas, precios en COP, y contenido localizado para Bogotá, Medellín, Cali.",
+  },
+  {
+    icon: "⚡",
+    title: "Performance Optimizada",
+    description:
+      "Lighthouse scores 95+ en desktop y mobile. Lazy loading, WebP images, CDN y JavaScript mínimo para máxima velocidad.",
+  },
+  {
+    icon: "📝",
+    title: "Blog Integrado",
+    description:
+      "3 artículos SEO-optimizados de 1000+ palabras sobre productos antipulgas, collar antipulgas y pastillas antipulgas para perros.",
+  },
+];
+
+const metrics = [
+  { icon: "🚀", title: "Performance", value: "95+", description: "Lighthouse score en desktop y mobile" },
+  { icon: "📄", title: "Páginas Creadas", value: "70+", description: "HTML estáticas optimizadas para SEO" },
+  { icon: "🛍️", title: "Productos", value: "50+", description: "Catálogo completo con 7 categorías" },
+  { icon: "📊", title: "SEO Score", value: "100/100", description: "Puntuación perfecta en SEO técnico" },
+];
+---
+
+<Layout title="Productos Para Perros - eCommerce Colombia | Omar Fuentes" description="Caso de estudio completo del desarrollo de tienda online para productos de mascotas con HTML5, CSS3 y JavaScript vanilla.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="es"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/portfolio/proyectos/"
+        technologies={project.tecnologias}
+        badges={["2 semanas desarrollo", "Completado"]}
+      />
+
+      <section class="mb-14">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08); border-radius: 1.5rem; padding: 2rem;">
+          {Object.entries(project.stats).map(([key, value]) => (
+            <div class="text-center">
+              <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+              <div class="text-black font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack Tecnológico</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Características Principales</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Proceso de Desarrollo</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Métricas de Performance</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((m) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={m.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{m.value}</div>
+              <div class="font-black text-black mt-2">{m.title}</div>
+              <div class="text-black mt-2">{m.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Resultados del Proyecto</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">¿Necesitas una tienda online que convierta?</h2>
+          <p class="text-white mb-8">Desarrollo eCommerce completo con HTML, CSS y JavaScript vanilla</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20tu%20portafolio%20y%20quiero%20desarrollar%20una%20tienda%20online" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Comenzar Proyecto</a>
+            <a href="/portfolio/proyectos/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">Ver Más Proyectos</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

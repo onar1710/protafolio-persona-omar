@@ -1,0 +1,59 @@
+---
+export interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+
+const links =
+  lang === 'en'
+    ? [
+        { label: 'Home', href: '/en/' },
+        { label: 'Blog', href: '/en/blog/' },
+        { label: 'About', href: '/en/about/' },
+        { label: 'Contact', href: '/en/contact/' },
+      ]
+    : [
+        { label: 'Inicio', href: '/#home' },
+        { label: 'Proyectos', href: '/#projects' },
+        { label: 'Servicios', href: '/#services' },
+        { label: 'Sobre Mí', href: '/sobre-mi/' },
+        { label: 'Contacto', href: '/contacto/' },
+      ];
+
+const whatsappMessage =
+  lang === 'en'
+    ? 'Hi Omar, I saw your portfolio and I want to request a quote.'
+    : 'Hola Omar, vi tu portafolio y quiero cotizar un proyecto';
+
+const whatsappPhone = lang === 'en' ? '13239414865' : '573107851074';
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50"
+  style="background: rgba(248, 250, 252, 0.95); backdrop-filter: blur(12px); border-bottom: 2px solid var(--primary-blue);"
+>
+  <div class="container container-padding flex items-center justify-between" style="height: 4rem;">
+    <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2" style="text-decoration: none; color: inherit;">
+      <div
+        style="width: 2rem; height: 2rem; background: linear-gradient(to right, var(--primary-blue), var(--primary-yellow)); border-radius: 0.5rem;"
+      ></div>
+      <span style="font-weight: 700; font-size: 1.25rem;">Omar Fuentes</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
+    </div>
+
+    <a
+      href={`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappMessage)}`}
+      target="_blank"
+      class="btn-primary"
+      style="padding: 0.5rem 1.5rem; font-size: 0.875rem; text-decoration: none;"
+    >
+      {lang === 'en' ? 'Get a Quote' : 'Cotizar Proyecto'}
+    </a>
+  </div>
+</nav>

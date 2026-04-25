@@ -1,0 +1,256 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import CaseStudyIcon from '../../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "LEEXMS SRL - My Digital Accounting Transformation",
+  description:
+    "This project was special: I completely transformed a traditional accounting services firm into a digital powerhouse. I used Next.js 14, advanced SEO and met all legal regulations in just 1 week of intense work.",
+  cliente: "LEEXMS SRL",
+  fecha: "2024-2025",
+  tipo: "Corporate Website / Professional Services",
+  tecnologias: ["Next.js 14", "React 18", "Bootstrap 5", "Schema.org SEO"],
+  url: "https://leexms.com",
+  imagen: "/images-portfolio/caso-estudio-web-leexms.png",
+  stats: {
+    pages: "15+ pages",
+    services: "6 main services",
+    blog: "Complete blog system",
+    weeks: "1 week development",
+  },
+  results: [
+    "✅ Complete digital transformation in 1 week of dedicated work",
+    "✅ 6 detailed service pages with SEO ranking in Google Dominican Republic",
+    "✅ Blog system with Schema.org markup - articles already indexing!",
+    "✅ Complete legal compliance (GDPR, Cookies, Terms) - no worries",
+    "✅ 95+ Performance on PageSpeed - instant loading",
+    "✅ Local SEO optimized for Dominican Republic - clients find LEEXMS",
+    "✅ WhatsApp Business integrated - clients write directly",
+    "✅ Optimized build: 28.3KB First Load - faster than competitors",
+  ],
+};
+
+const techStack = [
+  { name: "Next.js 14", description: "React framework with App Router for SSG and performance", icon: "rocket" },
+  { name: "React 18", description: "Interactive UI components and reusables", icon: "atom" },
+  { name: "Bootstrap 5", description: "CSS framework for professional responsive design", icon: "palette" },
+  { name: "Schema.org", description: "Structured SEO for maximum Google visibility", icon: "search" },
+  { name: "React CountUp", description: "Number animations for statistics", icon: "chart" },
+];
+
+const phases = [
+  {
+    title: "Intensive Week: Complete Transformation in 7 Days",
+    week: "Single Week (Days 1-7)",
+    tasks: [
+      "Day 1-2: Immersive discovery - I sat with LEEXMS to understand their business, clients and what made them unique in Dominican Republic",
+      "Day 3: Complete architecture - I designed the entire structure, 6 main services, and how to highlight their 25+ years of experience",
+      "Day 4: UI/UX design in Figma - I created a modern but professional visual identity that conveyed immediate trust",
+      "Day 5: Next.js 14 setup and base development - I prepared the entire structure for ultra-rapid development and optimal performance",
+      "Day 6: Intensive development - 15+ static pages, blog with Schema.org, WhatsApp integration, everything optimized",
+      "Day 7: Final testing and deploy - detailed review, image optimization, production deployment",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "building",
+    title: "Design That Inspires Trust",
+    description:
+      "I created a visual identity that reflects 25+ years of accounting experience but with a modern touch. I wanted visitors to feel professionalism from the first second.",
+  },
+  {
+    icon: "chart",
+    title: "6 Services That Convert",
+    description:
+      "I structured each service page to answer exactly what clients search for in Dominican Republic. SEO designed from the user, not from Google.",
+  },
+  {
+    icon: "search",
+    title: "SEO That Actually Works",
+    description:
+      "I implemented complete Schema.org because I know Google rewards well-structured content. Results: articles indexing in days, not weeks.",
+  },
+  {
+    icon: "file",
+    title: "Blog with Real Authority",
+    description:
+      "I designed the blog system highlighting Lic. Lergio as the author. I wanted to build real authority, not just content for content's sake.",
+  },
+  {
+    icon: "scale",
+    title: "Legal Without Headaches",
+    description:
+      "I ensured everything complied with GDPR and digital regulations. LEEXMS can operate peacefully knowing they're 100% legally covered.",
+  },
+  {
+    icon: "message",
+    title: "WhatsApp That Generates Clients",
+    description:
+      "I integrated WhatsApp Business because I know the Dominican market - people prefer to write directly. Leads arrive on their own.",
+  },
+];
+
+const metrics = [
+  { icon: "bolt", title: "Performance", value: "95+", description: "PageSpeed Insight score mobile and desktop" },
+  { icon: "file", title: "Static Pages", value: "21", description: "Generated statically for maximum speed" },
+  { icon: "search", title: "SEO Score", value: "100", description: "Schema.org markup implementation" },
+  { icon: "scale", title: "Legal Compliance", value: "100%", description: "GDPR and digital regulations met" },
+];
+
+const experience = [
+  {
+    title: "The Real Challenge",
+    text: "LEEXMS had a common problem: they were excellent accountants but their digital presence was from another era. Traditional firms struggle to compete in today's digital world. My mission: transform them into a digital powerhouse in just 1 week.",
+  },
+  {
+    title: "My Intensive Approach",
+    text: "I worked 7 days straight, 8+ hours daily. This wasn't just development - it was complete business transformation. I immersed myself in their world to understand exactly what Dominican clients need from accounting services.",
+  },
+  {
+    title: "The Lightning Result",
+    text: "The client's message: 'Omar, we're getting calls from clients who found us on Google. Our blog articles are ranking, and WhatsApp integration is working perfectly.' That's digital transformation in record time.",
+  },
+  {
+    title: "My Big Learning",
+    text: "LEEXMS taught me that professional services can compete digitally if you understand their market. In Dominican Republic, WhatsApp beats forms, local SEO beats global strategies, and speed beats features. Digital transformation isn't about technology - it's about business results.",
+  },
+];
+---
+
+<LayoutEN title="LEEXMS SRL - Accounting Services Website | Omar Fuentes" description="Complete digital transformation for LEEXMS SRL accounting firm in Dominican Republic. Next.js 14, Bootstrap 5 with advanced SEO and legal compliance.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="en"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/en/portfolio/projects/"
+        technologies={project.tecnologias}
+        badges={["1 week development", "Completed"]}
+      />
+
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {Object.entries(project.stats).map(([key, value]) => (
+          <div class="text-center p-6 rounded-2xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+            <div class="text-black text-sm font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+          </div>
+        ))}
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Tech Stack</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Development Process</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Key Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Performance Metrics</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={metric.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{metric.value}</div>
+              <div class="font-black text-black mt-2">{metric.title}</div>
+              <div class="text-black mt-2">{metric.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Project Results</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">My Experience with LEEXMS SRL</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <div class="rounded-3xl p-10 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="text-4xl mb-4">⭐</div>
+          <blockquote class="text-xl text-black mb-6">
+            "The transformation exceeded our expectations. Now clients find us through Google and our articles are ranking. The WhatsApp integration has made communication much easier with Dominican clients who prefer direct messaging."
+          </blockquote>
+          <div class="font-black text-black">LEEXMS SRL</div>
+          <div class="text-black">Satisfied Client</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">Does Your Professional Service Need Digital Transformation?</h2>
+          <p class="text-white mb-8">As I demonstrated with LEEXMS, professional services can dominate their market digitally when they understand their local market and move fast</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20the%20LEEXMS%20case%20and%20I%20need%20digital%20transformation" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Transform My Service Business</a>
+            <a href="/en/portfolio/projects/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">View More Transformations</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</LayoutEN>

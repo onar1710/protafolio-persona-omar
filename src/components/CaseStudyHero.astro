@@ -1,0 +1,82 @@
+---
+export interface Props {
+  lang?: 'es' | 'en';
+  title: string;
+  description: string;
+  image: string;
+  liveUrl?: string;
+  backHref: string;
+  technologies?: string[];
+  badges?: string[];
+  liveLabel?: string;
+  backLabel?: string;
+}
+
+const {
+  lang = 'es',
+  title,
+  description,
+  image,
+  liveUrl,
+  backHref,
+  technologies = [],
+  badges = [],
+  liveLabel,
+  backLabel,
+} = Astro.props;
+
+const resolvedLiveLabel = liveLabel ?? (lang === 'en' ? 'View live project' : 'Ver proyecto en vivo');
+const resolvedBackLabel = backLabel ?? (lang === 'en' ? 'View more projects' : 'Ver más proyectos');
+---
+
+<section class="mb-12">
+  <div class="grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      {badges.length > 0 && (
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          {badges.map((badge) => (
+            <span
+              class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold"
+              style="background: rgba(0,0,0,0.06); color: var(--black); border: 1px solid rgba(0,0,0,0.10);"
+            >
+              {badge}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <h1 class="text-4xl md:text-6xl font-black text-black mb-6">{title}</h1>
+      <p class="text-lg md:text-xl text-black mb-8">{description}</p>
+
+      {technologies.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-8">
+          {technologies.map((tech) => (
+            <span
+              class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold"
+              style="background: rgba(0,0,0,0.05); color: var(--black); border: 1px solid rgba(0,0,0,0.08);"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        {liveUrl && (
+          <a href={liveUrl} target="_blank" rel="noopener noreferrer nofollow" class="btn-primary" style="text-decoration: none;">
+            {resolvedLiveLabel}
+          </a>
+        )}
+        <a href={backHref} class="btn-secondary" style="text-decoration: none;">
+          {resolvedBackLabel}
+        </a>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="aspect-[4/3] rounded-3xl overflow-hidden" style="border: 1px solid rgba(0,0,0,0.10); background: rgba(0,0,0,0.02);">
+        <img src={image} alt={title} width="1200" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </div>
+</section>

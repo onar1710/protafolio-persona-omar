@@ -1,0 +1,161 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import InterlinkedContent from '../components/InterlinkedContent.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import Layout from './Layout.astro';
+import LayoutEN from './LayoutEN.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, author, pubDate, updatedDate, heroImage } = Astro.props;
+
+const isEn = Astro.url.pathname.startsWith('/en/');
+const backToBlogHref = isEn ? '/en/blog/' : '/blog/';
+
+const allPosts = await getCollection('blog');
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+{
+	isEn ? (
+		<LayoutEN
+			title={`${title} | Blog`}
+			description={description}
+			keywords="web design, web development, SEO, performance"
+		>
+			<link slot="head" rel="canonical" href={canonicalURL} />
+			<meta slot="head" name="author" content={author} />
+			<meta slot="head" property="article:author" content={author} />
+			<main class="py-16 md:py-24 lg:py-32 bg-white pt-24">
+				<div class="px-6 md:px-8 lg:px-12 mx-auto max-w-4xl">
+					<a href={backToBlogHref} class="text-primary-blue font-semibold hover:underline">Back to blog</a>
+
+					{heroImage && (
+						<div class="mt-6 mb-10">
+							<img
+								src={heroImage}
+								alt={title}
+								width="1200"
+								height="630"
+								loading="lazy"
+								decoding="async"
+								class="rounded-2xl w-full h-auto"
+							/>
+						</div>
+					)}
+
+					<header class="mt-6 mb-10">
+						<div class="flex items-center gap-3 mb-6">
+							<img
+								src="/foto-perfil-omar-fuentes.jpeg"
+								alt={author}
+								width="48"
+								height="48"
+								loading="lazy"
+								decoding="async"
+								class="rounded-full"
+								style="width: 48px; height: 48px; object-fit: cover;"
+							/>
+							<div class="flex items-center gap-2 flex-wrap">
+								<span class="font-bold text-black text-base">{author}</span>
+								<span class="text-gray-400">•</span>
+								<span class="text-sm text-gray-600">
+									<FormattedDate date={pubDate} />
+								</span>
+								{
+									updatedDate && (
+										<>
+											<span class="text-gray-400">•</span>
+											<span class="text-sm text-gray-600">
+												Updated: <FormattedDate date={updatedDate} />
+											</span>
+										</>
+									)
+								}
+							</div>
+						</div>
+						<h1 class="text-3xl md:text-5xl font-black leading-tight">{title}</h1>
+					</header>
+
+					<article class="post-content text-black" style="max-width: 100%;">
+						<InterlinkedContent posts={allPosts}>
+							<slot />
+						</InterlinkedContent>
+					</article>
+					<RelatedArticles posts={allPosts} />
+				</div>
+			</main>
+		</LayoutEN>
+	) : (
+		<Layout
+			title={`${title} | Blog`}
+			description={description}
+			keywords="diseño de páginas web, desarrollo web, SEO, Colombia"
+		>
+			<link slot="head" rel="canonical" href={canonicalURL} />
+			<meta slot="head" name="author" content={author} />
+			<meta slot="head" property="article:author" content={author} />
+			<main class="py-16 md:py-24 lg:py-32 bg-white pt-24">
+				<div class="px-6 md:px-8 lg:px-12 mx-auto max-w-4xl">
+					<a href={backToBlogHref} class="text-primary-blue font-semibold hover:underline">Volver al blog</a>
+
+					{heroImage && (
+						<div class="mt-6 mb-10">
+							<img
+								src={heroImage}
+								alt={title}
+								width="1200"
+								height="630"
+								loading="lazy"
+								decoding="async"
+								class="rounded-2xl w-full h-auto"
+							/>
+						</div>
+					)}
+
+					<header class="mt-6 mb-10">
+						<div class="flex items-center gap-3 mb-6">
+							<img
+								src="/foto-perfil-omar-fuentes.jpeg"
+								alt={author}
+								width="48"
+								height="48"
+								loading="lazy"
+								decoding="async"
+								class="rounded-full"
+								style="width: 48px; height: 48px; object-fit: cover;"
+							/>
+							<div class="flex items-center gap-2 flex-wrap">
+								<span class="font-bold text-black text-base">{author}</span>
+								<span class="text-gray-400">•</span>
+								<span class="text-sm text-gray-600">
+									<FormattedDate date={pubDate} />
+								</span>
+								{
+									updatedDate && (
+										<>
+											<span class="text-gray-400">•</span>
+											<span class="text-sm text-gray-600">
+												Actualizado: <FormattedDate date={updatedDate} />
+											</span>
+										</>
+									)
+								}
+							</div>
+						</div>
+						<h1 class="text-3xl md:text-5xl font-black leading-tight">{title}</h1>
+					</header>
+
+					<article class="post-content text-black" style="max-width: 100%;">
+						<InterlinkedContent posts={allPosts}>
+							<slot />
+						</InterlinkedContent>
+					</article>
+					<RelatedArticles posts={allPosts} />
+				</div>
+			</main>
+		</Layout>
+	)
+}

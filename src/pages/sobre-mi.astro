@@ -1,0 +1,502 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const timelineItems = [
+  {
+    date: '2018',
+    title: 'Inicios en desarrollo',
+    description:
+      'Comencé mi viaje aprendiendo HTML, CSS y JavaScript. Mis primeros proyectos fueron sitios personales para entender los fundamentos del desarrollo web.',
+  },
+  {
+    date: '2019',
+    title: 'Primeros proyectos profesionales',
+    description:
+      'Empecé a construir sitios para negocios locales en Colombia, enfocándome en velocidad, estructura y claridad. Aprendí la importancia del SEO básico y el rendimiento.',
+  },
+  {
+    date: '2020',
+    title: 'Especialización Frontend',
+    description:
+      'Me profundicé en React y JavaScript moderno. Desarrollé aplicaciones más complejas y entendí la importancia de la arquitectura de componentes.',
+  },
+  {
+    date: '2021',
+    title: 'Enfoque SEO + performance',
+    description:
+      'Me especialicé en SEO técnico, Core Web Vitals y experiencias rápidas en móvil. Certificaciones en Google Analytics y optimización de rendimiento.',
+  },
+  {
+    date: '2022',
+    title: 'Expansión a Full Stack',
+    description:
+      'Incorporé Node.js y backend a mis habilidades. Pude ofrecer soluciones completas y entender mejor el ciclo completo del desarrollo web.',
+  },
+  {
+    date: '2023',
+    title: 'Webs que convierten',
+    description:
+      'Me enfoqué en landing pages y sitios pensados para convertir visitas en leads y ventas. Aprendí sobre psicología del usuario y optimización de tasas de conversión.',
+  },
+  {
+    date: '2024',
+    title: 'Sistemas de diseño',
+    description:
+      'Desarrollé sistemas de diseño completos para mantener consistencia y escalabilidad. Implementé design tokens y componentes reutilizables.',
+  },
+  {
+    date: 'Hoy',
+    title: 'Trabajo directo contigo',
+    description:
+      'Freelance: comunicación clara, entregables definidos y soporte post-lanzamiento. Me especializo en proyectos que necesitan resultados medibles.',
+  },
+];
+
+const howIWork = [
+  {
+    title: 'Velocidad y rendimiento',
+    description:
+      'Optimizo Core Web Vitals para que tu sitio cargue en menos de 2 segundos. Implemento lazy loading, code splitting y optimización de imágenes para garantizar la máxima velocidad.',
+  },
+  {
+    title: 'Código limpio y mantenible',
+    description:
+      'Nada de parches ni soluciones temporales. Estructura ordenada con componentes reutilizables y un enfoque profesional para que el proyecto sea fácil de mantener.',
+  },
+  {
+    title: 'Diseño responsive real',
+    description:
+      'No solo adapto: optimizo la experiencia para cada dispositivo. Enfoque mobile-first con layouts que se adaptan perfecto a móviles, tablets y escritorio.',
+  },
+  {
+    title: 'SEO técnico avanzado',
+    description:
+      'Implemento metadatos, schema básico cuando aplica, estructura y buenas prácticas de performance para que tu sitio pueda competir y captar tráfico orgánico.',
+  },
+  {
+    title: 'Desarrollo a medida',
+    description:
+      'Elijo la tecnología perfecta para tu proyecto: Next.js para aplicaciones, Astro para sitios ultra-rápidos, o WordPress para gestionar contenido de forma sencilla.',
+  },
+  {
+    title: 'Comunicación directa',
+    description:
+      'Trabajo directo contigo, sin intermediarios. Avances claros, decisiones rápidas y soporte después del lanzamiento.',
+  },
+];
+
+const expectations = [
+  {
+    name: 'Diseño y UX',
+    role:
+      'Interfaces limpias, modernas y enfocadas en conversión. Cada elemento está pensado para guiar al usuario hacia la acción deseada.',
+    image: '/images/sobre-mi/Diseño-UX.jpg',
+  },
+  {
+    name: 'Desarrollo',
+    role:
+      'Implementación rápida, código limpio y arquitectura escalable. Uso mejores prácticas para garantizar rendimiento óptimo.',
+    image: '/images/sobre-mi/Desarrollo.jpg',
+  },
+  {
+    name: 'SEO & Performance',
+    role:
+      'Optimización técnica completa: desde Core Web Vitals hasta estructura. Tu sitio queda preparado para competir y posicionarse.',
+    image: '/images/sobre-mi/SEO-Performance.jpg',
+  },
+  {
+    name: 'Soporte Continuo',
+    role:
+      'Acompañamiento post-lanzamiento con mantenimiento, actualizaciones y soporte técnico. No te dejo solo después del lanzamiento.',
+    image: '/images/sobre-mi/Soporte.jpg',
+  },
+];
+
+const skillGroups = [
+  {
+    title: 'Frontend',
+    items: [
+      { name: 'React/Next.js', levelLabel: 'Experto', pct: 95, color: 'blue' },
+      { name: 'TypeScript', levelLabel: 'Avanzado', pct: 85, color: 'blue' },
+      { name: 'Tailwind CSS', levelLabel: 'Experto', pct: 90, color: 'blue' },
+      { name: 'Astro', levelLabel: 'Avanzado', pct: 80, color: 'blue' },
+    ],
+  },
+  {
+    title: 'Backend',
+    items: [
+      { name: 'Node.js', levelLabel: 'Avanzado', pct: 80, color: 'green' },
+      { name: 'APIs REST', levelLabel: 'Experto', pct: 85, color: 'green' },
+      { name: 'WordPress', levelLabel: 'Avanzado', pct: 75, color: 'green' },
+      { name: 'Bases de Datos', levelLabel: 'Intermedio', pct: 70, color: 'green' },
+    ],
+  },
+  {
+    title: 'SEO & Performance',
+    items: [
+      { name: 'SEO Técnico', levelLabel: 'Experto', pct: 95, color: 'purple' },
+      { name: 'Core Web Vitals', levelLabel: 'Experto', pct: 90, color: 'purple' },
+      { name: 'Schema Markup', levelLabel: 'Avanzado', pct: 85, color: 'purple' },
+      { name: 'Analytics', levelLabel: 'Avanzado', pct: 80, color: 'purple' },
+    ],
+  },
+];
+
+const values = [
+  {
+    title: 'Transparencia',
+    description:
+      'Comunicación honesta sobre tiempos, costos y posibilidades. Sin sorpresas ni promesas irreales.',
+  },
+  {
+    title: 'Excelencia',
+    description:
+      'Me comprometo con la calidad en cada detalle. Cada proyecto debe superar las expectativas.',
+  },
+  {
+    title: 'Responsabilidad',
+    description:
+      'Asumo el compromiso total con cada proyecto. Tu éxito es mi éxito y mi reputación está en juego.',
+  },
+  {
+    title: 'Innovación',
+    description:
+      'Siempre aprendiendo y aplicando las últimas tecnologías para darte una ventaja competitiva real.',
+  },
+];
+
+const achievements = [
+  {
+    title: '50+ Proyectos Completados',
+    description: 'Sitios web lanzados y funcionando para clientes en Colombia y Latinoamérica.',
+    metaLeft: '2018-2024',
+    metaRight: '95% satisfacción',
+  },
+  {
+    title: 'Core Web Vitals Perfectos',
+    description: 'Múltiples proyectos con puntuación 100/100 en Google PageSpeed Insights.',
+    metaLeft: '2023-2024',
+    metaRight: 'Rendimiento óptimo',
+  },
+  {
+    title: 'Top 3 en Google',
+    description: 'Clientes posicionados en las primeras posiciones para palabras clave competitivas.',
+    metaLeft: 'SEO',
+    metaRight: 'Resultados medibles',
+  },
+  {
+    title: 'Certificaciones Google',
+    description: 'Certificado en Analytics, SEO y Performance Optimization por Google.',
+    metaLeft: '2021',
+    metaRight: 'Formación continua',
+  },
+  {
+    title: 'Sistemas de Diseño',
+    description: 'Desarrollo de design systems completos para empresas y startups.',
+    metaLeft: '2024',
+    metaRight: 'Escalabilidad',
+  },
+  {
+    title: 'Apps Mobile-First',
+    description: 'Aplicaciones web progresivas con experiencia nativa en móviles.',
+    metaLeft: 'PWA',
+    metaRight: 'Responsive avanzado',
+  },
+];
+
+const barClass = (color) =>
+  color === 'green'
+    ? 'from-primary-green to-accent-green'
+    : color === 'purple'
+      ? 'from-primary-blue via-primary-yellow to-primary-green'
+      : 'from-primary-blue to-accent-blue';
+
+const expectationIcon = (name) => {
+  if (name === 'Diseño y UX') {
+    return `
+      <svg viewBox="0 0 64 64" aria-hidden="true" class="w-14 h-14">
+        <defs>
+          <linearGradient id="uxg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="var(--primary-blue)" />
+            <stop offset="1" stop-color="var(--primary-yellow)" />
+          </linearGradient>
+        </defs>
+        <rect x="10" y="12" width="44" height="32" rx="8" fill="url(#uxg)" opacity="0.25" />
+        <rect x="14" y="16" width="36" height="24" rx="6" fill="none" stroke="var(--primary-blue)" stroke-width="3" />
+        <circle cx="24" cy="28" r="3" fill="var(--primary-blue)" />
+        <circle cx="32" cy="28" r="3" fill="var(--primary-blue)" />
+        <path d="M38 30c2.5 2.5 6.5 2.5 9 0" fill="none" stroke="var(--primary-blue)" stroke-width="3" stroke-linecap="round" />
+        <path d="M18 52h28" stroke="var(--primary-blue)" stroke-width="3" stroke-linecap="round" />
+      </svg>
+    `;
+  }
+
+  if (name === 'Desarrollo') {
+    return `
+      <svg viewBox="0 0 64 64" aria-hidden="true" class="w-14 h-14">
+        <defs>
+          <linearGradient id="devg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="var(--primary-green)" />
+            <stop offset="1" stop-color="var(--primary-blue)" />
+          </linearGradient>
+        </defs>
+        <rect x="10" y="12" width="44" height="40" rx="10" fill="url(#devg)" opacity="0.2" />
+        <path d="M24 26l-8 6 8 6" fill="none" stroke="var(--primary-blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M40 26l8 6-8 6" fill="none" stroke="var(--primary-blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M34 24l-4 16" fill="none" stroke="var(--primary-green)" stroke-width="3" stroke-linecap="round" />
+      </svg>
+    `;
+  }
+
+  if (name === 'SEO & Performance') {
+    return `
+      <svg viewBox="0 0 64 64" aria-hidden="true" class="w-14 h-14">
+        <defs>
+          <linearGradient id="seog" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="var(--primary-blue)" />
+            <stop offset="1" stop-color="var(--primary-green)" />
+          </linearGradient>
+        </defs>
+        <circle cx="28" cy="28" r="14" fill="url(#seog)" opacity="0.2" />
+        <circle cx="28" cy="28" r="10" fill="none" stroke="var(--primary-blue)" stroke-width="3" />
+        <path d="M38 38l10 10" stroke="var(--primary-green)" stroke-width="4" stroke-linecap="round" />
+        <path d="M20 30l4 4 10-12" fill="none" stroke="var(--primary-blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    `;
+  }
+
+  return `
+    <svg viewBox="0 0 64 64" aria-hidden="true" class="w-14 h-14">
+      <defs>
+        <linearGradient id="supg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="var(--primary-yellow)" />
+          <stop offset="1" stop-color="var(--primary-blue)" />
+        </linearGradient>
+      </defs>
+      <path d="M32 12a16 16 0 1016 16A16 16 0 0032 12z" fill="url(#supg)" opacity="0.2" />
+      <path d="M24 34l4 4 12-14" fill="none" stroke="var(--primary-green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M20 50h24" stroke="var(--primary-blue)" stroke-width="3" stroke-linecap="round" />
+      <path d="M26 50v-6m12 6v-6" stroke="var(--primary-blue)" stroke-width="3" stroke-linecap="round" />
+    </svg>
+  `;
+};
+
+const heroProfileSvg = `
+  <svg viewBox="0 0 1200 750" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Omar Fuentes - Desarrollador Web" class="w-full h-auto">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff" />
+        <stop offset="1" stop-color="#ffffff" />
+      </linearGradient>
+      <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="var(--primary-blue)" />
+        <stop offset="0.5" stop-color="var(--primary-yellow)" />
+        <stop offset="1" stop-color="var(--primary-green)" />
+      </linearGradient>
+      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000" flood-opacity="0.12"/>
+      </filter>
+
+	  <clipPath id="avatarClip">
+		<circle cx="360" cy="360" r="136" />
+	  </clipPath>
+    </defs>
+
+    <rect width="1200" height="750" fill="url(#bg)"/>
+
+    <circle cx="980" cy="140" r="220" fill="url(#ring)" opacity="0.10"/>
+    <circle cx="180" cy="620" r="260" fill="url(#ring)" opacity="0.08"/>
+
+    <g filter="url(#shadow)">
+      <rect x="120" y="120" width="960" height="510" rx="40" fill="#ffffff"/>
+    </g>
+
+    <g transform="translate(0,0)">
+      <circle cx="360" cy="360" r="160" fill="url(#ring)"/>
+      <circle cx="360" cy="360" r="146" fill="#ffffff"/>
+	  <image
+		href="/foto-perfil-omar-fuentes.jpeg"
+		x="224"
+		y="224"
+		width="272"
+		height="272"
+		clip-path="url(#avatarClip)"
+		preserveAspectRatio="xMidYMid slice"
+	  />
+    </g>
+
+    <text x="560" y="320" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="56" font-weight="900" fill="#0F172A">Omar Fuentes</text>
+    <text x="560" y="380" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="30" font-weight="700" fill="#334155">Desarrollador Web</text>
+    <text x="560" y="430" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#475569">SEO • Performance • Diseño que convierte</text>
+
+    <g transform="translate(560, 470)">
+      <rect x="0" y="0" width="520" height="14" rx="7" fill="var(--gray-100)"/>
+      <rect x="0" y="0" width="320" height="14" rx="7" fill="url(#ring)"/>
+    </g>
+  </svg>
+`;
+---
+
+<Layout
+  title="Sobre mí | Omar Fuentes"
+  description="Conoce a Omar Fuentes: desarrollador web freelance en Colombia con experiencia en SEO técnico, diseño web y desarrollo de sitios rápidos que convierten."
+  keywords="sobre mi, omar fuentes, desarrollador web, freelance, seo técnico, diseño web, colombia"
+>
+  <main class="py-16 md:py-24 lg:py-32 bg-white pt-24">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-6xl">
+      <a href="/" class="text-primary-blue font-semibold hover:underline">Volver al inicio</a>
+
+      <header class="mt-6 mb-12">
+        <h1 class="text-4xl md:text-5xl font-black mb-4">Sobre mí</h1>
+        <p class="text-xl text-black max-w-3xl">
+          Desarrollador web freelance en Colombia especializado en crear sitios rápidos, optimizados para SEO y diseñados para convertir.
+        </p>
+      </header>
+
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-black mb-4">Hola, soy Omar</h2>
+          <p class="text-black">
+            Soy un desarrollador web apasionado con sede en Colombia, especializado en crear experiencias digitales que realmente funcionan. Mi viaje comenzó en 2018 y desde entonces he ayudado a decenas de negocios y emprendedores a establecer su presencia online con resultados medibles.
+          </p>
+          <p class="text-black mt-4">
+            Mi filosofía es simple: <strong>sin complicaciones, sin rellenos, solo resultados</strong>. Me especializo en transformar ideas en sitios web rápidos, optimizados para SEO desde el primer día y diseñados para convertir visitantes en clientes.
+          </p>
+          <p class="text-black mt-4">
+            Lo que me diferencia es mi enfoque integral: no solo construyo sitios web, sino que entiendo tu negocio, tu mercado y tus objetivos. Trabajo directamente contigo (sin agencias ni intermediarios) para asegurar que cada línea de código y cada píxel esté alineado con tus metas.
+          </p>
+          <p class="text-black mt-4">
+            Cuando no estoy programando, probablemente esté aprendiendo sobre nuevas tecnologías, optimizando el rendimiento de algún proyecto o disfrutando de un buen café mientras planifico la próxima gran idea digital.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-lg">
+          <div class="rounded-2xl overflow-hidden">
+            <div set:html={heroProfileSvg} />
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-20">
+        <h2 class="text-3xl md:text-4xl font-black mb-10 text-center">Mi camino</h2>
+        <div class="space-y-6">
+          {timelineItems.map((item) => (
+            <div class="card">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-14 text-primary-blue font-black">{item.date}</div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">{item.title}</h3>
+                  <p class="text-black">{item.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-20">
+        <h2 class="text-3xl md:text-4xl font-black mb-6 text-center">Cómo trabajo</h2>
+        <p class="text-black text-center max-w-3xl mx-auto">
+          Mi metodología se basa en comunicación transparente, entregables claros y resultados medibles. Cada proyecto es único, pero el proceso sigue estos principios fundamentales.
+        </p>
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {howIWork.map((item) => (
+            <div class="card">
+              <h3 class="text-xl font-bold mb-2">{item.title}</h3>
+              <p class="text-black">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-20">
+        <h2 class="text-3xl md:text-4xl font-black mb-6 text-center">Lo que puedes esperar</h2>
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {expectations.map((m) => (
+            <div class="bg-white rounded-2xl overflow-hidden transition-all duration-500 border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2">
+              <div class="relative aspect-video overflow-hidden">
+                <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-green-50">
+                  <div class="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center">
+                    <div set:html={expectationIcon(m.name)} />
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="font-bold text-lg mb-2">{m.name}</div>
+                <p class="text-black text-sm">{m.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-20">
+        <h2 class="text-3xl md:text-4xl font-black mb-6 text-center">Mis Habilidades Técnicas</h2>
+        <p class="text-black text-center max-w-3xl mx-auto">
+          Tecnologías y herramientas que domino para crear soluciones web completas y de alto rendimiento.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skillGroups.map((group) => (
+            <div class="card">
+              <h3 class="text-xl font-bold mb-6">{group.title}</h3>
+              <div class="space-y-4">
+                {group.items.map((s) => (
+                  <div>
+                    <div class="flex justify-between mb-2">
+                      <span class="text-sm font-semibold">{s.name}</span>
+                      <span class="text-sm text-gray-600">{s.levelLabel}</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                      <div
+                        class={`bg-gradient-to-r ${barClass(s.color)} h-3 rounded-full`}
+                        style={`width: ${s.pct}%`}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-20">
+        <h2 class="text-3xl md:text-4xl font-black mb-6 text-center">Mis Valores y Filosofía</h2>
+        <p class="text-black text-center max-w-3xl mx-auto">
+          Estos son los principios que guían cada proyecto y cada línea de código que escribo.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((v) => (
+            <div class="card text-center">
+              <h3 class="text-lg font-bold mb-2">{v.title}</h3>
+              <p class="text-black text-sm">{v.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-20">
+        <h2 class="text-3xl md:text-4xl font-black mb-6 text-center">Logros y Reconocimientos</h2>
+        <p class="text-black text-center max-w-3xl mx-auto">
+          Algunos hitos importantes que marcan mi trayectoria y el impacto que he generado.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {achievements.map((a) => (
+            <div class="card">
+              <h3 class="text-lg font-bold mb-2">{a.title}</h3>
+              <p class="text-black text-sm mb-4">{a.description}</p>
+              <div class="flex items-center gap-2 text-xs text-gray-600">
+                <span class="px-2 py-1 rounded-full border border-gray-200">{a.metaLeft}</span>
+                <span>•</span>
+                <span>{a.metaRight}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

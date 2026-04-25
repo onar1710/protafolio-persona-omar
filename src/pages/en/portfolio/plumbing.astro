@@ -1,0 +1,296 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import CaseStudyIcon from '../../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "Aqua Imperio Plumbing - My Local Service Website Project",
+  description:
+    "This project was strategic: I helped a traditional plumbing service become a top local choice. I used HTML5, local SEO and content strategy to compete for searches like 'plumber Bogotá'.",
+  cliente: "Aqua Imperio Plumbing",
+  fecha: "2026",
+  tipo: "Service Business Website",
+  tecnologias: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Local SEO"],
+  url: "https://plomeriaaquaimperio.co/",
+  imagen: "/images-portfolio/proyecto-imagen-plemria.png",
+  stats: {
+    development: "1 week",
+    pages: "15+ pages",
+    services: "12 specialized services",
+    seo: "Complete Local SEO",
+  },
+  results: [
+    "✅ Site built to compete for local-intent searches and drive direct calls",
+    "✅ Ridgid technology positioning - customers know they use professional equipment",
+    "✅ WhatsApp as the primary contact channel for urgent plumbing needs",
+    "✅ Structured data implemented so Google understands services and service area",
+    "✅ 100% responsive - clients find and contact from mobile anytime",
+    "✅ Educational content that converts - answers real customer questions",
+  ],
+};
+
+const techStack = [
+  { name: "HTML5", description: "Semantic structure optimized for SEO", icon: "📄" },
+  { name: "CSS3", description: "Professional responsive visual design", icon: "🎨" },
+  { name: "JavaScript", description: "Interactivity and UX improvements", icon: "⚡" },
+  { name: "Bootstrap 5", description: "CSS framework for rapid delivery", icon: "🅱️" },
+  { name: "Local SEO", description: "Optimization for geographic searches", icon: "🗺️" },
+  { name: "Schema Markup", description: "Structured data for Google", icon: "🔍" },
+];
+
+const phases = [
+  {
+    title: "Days 1-2: Understanding the Local Plumbing Market",
+    week: "Days 1-2",
+    tasks: [
+      "Day 1: Competitor analysis - how other plumbers present themselves online",
+      "Day 2: Deep research - identified Ridgid technology as a key differentiator",
+      "Day 3: Keyword research - real queries like 'emergency plumber Bogotá' and 'pipe unclogging price'",
+      "Day 4: Architecture - 15 pages covering each specialized service",
+    ],
+  },
+  {
+    title: "Days 3-4: Building a Trustworthy Digital Presence",
+    week: "Days 3-4",
+    tasks: [
+      "Day 5: Visual design that builds trust - professional but approachable",
+      "Day 6: Responsive development - most urgent plumbing searches happen on mobile",
+      "Day 7: Implemented core pages - each service optimized for conversion",
+      "Day 8: WhatsApp integration - primary channel for urgent requests",
+    ],
+  },
+  {
+    title: "Days 5-7: Local SEO Execution",
+    week: "Days 5-7",
+    tasks: [
+      "Day 9: Local SEO implementation - targeting Bogotá areas",
+      "Day 10: Structured data - LocalBusiness schema so Google understands the business",
+      "Day 11: Speed optimization - when there's a leak, every second counts",
+      "Day 12: Final testing and deploy - ready to receive customers 24/7",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🔧",
+    title: "Ridgid Specialization That Sells",
+    description:
+      "Highlighted their Ridgid professional equipment so customers immediately see they are not a generic service.",
+  },
+  {
+    icon: "🗺️",
+    title: "Local SEO for Bogotá",
+    description:
+      "Built pages around real local-intent searches so they can be found when customers need help fast.",
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp for Emergencies",
+    description:
+      "WhatsApp-first contact so people can get help quickly without filling long forms.",
+  },
+  {
+    icon: "📱",
+    title: "Mobile-First for Urgent Situations",
+    description:
+      "Designed for quick action on mobile: clear CTAs and frictionless contact.",
+  },
+  {
+    icon: "🔍",
+    title: "Schema Markup Google Understands",
+    description:
+      "LocalBusiness structured data to clarify services, location and contact information.",
+  },
+  {
+    icon: "📚",
+    title: "Content That Answers Real Questions",
+    description:
+      "Educational service content that builds trust and supports SEO.",
+  },
+];
+
+const metrics = [
+  { label: "Delivery Time", value: "1 week", icon: "⏱️" },
+  { label: "Pages", value: "15+", icon: "📄" },
+  { label: "Services", value: "12", icon: "🔧" },
+  { label: "SEO Score", value: "9.5/10", icon: "🔍" },
+];
+
+const clientInfo = [
+  "Business: Aqua Imperio Plumbing",
+  "Location: Bogotá, Colombia",
+  "Experience: 12+ years in plumbing",
+  "Differentiator: Ridgid professional technology",
+  "Services: 12 specialized services",
+];
+
+const objectives = [
+  "Generate qualified leads through WhatsApp",
+  "Rank for local plumbing searches",
+  "Differentiate with Ridgid technology",
+  "Educate customers about specialized services",
+  "Make contact simple and immediate",
+];
+
+const experience = [
+  {
+    title: "🔧 The Real Challenge",
+    text: "Aqua Imperio had great technicians but no online visibility. In Bogotá, when someone needs a plumber, they search Google and call the first option. The mission was to become that first option.",
+  },
+  {
+    title: "💡 Local Strategy",
+    text: "Ridgid technology was the competitive edge. I positioned them as specialists with professional equipment, and optimized each page for urgent, real-world searches.",
+  },
+  {
+    title: "🚀 Results That Convert",
+    text: "Customers started reaching out directly after finding them via Google. Many referenced the professional equipment messaging—exactly the trust signal we wanted.",
+  },
+  {
+    title: "📚 What I Learned",
+    text: "For local service businesses, being found at the right moment matters more than having the fanciest site. Local SEO + trust signals = phone calls.",
+  },
+];
+---
+
+<LayoutEN title="Aqua Imperio Plumbing - Case Study | Omar Fuentes" description="Case study: local service website for a plumbing business in Bogotá with local SEO, conversion optimization and WhatsApp-first contact.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="en"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/en/portfolio/projects/"
+        technologies={project.tecnologias}
+        badges={["1 week development", "Completed"]}
+      />
+
+      <section class="py-10 mb-10" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08); border-radius: 1.5rem;">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 px-8">
+          {metrics.map((m) => (
+            <div class="text-center">
+              <div class="flex justify-center"><CaseStudyIcon icon={m.icon} class="w-12 h-12" /></div>
+              <div class="text-2xl font-black mt-2" style="color: var(--primary-blue);">{m.value}</div>
+              <div class="text-black font-bold mt-1">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <div class="max-w-3xl mx-auto text-center mb-10">
+          <h2 class="text-3xl font-black text-black mb-4">Project Summary</h2>
+          <p class="text-black">
+            Complete website build for a plumbing business in Bogotá with a local SEO strategy, clear differentiation, and conversion-focused contact flows.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+            <h3 class="text-xl font-black text-black mb-4">Client Information</h3>
+            <div class="space-y-2">
+              {clientInfo.map((line) => (
+                <p class="text-black"><strong>{line.split(':')[0]}:</strong>{' '}{line.split(':').slice(1).join(':').trim()}</p>
+              ))}
+            </div>
+          </div>
+
+          <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+            <h3 class="text-xl font-black text-black mb-4">Project Goals</h3>
+            <ul class="space-y-2">
+              {objectives.map((o) => (
+                <li class="text-black">• {o}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Tech Stack</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Development Process</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Key Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="flex justify-center"><CaseStudyIcon icon={feature.icon} class="w-14 h-14" /></div>
+              <h3 class="text-lg font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Project Results</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">My Experience with Aqua Imperio</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">Need more local leads that call immediately?</h2>
+          <p class="text-white mb-8">I can help your service business win local searches and convert visitors into calls.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20your%20Plumbing%20case%20study%20and%20I%20want%20to%20win%20local%20search" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Let’s talk</a>
+            <a href="/en/portfolio/projects/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">View more projects</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</LayoutEN>

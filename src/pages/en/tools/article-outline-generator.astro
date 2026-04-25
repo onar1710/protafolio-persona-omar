@@ -1,0 +1,80 @@
+---
+import Layout from '../../../layouts/LayoutEN.astro';
+---
+
+<Layout
+  title="Free Article Outline Generator | Omar Fuentes"
+  description="Generate a complete SEO-focused article outline (H2/H3, FAQ, tables, and more)."
+>
+  <main class="pt-24 pb-20 bg-white">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-5xl">
+      <a href="/en/tools/" class="text-primary-blue font-semibold hover:underline">Back to tools</a>
+
+      <header class="mt-6 mb-10">
+        <h1 class="text-4xl md:text-5xl font-black mb-4">Article Outline Generator</h1>
+        <p class="text-black text-lg max-w-3xl">
+          Create a structured outline with H2/H3 sections, FAQs, and suggested additions.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <form id="outlineForm" class="card">
+          <div class="grid grid-cols-1 gap-4">
+            <label class="block">
+              <span class="block text-sm font-semibold mb-2">Topic / title</span>
+              <input id="topic" class="w-full border border-gray-200 rounded-xl px-4 py-3" placeholder="e.g. How to start a podcast" required />
+            </label>
+
+            <label class="block">
+              <span class="block text-sm font-semibold mb-2">Primary keyword</span>
+              <input id="primary" class="w-full border border-gray-200 rounded-xl px-4 py-3" placeholder="e.g. start a podcast" required />
+            </label>
+
+            <label class="block">
+              <span class="block text-sm font-semibold mb-2">Secondary keywords (comma separated)</span>
+              <input id="secondary" class="w-full border border-gray-200 rounded-xl px-4 py-3" placeholder="e.g. podcast equipment, podcast hosting, podcast editing" />
+            </label>
+
+            <label class="block">
+              <span class="block text-sm font-semibold mb-2">Content type</span>
+              <select id="type" class="w-full border border-gray-200 rounded-xl px-4 py-3 bg-white">
+                <option value="blog" selected>Blog post</option>
+                <option value="guide">Step-by-step guide</option>
+                <option value="comparison">Comparison</option>
+                <option value="local">Local service page</option>
+              </select>
+            </label>
+
+            <label class="block">
+              <span class="block text-sm font-semibold mb-2">Competitor data (optional)</span>
+              <textarea id="competitorJson" class="w-full border border-gray-200 rounded-xl px-4 py-3 min-h-[120px]" placeholder="Paste Google SERP JSON or notes here (optional)"></textarea>
+            </label>
+          </div>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button type="submit" id="generateBtn" class="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-primary-blue to-accent-blue hover:shadow-glow-blue transition-all">
+              Generate outline (AI)
+            </button>
+            <button type="button" id="copyBtn" class="px-6 py-3 rounded-xl font-semibold border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white transition-all" disabled>
+              Copy
+            </button>
+            <button type="button" id="downloadBtn" class="px-6 py-3 rounded-xl font-semibold border-2 border-primary-green text-primary-green hover:bg-primary-green hover:text-white transition-all" disabled>
+              Download .txt
+            </button>
+          </div>
+        </form>
+
+        <div class="card">
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <h2 class="text-xl font-bold">Outline</h2>
+            <span id="meta" class="text-xs text-gray-600"></span>
+          </div>
+          <pre id="output" class="whitespace-pre-wrap text-sm text-black"></pre>
+          <p id="empty" class="text-gray-600">Fill the form and click “Generate outline”.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/tools/outline-generator.js" data-default-lang="en"></script>
+</Layout>

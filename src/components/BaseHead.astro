@@ -1,0 +1,251 @@
+---
+import type { ImageMetadata } from 'astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props {
+	title: string;
+	description: string;
+	lang?: 'es' | 'en';
+	keywords?: string | string[];
+	author?: string;
+	image?: string | ImageMetadata;
+	canonical?: string;
+	ogType?: 'website' | 'article';
+	twitterHandle?: string;
+	noindex?: boolean;
+}
+
+const {
+	title,
+	description,
+	lang = 'es',
+	keywords,
+	author = 'Omar Fuentes',
+	image = '/og-image.webp',
+	canonical,
+	ogType = 'website',
+	twitterHandle = '@omarfuentes052',
+	noindex = false,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://omarfuentes.com');
+
+const normalizeCanonicalPathname = (p: string): string => {
+	const raw = String(p || '/');
+	if (raw === '') return '/';
+	const pathnameOnly = raw.split('?')[0].split('#')[0];
+	if (pathnameOnly === '/') return '/';
+	if (pathnameOnly.endsWith('/')) return pathnameOnly;
+	if (pathnameOnly.includes('.')) return pathnameOnly;
+	return `${pathnameOnly}/`;
+};
+
+const canonicalUrl = (() => {
+	if (canonical) {
+		try {
+			const u = new URL(canonical, site);
+			u.pathname = normalizeCanonicalPathname(u.pathname);
+			return u.toString();
+		} catch {
+			const u = new URL(Astro.url.pathname, site);
+			u.pathname = normalizeCanonicalPathname(u.pathname);
+			return u.toString();
+		}
+	}
+	{
+		const u = new URL(Astro.url.pathname, site);
+		u.pathname = normalizeCanonicalPathname(u.pathname);
+		return u.toString();
+	}
+})();
+
+const absoluteImageUrl = (() => {
+	if (typeof image === 'string') {
+		try {
+			return new URL(image, site).toString();
+		} catch {
+			return new URL('/og-image.webp', site).toString();
+		}
+	}
+
+	try {
+		return new URL(image.src, site).toString();
+	} catch {
+		return new URL('/og-image.webp', site).toString();
+	}
+})();
+
+const locale = lang === 'en' ? 'en_US' : 'es_CO';
+const alternateLocale = lang === 'en' ? 'es_CO' : 'en_US';
+const inLanguage = lang === 'en' ? 'en-US' : 'es-CO';
+
+const keywordText =
+	typeof keywords === 'string'
+		? keywords.trim()
+		: Array.isArray(keywords)
+			? keywords.map((k) => String(k).trim()).filter(Boolean).join(', ')
+			: '';
+
+const pathname = Astro.url.pathname || '/';
+const mapAlternatePathname = (p: string, currentLang: 'es' | 'en'): string => {
+	const esToEn: Array<{ re: RegExp; to: string }> = [
+		{ re: /^\/herramientas\/?$/, to: '/en/tools/' },
+		{ re: /^\/herramientas\/generador-titulos-seo\/?$/, to: '/en/tools/seo-title-generator/' },
+		{ re: /^\/herramientas\/generador-estructura-articulos\/?$/, to: '/en/tools/article-outline-generator/' },
+		{ re: /^\/sobre-mi\/?$/, to: '/en/about/' },
+		{ re: /^\/contacto\/?$/, to: '/en/contact/' },
+		{ re: /^\/servicios\/?$/, to: '/en/services/' },
+		{ re: /^\/precios\/?$/, to: '/en/pricing/' },
+		{ re: /^\/politica-privacidad\/?$/, to: '/en/privacy-policy/' },
+		{ re: /^\/privacy-policy\/?$/, to: '/en/privacy-policy/' },
+		{ re: /^\/politicas-cookies\/?$/, to: '/en/cookies-policy/' },
+		{ re: /^\/cookies-policy\/?$/, to: '/en/cookies-policy/' },
+		{ re: /^\/aviso-legal\/?$/, to: '/en/legal-notice/' },
+		{ re: /^\/legal-notice\/?$/, to: '/en/legal-notice/' },
+		{ re: /^\/terminos-condiciones\/?$/, to: '/en/terms-conditions/' },
+		{ re: /^\/terms-conditions\/?$/, to: '/en/terms-conditions/' },
+		{ re: /^\/politica-de-reembolso\/?$/, to: '/en/refund-policy/' },
+		{ re: /^\/refund-policy\/?$/, to: '/en/refund-policy/' },
+		{ re: /^\/servicios-optimizacion-seo\/?$/, to: '/en/affordable-seo-services-for-small-business/' },
+		{ re: /^\/portfolio\/proyectos\/?$/, to: '/en/portfolio/projects/' },
+		{ re: /^\/portfolio\/leexms\/?$/, to: '/en/portfolio/leexms/' },
+		{ re: /^\/portfolio\/plomeria\/?$/, to: '/en/portfolio/plumbing/' },
+		{ re: /^\/portfolio\/productos-para-perros\/?$/, to: '/en/portfolio/dog-products/' },
+		{ re: /^\/portfolio\/mundo-gaming\/?$/, to: '/en/portfolio/world-games/' },
+		{ re: /^\/portfolio\/ferrarycucina\/?$/, to: '/en/portfolio/ferrarykitchen/' },
+	];
+
+	const enToEs: Array<{ re: RegExp; to: string }> = [
+		{ re: /^\/en\/tools\/?$/, to: '/herramientas/' },
+		{ re: /^\/en\/tools\/seo-title-generator\/?$/, to: '/herramientas/generador-titulos-seo/' },
+		{ re: /^\/en\/tools\/article-outline-generator\/?$/, to: '/herramientas/generador-estructura-articulos/' },
+		{ re: /^\/en\/about\/?$/, to: '/sobre-mi/' },
+		{ re: /^\/en\/contact\/?$/, to: '/contacto/' },
+		{ re: /^\/en\/services\/?$/, to: '/servicios/' },
+		{ re: /^\/en\/pricing\/?$/, to: '/precios/' },
+		{ re: /^\/en\/privacy-policy\/?$/, to: '/politica-privacidad/' },
+		{ re: /^\/en\/cookies-policy\/?$/, to: '/politicas-cookies/' },
+		{ re: /^\/en\/legal-notice\/?$/, to: '/aviso-legal/' },
+		{ re: /^\/en\/terms-conditions\/?$/, to: '/terminos-condiciones/' },
+		{ re: /^\/en\/refund-policy\/?$/, to: '/politica-de-reembolso/' },
+		{ re: /^\/en\/affordable-seo-services-for-small-business\/?$/, to: '/servicios-optimizacion-seo/' },
+		{ re: /^\/en\/portfolio\/projects\/?$/, to: '/portfolio/proyectos/' },
+		{ re: /^\/en\/portfolio\/leexms\/?$/, to: '/portfolio/leexms/' },
+		{ re: /^\/en\/portfolio\/plumbing\/?$/, to: '/portfolio/plomeria/' },
+		{ re: /^\/en\/portfolio\/dog-products\/?$/, to: '/portfolio/productos-para-perros/' },
+		{ re: /^\/en\/portfolio\/world-games\/?$/, to: '/portfolio/mundo-gaming/' },
+		{ re: /^\/en\/portfolio\/ferrarykitchen\/?$/, to: '/portfolio/ferrarycucina/' },
+	];
+
+	const table = currentLang === 'en' ? enToEs : esToEn;
+	for (const rule of table) {
+		if (rule.re.test(p)) return rule.to;
+	}
+
+	if (currentLang === 'en') return p.replace(/^\/en(\/|$)/, '/');
+	if (p === '/') return '/en/';
+	return p.startsWith('/en') ? p : `/en${p}`;
+};
+
+const normalizeRoutePath = (p: string): string => {
+	if (p === '/') return '/';
+	return `/${p.replace(/^\/+/, '').replace(/\/+$/, '')}`;
+};
+
+const routeExistsForPathname = (p: string): boolean => {
+	const normalized = normalizeRoutePath(p);
+	const withoutTrailing = normalized === '/' ? '/' : normalized.replace(/\/$/, '');
+	const baseDir = path.join(process.cwd(), 'src', 'pages');
+
+	const candidates = [
+		path.join(baseDir, `${withoutTrailing}.astro`),
+		path.join(baseDir, withoutTrailing, 'index.astro'),
+	];
+
+	return candidates.some((fp) => fs.existsSync(fp));
+};
+
+const alternatePathname = mapAlternatePathname(pathname, lang);
+const alternateExists = routeExistsForPathname(alternatePathname);
+const alternateUrl = (() => {
+	if (!alternateExists) return '';
+	const u = new URL(alternatePathname, site);
+	u.pathname = normalizeCanonicalPathname(u.pathname);
+	return u.toString();
+})();
+const defaultUrl = new URL('/', site).toString();
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Person',
+			'@id': `${site.toString().replace(/\/$/, '')}#person`,
+			name: author,
+			url: site.toString(),
+			sameAs: [
+				'https://github.com/onar1710',
+				'https://www.linkedin.com/in/omarfuentes052/',
+				'https://twitter.com/omarfuentes052',
+			],
+			jobTitle: lang === 'en' ? 'Web Developer' : 'Desarrollador Web',
+		},
+		{
+			'@type': 'WebSite',
+			'@id': `${site.toString().replace(/\/$/, '')}#website`,
+			url: site.toString(),
+			name: 'Omar Fuentes',
+			inLanguage,
+		},
+		{
+			'@type': 'WebPage',
+			'@id': `${canonicalUrl}#webpage`,
+			url: canonicalUrl,
+			name: title,
+			description,
+			inLanguage,
+			isPartOf: { '@id': `${site.toString().replace(/\/$/, '')}#website` },
+			about: { '@id': `${site.toString().replace(/\/$/, '')}#person` },
+			primaryImageOfPage: { '@type': 'ImageObject', url: absoluteImageUrl },
+			...(keywordText ? { keywords: keywordText } : {}),
+		},
+	],
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+
+<link rel="canonical" href={canonicalUrl} />
+{alternateExists ? <link rel="alternate" hreflang={lang === 'en' ? 'es' : 'en'} href={alternateUrl} /> : null}
+<link rel="alternate" hreflang={lang} href={canonicalUrl} />
+<link rel="alternate" hreflang="x-default" href={defaultUrl} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{keywordText ? <meta name="keywords" content={keywordText} /> : null}
+<meta name="author" content={author} />
+{noindex ? <meta name="robots" content="noindex,nofollow" /> : null}
+
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={absoluteImageUrl} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content="Omar Fuentes" />
+<meta property="og:locale" content={locale} />
+<meta property="og:locale:alternate" content={alternateLocale} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteImageUrl} />
+{twitterHandle ? <meta name="twitter:site" content={twitterHandle} /> : null}
+{twitterHandle ? <meta name="twitter:creator" content={twitterHandle} /> : null}
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

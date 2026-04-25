@@ -1,0 +1,45 @@
+---
+import Icon from './Icon.astro';
+
+export interface Props {
+  icon: string;
+  class?: string;
+}
+
+const { icon, class: className = 'w-12 h-12' } = Astro.props;
+
+const emojiToName: Record<string, string> = {
+  '🚀': 'rocket',
+  '⚛️': 'atom',
+  '🎨': 'palette',
+  '🔍': 'search',
+  '📊': 'chart',
+  '🏢': 'building',
+  '📝': 'file',
+  '⚖️': 'scale',
+  '💬': 'message',
+  '⚡': 'bolt',
+  '📄': 'file',
+  '🎯': 'target',
+  '📦': 'package',
+  '🖼️': 'file',
+  '🎬': 'chart',
+  '⏱️': 'clock',
+  '🛒': 'cart',
+  '❤️': 'star',
+  '📱': 'smartphone',
+  '🛡️': 'shield',
+  '🅱️': 'file',
+  '🗺️': 'map',
+  '🔧': 'wrench',
+  '📚': 'book',
+  '📈': 'chart',
+  '✅': 'check',
+  '🏆': 'trophy',
+  '⭐': 'star',
+};
+
+const name = emojiToName[icon] ?? icon;
+---
+
+<Icon name={name} class={className} />

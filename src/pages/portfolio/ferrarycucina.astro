@@ -1,0 +1,270 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyIcon from '../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "Ferrary Cucinas - Mi Proyecto Estrella de Remodelaciones",
+  description:
+    "Este proyecto fue increíble: transformé la visión de Ferrary Cucinas en una plataforma digital que genera 4-5 cotizaciones semanales. Usé Next.js, Tailwind CSS y creé un portafolio visual que realmente vende sus servicios de remodelación en Bogotá.",
+  cliente: "Ferrary Cucinas",
+  fecha: "2024-2025",
+  tipo: "Sitio Web Corporativo / Portafolio de Servicios",
+  tecnologias: ["Next.js", "React", "Tailwind CSS", "Figma"],
+  url: "https://ferrarycucina.co",
+  imagen: "/images-portfolio/proyecto-imagen-ferrarycucina.png",
+  stats: {
+    pages: "15+ páginas",
+    images: "50+ imágenes",
+    videos: "4 videos",
+    weeks: "3 semanas desarrollo",
+  },
+  results: [
+    "✅ Sitio profesional que genera 4-5 cotizaciones semanales - ¡clientes reales!",
+    "✅ +50 imágenes y videos optimizados que muestran la calidad de su trabajo",
+    "✅ 6 proyectos destacados que convierten visitantes en clientes potenciales",
+    "✅ Blog integrado con 3 artículos que posicionan en Google Bogotá",
+    "✅ Sistema de cotización que pre-califica clientes antes de la llamada",
+    "✅ 100% responsive - los clientes ven los proyectos desde su celular",
+    "✅ Performance 95+ en Lighthouse - más rápido que la competencia",
+    "✅ CTAs estratégicos que guían al cliente a contactar",
+  ],
+};
+
+const techStack = [
+  { name: "Next.js 14+", description: "Framework React con App Router para SSG", icon: "🚀" },
+  { name: "React 18", description: "Biblioteca UI con componentes reutilizables", icon: "⚛️" },
+  { name: "Tailwind CSS", description: "Framework CSS utility-first para diseño rápido", icon: "🎨" },
+  { name: "TypeScript", description: "Tipado estático para mayor robustez", icon: "📘" },
+  { name: "Figma", description: "Diseño UI/UX completo antes de código", icon: "🎯" },
+];
+
+const phases = [
+  {
+    title: "Mi Primera Semana: Entendiendo el Negocio de Remodelaciones",
+    week: "Semana 1",
+    tasks: [
+      "Día 1-2: Me senté con Ferrary para entender su magia - cómo transforman espacios, qué hace únicos sus proyectos",
+      "Día 3-4: Diseñé la arquitectura perfecta - quería que cada proyecto mostrara antes/después, el proceso completo",
+      "Día 5-7: Creé el diseño en Figma - visualicé cómo los clientes recorrerían el sitio viendo la calidad de su trabajo",
+    ],
+  },
+  {
+    title: "Semanas 2-3: Desarrollo y Magia Visual",
+    week: "Semanas 2-3",
+    tasks: [
+      "Día 8-12: Desarrollé el portafolio visual - cada imagen optimizada para mostrar la calidad de sus remodelaciones",
+      "Día 13-15: Implementé el sistema de cotización inteligente - pre-califica clientes para ahorrar tiempo a Ferrary",
+      "Día 16-18: Creé el blog con SEO local - artículos que posicionan para 'remodelación Bogotá'",
+      "Día 19-21: Testing intensivo y deploy - optimicé cada imagen para velocidad máxima",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🎨",
+    title: "Diseño que Vende Remodelaciones",
+    description:
+      "Creé una identidad visual que muestra la calidad artesanal de Ferrary. Quería que los visitantes sintieran la confianza de contratar a expertos con 25 años transformando espacios en Bogotá.",
+  },
+  {
+    icon: "📱",
+    title: "100% Responsive para Clientes Móviles",
+    description:
+      "Los clientes buscan remodelaciones desde su celular. Diseñé una experiencia móvil perfecta donde cada proyecto se ve increíble y los CTAs están al alcance de un toque.",
+  },
+  {
+    icon: "🖼️",
+    title: "Portafolio Visual que Impresiona",
+    description:
+      "Optimicé 50+ imágenes con Next.js Image para que carguen instantáneamente. Cada foto muestra la transformación real - eso es lo que convierte visitantes en clientes.",
+  },
+  {
+    icon: "🎬",
+    title: "Videos que Cuentan Historias",
+    description:
+      "Integré 4 videos de transformaciones que muestran el proceso completo. Los clientes ven cómo Ferrary convierte espacios ordinarios en extraordinarios.",
+  },
+  {
+    icon: "📝",
+    title: "Cotización Inteligente que Ahorra Tiempo",
+    description:
+      "Diseñé un formulario que pre-califica proyectos. Ferrary recibe solo clientes serios, ahorrando horas de llamadas innecesarias.",
+  },
+  {
+    icon: "🔍",
+    title: "SEO Local para Bogotá",
+    description:
+      "Optimicé cada página para que aparezca cuando alguien busca 'remodelación de cocinas Bogotá' o 'baños modernos Bogotá'. Los clientes encuentran a Ferrary primero.",
+  },
+];
+
+const metrics = [
+  { icon: "🚀", title: "Performance", value: "95+", description: "Lighthouse score en desktop y mobile" },
+  { icon: "📄", title: "Páginas Creadas", value: "15+", description: "Sitio corporativo completo" },
+  { icon: "🖼️", title: "Contenido Visual", value: "50+", description: "Imágenes y videos optimizados" },
+  { icon: "⏱️", title: "Tiempo de Entrega", value: "3", description: "Semanas completas" },
+];
+
+const experience = [
+  {
+    title: "🔨 El Desafío Real",
+    text: "Ferrary tenía un problema común: hacían un trabajo increíble transformando espacios, pero nadie lo sabía. Sus proyectos eran arte, pero su presencia digital era invisible. Mi misión era crear un portafolio que vendiera sus servicios antes de la primera llamada.",
+  },
+  {
+    title: "💡 Mi Enfoque Diferente",
+    text: "En lugar de un sitio corporativo típico, creé una experiencia visual. Cada página muestra transformaciones reales con antes/después. Quería que los visitantes sintieran la calidad del trabajo de Ferrary a través de las fotos y videos.",
+  },
+  {
+    title: "🎯 El Resultado Mágico",
+    text: "La llamada del cliente: 'Omar, estamos recibiendo 4-5 cotizaciones semanales solo del sitio web'. Los clientes llegan ya convencidos porque vieron la calidad del trabajo. Eso es transformación digital real.",
+  },
+  {
+    title: "📚 Mi Gran Aprendizaje",
+    text: "Ferrary me enseñó que para negocios de servicios, el portafolio visual lo es todo. Los clientes no contratan palabras, contratan resultados que pueden ver. Un buen diseño web no solo muestra, sino que convierte.",
+  },
+];
+---
+
+<Layout title="Ferrary Cucinas - Remodelación Bogotá | Omar Fuentes" description="Caso de estudio completo del desarrollo de sitio web corporativo para empresa de remodelación con enfoque visual y conversión.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="es"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/portfolio/proyectos/"
+        technologies={project.tecnologias}
+        badges={["3 semanas desarrollo", "Completado"]}
+      />
+
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {Object.entries(project.stats).map(([key, value]) => (
+          <div class="text-center p-6 rounded-2xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+            <div class="text-black text-sm font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+          </div>
+        ))}
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack Tecnológico</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Proceso de Desarrollo</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3">
+                    <span style="color: var(--primary-green); font-weight: 900;">✓</span>
+                    <span class="text-black">{task}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Características Principales</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Métricas de Performance</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={metric.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{metric.value}</div>
+              <div class="font-black text-black mt-2">{metric.title}</div>
+              <div class="text-black mt-2">{metric.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Resultados del Proyecto</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Mi Experiencia con Ferrary Cucinas</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <div class="rounded-3xl p-10 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="text-4xl mb-4">⭐</div>
+          <blockquote class="text-xl text-black mb-6">
+            "El sitio superó nuestras expectativas. Ahora los clientes nos encuentran por Google y llegan ya convencidos de la calidad de nuestro trabajo por las fotos. El formulario nos ayuda mucho a pre-calificar proyectos antes de hacer la visita."
+          </blockquote>
+          <div class="font-black text-black">Ferrary Cucinas</div>
+          <div class="text-black">Cliente Satisfecho</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">¿Tu Negocio de Servicios Necesita un Portafolio que Venda?</h2>
+          <p class="text-white mb-8">Como demostré con Ferrary, no se trata solo de mostrar tus trabajos - se trata de crear una experiencia que convierte visitantes en clientes antes de la primera llamada</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20el%20caso%20Ferrary%20y%20quiero%20un%20portafolio%20que%20venda" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+              Crear Mi Portafolio Visual
+            </a>
+            <a href="/portfolio/proyectos/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">
+              Ver Más Transformaciones
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

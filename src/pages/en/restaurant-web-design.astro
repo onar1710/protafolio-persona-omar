@@ -1,0 +1,313 @@
+---
+import Layout from '../../layouts/LayoutEN.astro';
+
+const services = [
+  { title: 'Custom Small Business Restaurant Web Design', description: 'I build your website from scratch, tailored to your brand, menu, and local audience. Whether you run a cozy family café, a local taqueria, or a neighborhood bistro, I create a design that reflects your unique story and attracts customers who love supporting small businesses.', icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'Mobile-Responsive Design', description: 'Over 60% of restaurant searches happen on mobile devices. I make sure your small business restaurant website looks flawless and loads fast on every screen—so you never lose a potential customer because of a clunky mobile experience.', icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z', bgClass: 'from-green-500 to-green-600' },
+  { title: 'Online Menu Integration', description: 'I create beautiful, easy-to-read digital menus that showcase your dishes perfectly. Your customers can browse your offerings before they visit, making them more likely to choose your small restaurant over competitors.', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2', bgClass: 'from-orange-500 to-orange-600' },
+  { title: 'Online Ordering System Setup', description: 'Want to compete with the big chains offering delivery? I integrate user-friendly online ordering directly into your website—no third-party fees eating into your slim margins. Keep more profit in your small business.', icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z', bgClass: 'from-purple-500 to-purple-600' },
+  { title: 'Local SEO Optimization', description: 'I optimize your small business restaurant website so you show up when locals search "restaurants near me" or "best [your cuisine] in [your city]." More local visibility = more customers walking through your door.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z', bgClass: 'from-indigo-500 to-indigo-600' },
+  { title: 'Fast Loading Speed', description: 'Slow websites kill conversions. I build lightning-fast sites that load in under 3 seconds—because hungry people won\'t wait around for a slow page to load.', icon: 'M13 10V3L4 14h7v7l9-11h-7z', bgClass: 'from-red-500 to-red-600' },
+];
+
+const whyChooseMe = [
+  { title: 'I Understand Small Business Challenges', description: 'I\'ve worked with dozens of small business restaurant owners. I know you don\'t have unlimited budgets like corporate chains. That\'s why I offer affordable packages designed specifically for small restaurants that need big results without breaking the bank.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2a3 3 0 00-5.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v2a3 3 0 005.356 1.857m0 0a3 3 0 005.356 1.857m0 0a3 3 0 005.356 1.857M7 20h10', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'No Cookie-Cutter Templates', description: 'Your small business restaurant is unique. I don\'t use cheap templates that make you look like every other place. I create custom designs that tell your story and make you stand out in your community.', icon: 'M4 5a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 15a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-3z', bgClass: 'from-purple-500 to-purple-600' },
+  { title: 'I Focus on What Matters: Getting You Customers', description: 'Pretty designs are nice, but what really matters is bringing people through your door. Every website I build for small business restaurants is designed with one goal: convert visitors into paying customers.', icon: 'M13 10V3L4 14h7v7l9-11h-7z', bgClass: 'from-green-500 to-green-600' },
+  { title: 'Fast Turnaround', description: 'I know you need results yesterday. Most small business restaurant websites are completed within 2-3 weeks, so you can start attracting customers fast.', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', bgClass: 'from-orange-500 to-orange-600' },
+  { title: 'Ongoing Support', description: 'Unlike big agencies that disappear after launch, I\'m here for you. Need to update your menu? Add a new special? I\'ve got your back with quick, affordable support tailored for small business needs.', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 3.536l5.656 5.656M9.172 14.828l5.656 5.656', bgClass: 'from-indigo-500 to-indigo-600' },
+];
+
+const includes = [
+  'Custom Design that matches your restaurant\'s personality',
+  'Mobile-Responsive layout (looks perfect on all devices)',
+  'Fast Loading Speed (under 3 seconds)',
+  'SEO-Optimized for local search visibility',
+  'Online Menu integration',
+  'Contact Forms and reservation options',
+  'Google Maps integration',
+  'Social Media links',
+  'Photo Galleries to showcase your food',
+  'Easy Updates (I teach you how or do it for you)',
+  'SSL Security Certificate included',
+  '30 Days Free Support after launch',
+];
+
+const steps = [
+  { step: '1', title: 'Free Consultation', description: 'We jump on a quick call (or meet in person if you\'re local). I learn about your small business restaurant, your goals, and your ideal customers. No pressure, no sales pitch—just an honest conversation about whether we\'re a good fit.' },
+  { step: '2', title: 'Custom Proposal', description: 'I send you a clear, straightforward proposal with pricing and timeline. No hidden fees. No confusing packages. Just honest pricing for small business budgets.' },
+  { step: '3', title: 'Design & Development', description: 'I get to work creating your custom website. You\'ll see previews along the way and can request changes. This is YOUR small business restaurant website—I want you to love it.' },
+  { step: '4', title: 'Launch & Training', description: 'I launch your site, set up all the technical stuff, and show you how to make simple updates yourself (if you want to). I also stick around to fix any issues and make sure everything runs smoothly.' },
+  { step: '5', title: 'Ongoing Support', description: 'Your small business restaurant grows and changes. I\'m here whenever you need updates, new features, or technical help.' },
+];
+
+const testimonials = [
+  { name: 'Maria Rodriguez', role: 'Owner of Casa Maria\'s Mexican Grill', text: 'As a small family restaurant, we couldn\'t afford to hire a big agency. Omar understood our budget and our vision. Our new website has brought in so many new customers—we\'re fully booked most weekends now!' },
+  { name: 'James Chen', role: 'Owner of Chen\'s Noodle House', text: 'I was losing customers to chain restaurants because I didn\'t have a professional online presence. Now my small restaurant has a website that looks better than the competition, and our online orders have tripled!' },
+  { name: 'Jessica Anderson', role: 'Owner of The Corner Café', text: 'Best investment I made for my small business restaurant. Simple process, affordable price, and real results. Highly recommend!' },
+];
+
+const faqs = [
+  { question: 'How much does a small business restaurant website cost?', answer: 'My packages start at competitive rates and vary based on features you need. I offer flexible payment plans designed for small business budgets. Every project includes a custom quote—no hidden fees.' },
+  { question: 'How long does it take to build a small business restaurant website?', answer: 'Most small business restaurant websites are completed in 2-3 weeks from start to finish. Need it faster? Let me know and I\'ll see what I can do.' },
+  { question: 'Do I need to provide content and photos?', answer: 'I can work with what you have! If you have professional photos of your food and restaurant, great. If not, I can recommend affordable local photographers or help you use what you\'ve got effectively.' },
+  { question: 'Can I update the website myself?', answer: 'Absolutely! I build small business restaurant websites on user-friendly platforms and train you on basic updates. But if you prefer, I offer affordable monthly maintenance packages where I handle everything for you.' },
+  { question: 'What if I don\'t like the design?', answer: 'I offer revision rounds during the design process. Your satisfaction is my priority. I won\'t launch until you\'re happy with your small business restaurant website.' },
+  { question: 'Do you offer payment plans for small businesses?', answer: 'Yes! I understand cash flow challenges for small restaurants. I offer flexible payment options—just ask during our consultation.' },
+  { question: 'Will my website work with online ordering platforms?', answer: 'Yes! I integrate with popular platforms like DoorDash, UberEats, or set up your own direct ordering system to save on commission fees.' },
+  { question: 'What about SEO for my small restaurant?', answer: 'Every website I build includes basic local SEO optimization so you show up in "restaurants near me" searches. I also offer advanced SEO packages if you want to dominate your local market.' },
+];
+---
+
+<Layout
+  title="Restaurant Web Design for Small Businesses | Omar Fuentes"
+  description="I design conversion-focused websites for small business restaurants that don't just look amazing—they turn visitors into paying customers. Let me help you compete with the big chains and grow your local restaurant business online."
+  keywords="restaurant web design, small business restaurant website, online menu, restaurant reservations, local SEO for restaurants"
+>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center pb-16 md:pb-24 lg:pb-32 bg-gradient-to-br from-white via-blue-50/30 to-yellow-50/30 relative overflow-hidden pt-8">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-in">
+          <div class="flex items-center space-x-2 mb-6">
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-500/10 text-primary-blue border border-blue-500/20">Small Business</span>
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-primary-green border border-green-500/20">Restaurants</span>
+          </div>
+
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+            Restaurant <br />
+            <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Web Design</span>
+          </h1>
+
+          <p class="text-xl text-black mb-8 max-w-lg">
+            I design conversion-focused websites for small business restaurants that don't just look amazing—they turn visitors into paying customers. Let me help you compete with the big chains and grow your local restaurant business online.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="https://wa.me/12025551234?text=Hi%20Omar,%20I%20want%20a%20free%20restaurant%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gradient-to-r from-primary-blue to-accent-blue text-white hover:shadow-glow-blue">
+              Get Your Free Consultation
+            </a>
+            <a href="#examples" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white">
+              See Examples
+            </a>
+          </div>
+
+          <p class="text-sm text-gray-600">Free consultation • No obligation • Results guaranteed</p>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-3xl opacity-10 animate-float"></div>
+          <div class="relative bg-white rounded-3xl p-8 shadow-2xl">
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div class="text-3xl font-bold text-primary-blue mb-1">4.9/5</div>
+                <div class="text-sm text-gray-600">Rating</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-primary-green mb-1">+300%</div>
+                <div class="text-sm text-gray-600">More Orders</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-primary-yellow mb-1">2-3</div>
+                <div class="text-sm text-gray-600">Week Delivery</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Why Your Small Business Restaurant Needs a Professional Website</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Hey, I get it. You're a small business owner running your restaurant, and creating a website feels like just another expense you can't afford. But here's the truth: 73% of diners check out a restaurant's website before deciding where to eat.
+        </p>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto mt-4">
+          If your site is slow, outdated, or—worse—non-existent, you're literally sending customers to the big chain restaurants down the street.
+        </p>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto mt-4">
+          That's where I come in. I specialize in creating affordable, stunning, mobile-optimized websites specifically for small business restaurants like yours. No generic templates that look like every other place. No confusing tech jargon. Just a beautiful site that helps your small restaurant compete and win.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">What I Do for Small Business Restaurant Owners Like You</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Professional services designed specifically for small restaurants
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div class="card">
+            <div class={`w-12 h-12 mb-4 bg-gradient-to-br ${service.bgClass} rounded-lg flex items-center justify-center`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{service.title}</h3>
+            <p class="text-gray-600">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Me Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Why Small Business Restaurants Choose Me</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          I understand small business challenges and deliver results
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {whyChooseMe.map((item) => (
+          <div class="card">
+            <div class={`w-12 h-12 mb-4 bg-gradient-to-br ${item.bgClass} rounded-lg flex items-center justify-center`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{item.title}</h3>
+            <p class="text-gray-600">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Includes Section -->
+  <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4 text-white">Every Small Business Restaurant Website I Build Includes:</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {includes.map((item) => (
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-white/90">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How I Work Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">How I Work With Small Business Restaurant Owners</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+        {steps.map((step) => (
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-blue to-accent-blue rounded-full flex items-center justify-center">
+              <span class="text-2xl font-bold text-white">{step.step}</span>
+            </div>
+            <h3 class="text-lg font-bold mb-2">{step.title}</h3>
+            <p class="text-gray-600 text-sm">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">What Small Business Restaurant Owners Say</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial) => (
+          <div class="card">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+            </div>
+            <p class="text-gray-600 mb-4">"{testimonial.text}"</p>
+            <div class="font-semibold">{testimonial.name}</div>
+            <div class="text-sm text-gray-500">{testimonial.role}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Questions Small Business Restaurant Owners Ask Me</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq) => (
+          <div class="card">
+            <details class="group">
+              <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+                {faq.question}
+                <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="mt-4 text-gray-600">{faq.answer}</p>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green">
+    <div class="container text-center">
+      <h2 class="text-section mb-4 text-white">Ready to Give Your Small Business Restaurant the Website It Deserves?</h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Stop losing customers to restaurants with better online presence. Let me build you a professional, conversion-focused website that brings in more diners and online orders.
+      </p>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Your small business restaurant deserves to compete—and win.
+      </p>
+      <a href="https://wa.me/12025551234?text=Hi%20Omar,%20I%20want%20a%20free%20restaurant%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 bg-white text-primary-blue hover:shadow-xl">
+        Get Your Free Consultation Today
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="py-8 bg-gray-900 text-center">
+    <p class="text-white/70 text-sm">
+      Serving Small Business Restaurants Since 2020 • 100+ Happy Small Restaurant Owners • 30-Day Money-Back Guarantee
+    </p>
+  </section>
+</Layout>

@@ -1,0 +1,139 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+
+const projects = [
+  {
+    title: 'LEEXMS SRL',
+    description: 'Digital accounting transformation in Dominican Republic. Next.js 14, advanced SEO and legal compliance in 1 week.',
+    image: '/images-portfolio/caso-estudio-web-leexms.png',
+    tags: ['Next.js 14', 'Advanced SEO', 'Professional Services'],
+    link: '/en/portfolio/leexms/',
+    stats: ['15+ pages', '95+ PageSpeed', '1 week development'],
+    url: 'https://leexms.com/',
+    rel: 'noopener noreferrer nofollow',
+  },
+  {
+    title: 'Ferrary Kitchen',
+    description: 'My flagship remodeling project. Visual portfolio that generates 4-5 weekly quotes in Bogotá.',
+    image: '/images-portfolio/proyecto-imagen-ferrarycucina.png',
+    tags: ['Web Design', 'Next.js', 'Local SEO'],
+    link: '/en/portfolio/ferrarykitchen/',
+    stats: ['4-5 quotes/week', 'Google first page'],
+  },
+  {
+    title: 'Dog Products',
+    description: 'Pet eCommerce store with fast shipping and optimized shopping experience.',
+    image: '/images-portfolio/proyecto-imagen-productosperros.png',
+    tags: ['eCommerce', 'Logistics', 'Marketing'],
+    link: '/en/portfolio/dog-products/',
+    stats: ['Fast shipping', 'Satisfied customers'],
+  },
+  {
+    title: 'World Games',
+    description: 'My gaming store that converts: 100+ products, review blog and Amazon Associates.',
+    image: '/images-portfolio/proyecto-imagen-omarytplay.png',
+    tags: ['eCommerce', 'Next.js', 'Amazon Associates'],
+    link: '/en/portfolio/world-games/',
+    stats: ['100+ products', '15 categories', '95/100 Lighthouse'],
+  },
+  {
+    title: 'Plumbing Aqua Imperio',
+    description: 'Local plumbing service with emergency response and service areas.',
+    image: '/images-portfolio/proyecto-imagen-plemria.png',
+    tags: ['Local SEO', 'Service Business', 'Emergency'],
+    link: '/en/portfolio/plumbing/',
+    stats: ['24/7 emergency', 'Local coverage'],
+  },
+];
+
+const stats = [
+  { label: 'Happy Clients', value: '50+' },
+  { label: 'Completed Projects', value: '100+' },
+  { label: 'Success Rate', value: '98%' },
+];
+---
+
+<LayoutEN
+  title="Portfolio Projects - Omar Fuentes"
+  description="Portfolio of successful web projects: eCommerce, corporate websites and online stores. Real results and measurable performance."
+  keywords="portfolio projects, web design portfolio, ecommerce projects, web developer portfolio, case studies"
+>
+  <main class="py-16 md:py-24 lg:py-32 pt-24" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <div class="rounded-3xl p-10 md:p-14 mb-16 overflow-hidden" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl md:text-6xl font-black mb-6 text-white">Portfolio Projects</h1>
+          <p class="text-xl text-white">
+            I turn ideas into high-performing websites. Each project reflects my commitment to technical excellence and user-centered design.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        {stats.map((stat) => (
+          <div class="text-center p-8 rounded-2xl border" style="border-color: rgba(0,0,0,0.08); background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-4xl font-black mb-2" style="color: var(--primary-blue);">{stat.value}</div>
+            <div class="text-black font-bold">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <section class="mb-16">
+        <h2 class="text-3xl font-black mb-8 text-black">Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <a href={project.link} class="group block relative overflow-hidden rounded-3xl border" style="border-color: rgba(0,0,0,0.08); background: var(--gray-50); transition: transform 300ms ease;">
+              <div class="aspect-[4/3] w-full overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  width="1200"
+                  height="900"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);"></div>
+              </div>
+
+              <div class="absolute bottom-0 left-0 w-full p-8" style="backdrop-filter: blur(10px);">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {project.tags.map((tag) => (
+                    <span class="text-xs font-bold px-2 py-1 rounded-full" style="background: rgba(255,255,255,0.12); color: var(--white); border: 1px solid rgba(255,255,255,0.18);">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 class="text-2xl font-black text-white mb-2">{project.title}</h3>
+                <p class="text-sm text-white mb-3">{project.description}</p>
+
+                <div class="flex flex-wrap gap-2">
+                  {project.stats.map((stat) => (
+                    <span class="text-xs font-bold" style="color: var(--primary-yellow);">{stat}</span>
+                  ))}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="text-center p-12 rounded-2xl" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 2px solid rgba(0,0,0,0.06);">
+        <h2 class="text-3xl font-black mb-4 text-black">Ready for your next project?</h2>
+        <p class="text-black max-w-2xl mx-auto mb-8">
+          I can build a modern, fast and scalable website that helps your business grow.
+        </p>
+        <a
+          href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20build%20my%20project.%20Can%20we%20talk?"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+          style="text-decoration: none;"
+        >
+          Chat on WhatsApp
+        </a>
+      </section>
+    </div>
+  </main>
+</LayoutEN>

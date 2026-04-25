@@ -1,0 +1,285 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import CaseStudyIcon from '../../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "World Games - My Gaming Store That Converts",
+  description:
+    "This project was a blast: I built a complete gaming eCommerce store with 100+ products and a review blog. I used Next.js, Tailwind CSS and Amazon Associates to create a platform that can generate revenue while gamers enjoy useful content.",
+  cliente: "World Games",
+  fecha: "2025",
+  tipo: "eCommerce / Website",
+  tecnologias: ["Next.js", "React", "Tailwind CSS", "Amazon Associates API"],
+  url: "https://omarytplay.com",
+  imagen: "/images-portfolio/proyecto-imagen-omarytplay.png",
+  stats: {
+    products: "100+ products",
+    categories: "15 categories",
+    performance: "95/100 Lighthouse",
+    weeks: "2 weeks development",
+  },
+  results: [
+    "✅ Complete store with 100+ products gamers actually want",
+    "✅ Review blog that ranks in Google and builds trust",
+    "✅ 95/100 performance - products load fast, fewer drop-offs",
+    "✅ 100% responsive - gamers shop from phone, tablet or desktop",
+    "✅ SEO optimized for searches like 'best gaming chair'",
+    "✅ Amazon Associates integrated - purchases generate automatic commissions",
+  ],
+};
+
+const techStack = [
+  { name: "Next.js 14+", description: "React framework with App Router for SSR/SSG", icon: "🚀" },
+  { name: "React 18", description: "UI library with reusable components", icon: "⚛️" },
+  { name: "Tailwind CSS", description: "Utility-first CSS framework for rapid design", icon: "🎨" },
+  { name: "TypeScript", description: "Static typing for greater robustness", icon: "📘" },
+  { name: "Amazon Associates", description: "Product monetization integration", icon: "🛒" },
+];
+
+const phases = [
+  {
+    title: "Week 1: Gaming Strategy and Design",
+    week: "Days 1-7",
+    tasks: [
+      "Day 1-2: Immersion in the gaming market - researched what gamers actually buy",
+      "Day 3-4: Information architecture - 15 categories covering the gaming ecosystem",
+      "Day 5-6: UI design in Figma - crafted an experience gamers would enjoy",
+      "Day 7: Next.js setup - prepared the structure for ultra-fast performance",
+    ],
+  },
+  {
+    title: "Week 2: Development and eCommerce Execution",
+    week: "Days 8-14",
+    tasks: [
+      "Day 8-10: Built the store with 100+ products, optimized for conversions",
+      "Day 11-12: Implemented the review blog - content that ranks and builds trust",
+      "Day 13: Integrated Amazon Associates - automatic commissions per purchase",
+      "Day 14: Testing and deploy - optimized for a 95/100 Lighthouse score",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🎯",
+    title: "Curated Catalog for Gamers",
+    description:
+      "A 100+ product catalog organized into clear categories, focused on items gamers search and compare before buying.",
+  },
+  {
+    icon: "📄",
+    title: "Review Blog That Builds Trust",
+    description:
+      "Educational reviews and comparisons that help gamers choose better products and increase conversion intent.",
+  },
+  {
+    icon: "⚡",
+    title: "Speed That Keeps Users Browsing",
+    description:
+      "Fast load times to reduce abandonment and keep users exploring products and reviews.",
+  },
+  {
+    icon: "🛡️",
+    title: "SEO Built for Long-Tail Queries",
+    description:
+      "Structured pages and content targeting terms like 'best gaming chair' and similar buyer-intent searches.",
+  },
+  {
+    icon: "🛒",
+    title: "Amazon Associates Integration",
+    description:
+      "A monetization layer that turns content + recommendations into revenue with a smooth outbound flow.",
+  },
+  {
+    icon: "📱",
+    title: "Mobile-First Shopping Experience",
+    description:
+      "Designed so gamers can browse and buy comfortably on mobile.",
+  },
+];
+
+const metrics = [
+  { label: "Performance", value: "95/100", icon: "📈" },
+  { label: "Accessibility", value: "98/100", icon: "✅" },
+  { label: "Best Practices", value: "100/100", icon: "🏆" },
+  { label: "SEO", value: "100/100", icon: "⭐" },
+];
+
+const objectives = [
+  "Build a professional online store with an extensive catalog",
+  "Create a blog system for reviews and comparisons",
+  "Optimize for conversions with clear CTAs",
+  "Ensure excellent performance across devices",
+  "Implement technical SEO for organic visibility",
+];
+
+const experience = [
+  {
+    title: "🎮 The Core Challenge",
+    text: "World Games needed more than a store: it needed a destination where gamers can discover products and trust the recommendations. The goal was a platform that can generate revenue while providing real value.",
+  },
+  {
+    title: "💡 Content-First Strategy",
+    text: "Instead of pushing products, I built content that educates. Each review is designed to help gamers make better decisions. When readers trust the content, they trust the product recommendations.",
+  },
+  {
+    title: "🚀 The Result",
+    text: "The store doesn't just sell, it guides. Gamers read, compare, and buy with confidence. Monetization becomes a byproduct of usefulness.",
+  },
+  {
+    title: "📚 What I Learned",
+    text: "Gamers are research-driven buyers. If you give them honest, structured information, you earn long-term trust and repeated conversions.",
+  },
+];
+---
+
+<LayoutEN title="World Games - Gaming eCommerce Case Study | Omar Fuentes" description="Case study: gaming eCommerce store with 100+ products, review blog, SEO and 95/100 Lighthouse performance.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="en"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/en/portfolio/projects/"
+        technologies={project.tecnologias}
+        badges={["2 weeks development", "Completed"]}
+      />
+
+      <section class="py-10 mb-10" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08); border-radius: 1.5rem;">
+        <div class="grid md:grid-cols-4 gap-6 px-8">
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{project.stats.products}</div>
+            <div class="text-black font-bold mt-2">Products</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{project.stats.categories}</div>
+            <div class="text-black font-bold mt-2">Categories</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{project.stats.performance}</div>
+            <div class="text-black font-bold mt-2">Lighthouse</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{project.stats.weeks}</div>
+            <div class="text-black font-bold mt-2">Development</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid lg:grid-cols-2 gap-10 mb-14">
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <h2 class="text-3xl font-black text-black mb-4">The Challenge</h2>
+          <p class="text-black mb-6">
+            Build a gaming store that combines a structured catalog with useful content. The goal was to create a browsing experience that supports product discovery and turns research into confident purchases.
+          </p>
+          <h3 class="text-xl font-black text-black mb-4">Project Goals</h3>
+          <ul class="space-y-3">
+            {objectives.map((o) => (
+              <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{o}</span></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <h2 class="text-3xl font-black text-black mb-6">Key Results</h2>
+          <div class="space-y-3">
+            {project.results.map((result) => (
+              <div class="flex items-start gap-3 p-4 rounded-2xl" style="border: 1px solid rgba(0,0,0,0.08); background: var(--gray-50);">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Tech Stack</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Key Features</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {features.map((feature) => (
+            <div class="flex gap-6 p-8 rounded-3xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style="background: rgba(0, 102, 255, 0.12);">{feature.icon}</div>
+              <div>
+                <h3 class="text-xl font-black text-black">{feature.title}</h3>
+                <p class="text-black mt-2">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Development Process</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Performance Metrics</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((m) => (
+            <div class="text-center p-8 rounded-3xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={m.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{m.value}</div>
+              <div class="font-black text-black mt-2">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">My Experience with World Games</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">Want a store that converts with content?</h2>
+          <p class="text-white mb-8">I can build an eCommerce + content system designed for trust and conversions.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20saw%20your%20World%20Games%20case%20study%20and%20I%20want%20an%20eCommerce%20store" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Start my project</a>
+            <a href="/en/portfolio/projects/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">View more projects</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</LayoutEN>

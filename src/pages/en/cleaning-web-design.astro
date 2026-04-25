@@ -1,0 +1,289 @@
+---
+import Layout from '../../layouts/LayoutEN.astro';
+
+const features = [
+  { title: 'Carpet cleaning web design with booking forms', description: 'Dedicated pages for carpet cleaning services with integrated booking systems', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2', bgClass: 'from-yellow-500 to-yellow-600' },
+  { title: 'Window cleaning web design with service pages', description: 'Specialized pages showcasing window cleaning services and pricing', icon: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'House cleaning website structure for local SEO', description: 'Optimized structure to attract local house cleaning clients', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'Dryer vent cleaning service pages optimized for search', description: 'Specialized pages targeting dryer vent cleaning keywords', icon: 'M13 10V3L4 14h7v7l9-11h-7z', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'Quote request forms to generate leads', description: 'Easy-to-use forms that capture all essential service information', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'Testimonials and reviews to build trust', description: 'Show customer reviews and success stories to establish credibility', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', bgClass: 'from-yellow-500 to-yellow-600' },
+  { title: 'Service area targeting for local clients', description: 'Optimized to attract customers in your specific service locations', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z', bgClass: 'from-blue-500 to-blue-600' },
+];
+
+const benefits = [
+  { title: 'Affordable web design for cleaning companies', description: 'Get a professional website without overpaying.', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1', bgClass: 'from-yellow-500 to-yellow-600' },
+  { title: 'Responsive web design for cleaning services', description: 'Your website works perfectly on mobile, tablet, and desktop.', icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'Reliable web design built for performance', description: 'Fast-loading websites that improve user experience and SEO rankings.', icon: 'M13 10V3L4 14h7v7l9-11h-7z', bgClass: 'from-yellow-500 to-yellow-600' },
+  { title: 'Complete web design and management services', description: 'We handle everything so you can focus on running your cleaning business.', icon: 'M3 21h18', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'SEO-optimized cleaning company web design', description: 'Designed to rank on Google and attract local customers searching for cleaning services.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z', bgClass: 'from-blue-500 to-blue-600' },
+  { title: 'Web design built to generate bookings', description: 'Turn visitors into real clients with optimized layouts and calls-to-action.', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z', bgClass: 'from-yellow-500 to-yellow-600' },
+];
+
+const results = [
+  'Get more calls and quote requests',
+  'Increase recurring customers',
+  'Rank higher for local cleaning services',
+  'Build trust with potential clients',
+];
+
+const steps = [
+  { step: '1', title: 'Tell us about your cleaning business', description: 'Share your goals, services, and target audience' },
+  { step: '2', title: 'We design and build your website', description: 'Professional design optimized for bookings and SEO' },
+  { step: '3', title: 'You start getting more bookings and clients', description: 'Watch your cleaning business grow with qualified inquiries' },
+];
+---
+
+<Layout
+  title="Cleaning Company Web Design Services for Small Businesses | Omar Fuentes"
+  description="Get a professional website built for cleaning businesses that want more bookings, more calls, and consistent growth."
+  keywords="cleaning service web design, cleaning company website, cleaning website, local SEO cleaning service, quote form"
+>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center pb-16 md:pb-24 lg:pb-32 bg-gradient-to-br from-blue-900 via-blue-700 to-yellow-800 relative overflow-hidden pt-8">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-in">
+          <div class="flex items-center space-x-2 mb-6">
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-white/10 text-white border border-white/20">Small Business</span>
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">Cleaning Services</span>
+          </div>
+
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white">
+            Cleaning Company <br />
+            <span class="bg-gradient-to-r from-yellow-400 to-blue-400 bg-clip-text text-transparent">Web Design</span>
+          </h1>
+
+          <p class="text-xl text-white/90 mb-8 max-w-lg">
+            Get a professional website built for cleaning businesses that want more bookings, more calls, and consistent growth.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="https://wa.me/12025551234?text=Hi%20Omar,%20I%20want%20a%20free%20cleaning%20service%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gradient-to-r from-yellow-500 to-yellow-600 text-white hover:shadow-xl">
+              Get Your Free Quote
+            </a>
+            <a href="/en/portfolio/projects/" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-white/30 text-white hover:bg-white/10">
+              See Examples
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-white/80">
+            <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <span class="text-yellow-400">★★★★★</span>
+              <span class="font-semibold">4.9/5 Rating</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <span class="font-semibold">+200% More Leads</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <span class="font-semibold">3-7 Day Delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-3xl opacity-20 animate-float"></div>
+          <div class="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+            <p class="text-white/70 text-sm mb-4">Trusted by 50+ Cleaning Companies</p>
+            <p class="text-white text-2xl font-bold mb-2">Free consultation • No obligation • Results guaranteed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem/Solution Section -->
+  <section class="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Web Design for Cleaning Services That Generate Bookings</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-yellow-100">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 2.502-3.546V7.546c0-1.879-.962-3.546-2.502-3.546H5.502C3.962 4 3 5.667 3 7.546v8.908c0 1.879.962 3.546 2.502 3.546z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-yellow-900">The Problem:</h3>
+          </div>
+          <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-yellow-600 mr-3 mt-1">•</span>
+              <span>No online visibility → missing potential clients</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-yellow-600 mr-3 mt-1">•</span>
+              <span>Competitors ranking higher on Google</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-yellow-600 mr-3 mt-1">•</span>
+              <span>Website doesn't convert visitors to bookings</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-blue-100">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-blue-900">Our Solution:</h3>
+          </div>
+          <div class="space-y-4 text-gray-700">
+            <p class="text-lg leading-relaxed">Your cleaning business needs more than just a website. You need a system that brings in new clients consistently.</p>
+            <p class="text-lg leading-relaxed font-semibold">We create cleaning company web design solutions focused on generating quote requests, phone calls, and recurring customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Why Cleaning Businesses Choose Our Web Design Services</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Professional features designed specifically for the cleaning industry
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {benefits.map((benefit) => (
+          <div class="card">
+            <div class={`w-12 h-12 mb-4 bg-gradient-to-br ${benefit.bgClass} rounded-lg flex items-center justify-center`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={benefit.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{benefit.title}</h3>
+            <p class="text-gray-600">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Features Every Cleaning Website Needs</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          We build websites tailored for all types of cleaning services
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-12 border border-yellow-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {features.map((feature) => (
+            <div class="flex items-start gap-4">
+              <div class={`w-12 h-12 bg-gradient-to-br ${feature.bgClass} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon} />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-1">{feature.title}</h3>
+                <p class="text-gray-600 text-sm">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Get More Cleaning Clients Every Week</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          A well-designed cleaning website helps you:
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-gradient-to-br from-blue-50 to-yellow-50 rounded-3xl shadow-2xl p-12 border border-blue-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {results.map((result) => (
+            <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-md">
+              <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="font-semibold text-lg">{result}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-8">
+          <p class="text-lg text-blue-800 font-semibold">
+            Your website becomes a 24/7 client acquisition system.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Authority Section -->
+  <section class="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Cleaning Company Web Design That Understands Your Business</h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-12 border border-yellow-100">
+        <div class="space-y-6 text-center">
+          <p class="text-xl text-gray-700 leading-relaxed">
+            We understand how cleaning businesses work. Whether you offer residential, commercial, carpet, or window cleaning, your website must clearly show your services and make it easy for customers to contact you.
+          </p>
+          <p class="text-xl text-gray-900 font-bold">
+            That's exactly what we build.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Simple Process, Fast Results</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {steps.map((step) => (
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+              <span class="text-2xl font-bold text-white">{step.step}</span>
+            </div>
+            <h3 class="text-lg font-bold mb-2">{step.title}</h3>
+            <p class="text-gray-600 text-sm">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-blue-900 via-blue-700 to-yellow-800">
+    <div class="container text-center">
+      <h2 class="text-section mb-4 text-white">Ready to Get More Cleaning Clients?</h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Let's build a website that brings you more bookings, more calls, and more recurring customers.
+      </p>
+      <a href="https://wa.me/12025551234?text=Hi%20Omar,%20I%20want%20a%20free%20cleaning%20service%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 bg-white text-blue-900 hover:shadow-xl">
+        Get a Quote
+      </a>
+      <div class="mt-8 text-white/70 text-sm">
+        30-day satisfaction guarantee • Dedicated support • Proven results
+      </div>
+    </div>
+  </section>
+</Layout>

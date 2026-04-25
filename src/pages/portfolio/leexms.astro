@@ -1,0 +1,263 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyIcon from '../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "LEEXMS SRL - Mi Transformación Digital Contable",
+  description:
+    "Este proyecto fue especial: transformé completamente una firma de servicios contables tradicional en una potencia digital. Usé Next.js 14, SEO avanzado y cumplimos todas las normativas legales en solo 1 semana de trabajo intenso.",
+  cliente: "LEEXMS SRL",
+  fecha: "2024-2025",
+  tipo: "Sitio Web Corporativo / Servicios Profesionales",
+  tecnologias: ["Next.js 14", "React 18", "Bootstrap 5", "Schema.org SEO"],
+  url: "https://leexms.com",
+  imagen: "/images-portfolio/caso-estudio-web-leexms.png",
+  stats: {
+    pages: "15+ páginas",
+    services: "6 servicios principales",
+    blog: "Sistema de blog completo",
+    weeks: "1 semana desarrollo",
+  },
+  results: [
+    "✅ Transformación digital completa en 1 semana de trabajo dedicado",
+    "✅ 6 páginas de servicios detallados con SEO que posicionan en Google RD",
+    "✅ Sistema de blog con Schema.org markup - ¡los artículos ya indexan!",
+    "✅ Cumplimiento legal completo (RGPD, Cookies, Términos) - sin preocupaciones",
+    "✅ Performance 95+ en PageSpeed - carga instantánea",
+    "✅ SEO local optimizado para República Dominicana - clientes encuentran a LEEXMS",
+    "✅ WhatsApp Business integrado - los clientes escriben directamente",
+    "✅ Build optimizado: 28.3KB First Load - más rápido que la competencia",
+  ],
+};
+
+const techStack = [
+  { name: "Next.js 14", description: "Framework React con App Router para SSG y performance", icon: "🚀" },
+  { name: "React 18", description: "Componentes UI interactivos y reutilizables", icon: "⚛️" },
+  { name: "Bootstrap 5", description: "Framework CSS para diseño responsive profesional", icon: "🎨" },
+  { name: "Schema.org", description: "SEO estructurado para máxima visibilidad en Google", icon: "🔍" },
+  { name: "React CountUp", description: "Animaciones de números para estadísticas", icon: "📊" },
+];
+
+const phases = [
+  {
+    title: "Semana Intensiva: Transformación Completa en 7 Días",
+    week: "Semana Única (Días 1-7)",
+    tasks: [
+      "Día 1-2: Discovery inmersivo - me senté con LEEXMS para entender su negocio, clientes y qué les hacía únicos en República Dominicana",
+      "Día 3: Arquitectura completa - diseñé toda la estructura, 6 servicios principales, y cómo destacar sus 25+ años de experiencia",
+      "Día 4: Diseño UI/UX en Figma - creé una identidad visual moderna pero profesional que transmitiera confianza inmediata",
+      "Día 5: Setup Next.js 14 y desarrollo base - preparé toda la estructura para desarrollo ultra-rápido y performance óptima",
+      "Día 6: Desarrollo intensivo - 15+ páginas estáticas, blog con Schema.org, integración WhatsApp, todo optimizado",
+      "Día 7: Testing final y deploy - revisión detallada, optimización de imágenes, puesta en producción",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🏢",
+    title: "Diseño que Inspira Confianza",
+    description:
+      "Creé una identidad visual que refleja 25+ años de experiencia contable pero con toque moderno. Quería que los visitantes sintieran profesionalismo desde el primer segundo.",
+  },
+  {
+    icon: "📊",
+    title: "6 Servicios que Convierten",
+    description:
+      "Estructuré cada página de servicios para responder exactamente lo que buscan los clientes en República Dominicana. SEO pensado desde el usuario, no desde Google.",
+  },
+  {
+    icon: "🔍",
+    title: "SEO que Realmente Funciona",
+    description:
+      "Implementé Schema.org completo porque sé que Google premia el contenido bien estructurado. Los resultados: artículos indexando en días, no semanas.",
+  },
+  {
+    icon: "📝",
+    title: "Blog con Autoridad Real",
+    description:
+      "Diseñé el sistema de blog destacando al Licenciado Lergio como autor. Quería construir autoridad real, no solo contenido por contenido.",
+  },
+  {
+    icon: "⚖️",
+    title: "Legal sin Dolores de Cabeza",
+    description:
+      "Me aseguré que todo cumpliera RGPD y normativas digitales. LEEXMS puede operar tranquila sabiendo que están 100% cubiertos legalmente.",
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp que Genera Clientes",
+    description:
+      "Integré WhatsApp Business porque conozco el mercado dominicano - la gente prefiere escribir directamente. Los leads llegan solos.",
+  },
+];
+
+const metrics = [
+  { icon: "⚡", title: "Performance", value: "95+", description: "PageSpeed Insight score móvil y escritorio" },
+  { icon: "📄", title: "Páginas Estáticas", value: "21", description: "Generadas estáticamente para máxima velocidad" },
+  { icon: "🎯", title: "SEO Local", value: "100%", description: "Optimizado para República Dominicana" },
+  { icon: "📦", title: "Bundle Size", value: "28.3KB", description: "First Load JS optimizado" },
+];
+
+const experience = [
+  {
+    title: "🎯 El Desafío Real",
+    text: "LEEXMS llegué a ellos con un problema común: eran excelentes contables pero invisibles digitalmente. En República Dominicana, los clientes buscan servicios contables en Google, y ellos no aparecían. Mi misión no era solo hacer un sitio web, era crear una máquina de generación de clientes.",
+  },
+  {
+    title: "💡 Mi Estrategia Secreta",
+    text: "En lugar de enfocarme solo en diseño técnico, me sumergí en su negocio. Descubrí que su experiencia de 25+ años era su mayor activo, pero nadie la conocía. Diseñé cada página para contar esa historia, usando Schema.org para que Google entendiera su autoridad en el sector contable dominicano.",
+  },
+  {
+    title: "🚀 El Momento Mágico",
+    text: "Fue cuando deployé el sitio y vi el PageSpeed de 95+. Pero lo mejor fue la llamada del cliente una semana después: 'Omar, ya tenemos clientes que nos encontraron por Google'. En ese momento supe que había entregado valor real, no solo código.",
+  },
+  {
+    title: "📚 Lo que Aprendí",
+    text: "Este proyecto me confirmó que la transformación digital no es sobre tecnología, es sobre entender profundamente un negocio y traducir esa esencia a código. LEEXMS me enseñó que los mejores resultados vienen cuando combinas technical skills con empatía empresarial real.",
+  },
+];
+---
+
+<Layout title="LEEXMS SRL - Caso de Estudio | Omar Fuentes" description="Transformación digital completa de firma contable con Next.js 14, SEO avanzado y cumplimiento legal. Desarrollo en 1 semana con resultados medibles.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="es"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/portfolio/proyectos/"
+        technologies={project.tecnologias}
+        badges={["1 semana desarrollo", "Completado y en producción"]}
+      />
+
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {Object.entries(project.stats).map(([key, value]) => (
+          <div class="text-center p-6 rounded-2xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+            <div class="text-black text-sm font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+          </div>
+        ))}
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack Tecnológico Moderno</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Proceso de Desarrollo en 1 Semana</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3">
+                    <span style="color: var(--primary-green); font-weight: 900;">✓</span>
+                    <span class="text-black">{task}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Características Principales</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Métricas de Rendimiento</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={metric.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{metric.value}</div>
+              <div class="font-black text-black mt-2">{metric.title}</div>
+              <div class="text-black mt-2">{metric.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Resultados del Proyecto</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Mi Experiencia Personal con LEEXMS</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <div class="rounded-3xl p-10 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="text-4xl mb-4">⭐</div>
+          <blockquote class="text-xl text-black mb-6">
+            "La transformación digital que nos proporcionaron superó todas nuestras expectativas. Pasamos de no tener presencia web a tener una plataforma profesional que genera clientes mientras dormimos. Nuestra imagen corporativa ahora refleja la calidad de nuestros servicios."
+          </blockquote>
+          <div class="font-black text-black">LEEXMS SRL</div>
+          <div class="text-black">Firma de Servicios Contables - Santo Domingo</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">¿Tu Negocio Necesita una Transformación Como Esta?</h2>
+          <p class="text-white mb-8">Como demostré con LEEXMS, no se trata solo de código - se trata de entender tu negocio y crear soluciones que generen resultados reales</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20el%20caso%20LEEXMS%20y%20quiero%20mi%20transformaci%C3%B3n%20digital" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+              Charlemos de Tu Proyecto
+            </a>
+            <a href="/portfolio/proyectos/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">
+              Ver Más Transformaciones
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

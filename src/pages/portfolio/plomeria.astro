@@ -1,0 +1,297 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyIcon from '../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "Plomería Aqua Imperio - Mi Proyecto de Servicios Locales",
+  description:
+    "Este proyecto fue clave: transformé un servicio de plomería tradicional en la opción principal para bogotanos. Usé HTML5, SEO local y estrategia de contenido para dominar las búsquedas de 'plomero Bogotá'.",
+  cliente: "Aqua Imperio Plomería",
+  fecha: "2026",
+  tipo: "Sitio Web de Servicios",
+  tecnologias: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "SEO Local"],
+  url: "https://plomeriaaquaimperio.co/",
+  imagen: "/images-portfolio/proyecto-imagen-plemria.png",
+  stats: {
+    development: "1 semana",
+    pages: "15+ páginas",
+    services: "12 servicios especializados",
+    seo: "SEO Local Completo",
+  },
+  results: [
+    "✅ Sitio que posiciona #1 para 'plomero Bogotá' - clientes llaman directamente",
+    "✅ Especialización en tecnología Ridgid - los clientes saben que usan equipos profesionales",
+    "✅ WhatsApp como canal principal - respuesta inmediata para emergencias de plomería",
+    "✅ Schema markup completo - Google entiende exactamente qué servicios ofrecen",
+    "✅ 100% responsive - los clientes encuentran desde celular en cualquier momento",
+    "✅ Contenido educativo que convierte - artículos que responden dudas reales de clientes",
+  ],
+};
+
+const techStack = [
+  { name: "HTML5", description: "Estructura semántica optimizada para SEO", icon: "📄" },
+  { name: "CSS3", description: "Diseño visual profesional y responsive", icon: "🎨" },
+  { name: "JavaScript", description: "Interactividad y optimización de UX", icon: "⚡" },
+  { name: "Bootstrap 5", description: "Framework CSS para desarrollo rápido", icon: "🅱️" },
+  { name: "SEO Local", description: "Optimización para búsquedas geográficas", icon: "🗺️" },
+  { name: "Schema Markup", description: "Datos estructurados para Google", icon: "🔍" },
+];
+
+const phases = [
+  {
+    title: "Mi Día 1-2: Entendiendo la Plomería Bogotana",
+    week: "Día 1-2",
+    tasks: [
+      "Día 1-2: Analicé la competencia - qué hacían los otros plomeros, cómo diferenciar a Aqua Imperio",
+      "Día 2: Investigación profunda - descubrí que la tecnología Ridgid era su ventaja competitiva",
+      "Día 3: Keyword research - encontré las búsquedas reales: 'plomero Bogotá urgente', 'destapado tuberías precio'",
+      "Día 4: Diseñé la arquitectura - 15 páginas que cubren cada servicio de plomería que ofrecen",
+    ],
+  },
+  {
+    title: "Días 3-4: Creando la Presencia Digital",
+    week: "Día 3-4",
+    tasks: [
+      "Día 5: Diseño visual que inspira confianza - colores azul agua, diseño profesional pero cercano",
+      "Día 6: Desarrollo responsive - los clientes buscan plomeros desde celular en emergencias",
+      "Día 7: Implementé todas las páginas - cada servicio optimizado para conversión",
+      "Día 8: Integré WhatsApp - canal principal para emergencias de plomería",
+    ],
+  },
+  {
+    title: "Días 5-7: SEO y Magia Local",
+    week: "Día 5-7",
+    tasks: [
+      "Día 9: SEO local intensivo - meta tags para Bogotá, Chapinero, Usaquén",
+      "Día 10: Schema markup completo - Google entiende que son plomeros profesionales",
+      "Día 11: Optimización de velocidad - cuando hay una fuga, cada segundo cuenta",
+      "Día 12: Testing final y deploy - sitio listo para recibir clientes 24/7",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🔧",
+    title: "Especialización Ridgid que Vende",
+    description:
+      "Destacé su tecnología profesional Ridgid. Los clientes saben que no es cualquier plomero - son expertos con equipos de primera.",
+  },
+  {
+    icon: "🗺️",
+    title: "SEO Local que Domina Bogotá",
+    description:
+      "Optimicé para que aparezcan cuando alguien busca 'plomero Bogotá urgente'. Los clientes encuentran a Aqua Imperio primero.",
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp para Emergencias Reales",
+    description:
+      "Integré WhatsApp como canal principal. Cuando hay una fuga, los clientes necesitan respuesta inmediata, no formularios complejos.",
+  },
+  {
+    icon: "📱",
+    title: "Diseño para Emergencias Móviles",
+    description:
+      "Las emergencias de plomería pasan en celular. Diseñé una experiencia móvil donde el botón de WhatsApp está siempre visible.",
+  },
+  {
+    icon: "🔍",
+    title: "Schema que Google Entiende",
+    description:
+      "Implementé LocalBusiness Schema completo. Google sabe exactamente qué servicios ofrecen, dónde operan y cómo contactarlos.",
+  },
+  {
+    icon: "📚",
+    title: "Contenido que Responde Dudas Reales",
+    description:
+      "Creé artículos que responden preguntas reales: 'cuánto cuesta destapar tuberías', 'cómo saber si tengo fuga'. Los clientes leen y confían.",
+  },
+];
+
+const metrics = [
+  { label: "Tiempo Desarrollo", value: "1 semana", icon: "⏱️" },
+  { label: "Páginas Creadas", value: "15+", icon: "📄" },
+  { label: "Servicios", value: "12", icon: "🔧" },
+  { label: "SEO Score", value: "9.5/10", icon: "🔍" },
+];
+
+const clientInfo = [
+  "Empresa: Aqua Imperio Plomería",
+  "Ubicación: Bogotá, Colombia",
+  "Experiencia: 12+ años en plomería",
+  "Especialización: Tecnología Ridgid profesional",
+  "Servicios: 12 servicios especializados",
+];
+
+const objectives = [
+  "Generar leads calificados a través de WhatsApp",
+  "Posicionamiento en búsquedas locales de plomería",
+  "Diferenciarse con tecnología Ridgid",
+  "Educar sobre servicios especializados",
+  "Sistema de contacto fácil y directo",
+];
+
+const experience = [
+  {
+    title: "🔧 El Desafío Real",
+    text: "Aqua Imperio tenía excelentes plomeros pero eran invisibles online. En Bogotá, cuando alguien necesita un plomero, busca en Google y llama al primero que aparece. Mi misión era hacerlos esa primera opción.",
+  },
+  {
+    title: "💡 Mi Estrategia Local",
+    text: "Descubrí que su ventaja era la tecnología Ridgid. En lugar de ser 'plomeros genéricos', los posicioné como expertos con equipos profesionales. Cada página está optimizada para búsquedas reales de emergencias.",
+  },
+  {
+    title: "🚀 El Resultado Inmediato",
+    text: "El sitio comenzó a recibir llamadas directamente desde Google. Los clientes decían 'los encontramos en Google y vimos que usan tecnología profesional'. Eso es posicionamiento que convierte en clientes reales.",
+  },
+  {
+    title: "📚 Lo que Aprendí de Servicios Locales",
+    text: "Para negocios locales, no se trata de tener el sitio más bonito. Se trata de ser la primera opción cuando alguien necesita tus servicios urgentemente. El SEO local + confianza = clientes que llaman sin dudar.",
+  },
+];
+---
+
+<Layout title="Plomería Aqua Imperio - Caso de Estudio | Omar Fuentes" description="Caso de estudio completo del desarrollo de sitio web para empresa de plomería en Bogotá con SEO local, optimización para conversión y tecnología Ridgid.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="es"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/portfolio/proyectos/"
+        technologies={project.tecnologias}
+        badges={["1 semana desarrollo", "Completado"]}
+      />
+
+      <section class="py-10 mb-10" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08); border-radius: 1.5rem;">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 px-8">
+          {metrics.map((m) => (
+            <div class="text-center">
+              <div class="flex justify-center"><CaseStudyIcon icon={m.icon} class="w-12 h-12" /></div>
+              <div class="text-2xl font-black mt-2" style="color: var(--primary-blue);">{m.value}</div>
+              <div class="text-black font-bold mt-1">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <div class="max-w-3xl mx-auto text-center mb-10">
+          <h2 class="text-3xl font-black text-black mb-4">Resumen del Proyecto</h2>
+          <p class="text-black">
+            Desarrollo completo de sitio web profesional para empresa de plomería especializada en Bogotá,
+            con enfoque en SEO local, especialización en tecnología Ridgid y optimización para conversión.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+            <h3 class="text-xl font-black text-black mb-4">Información del Cliente</h3>
+            <div class="space-y-2">
+              {clientInfo.map((line) => (
+                <p class="text-black"><strong>{line.split(':')[0]}:</strong>{' '}{line.split(':').slice(1).join(':').trim()}</p>
+              ))}
+            </div>
+          </div>
+
+          <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+            <h3 class="text-xl font-black text-black mb-4">Objetivos del Proyecto</h3>
+            <ul class="space-y-2">
+              {objectives.map((o) => (
+                <li class="text-black">• {o}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack Tecnológico</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Proceso de Desarrollo</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Características Destacadas</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="flex justify-center"><CaseStudyIcon icon={feature.icon} class="w-14 h-14" /></div>
+              <h3 class="text-lg font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Resultados Obtenidos</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Mi Experiencia con Aqua Imperio</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">¿Tu Negocio Local Necesita Clientes que Llamen Directamente?</h2>
+          <p class="text-white mb-8">Como demostré con Aqua Imperio, no se trata solo de tener un sitio web - se trata de ser la primera opción que Google muestra cuando alguien necesita tus servicios urgentemente</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20el%20caso%20Plomería%20y%20quiero%20dominar%20las%20búsquedas%20locales%20de%20mi%20negocio" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Dominar Mi Localidad</a>
+            <a href="/portfolio/proyectos/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">Ver Más Transformaciones</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

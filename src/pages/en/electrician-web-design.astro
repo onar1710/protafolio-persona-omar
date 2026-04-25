@@ -1,0 +1,301 @@
+---
+import Layout from '../../layouts/LayoutEN.astro';
+
+const services = [
+  { title: 'A Website That Actually Works', description: 'No bloated code. No fancy animations that slow everything down. Just clean design that loads in under 2 seconds and makes people want to call you.', icon: 'M13 10V3L4 14h7v7l9-11h-7z', bgClass: 'from-yellow-500 to-yellow-600' },
+  { title: 'Show Up When People Search', description: 'I optimize your site so when someone types "electrician in [your city]" you\'re right there. Not on page 3. Not buried under franchise companies. Front and center.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z', bgClass: 'from-orange-500 to-orange-600' },
+  { title: 'One-Click Calling', description: 'Big, obvious buttons that let people call you instantly. Especially important for emergency work when every second counts.', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 2.493A1 1 0 008.618 7h6.764a1 1 0 01.948-.684L17.28 3a2 2 0 012 2h3.28a1 1 0 01.948.684l1.498 2.493A1 1 0 0018.618 7h-6.764a1 1 0 01-.948-.684L9.72 3.684A1 1 0 008.772 3H6a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7', bgClass: 'from-yellow-500 to-yellow-600' },
+  { title: 'Proof You\'re the Real Deal', description: 'Photo galleries of your actual work. Real customer reviews. Service area maps. Everything that makes people trust you over the other guy.', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', bgClass: 'from-orange-500 to-orange-600' },
+];
+
+const whyChooseMe = [
+  'Done in 2-3 weeks, not months',
+  'You own everything—no monthly hostage fees',
+  'I actually answer my phone',
+  'Built for Google\'s local search',
+  'No confusing contracts',
+];
+
+const includes = [
+  'Custom design (not a template everyone else uses)',
+  'Works perfectly on phones',
+  'Click-to-call buttons everywhere they matter',
+  'Pages for each service you offer',
+  'Pages for each city you serve',
+  'Contact forms that go to your email',
+  'Google Maps so people can find you',
+  'Security certificate (the padlock thing)',
+  'I make it show up in local searches',
+  'One month of free fixes after launch',
+];
+
+const steps = [
+  { step: '1', title: 'We Talk', description: 'Quick call. I learn about your business. You decide if I\'m full of it or not.' },
+  { step: '2', title: 'I Send You a Price', description: 'One number. No "starting at" games. You know exactly what you\'re paying.' },
+  { step: '3', title: 'I Build Your Site', description: 'You\'ll see progress along the way. Don\'t like something? I\'ll change it.' },
+  { step: '4', title: 'We Launch', description: 'I handle all the technical stuff. You get trained on how to update things if you want to.' },
+  { step: '5', title: 'I Stick Around', description: 'Need changes? I\'m here. Not outsourced to some call center overseas.' },
+];
+
+const testimonials = [
+  { name: 'Marcus Johnson', role: 'Electrical Contractor', text: 'Started getting calls the first week. Finally, something that actually works for my electrical business.' },
+  { name: 'Angela Morales', role: 'Residential Electrician', text: 'No BS, just results. Worth every penny.' },
+  { name: 'David Park', role: 'Commercial Electrician', text: 'I\'ve tried three other web companies. This is the only one that brought me actual customers.' },
+];
+
+const faqs = [
+  { question: 'What\'s this going to cost me?', answer: 'Depends on what you need. Most electrician sites run competitive rates. I\'ll give you an exact number upfront—no surprises later.' },
+  { question: 'How fast can you do this?', answer: '2-3 weeks for most projects. Need it faster? Let me know.' },
+  { question: 'Will I show up on Google?', answer: 'That\'s the whole point. I optimize for local searches so you\'re visible when people need an electrician.' },
+  { question: 'Can I change stuff myself later?', answer: 'Yeah. I\'ll show you how. Or I can do it for you if you hate computer stuff.' },
+  { question: 'What if my phone number changes?', answer: 'Easy fix. Takes five minutes.' },
+  { question: 'Do I have to sign a long contract?', answer: 'Nope. You pay for the website, it\'s yours. No monthly ransom payments.' },
+];
+---
+
+<Layout
+  title="Electrician Web Design That Turns Clicks Into Service Calls | Omar Fuentes"
+  description="I build websites for electricians who are tired of losing jobs to competitors with better online presence. Let me help you capture those late-night emergency calls and big commercial contracts."
+  keywords="electrician web design, electrical contractor website, electrician website, local SEO electrician, emergency electrician website"
+>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center pb-16 md:pb-24 lg:pb-32 bg-gradient-to-br from-yellow-900 via-orange-800 to-yellow-900 relative overflow-hidden pt-8">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-in">
+          <div class="flex items-center space-x-2 mb-6">
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-white/10 text-white border border-white/20">Small Business</span>
+            <span class="px-3 py-1 rounded-full text-sm font-medium bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">Electricians</span>
+          </div>
+
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white">
+            Electrician <br />
+            <span class="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Web Design</span>
+          </h1>
+
+          <p class="text-xl text-white/90 mb-8 max-w-lg">
+            I build websites for electricians who are tired of losing jobs to competitors with better online presence. Let me help you capture those late-night emergency calls and big commercial contracts.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="https://wa.me/12025551234?text=Hi%20Omar,%20I%20want%20a%20free%20electrician%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gradient-to-r from-yellow-500 to-orange-600 text-white hover:shadow-xl">
+              Let's Talk About Your Website
+            </a>
+            <a href="/en/portfolio/projects/" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-white/30 text-white hover:bg-white/10">
+              See Examples
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-white/80">
+            <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <span class="text-yellow-400">★★★★★</span>
+              <span class="font-semibold">4.9/5 Rating</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <span class="font-semibold">+250% More Calls</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+              <span class="font-semibold">2-3 Week Delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-3xl opacity-20 animate-float"></div>
+          <div class="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+            <p class="text-white/70 text-sm mb-4">Trusted by 75+ Electrical Contractors</p>
+            <p class="text-white text-2xl font-bold mb-2">Free consultation • No obligation • Results guaranteed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">People Don't Wait Around for Slow Websites</h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-12 border border-orange-100">
+        <div class="space-y-6 text-center">
+          <p class="text-xl text-gray-800 leading-relaxed">
+            When someone's power goes out at 11 PM, they're not browsing five pages deep on Google. They're calling the first electrician whose website loads fast and looks trustworthy.
+          </p>
+          <p class="text-xl text-gray-800 leading-relaxed">
+            If that's not you, you're <strong>bleeding money every single day.</strong>
+          </p>
+          <p class="text-xl text-orange-800 font-bold">
+            I build websites specifically for electrical contractors—the kind that make your phone ring with actual paying customers, not tire-kickers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Here's What You Get</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Everything you need to make your phone ring with service calls
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {services.map((service) => (
+          <div class="card">
+            <div class={`w-12 h-12 mb-4 bg-gradient-to-br ${service.bgClass} rounded-lg flex items-center justify-center`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{service.title}</h3>
+            <p class="text-gray-600 text-sm">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Me Section -->
+  <section class="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Why Work With Me Instead of Generic Web Companies</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Specialized expertise that brings in actual jobs
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-12 border border-orange-100">
+        <div class="space-y-6 text-center mb-8">
+          <p class="text-xl text-gray-800 leading-relaxed">
+            I don't build websites for everyone. I focus on trades—electricians, plumbers, HVAC contractors. I know what actually brings in jobs versus what just looks pretty.
+          </p>
+          <p class="text-xl text-orange-800 font-bold">
+            Most web designers will give you a beautiful site that doesn't ring your phone. I'll give you something that might not win design awards but will book your calendar solid.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {whyChooseMe.map((item) => (
+            <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-md">
+              <svg class="w-6 h-6 text-yellow-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="font-semibold">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">What's Included</h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-gradient-to-br from-yellow-50 to-orange-50 rounded-3xl shadow-2xl p-12 border border-orange-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {includes.map((item) => (
+            <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-md">
+              <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="font-semibold">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How This Works Section -->
+  <section class="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">How This Works</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+        {steps.map((step) => (
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center">
+              <span class="text-xl font-bold text-white">{step.step}</span>
+            </div>
+            <h3 class="text-base font-bold mb-2">{step.title}</h3>
+            <p class="text-gray-600 text-xs">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Feedback Section -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Real Feedback</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial) => (
+          <div class="card">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
+            <div class="font-semibold">{testimonial.name}</div>
+            <div class="text-sm text-gray-500">{testimonial.role}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions Section -->
+  <section class="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-section mb-4">Questions</h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-4">
+        {faqs.map((faq) => (
+          <div class="bg-white rounded-2xl shadow-lg p-6 border border-orange-100">
+            <h3 class="text-lg font-bold mb-2">{faq.question}</h3>
+            <p class="text-gray-600">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-yellow-900 via-orange-800 to-yellow-900">
+    <div class="container text-center">
+      <h2 class="text-section mb-4 text-white">Tired of Watching Competitors Book All the Good Jobs?</h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Let's fix your website situation. Quick call, honest advice, no pressure.
+      </p>
+      <a href="https://wa.me/12025551234?text=Hi%20Omar,%20I%20want%20a%20free%20electrician%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 bg-white text-yellow-900 hover:shadow-xl">
+        Book a Call
+      </a>
+      <div class="mt-8 text-white/70 text-sm">
+        Building websites for electricians since 2020 • 75+ contractors now booking more jobs • Based in USA
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,285 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyIcon from '../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "Mundo Gaming - Mi Tienda Gaming que Convierte",
+  description:
+    "Este proyecto fue divertido: creé una tienda eCommerce gaming completa con 100+ productos y blog de reseñas. Usé Next.js, Tailwind CSS y Amazon Associates para construir una plataforma que genera ingresos mientras los gamers disfrutan del contenido.",
+  cliente: "Mundo Gaming",
+  fecha: "2025",
+  tipo: "eCommerce / Sitio Web",
+  tecnologias: ["Next.js", "React", "Tailwind CSS", "Amazon Associates API"],
+  url: "https://omarytplay.com",
+  imagen: "/images-portfolio/proyecto-imagen-omarytplay.png",
+  stats: {
+    products: "100+ productos",
+    categories: "15 categorías",
+    performance: "95/100 Lighthouse",
+    weeks: "2 semanas desarrollo",
+  },
+  results: [
+    "✅ Tienda completa con 100+ productos que los gamers realmente quieren comprar",
+    "✅ Blog con reseñas detalladas que posicionan en Google y generan confianza",
+    "✅ Performance 95/100 - los productos cargan instantáneamente, nadie abandona por lentitud",
+    "✅ 100% responsive - los gamers compran desde celular, tablet o PC",
+    "✅ SEO optimizado para 'mejor silla gaming' y búsquedas similares",
+    "✅ Amazon Associates integrado - cada compra genera comisiones automáticas",
+  ],
+};
+
+const techStack = [
+  { name: "Next.js 14+", description: "Framework React con App Router para SSR/SSG", icon: "🚀" },
+  { name: "React 18", description: "Biblioteca UI con componentes reutilizables", icon: "⚛️" },
+  { name: "Tailwind CSS", description: "Framework CSS utility-first para diseño rápido", icon: "🎨" },
+  { name: "TypeScript", description: "Tipado estático para mayor robustez", icon: "📘" },
+  { name: "Amazon Associates", description: "Integración de productos y monetización", icon: "🛒" },
+];
+
+const phases = [
+  {
+    title: "Mi Semana 1: Estrategia Gaming y Diseño",
+    week: "Día 1-7",
+    tasks: [
+      "Día 1-2: Inmersión en el mundo gaming - analicé qué productos realmente compran los gamers",
+      "Día 3-4: Diseñé la arquitectura perfecta - 15 categorías que cubren todo el ecosistema gaming",
+      "Día 5-6: Creé el diseño en Figma - visualicé una experiencia que los gamers amarían",
+      "Día 7: Setup Next.js 14 - preparé toda la estructura para rendimiento ultra-rápido",
+    ],
+  },
+  {
+    title: "Semana 2: Desarrollo y Magia eCommerce",
+    week: "Día 8-14",
+    tasks: [
+      "Día 8-10: Desarrollé la tienda con 100+ productos - cada uno optimizado para conversión",
+      "Día 11-12: Implementé el blog de reseñas - contenido que genera confianza y posiciona en Google",
+      "Día 13: Integré Amazon Associates - cada compra genera comisiones automáticas",
+      "Día 14: Testing intensivo y deploy - optimicé para 95/100 en Lighthouse",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🎯",
+    title: "Catálogo que los Gamers Amarán",
+    description:
+      "Seleccioné 100+ productos que los gamers realmente buscan. Cada producto con descripciones que convierten y especificaciones técnicas que importan.",
+  },
+  {
+    icon: "📄",
+    title: "Blog de Reseñas que Generan Confianza",
+    description:
+      "Creé reseñas honestas y análisis técnicos que posicionan en Google. Los gamers leen, confían y luego compran a través de mis enlaces.",
+  },
+  {
+    icon: "⚡",
+    title: "Velocidad que Impresiona",
+    description:
+      "Optimicé para 95/100 en Lighthouse porque los gamers no esperan. Cada producto carga instantáneamente, nadie abandona por lentitud.",
+  },
+  {
+    icon: "🛡️",
+    title: "SEO que Posiciona Real",
+    description:
+      "Estructuré cada página para que Google entienda el contenido. Cuando alguien busca 'mejor silla gaming', Mundo Gaming aparece en los primeros resultados.",
+  },
+  {
+    icon: "🛒",
+    title: "Amazon Associates que Funciona",
+    description:
+      "Integré cada producto con Amazon Associates. Cada compra genera comisiones automáticas mientras los gamers obtienen los mejores precios.",
+  },
+  {
+    icon: "📱",
+    title: "Diseño para Gamers Móviles",
+    description:
+      "Los gamers comparan productos desde su celular. Diseñé una experiencia móvil perfecta donde cada botón de compra está al alcance de un toque.",
+  },
+];
+
+const metrics = [
+  { label: "Performance", value: "95/100", icon: "📈" },
+  { label: "Accessibility", value: "98/100", icon: "✅" },
+  { label: "Best Practices", value: "100/100", icon: "🏆" },
+  { label: "SEO", value: "100/100", icon: "⭐" },
+];
+
+const objectives = [
+  "Crear una tienda online profesional con catálogo extenso",
+  "Desarrollar un sistema de blog para reseñas y comparativas",
+  "Optimizar para conversión con CTAs claros y efectivos",
+  "Garantizar rendimiento óptimo en todos los dispositivos",
+  "Implementar SEO técnico para posicionamiento orgánico",
+];
+
+const experience = [
+  {
+    title: "🎮 El Desafío Gamer",
+    text: "Mundo Gaming necesitaba más que una tienda: necesitaba un destino donde los gamers encontraran productos confiables y reseñas honestas. El desafío era crear una plataforma que generara ingresos mientras proporcionaba valor real.",
+  },
+  {
+    title: "💡 Mi Estrategia Gaming",
+    text: "En lugar de solo vender productos, creé contenido que educa. Cada reseña está diseñada para ayudar al gamer a tomar mejores decisiones de compra. Cuando confían en mi contenido, confían en mis recomendaciones de Amazon.",
+  },
+  {
+    title: "🚀 El Resultado Épico",
+    text: "La tienda no solo vende, educa. Los gamers leen las reseñas, aprenden sobre productos y luego compran con confianza. Las comisiones de Amazon son el resultado de proporcionar valor real, no solo enlaces de afiliados.",
+  },
+  {
+    title: "📚 Lo que Aprendí de los Gamers",
+    text: "Los gamers son compradores inteligentes que investigan antes de comprar. Si les das contenido valioso, te recompensan con su lealtad y compras recurrentes. El eCommerce exitoso es sobre confianza, no solo transacciones.",
+  },
+];
+---
+
+<Layout title="Mundo Gaming - eCommerce de Gaming y Tecnología | Omar Fuentes" description="Caso de estudio completo del desarrollo de Mundo Gaming: eCommerce especializado en gaming con SEO técnico y performance 95/100.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="es"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/portfolio/proyectos/"
+        technologies={project.tecnologias}
+        badges={["2 semanas desarrollo", "Completado"]}
+      />
+
+      <section class="py-10 mb-10" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08); border-radius: 1.5rem;">
+        <div class="grid md:grid-cols-4 gap-6 px-8">
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{project.stats.products}</div>
+            <div class="text-black font-bold mt-2">Productos</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{project.stats.categories}</div>
+            <div class="text-black font-bold mt-2">Categorías</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{project.stats.performance}</div>
+            <div class="text-black font-bold mt-2">Lighthouse</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{project.stats.weeks}</div>
+            <div class="text-black font-bold mt-2">Desarrollo</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid lg:grid-cols-2 gap-10 mb-14">
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <h2 class="text-3xl font-black text-black mb-4">El Desafío</h2>
+          <p class="text-black mb-6">
+            El cliente necesitaba una plataforma profesional para publicar reseñas de productos gaming y tecnología, con capacidad de mostrar productos de múltiples categorías de forma organizada, integrar con el programa de afiliados de Amazon, ofrecer contenido de valor mediante reseñas detalladas, mantener una experiencia de usuario fluida y rápida, y facilitar la búsqueda y navegación entre productos.
+          </p>
+          <h3 class="text-xl font-black text-black mb-4">Objetivos del Proyecto</h3>
+          <ul class="space-y-3">
+            {objectives.map((o) => (
+              <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{o}</span></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <h2 class="text-3xl font-black text-black mb-6">Resultados Clave</h2>
+          <div class="space-y-3">
+            {project.results.map((result) => (
+              <div class="flex items-start gap-3 p-4 rounded-2xl" style="border: 1px solid rgba(0,0,0,0.08); background: var(--gray-50);">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack Tecnológico</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Características Principales</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {features.map((feature) => (
+            <div class="flex gap-6 p-8 rounded-3xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(0, 102, 255, 0.12);"><CaseStudyIcon icon={feature.icon} class="w-7 h-7" /></div>
+              <div>
+                <h3 class="text-xl font-black text-black">{feature.title}</h3>
+                <p class="text-black mt-2">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Proceso de Desarrollo</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Métricas de Performance</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((m) => (
+            <div class="text-center p-8 rounded-3xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={m.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{m.value}</div>
+              <div class="font-black text-black mt-2">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Mi Experiencia con Mundo Gaming</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">¿Quieres una Tienda eCommerce que Genere Ingresos Reales?</h2>
+          <p class="text-white mb-8">Como demostré con Mundo Gaming, no se trata solo de vender productos - se trata de crear contenido que genera confianza y convierte visitantes en clientes leales</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hola%20Omar,%20vi%20Mundo%20Gaming%20y%20quiero%20una%20tienda%20eCommerce%20que%20genere%20ingresos%20reales" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Crear Mi eCommerce Gaming</a>
+            <a href="/portfolio/proyectos/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">Ver Más Transformaciones</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
