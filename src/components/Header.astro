@@ -5,22 +5,6 @@ export interface Props {
 
 const { lang = 'es' } = Astro.props;
 
-const links =
-  lang === 'en'
-    ? [
-        { label: 'Home', href: '/en/' },
-        { label: 'Blog', href: '/en/blog/' },
-        { label: 'About', href: '/en/about/' },
-        { label: 'Contact', href: '/en/contact/' },
-      ]
-    : [
-        { label: 'Inicio', href: '/#home' },
-        { label: 'Proyectos', href: '/#projects' },
-        { label: 'Servicios', href: '/#services' },
-        { label: 'Sobre Mí', href: '/sobre-mi/' },
-        { label: 'Contacto', href: '/contacto/' },
-      ];
-
 const whatsappMessage =
   lang === 'en'
     ? 'Hi Omar, I saw your portfolio and I want to request a quote.'
@@ -42,9 +26,6 @@ const whatsappPhone = lang === 'en' ? '13239414865' : '573107851074';
     </a>
 
     <div class="hidden md:flex items-center gap-8">
-      {links.map((link) => (
-        <a href={link.href} class="nav-link">{link.label}</a>
-      ))}
     </div>
 
     <a

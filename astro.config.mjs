@@ -1,14 +1,22 @@
 // @ts-check
 
 import mdx from '@astrojs/mdx';
-import tailwind from '@astrojs/tailwind';
+import autoprefixer from 'autoprefixer';
 import { defineConfig, fontProviders } from 'astro/config';
+import tailwindcss from 'tailwindcss';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://omarfuentes.com',
 	trailingSlash: 'ignore',
-	integrations: [mdx(), tailwind()],
+	integrations: [mdx()],
+	vite: {
+		css: {
+			postcss: {
+				plugins: [tailwindcss, autoprefixer],
+			},
+		},
+	},
 	fonts: [
 		{
 			provider: fontProviders.local(),
