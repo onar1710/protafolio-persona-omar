@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const site = 'https://omarfuentes.com';
+const site = 'https://www.omarfuentes.com';
 const dist = path.join(process.cwd(), 'dist');
 
 if (!fs.existsSync(dist)) process.exit(0);

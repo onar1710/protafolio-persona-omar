@@ -24,8 +24,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			title={`${title} | Blog`}
 			description={description}
 			keywords="web design, web development, SEO, performance"
+			url={canonicalURL.toString()}
 		>
-			<link slot="head" rel="canonical" href={canonicalURL} />
 			<meta slot="head" name="author" content={author} />
 			<meta slot="head" property="article:author" content={author} />
 			<main class="py-16 md:py-24 lg:py-32 bg-white pt-24">
@@ -93,8 +93,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			title={`${title} | Blog`}
 			description={description}
 			keywords="diseño de páginas web, desarrollo web, SEO, Colombia"
+			url={canonicalURL.toString()}
 		>
-			<link slot="head" rel="canonical" href={canonicalURL} />
 			<meta slot="head" name="author" content={author} />
 			<meta slot="head" property="article:author" content={author} />
 			<main class="py-16 md:py-24 lg:py-32 bg-white pt-24">

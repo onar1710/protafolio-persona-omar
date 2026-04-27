@@ -7,7 +7,7 @@ import tailwindcss from 'tailwindcss';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://omarfuentes.com',
+	site: 'https://www.omarfuentes.com',
 	trailingSlash: 'ignore',
 	integrations: [mdx()],
 	vite: {
