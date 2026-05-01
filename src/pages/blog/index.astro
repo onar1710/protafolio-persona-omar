@@ -7,6 +7,42 @@ const posts = (await getCollection('blog'))
 	.filter((post) => !post.id.startsWith('en/'))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+const seoPosts = new Set([
+	'que-es-page-rank',
+	'que-son-los-enlaces-nofollow-funcion-uso-estrategia-seo',
+	'como-escribir-articulos-seo-guia-completa',
+	'sitios-web-que-crean-backlinks-para-ti',
+	'como-conseguir-backlinks-para-tu-sitio-web',
+	'autoridad-de-dominio',
+	'algoritmo-de-google',
+	'mejores-agencias-servicio-seo-organico-colombia',
+	'diseno-web-seo',
+]);
+
+const disenoWebPosts = new Set([
+	'optimizar-imagenes-para-web',
+	'como-posicionar-mi-web-en-los-primeros-lugares-de-google',
+]);
+
+const postCategory = (id: string): 'disenoweb' | 'seo' | 'marketing' | 'social' => {
+	if (id.startsWith('seo/')) return 'seo';
+	if (id.startsWith('disenoweb/')) return 'disenoweb';
+	if (id.startsWith('marketing-digital/')) return 'marketing';
+	if (id.startsWith('social-media/')) return 'social';
+	if (seoPosts.has(id)) return 'seo';
+	if (disenoWebPosts.has(id)) return 'disenoweb';
+	return 'disenoweb';
+};
+
+const postUrl = (id: string) => {
+	if (id.startsWith('seo/')) return `/seo/${id.slice('seo/'.length)}/`;
+	if (id.startsWith('disenoweb/')) return `/disenoweb/${id.slice('disenoweb/'.length)}/`;
+	if (id.startsWith('marketing-digital/'))
+		return `/marketing-digital/${id.slice('marketing-digital/'.length)}/`;
+	if (id.startsWith('social-media/')) return `/social-media/${id.slice('social-media/'.length)}/`;
+	return `/blog/${id}/`;
+};
+
 ---
 
 <Layout
@@ -23,10 +59,55 @@ const posts = (await getCollection('blog'))
     </p>
   </div>
 
+  <div class="flex flex-wrap gap-3 mb-10">
+    <a
+      href="/blog/?cat=disenoweb"
+      data-blog-tab="disenoweb"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      Diseño web
+    </a>
+    <a
+      href="/blog/?cat=seo"
+      data-blog-tab="seo"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      SEO
+    </a>
+    <a
+      href="/blog/?cat=marketing"
+      data-blog-tab="marketing"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      Marketing digital
+    </a>
+    <a
+      href="/blog/?cat=social"
+      data-blog-tab="social"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      Social media
+    </a>
+    <a
+      href="/blog/"
+      data-blog-tab="all"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      Ver todo
+    </a>
+  </div>
+
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {posts.map((post) => (
       <a
-        href={`/blog/${post.id}/`}
+        href={postUrl(post.id)}
+        data-blog-card
+        data-blog-category={postCategory(post.id)}
         class="bg-white rounded-2xl overflow-hidden transition-all duration-500 border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 block"
         style="text-decoration: none;"
       >
@@ -54,5 +135,30 @@ const posts = (await getCollection('blog'))
     ))}
   </div>
 </div>
+
+<script is:inline>
+  (() => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+
+    const cards = Array.from(document.querySelectorAll('[data-blog-card]'));
+    if (!cat || cat === 'all') return;
+
+    for (const card of cards) {
+      const cardCat = card.getAttribute('data-blog-category');
+      (card).style.display = cardCat === cat ? '' : 'none';
+    }
+
+    const tabs = Array.from(document.querySelectorAll('[data-blog-tab]'));
+    for (const tab of tabs) {
+      const tabCat = tab.getAttribute('data-blog-tab');
+      if (tabCat === cat) {
+        tab.style.background = 'var(--primary-blue)';
+        tab.style.borderColor = 'var(--primary-blue)';
+        tab.style.color = 'var(--white)';
+      }
+    }
+  })();
+</script>
 
   </Layout>
