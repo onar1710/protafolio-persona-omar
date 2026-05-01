@@ -1,0 +1,245 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyIcon from '../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+
+const project = {
+  title: 'Mora Cleaning - Servicios de Limpieza Residencial en Tennessee',
+  description:
+    'Construí este caso como un ejemplo de sitio ideal para una empresa de limpieza residencial en Tennessee: propuesta de valor clara, paquetes bien definidos, servicios destacados y CTAs directos para cotizar. El objetivo es convertir visitas locales en solicitudes reales, sin fricción.',
+  cliente: 'Mora Cleaning',
+  fecha: '2026',
+  tipo: 'Sitio de Servicios Locales',
+  tecnologias: ['Arquitectura de Landing', 'SEO Local', 'Copy de Conversión', 'Optimización de Performance'],
+  url: 'https://www.moracleaning.us/',
+  imagen: '/images-portfolio/caso-moracleaning.png',
+  stats: {
+    ubicacion: 'Tennessee, USA',
+    paquetes: '3 niveles',
+    servicios: '5+ servicios',
+    enfoque: 'SEO + Conversión',
+  },
+  results: [
+    '✅ Mensaje principal directo: limpieza confiable y detallada con programación flexible',
+    '✅ Paquetes claros (Básico, Estándar y Deep Cleaning) para reducir dudas y acelerar decisiones',
+    '✅ Sección de beneficios (personal verificado, productos seguros, garantía) para aumentar confianza',
+    '✅ CTAs repetidos y visibles para pedir cotización sin perder al usuario',
+    '✅ Enfoque en SEO local y estructura lista para crecer por ciudad/servicio',
+  ],
+};
+
+const techStack = [
+  { name: 'SEO Local', description: 'Estructura enfocada en intención local (ciudad/estado + servicio)', icon: '🗺️' },
+  { name: 'Copy de Conversión', description: 'Beneficios + garantía + confianza para aumentar leads', icon: '🎯' },
+  { name: 'Paquetes Claros', description: 'Ofertas comparables para que el usuario decida rápido', icon: '📦' },
+  { name: 'CTAs Estratégicos', description: 'Acciones claras para agendar o pedir cotización', icon: '💬' },
+  { name: 'Performance', description: 'Estructura ligera para buena experiencia en móvil', icon: '⚡' },
+];
+
+const phases = [
+  {
+    title: 'Estructura y Mensaje de Venta',
+    week: 'Fase 1',
+    tasks: [
+      'Definí la propuesta de valor: limpieza detallada, flexible y accesible en TN',
+      'Organicé servicios principales (general, cocina/baño, polvo/aspirado, mudanzas, deep cleaning)',
+      'Construí secciones de confianza: verificación del personal, productos seguros y garantía',
+    ],
+  },
+  {
+    title: 'Paquetes, CTAs y SEO Local',
+    week: 'Fase 2',
+    tasks: [
+      'Diseñé 3 paquetes con alcance claro para reducir fricción (Basic, Standard, Deep)',
+      'Reforcé CTAs para convertir tráfico en solicitudes de cotización',
+      'Dejé la estructura lista para escalar por ciudad/servicio y capturar búsquedas locales',
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: '🧼',
+    title: 'Oferta entendible en segundos',
+    description: 'El usuario ve qué hace la empresa, dónde opera (TN) y cómo contratar sin perder tiempo.',
+  },
+  {
+    icon: '📦',
+    title: 'Paquetes que cierran ventas',
+    description: 'Tres opciones comparables que cubren rutina, estándar y limpieza profunda, con “add-ons” a demanda.',
+  },
+  {
+    icon: '🛡️',
+    title: 'Confianza y seguridad',
+    description: 'Personal verificado, productos seguros para familia y mascotas, y garantía de satisfacción.',
+  },
+  {
+    icon: '🗺️',
+    title: 'Listo para SEO local',
+    description: 'Estructura pensada para crecer por ciudades de Tennessee y captar búsquedas con intención de compra.',
+  },
+  {
+    icon: '💬',
+    title: 'CTAs repetidos, sin fricción',
+    description: 'Acciones claras para pedir cotización o agendar, presentes en puntos clave de la página.',
+  },
+  {
+    icon: '⚡',
+    title: 'Experiencia rápida en móvil',
+    description: 'Diseño pensado para móviles: lectura fácil, secciones claras y navegación fluida.',
+  },
+];
+
+const metrics = [
+  { icon: '🎯', title: 'Objetivo', value: 'Leads', description: 'Convertir visitas en solicitudes de cotización' },
+  { icon: '🗺️', title: 'Mercado', value: 'TN', description: 'Enfoque en intención local (Tennessee)' },
+  { icon: '📦', title: 'Oferta', value: '3 paquetes', description: 'Comparables y fáciles de elegir' },
+  { icon: '🛡️', title: 'Confianza', value: 'Garantía', description: 'Prueba social y seguridad del servicio' },
+];
+
+const experience = [
+  {
+    title: '🧠 Qué prioricé',
+    text: 'En servicios locales, el problema no es “tener web”, es lograr que la gente confíe y pida cotización. Por eso la estructura gira alrededor de claridad, paquetes y garantía.',
+  },
+  {
+    title: '📦 Por qué los paquetes importan',
+    text: 'Cuando el usuario entiende qué incluye cada opción, baja la fricción. Esto hace que más visitantes pasen de “mirar” a “preguntar”.',
+  },
+  {
+    title: '🗺️ Cómo lo pensé para SEO',
+    text: 'La estructura queda lista para crecer por ciudad/servicio en Tennessee, capturando búsquedas con intención de compra y llevando al usuario a un CTA claro.',
+  },
+];
+---
+
+<Layout title="Mora Cleaning - Caso de Estudio | Omar Fuentes" description="Caso de estudio Mora Cleaning: sitio de servicios de limpieza en Tennessee con paquetes claros, enfoque en SEO local, confianza y CTAs para cotizar.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="es"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/portfolio/proyectos/"
+        technologies={project.tecnologias}
+        badges={['SEO local', 'Conversión', 'Servicios']}
+      />
+
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {Object.entries(project.stats).map(([key, value]) => (
+          <div class="text-center p-6 rounded-2xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+            <div class="text-black text-sm font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+          </div>
+        ))}
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack y Enfoque</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Proceso</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3">
+                    <span style="color: var(--primary-green); font-weight: 900;">✓</span>
+                    <span class="text-black">{task}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Características Clave</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Métricas del Enfoque</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={metric.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{metric.value}</div>
+              <div class="font-black text-black mt-2">{metric.title}</div>
+              <div class="text-black mt-2">{metric.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Resultados</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Mi Experiencia Personal</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">¿Quieres un sitio de servicios que genere clientes?</h2>
+          <p class="text-white mb-8">Si vendes servicios locales, puedo construir un sitio con paquetes claros, confianza y SEO para convertir visitas en cotizaciones reales.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hola%20Omar,%20quiero%20un%20sitio%20para%20mi%20empresa%20de%20servicios%20locales%20tipo%20Mora%20Cleaning" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+              Hablemos por WhatsApp
+            </a>
+            <a href="/portfolio/proyectos/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">
+              Ver Más Proyectos
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

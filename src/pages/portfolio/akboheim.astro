@@ -1,0 +1,242 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyIcon from '../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+
+const project = {
+  title: 'Akboheim Editorial - Medio de Literatura, Educación y Cultura',
+  description:
+    'Diseñé este caso como un medio editorial orientado a contenido de alta intención: literatura, educación, cultura y libros. La estructura se apoya en secciones temáticas, listados editoriales consistentes y artículos con lectura limpia, para facilitar el descubrimiento y escalar tráfico orgánico con contenido evergreen.',
+  cliente: 'Akboheim Editorial',
+  fecha: '2026',
+  tipo: 'Sitio Editorial / Blog',
+  tecnologias: ['Arquitectura por Secciones', 'SEO Técnico', 'Estrategia Evergreen', 'Performance', 'Vercel'],
+  url: 'https://www.akboheim.com/',
+  imagen: '/images-portfolio/caso-akboheim.png',
+  stats: {
+    enfoque: 'Evergreen',
+    secciones: 'Literature + Education + Culture + Books',
+    objetivo: 'Tráfico orgánico',
+    formato: 'Editorial',
+  },
+  results: [
+    '✅ Secciones editoriales claras para navegación e indexación (Literature, Education, Culture, Books)',
+    '✅ Listados con tarjetas y metadatos (fecha/autor) para mejorar CTR y confianza',
+    '✅ Plantillas consistentes para escalar contenido sin perder orden',
+    '✅ Jerarquía de lectura pensada para retención y más páginas por sesión',
+    '✅ Base lista para ampliar temas y reforzar enlazado interno',
+  ],
+};
+
+const techStack = [
+  { name: 'Arquitectura por Secciones', description: 'Categorías fuertes para discovery y autoridad temática', icon: '🗂️' },
+  { name: 'SEO Técnico', description: 'Estructura consistente para indexación y relevancia', icon: '🔍' },
+  { name: 'Evergreen', description: 'Contenido diseñado para traer tráfico constante', icon: '📚' },
+  { name: 'Lectura Limpia', description: 'Diseño editorial para retención y experiencia', icon: '📝' },
+  { name: 'Vercel', description: 'Entrega global rápida con CDN y cache', icon: '🚀' },
+];
+
+const phases = [
+  {
+    title: 'Estructura Editorial',
+    week: 'Fase 1',
+    tasks: [
+      'Organicé el contenido por secciones temáticas (Literature, Education, Culture y Books)',
+      'Diseñé listados que priorizan claridad: título + fecha + autor para confianza',
+      'Preparé rutas y navegación para discovery rápido entre temas',
+    ],
+  },
+  {
+    title: 'SEO y Escalabilidad',
+    week: 'Fase 2',
+    tasks: [
+      'Estandaricé plantillas para publicar más artículos sin romper consistencia',
+      'Reforcé jerarquía visual para lectura y retención',
+      'Dejé la base lista para enlazado interno por sección y crecimiento orgánico',
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: '🗂️',
+    title: 'Secciones que ordenan el contenido',
+    description: 'La navegación se apoya en áreas temáticas claras, lo que mejora UX y facilita indexación.',
+  },
+  {
+    icon: '📝',
+    title: 'Formato editorial consistente',
+    description: 'Listados con metadatos y tarjetas que aumentan confianza y aumentan clics.',
+  },
+  {
+    icon: '🔍',
+    title: 'SEO pensado para temas',
+    description: 'Estructura que refuerza autoridad temática con enlazado interno por secciones.',
+  },
+  {
+    icon: '📚',
+    title: 'Contenido evergreen',
+    description: 'Temas de búsqueda constante (géneros, teoría literaria, educación) para crecer orgánicamente.',
+  },
+  {
+    icon: '⚡',
+    title: 'Experiencia rápida',
+    description: 'Diseño ligero y páginas limpias para móvil y desktop.',
+  },
+  {
+    icon: '📈',
+    title: 'Listo para escalar',
+    description: 'Plantillas y estructura para publicar más sin perder orden ni performance.',
+  },
+];
+
+const metrics = [
+  { icon: '🗂️', title: 'Secciones', value: '4', description: 'Literature, Education, Culture, Books' },
+  { icon: '📚', title: 'Estrategia', value: 'Evergreen', description: 'Temas con demanda constante' },
+  { icon: '🔍', title: 'SEO', value: 'Temático', description: 'Autoridad por sección + enlazado interno' },
+  { icon: '📝', title: 'UX', value: 'Lectura', description: 'Jerarquía editorial y retención' },
+];
+
+const experience = [
+  {
+    title: '🧠 Lo importante en un medio editorial',
+    text: 'La estructura decide el crecimiento. Si el usuario no encuentra lo que busca en segundos, se va. Por eso la base se centra en secciones y navegación clara.',
+  },
+  {
+    title: '🔍 SEO que realmente ayuda',
+    text: 'Cuando cada sección agrupa artículos relacionados, Google entiende mejor la temática y es más fácil distribuir autoridad con enlaces internos.',
+  },
+  {
+    title: '📚 Por qué evergreen',
+    text: 'Literatura y educación tienen búsquedas constantes. Con una base limpia, se puede escalar contenido que trae tráfico durante meses.',
+  },
+];
+---
+
+<Layout title="Akboheim - Caso de Estudio | Omar Fuentes" description="Caso de estudio Akboheim Editorial: medio de literatura, educación y cultura con secciones temáticas, enfoque evergreen, SEO técnico y estructura lista para escalar tráfico orgánico.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="es"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/portfolio/proyectos/"
+        technologies={project.tecnologias}
+        badges={['Editorial', 'Evergreen', 'SEO']}
+      />
+
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {Object.entries(project.stats).map(([key, value]) => (
+          <div class="text-center p-6 rounded-2xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+            <div class="text-black text-sm font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+          </div>
+        ))}
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack y Enfoque</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Proceso</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Características Clave</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Métricas del Enfoque</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={metric.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{metric.value}</div>
+              <div class="font-black text-black mt-2">{metric.title}</div>
+              <div class="text-black mt-2">{metric.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Resultados</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Mi Experiencia Personal</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">¿Quieres un medio editorial que crezca con contenido?</h2>
+          <p class="text-white mb-8">Puedo construir una base editorial rápida y organizada por secciones para escalar tráfico orgánico con estrategia evergreen.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hola%20Omar,%20quiero%20un%20sitio%20editorial%20tipo%20Akboheim%20para%20mi%20marca" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+              Hablemos por WhatsApp
+            </a>
+            <a href="/portfolio/proyectos/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">
+              Ver Más Proyectos
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

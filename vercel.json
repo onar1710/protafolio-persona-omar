@@ -1,0 +1,48 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "omarfuentes.com" }],
+      "destination": "https://www.omarfuentes.com/:path*",
+      "permanent": true
+    },
+    { "source": "/politica-cookies", "destination": "/", "permanent": true },
+    { "source": "/politica-cookies/", "destination": "/", "permanent": true },
+
+    {
+      "source": "/disenador-web-freelance-profesional",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/disenador-web-freelance-profesional/",
+      "destination": "/",
+      "permanent": true
+    },
+
+    { "source": "/tools", "destination": "/", "permanent": true },
+    { "source": "/tools/", "destination": "/", "permanent": true },
+
+    { "source": "/cleaning-web-design", "destination": "/", "permanent": true },
+    { "source": "/cleaning-web-design/", "destination": "/", "permanent": true },
+    { "source": "/gym-web-design", "destination": "/", "permanent": true },
+    { "source": "/gym-web-design/", "destination": "/", "permanent": true },
+    { "source": "/electrician-web-design", "destination": "/", "permanent": true },
+    { "source": "/electrician-web-design/", "destination": "/", "permanent": true },
+    { "source": "/construction-web-design", "destination": "/", "permanent": true },
+    { "source": "/construction-web-design/", "destination": "/", "permanent": true },
+
+    { "source": "/portfolio/dataflow-analytics", "destination": "/", "permanent": true },
+    { "source": "/portfolio/dataflow-analytics/", "destination": "/", "permanent": true },
+    { "source": "/portfolio/ecommerce-redesign", "destination": "/", "permanent": true },
+    { "source": "/portfolio/ecommerce-redesign/", "destination": "/", "permanent": true },
+    { "source": "/portfolio/global-project", "destination": "/", "permanent": true },
+    { "source": "/portfolio/global-project/", "destination": "/", "permanent": true },
+
+    { "source": "/blog/modern-seo", "destination": "/", "permanent": true },
+    { "source": "/blog/modern-seo/", "destination": "/", "permanent": true },
+
+    { "source": "/changelog", "destination": "/", "permanent": true },
+    { "source": "/changelog/", "destination": "/", "permanent": true }
+  ]
+}

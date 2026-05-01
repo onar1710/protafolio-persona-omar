@@ -114,6 +114,10 @@ const mapAlternatePathname = (p: string, currentLang: 'es' | 'en'): string => {
 		{ re: /^\/portfolio\/productos-para-perros\/?$/, to: '/en/portfolio/dog-products/' },
 		{ re: /^\/portfolio\/mundo-gaming\/?$/, to: '/en/portfolio/world-games/' },
 		{ re: /^\/portfolio\/ferrarycucina\/?$/, to: '/en/portfolio/ferrarykitchen/' },
+		{ re: /^\/portfolio\/bitcoinforwifi\/?$/, to: '/en/portfolio/bitcoinforwifi/' },
+		{ re: /^\/portfolio\/akboheim\/?$/, to: '/en/portfolio/akboheim/' },
+		{ re: /^\/portfolio\/bggreek\/?$/, to: '/en/portfolio/bggreek/' },
+		{ re: /^\/portfolio\/moracleaning\/?$/, to: '/en/portfolio/moracleaning/' },
 	];
 
 	const enToEs: Array<{ re: RegExp; to: string }> = [
@@ -136,6 +140,10 @@ const mapAlternatePathname = (p: string, currentLang: 'es' | 'en'): string => {
 		{ re: /^\/en\/portfolio\/dog-products\/?$/, to: '/portfolio/productos-para-perros/' },
 		{ re: /^\/en\/portfolio\/world-games\/?$/, to: '/portfolio/mundo-gaming/' },
 		{ re: /^\/en\/portfolio\/ferrarykitchen\/?$/, to: '/portfolio/ferrarycucina/' },
+		{ re: /^\/en\/portfolio\/bitcoinforwifi\/?$/, to: '/portfolio/bitcoinforwifi/' },
+		{ re: /^\/en\/portfolio\/akboheim\/?$/, to: '/portfolio/akboheim/' },
+		{ re: /^\/en\/portfolio\/bggreek\/?$/, to: '/portfolio/bggreek/' },
+		{ re: /^\/en\/portfolio\/moracleaning\/?$/, to: '/portfolio/moracleaning/' },
 	];
 
 	const table = currentLang === 'en' ? enToEs : esToEn;

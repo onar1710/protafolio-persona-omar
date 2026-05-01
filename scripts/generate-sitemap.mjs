@@ -23,6 +23,14 @@ const escXml = (value) =>
 const shouldInclude = (urlPath) => {
 	if (urlPath === '/404/' || urlPath === '/404.html') return false;
 	if (urlPath.startsWith('/_astro/')) return false;
+	if (urlPath === '/rss.xml') return false;
+	if (urlPath.endsWith('-web-design/')) return false;
+
+	if (/^\/(aviso-legal|politicas-cookies|politica-cookies|politica-privacidad|terminos-condiciones|terminos)(\/)?$/.test(urlPath)) return false;
+	if (/^\/en\/(legal-notice|cookies-policy|privacy-policy|terms-conditions)(\/)?$/.test(urlPath)) return false;
+	if (/^\/(contacto|en\/contact)(\/)?$/.test(urlPath)) return false;
+	if (/^\/(portfolio\/proyectos|en\/portfolio\/projects|portfolio|en\/portfolio)(\/)?$/.test(urlPath)) return false;
+
 	return true;
 };
 
@@ -146,15 +154,7 @@ for (const file of files) {
 		continue;
 	}
 
-	if (rel === 'rss.xml') {
-		const stat = fs.statSync(file);
-		urls.push({
-			urlPath: '/rss.xml',
-			lastmod: toDate(stat.mtimeMs),
-			priority: '0.3',
-			changefreq: 'weekly',
-		});
-	}
+	if (rel === 'rss.xml') continue;
 }
 
 const seen = new Set();

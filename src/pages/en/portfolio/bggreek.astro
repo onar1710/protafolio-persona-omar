@@ -1,0 +1,242 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import CaseStudyIcon from '../../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../../components/CaseStudyHero.astro';
+
+const project = {
+  title: 'BG GREEK - Editorial Website for Recipes, Diet & Fitness',
+  description:
+    'This case study showcases an editorial content system built for organic discovery: clear categories (Recipes, Diet, Fitness, Appliances), consistent article templates, and a structure designed to scale evergreen content without losing speed. The goal: publish, index, and keep readers engaged with simple navigation.',
+  cliente: 'BG GREEK',
+  fecha: '2026',
+  tipo: 'Editorial Website / Blog',
+  tecnologias: ['Category Architecture', 'Technical SEO', 'Performance', 'Content System', 'Vercel'],
+  url: 'https://www.bggreek.com/',
+  imagen: '/images-portfolio/caso-bg-greek.png',
+  stats: {
+    sections: '4 categories',
+    focus: 'Evergreen content',
+    structure: 'Editorial',
+    goal: 'Organic traffic',
+  },
+  results: [
+    '✅ Strong core categories for better navigation and indexing',
+    '✅ List pages with cards (title, author, date) to improve CTR and readability',
+    '✅ Clean reading experience with clear content hierarchy',
+    '✅ Scalable foundation to publish more content without losing order',
+    '✅ SEO-ready internal linking strategy across categories',
+  ],
+};
+
+const techStack = [
+  { name: 'Editorial Architecture', description: 'Clear sections and routes for discovery and navigation', icon: '🗺️' },
+  { name: 'Technical SEO', description: 'Consistency that helps indexing and topical relevance', icon: '🔍' },
+  { name: 'Performance', description: 'Fast loads and smooth mobile reading', icon: '⚡' },
+  { name: 'Evergreen System', description: 'Built for content that keeps bringing traffic', icon: '📚' },
+  { name: 'Vercel', description: 'Global delivery through CDN for stability and speed', icon: '🚀' },
+];
+
+const phases = [
+  {
+    title: 'Structure & Categories',
+    week: 'Phase 1',
+    tasks: [
+      'Defined the core categories: Recipes, Diet, Fitness, Appliances',
+      'Designed navigation around user intent so content is easy to find',
+      'Organized sections to strengthen topical authority and internal linking',
+    ],
+  },
+  {
+    title: 'Templates, SEO & Scalability',
+    week: 'Phase 2',
+    tasks: [
+      'Standardized cards and lists with metadata (author, date) to increase clicks',
+      'Improved hierarchy for comfortable reading and retention',
+      'Prepared the foundation to scale evergreen content with category-driven linking',
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: '🧭',
+    title: 'Intent-based navigation',
+    description: 'Readers enter via recipes, diet, fitness, or reviews and always have a clear next path.',
+  },
+  {
+    icon: '🗂️',
+    title: 'Strong categories',
+    description: 'Clear sections help search engines understand the site and distribute internal authority.',
+  },
+  {
+    icon: '📝',
+    title: 'Editorial cards',
+    description: 'Author and date improve trust and increase CTR on list pages.',
+  },
+  {
+    icon: '🔍',
+    title: 'SEO from structure',
+    description: 'Consistent templates, heading hierarchy, and category linking improve indexation.',
+  },
+  {
+    icon: '⚡',
+    title: 'Fast mobile reading',
+    description: 'Light layout and clean sections so content loads and reads well on mobile.',
+  },
+  {
+    icon: '📈',
+    title: 'Built to scale',
+    description: 'Designed to publish many articles without losing clarity or navigation.',
+  },
+];
+
+const metrics = [
+  { icon: '🗺️', title: 'Structure', value: '4 categories', description: 'Recipes, Diet, Fitness, Appliances' },
+  { icon: '📚', title: 'Content', value: 'Evergreen', description: 'Designed for long-term traffic' },
+  { icon: '🔍', title: 'SEO', value: 'Topical', description: 'Category authority + internal linking' },
+  { icon: '⚡', title: 'UX', value: 'Fast', description: 'Smooth reading on mobile and desktop' },
+];
+
+const experience = [
+  {
+    title: 'The approach',
+    text: 'For editorial sites, architecture is everything. Strong categories improve user journeys and make it easier for Google to understand the website.',
+  },
+  {
+    title: 'Why this structure works',
+    text: 'Separating content by intent (recipes, diet, fitness, appliances) keeps growth organized and reinforces topical authority.',
+  },
+  {
+    title: 'What I protected most',
+    text: 'Reading experience: clear lists, visible metadata, and clean pages to improve retention and pages per session.',
+  },
+];
+---
+
+<LayoutEN title="BG GREEK - Case Study | Omar Fuentes" description="BG GREEK case study: editorial site with category architecture (Recipes, Diet, Fitness, Appliances) focused on SEO, performance and scalable content.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="en"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/en/portfolio/projects/"
+        technologies={project.tecnologias}
+        badges={['Editorial', 'SEO', 'Content']}
+      />
+
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {Object.entries(project.stats).map(([key, value]) => (
+          <div class="text-center p-6 rounded-2xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+            <div class="text-black text-sm font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+          </div>
+        ))}
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack & Strategy</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Process</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Key Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Outcome Metrics</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={metric.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{metric.value}</div>
+              <div class="font-black text-black mt-2">{metric.title}</div>
+              <div class="text-black mt-2">{metric.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Results</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">My Notes</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">Want an editorial site that scales with SEO?</h2>
+          <p class="text-white mb-8">I can build a fast, category-driven editorial foundation to grow organic traffic with evergreen content.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20want%20an%20editorial%20website%20like%20BG%20GREEK%20for%20my%20brand" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+              Message on WhatsApp
+            </a>
+            <a href="/en/portfolio/projects/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">
+              View More Projects
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</LayoutEN>

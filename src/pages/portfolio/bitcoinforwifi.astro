@@ -1,0 +1,253 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyIcon from '../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+
+const project = {
+  title: "BitcoinForWifi - Medio Editorial sobre Bitcoin y Tecnología",
+  description:
+    "Diseñé y desarrollé BitcoinForWifi como un medio editorial enfocado en performance y SEO: arquitectura por categorías, páginas de artículos limpias, imágenes ligeras y despliegue en Vercel. El objetivo fue crear una base sólida para publicar contenido evergreen y escalar el tráfico orgánico sin sacrificar velocidad.",
+  cliente: "BitcoinForWifi",
+  fecha: "2026",
+  tipo: "Sitio Editorial / Blog",
+  tecnologias: ["Astro", "Tailwind CSS", "Arquitectura por Categorías", "SEO Técnico", "Vercel"],
+  url: "https://www.bitcoinforwifi.com/",
+  imagen: "/images-portfolio/caso-bitcoinforwifi.png",
+  stats: {
+    categorias: "6 secciones",
+    stack: "Astro + Tailwind",
+    deploy: "Vercel",
+    enfoque: "SEO + performance",
+  },
+  results: [
+    "✅ Sitio editorial construido con Astro (HTML estático) para carga rápida",
+    "✅ Diseño consistente con Tailwind CSS y componentes reutilizables",
+    "✅ Arquitectura clara: categorías principales y rutas por temática",
+    "✅ Tarjetas de artículos con imagen destacada, fecha y tiempo de lectura",
+    "✅ Páginas legales listas (Privacy, Terms, Disclaimer y Cookies)",
+    "✅ Deploy en Vercel con cache eficiente y entrega global",
+  ],
+};
+
+const techStack = [
+  { name: "Astro", description: "Generación estática para máxima velocidad y DX simple", icon: "🚀" },
+  { name: "Tailwind CSS", description: "Sistema de diseño rápido con utilidades consistentes", icon: "🎨" },
+  { name: "SEO Técnico", description: "Estructura de contenido orientada a indexación y descubrimiento", icon: "🔍" },
+  { name: "Vercel", description: "Hosting con CDN y cache para servir el sitio globalmente", icon: "⚡" },
+  { name: "Contenido Escalable", description: "Estructura lista para crecer por categorías y subtemas", icon: "📚" },
+];
+
+const phases = [
+  {
+    title: "Estrategia Editorial y Arquitectura",
+    week: "Fase 1",
+    tasks: [
+      "Definí 6 categorías principales (Bitcoin, Technology, Digital Marketing, Programming, Economics y Finance) para organizar el contenido desde el día 1",
+      "Diseñé plantillas de listado por categoría con tags y enlaces internos",
+      "Estructuré las URLs para que sean limpias, legibles y fáciles de compartir",
+    ],
+  },
+  {
+    title: "Implementación, SEO y Deploy",
+    week: "Fase 2",
+    tasks: [
+      "Construí componentes reutilizables para tarjetas de artículos y secciones",
+      "Optimicé recursos e imágenes para mantener el peso bajo y la carga rápida",
+      "Preparé páginas legales y un footer completo con enlaces y redes",
+      "Desplegué en Vercel para servir el sitio con CDN y cache",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🎯",
+    title: "Estructura editorial que escala",
+    description:
+      "Organización por categorías y subtemas para publicar contenido de forma consistente y mantener una navegación clara para el usuario.",
+  },
+  {
+    icon: "⚡",
+    title: "Velocidad primero",
+    description:
+      "Generación estática con Astro y un diseño sin sobrecarga para que cada página cargue rápido y mantenga la experiencia fluida.",
+  },
+  {
+    icon: "🔍",
+    title: "SEO pensado desde la arquitectura",
+    description:
+      "Rutas claras, enlaces internos y estructura editorial para que Google entienda los temas y distribuya autoridad entre páginas.",
+  },
+  {
+    icon: "📄",
+    title: "Páginas de artículos limpias",
+    description:
+      "Tarjetas y listados con metadatos útiles (fecha y tiempo de lectura) que aumentan clics y mejoran la navegación.",
+  },
+  {
+    icon: "🛡️",
+    title: "Base legal lista",
+    description:
+      "Secciones legales publicadas desde el inicio para dar confianza y mejorar cumplimiento en marketing y analítica.",
+  },
+  {
+    icon: "📦",
+    title: "Deploy sólido en Vercel",
+    description:
+      "Hosting con CDN para servir el contenido globalmente y aprovechar cache para mejorar TTFB y estabilidad.",
+  },
+];
+
+const metrics = [
+  { icon: "📈", title: "Objetivo", value: "SEO orgánico", description: "Arquitectura editorial lista para escalar tráfico" },
+  { icon: "⚡", title: "Entrega", value: "SSG", description: "HTML estático y carga rápida" },
+  { icon: "📚", title: "Contenido", value: "Evergreen", description: "Estrategia para artículos de largo plazo" },
+  { icon: "🗺️", title: "Estructura", value: "6 categorías", description: "Temáticas principales definidas" },
+];
+
+const experience = [
+  {
+    title: "🧠 El enfoque",
+    text: "En proyectos editoriales, el reto real no es solo “publicar”, sino construir una estructura que permita crecer sin volverse caótica. Por eso empecé por la arquitectura: categorías fuertes, rutas limpias y componentes repetibles.",
+  },
+  {
+    title: "⚡ Lo que más cuidé",
+    text: "La velocidad. Si el usuario llega desde Google, la primera impresión depende del rendimiento. Astro me permitió enviar HTML estático y mantener el sitio rápido incluso con muchas secciones y listados.",
+  },
+  {
+    title: "🔍 Lo que lo hace valioso",
+    text: "La combinación de contenido + SEO técnico. BitcoinForWifi está pensado para que cada artículo aporte a una red de enlaces internos que refuerza autoridad temática y facilita el descubrimiento del contenido.",
+  },
+];
+---
+
+<Layout title="BitcoinForWifi - Caso de Estudio | Omar Fuentes" description="Caso de estudio BitcoinForWifi: medio editorial construido con Astro y Tailwind, arquitectura por categorías, SEO técnico y despliegue en Vercel.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="es"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/portfolio/proyectos/"
+        technologies={project.tecnologias}
+        badges={["Astro", "Vercel", "SEO editorial"]}
+      />
+
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {Object.entries(project.stats).map(([key, value]) => (
+          <div class="text-center p-6 rounded-2xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+            <div class="text-black text-sm font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+          </div>
+        ))}
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack Tecnológico</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Proceso de Desarrollo</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3">
+                    <span style="color: var(--primary-green); font-weight: 900;">✓</span>
+                    <span class="text-black">{task}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Características Principales</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Métricas del Enfoque</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={metric.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{metric.value}</div>
+              <div class="font-black text-black mt-2">{metric.title}</div>
+              <div class="text-black mt-2">{metric.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Resultados</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Mi Experiencia Personal</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">¿Quieres un Sitio Editorial Así de Sólido?</h2>
+          <p class="text-white mb-8">Si quieres crecer con SEO sin sacrificar velocidad, puedo construir una base editorial como BitcoinForWifi para tu marca.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hola%20Omar,%20quiero%20un%20sitio%20editorial%20tipo%20BitcoinForWifi%20para%20mi%20marca" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+              Hablemos por WhatsApp
+            </a>
+            <a href="/portfolio/proyectos/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">
+              Ver Más Proyectos
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

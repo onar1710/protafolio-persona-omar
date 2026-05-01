@@ -1,0 +1,242 @@
+---
+import LayoutEN from '../../../layouts/LayoutEN.astro';
+import CaseStudyIcon from '../../../components/CaseStudyIcon.astro';
+import CaseStudyHero from '../../../components/CaseStudyHero.astro';
+
+const project = {
+  title: 'Akboheim Editorial - Literature, Education & Culture Website',
+  description:
+    'This case study is designed as a high-intent editorial website for literature, education, culture and books. It relies on strong sections, consistent editorial listings, and clean article layouts to improve discovery and scale organic traffic with evergreen content.',
+  cliente: 'Akboheim Editorial',
+  fecha: '2026',
+  tipo: 'Editorial Website / Blog',
+  tecnologias: ['Section Architecture', 'Technical SEO', 'Evergreen Strategy', 'Performance', 'Vercel'],
+  url: 'https://www.akboheim.com/',
+  imagen: '/images-portfolio/caso-akboheim.png',
+  stats: {
+    focus: 'Evergreen',
+    sections: 'Literature + Education + Culture + Books',
+    goal: 'Organic traffic',
+    format: 'Editorial',
+  },
+  results: [
+    '✅ Clear editorial sections for better navigation and indexing (Literature, Education, Culture, Books)',
+    '✅ List pages with cards and metadata (date/author) to improve CTR and trust',
+    '✅ Consistent templates to scale content without losing structure',
+    '✅ Reading-first hierarchy designed for retention and more pages per session',
+    '✅ Foundation ready to expand topics and strengthen internal linking',
+  ],
+};
+
+const techStack = [
+  { name: 'Section Architecture', description: 'Strong categories for discovery and topical authority', icon: '🗂️' },
+  { name: 'Technical SEO', description: 'Consistency that supports indexing and relevance', icon: '🔍' },
+  { name: 'Evergreen Strategy', description: 'Topics designed to bring long-term traffic', icon: '📚' },
+  { name: 'Clean Reading UX', description: 'Editorial layout built for retention', icon: '📝' },
+  { name: 'Vercel', description: 'Fast global delivery with CDN and caching', icon: '🚀' },
+];
+
+const phases = [
+  {
+    title: 'Editorial Structure',
+    week: 'Phase 1',
+    tasks: [
+      'Organized the content into themed sections (Literature, Education, Culture, Books)',
+      'Designed list pages around clarity: title + date + author to boost trust',
+      'Prepared navigation for quick discovery across topics',
+    ],
+  },
+  {
+    title: 'SEO & Scalability',
+    week: 'Phase 2',
+    tasks: [
+      'Standardized templates so publishing more articles keeps consistency',
+      'Improved visual hierarchy for reading and retention',
+      'Prepared a section-driven internal linking foundation for organic growth',
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: '🗂️',
+    title: 'Sections that keep content organized',
+    description: 'Clear thematic areas improve UX and make indexing easier.',
+  },
+  {
+    icon: '📝',
+    title: 'Consistent editorial format',
+    description: 'Cards and metadata increase trust and drive more clicks.',
+  },
+  {
+    icon: '🔍',
+    title: 'SEO designed for topics',
+    description: 'A structure that reinforces topical authority through section linking.',
+  },
+  {
+    icon: '📚',
+    title: 'Evergreen content engine',
+    description: 'Topics with constant demand to grow organic traffic over time.',
+  },
+  {
+    icon: '⚡',
+    title: 'Fast experience',
+    description: 'Lightweight pages and clean layouts for mobile and desktop.',
+  },
+  {
+    icon: '📈',
+    title: 'Built to scale',
+    description: 'Templates and structure that support growth without performance loss.',
+  },
+];
+
+const metrics = [
+  { icon: '🗂️', title: 'Sections', value: '4', description: 'Literature, Education, Culture, Books' },
+  { icon: '📚', title: 'Strategy', value: 'Evergreen', description: 'Constant-demand topics' },
+  { icon: '🔍', title: 'SEO', value: 'Topical', description: 'Section authority + internal linking' },
+  { icon: '📝', title: 'UX', value: 'Reading', description: 'Editorial hierarchy and retention' },
+];
+
+const experience = [
+  {
+    title: 'What matters in editorial websites',
+    text: 'Structure drives growth. If a reader can’t find what they want in seconds, they leave. That’s why the foundation focuses on clear sections and navigation.',
+  },
+  {
+    title: 'SEO that actually helps',
+    text: 'When each section groups related posts, search engines understand the topic better and internal links distribute authority more effectively.',
+  },
+  {
+    title: 'Why evergreen',
+    text: 'Literature and education topics have steady demand. With a clean foundation, you can scale content that brings traffic for months.',
+  },
+];
+---
+
+<LayoutEN title="Akboheim - Case Study | Omar Fuentes" description="Akboheim Editorial case study: literature, education and culture site with thematic sections, evergreen strategy, technical SEO and a structure built to scale organic traffic.">
+  <main class="pt-24 pb-20" style="background: var(--white);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <CaseStudyHero
+        lang="en"
+        title={project.title}
+        description={project.description}
+        image={project.imagen}
+        liveUrl={project.url}
+        backHref="/en/portfolio/projects/"
+        technologies={project.tecnologias}
+        badges={['Editorial', 'Evergreen', 'SEO']}
+      />
+
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {Object.entries(project.stats).map(([key, value]) => (
+          <div class="text-center p-6 rounded-2xl" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div class="text-2xl font-black" style="color: var(--primary-blue);">{value}</div>
+            <div class="text-black text-sm font-bold mt-2" style="text-transform: capitalize;">{key}</div>
+          </div>
+        ))}
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Stack & Strategy</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((tech) => (
+            <div class="rounded-2xl p-6" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="text-2xl"><CaseStudyIcon icon={tech.icon} class="w-10 h-10" /></div>
+              <div class="font-black text-black mt-3">{tech.name}</div>
+              <div class="text-black mt-2">{tech.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Process</h2>
+        <div class="space-y-6">
+          {phases.map((phase) => (
+            <div class="rounded-3xl p-8" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <h3 class="text-2xl font-black text-black">{phase.title}</h3>
+                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(0, 102, 255, 0.12); color: var(--primary-blue); border: 1px solid rgba(0, 102, 255, 0.22);">{phase.week}</span>
+              </div>
+              <ul class="space-y-3">
+                {phase.tasks.map((task) => (
+                  <li class="flex items-start gap-3"><span style="color: var(--primary-green); font-weight: 900;">✓</span><span class="text-black">{task}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Key Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <div class="text-3xl"><CaseStudyIcon icon={feature.icon} class="w-12 h-12" /></div>
+              <h3 class="text-xl font-black text-black mt-4">{feature.title}</h3>
+              <p class="text-black mt-3">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Outcome Metrics</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric) => (
+            <div class="rounded-3xl p-8 text-center" style="background: var(--gray-50); border: 1px solid rgba(0,0,0,0.08);">
+              <div class="flex justify-center"><CaseStudyIcon icon={metric.icon} class="w-12 h-12" /></div>
+              <div class="text-3xl font-black mt-3" style="color: var(--primary-blue);">{metric.value}</div>
+              <div class="font-black text-black mt-2">{metric.title}</div>
+              <div class="text-black mt-2">{metric.description}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">Results</h2>
+        <div class="rounded-3xl p-8" style="background: var(--white); border: 1px solid rgba(0,0,0,0.08);">
+          <ul class="space-y-4">
+            {project.results.map((result) => (
+              <li class="flex items-start gap-3">
+                <span style="color: var(--primary-green); font-weight: 900;">✅</span>
+                <span class="text-black">{result.replace(/^✅\s*/, '')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-black text-black mb-8">My Notes</h2>
+        <div class="rounded-3xl p-10" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(255, 215, 0, 0.10) 50%, rgba(0, 200, 81, 0.08) 100%); border: 1px solid rgba(0,0,0,0.08);">
+          <div class="space-y-8">
+            {experience.map((item) => (
+              <div>
+                <h3 class="text-xl font-black text-black mb-3">{item.title}</h3>
+                <p class="text-black">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 50%, var(--primary-green) 100%);">
+          <h2 class="text-3xl font-black text-white mb-4">Want an editorial site built to grow?</h2>
+          <p class="text-white mb-8">I can build a fast, section-based editorial foundation to scale organic traffic with an evergreen strategy.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573107851074?text=Hello%20Omar,%20I%20want%20an%20editorial%20website%20like%20Akboheim%20for%20my%20brand" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+              Message on WhatsApp
+            </a>
+            <a href="/en/portfolio/projects/" class="btn-secondary" style="text-decoration: none; border-color: rgba(255,255,255,0.55); color: var(--white);">
+              View More Projects
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</LayoutEN>
