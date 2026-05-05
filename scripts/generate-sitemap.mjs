@@ -46,16 +46,7 @@ const isServicePage = (urlPath) =>
 const isAboutPage = (urlPath) => urlPath === '/sobre-mi/' || urlPath === '/en/about/';
 const isContactPage = (urlPath) => urlPath === '/contacto/' || urlPath === '/en/contact/';
 
-const shouldKeep = (urlPath, topArticles) => {
-	if (urlPath === '/' || urlPath === '/en/') return true;
-	if (isBlogIndex(urlPath)) return true;
-	if (isArticlePath(urlPath)) return true;
-	if (isProjectsPage(urlPath)) return true;
-	if (isServicePage(urlPath)) return true;
-	if (isAboutPage(urlPath)) return true;
-	if (isContactPage(urlPath)) return true;
-	return false;
-};
+const shouldKeep = (_urlPath, _topArticles) => true;
 
 const changefreqFor = (urlPath, topArticles) => {
 	if (urlPath === '/' || urlPath === '/en/') return 'weekly';
