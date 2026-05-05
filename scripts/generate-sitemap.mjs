@@ -89,6 +89,69 @@ const walk = (dir) => {
 	return out;
 };
 
+const parseFrontmatter = (markdown) => {
+	const text = String(markdown || '');
+	if (!text.startsWith('---')) return null;
+	const endIdx = text.indexOf('\n---', 3);
+	if (endIdx === -1) return null;
+	const raw = text.slice(3, endIdx).trim();
+	const meta = {};
+	for (const rawLine of raw.split(/\r?\n/)) {
+		const line = rawLine.trim();
+		if (!line) continue;
+		const sep = line.indexOf(':');
+		if (sep === -1) continue;
+		const key = line.slice(0, sep).trim();
+		let value = line.slice(sep + 1).trim();
+		if ((value.startsWith("'") && value.endsWith("'")) || (value.startsWith('"') && value.endsWith('"'))) value = value.slice(1, -1);
+		meta[key] = value;
+	}
+	return meta;
+};
+
+const parseDateMs = (value) => {
+	const v = String(value || '').trim();
+	if (!v) return null;
+	const ms = Date.parse(v);
+	return Number.isFinite(ms) ? ms : null;
+};
+
+const CONTENT_DIR = path.join(process.cwd(), 'src', 'content', 'blog');
+const contentFiles = fs.existsSync(CONTENT_DIR)
+	? walk(CONTENT_DIR).filter((p) => p.toLowerCase().endsWith('.md') || p.toLowerCase().endsWith('.mdx'))
+	: [];
+
+const contentDateByUrlPath = (() => {
+	const map = new Map();
+	for (const file of contentFiles) {
+		const rel = path.relative(CONTENT_DIR, file).replace(/\\/g, '/');
+		const noExt = rel.replace(/\.(md|mdx)$/i, '');
+		const meta = parseFrontmatter(fs.readFileSync(file, 'utf8')) || {};
+		const dateMs = parseDateMs(meta.updatedDate) ?? parseDateMs(meta.pubDate);
+		if (!dateMs) continue;
+
+		const isEn = noExt.startsWith('en/');
+		if (isEn) {
+			const rest = noExt.slice('en/'.length);
+			if (rest.startsWith('seo/')) map.set(`/en/seo/${rest.slice('seo/'.length)}/`, dateMs);
+			else if (rest.startsWith('web-design/')) map.set(`/en/web-design/${rest.slice('web-design/'.length)}/`, dateMs);
+			else if (rest.startsWith('digital-marketing/'))
+				map.set(`/en/digital-marketing/${rest.slice('digital-marketing/'.length)}/`, dateMs);
+			else if (rest.startsWith('social-media/')) map.set(`/en/social-media/${rest.slice('social-media/'.length)}/`, dateMs);
+			else map.set(`/en/blog/${rest}/`, dateMs);
+			continue;
+		}
+
+		if (noExt.startsWith('seo/')) map.set(`/seo/${noExt.slice('seo/'.length)}/`, dateMs);
+		else if (noExt.startsWith('disenoweb/')) map.set(`/disenoweb/${noExt.slice('disenoweb/'.length)}/`, dateMs);
+		else if (noExt.startsWith('marketing-digital/'))
+			map.set(`/marketing-digital/${noExt.slice('marketing-digital/'.length)}/`, dateMs);
+		else if (noExt.startsWith('social-media/')) map.set(`/social-media/${noExt.slice('social-media/'.length)}/`, dateMs);
+		else map.set(`/blog/${noExt}/`, dateMs);
+	}
+	return map;
+})();
+
 for (const f of fs.readdirSync(dist)) {
 	if (/^sitemap(-index)?(-\d+)?\.xml$/i.test(f)) fs.rmSync(path.join(dist, f));
 }
@@ -123,7 +186,11 @@ for (const file of files) {
 const topArticles = new Set(
 	urls
 		.filter((u) => isArticlePath(u.urlPath) && !isBlogIndex(u.urlPath))
-		.sort((a, b) => b.lastmodMs - a.lastmodMs)
+		.sort((a, b) => {
+			const aMs = contentDateByUrlPath.get(a.urlPath) ?? a.lastmodMs;
+			const bMs = contentDateByUrlPath.get(b.urlPath) ?? b.lastmodMs;
+			return bMs - aMs;
+		})
 		.slice(0, TOP_ARTICLES)
 		.map((u) => u.urlPath)
 );
