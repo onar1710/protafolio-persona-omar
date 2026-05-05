@@ -49,7 +49,7 @@ const isContactPage = (urlPath) => urlPath === '/contacto/' || urlPath === '/en/
 const shouldKeep = (urlPath, topArticles) => {
 	if (urlPath === '/' || urlPath === '/en/') return true;
 	if (isBlogIndex(urlPath)) return true;
-	if (isArticlePath(urlPath)) return topArticles.has(urlPath);
+	if (isArticlePath(urlPath)) return true;
 	if (isProjectsPage(urlPath)) return true;
 	if (isServicePage(urlPath)) return true;
 	if (isAboutPage(urlPath)) return true;
@@ -61,6 +61,7 @@ const changefreqFor = (urlPath, topArticles) => {
 	if (urlPath === '/' || urlPath === '/en/') return 'weekly';
 	if (isBlogIndex(urlPath)) return 'weekly';
 	if (isArticlePath(urlPath) && topArticles.has(urlPath)) return 'weekly';
+	if (isArticlePath(urlPath)) return 'monthly';
 	if (isProjectsPage(urlPath)) return 'monthly';
 	if (isServicePage(urlPath)) return 'monthly';
 	if (isAboutPage(urlPath)) return 'yearly';
@@ -76,6 +77,7 @@ const priorityFor = (urlPath, topArticles) => {
 	if (isServicePage(urlPath)) return '0.8';
 	if (isAboutPage(urlPath)) return '0.8';
 	if (isContactPage(urlPath)) return '0.8';
+	if (isArticlePath(urlPath)) return '0.7';
 	return '0.6';
 };
 
