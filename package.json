@@ -10,6 +10,7 @@
     "build": "astro build",
     "build:vercel": "npm run build",
     "postbuild": "node scripts/generate-sitemap.mjs",
+    "ai-image-gen": "node scripts/ai-image-gen.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

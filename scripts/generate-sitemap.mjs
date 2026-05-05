@@ -31,7 +31,11 @@ const shouldInclude = (urlPath) => {
 const TOP_ARTICLES = 10;
 
 const isBlogIndex = (urlPath) => urlPath === '/blog/' || urlPath === '/en/blog/';
-const isBlogPost = (urlPath) => /^\/(en\/)?blog\/[^/]+\/$/.test(urlPath);
+const isArticlePath = (urlPath) =>
+	/^\/blog\/[^/]+\/$/.test(urlPath) ||
+	/^\/(seo|disenoweb|marketing-digital|social-media)\/[^/]+\/$/.test(urlPath) ||
+	/^\/en\/blog\/[^/]+\/$/.test(urlPath) ||
+	/^\/en\/(seo|web-design|digital-marketing|social-media)\/[^/]+\/$/.test(urlPath);
 const isProjectsPage = (urlPath) => urlPath === '/portfolio/proyectos/' || urlPath === '/en/portfolio/projects/';
 const isServicePage = (urlPath) =>
 	urlPath === '/servicios/' ||
@@ -42,10 +46,10 @@ const isServicePage = (urlPath) =>
 const isAboutPage = (urlPath) => urlPath === '/sobre-mi/' || urlPath === '/en/about/';
 const isContactPage = (urlPath) => urlPath === '/contacto/' || urlPath === '/en/contact/';
 
-const shouldKeep = (urlPath, topBlogPosts) => {
+const shouldKeep = (urlPath, topArticles) => {
 	if (urlPath === '/' || urlPath === '/en/') return true;
 	if (isBlogIndex(urlPath)) return true;
-	if (isBlogPost(urlPath)) return topBlogPosts.has(urlPath);
+	if (isArticlePath(urlPath)) return topArticles.has(urlPath);
 	if (isProjectsPage(urlPath)) return true;
 	if (isServicePage(urlPath)) return true;
 	if (isAboutPage(urlPath)) return true;
@@ -53,10 +57,10 @@ const shouldKeep = (urlPath, topBlogPosts) => {
 	return false;
 };
 
-const changefreqFor = (urlPath, topBlogPosts) => {
+const changefreqFor = (urlPath, topArticles) => {
 	if (urlPath === '/' || urlPath === '/en/') return 'weekly';
 	if (isBlogIndex(urlPath)) return 'weekly';
-	if (isBlogPost(urlPath) && topBlogPosts.has(urlPath)) return 'weekly';
+	if (isArticlePath(urlPath) && topArticles.has(urlPath)) return 'weekly';
 	if (isProjectsPage(urlPath)) return 'monthly';
 	if (isServicePage(urlPath)) return 'monthly';
 	if (isAboutPage(urlPath)) return 'yearly';
@@ -64,9 +68,9 @@ const changefreqFor = (urlPath, topBlogPosts) => {
 	return 'monthly';
 };
 
-const priorityFor = (urlPath, topBlogPosts) => {
+const priorityFor = (urlPath, topArticles) => {
 	if (urlPath === '/' || urlPath === '/en/') return '0.9';
-	if (isBlogPost(urlPath) && topBlogPosts.has(urlPath)) return '0.9';
+	if (isArticlePath(urlPath) && topArticles.has(urlPath)) return '0.9';
 	if (isBlogIndex(urlPath)) return '0.8';
 	if (isProjectsPage(urlPath)) return '0.8';
 	if (isServicePage(urlPath)) return '0.8';
@@ -116,21 +120,21 @@ for (const file of files) {
 	if (rel === 'rss.xml') continue;
 }
 
-const topBlogPosts = new Set(
+const topArticles = new Set(
 	urls
-		.filter((u) => isBlogPost(u.urlPath) && !isBlogIndex(u.urlPath))
+		.filter((u) => isArticlePath(u.urlPath) && !isBlogIndex(u.urlPath))
 		.sort((a, b) => b.lastmodMs - a.lastmodMs)
 		.slice(0, TOP_ARTICLES)
 		.map((u) => u.urlPath)
 );
 
 const filtered = urls
-	.filter((u) => shouldKeep(u.urlPath, topBlogPosts))
+	.filter((u) => shouldKeep(u.urlPath, topArticles))
 	.map((u) => ({
 		urlPath: u.urlPath,
 		lastmod: u.lastmod,
-		changefreq: changefreqFor(u.urlPath, topBlogPosts),
-		priority: priorityFor(u.urlPath, topBlogPosts),
+		changefreq: changefreqFor(u.urlPath, topArticles),
+		priority: priorityFor(u.urlPath, topArticles),
 	}));
 
 const seen = new Set();

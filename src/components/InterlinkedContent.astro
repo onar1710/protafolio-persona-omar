@@ -9,9 +9,10 @@ type Props = {
 	minLinks?: number;
 	maxLinks?: number;
 	posts?: BlogEntry[];
+	group?: string;
 };
 
-const { minLinks = 3, maxLinks = 7, posts: providedPosts } = Astro.props;
+const { minLinks = 3, maxLinks = 7, posts: providedPosts, group } = Astro.props;
 
 const pathname = Astro.url.pathname || '/';
 const isEn = pathname.startsWith('/en/');
@@ -27,15 +28,51 @@ const normalizePath = (p: string): string => {
 const currentPath = normalizePath(pathname);
 const currentId = (() => {
 	if (isEn) {
-		const slug = currentPath.replace(/^\/en\/blog\//, '').replace(/\/$/, '');
-		return slug ? `en/${slug}` : '';
+		const seoSlug = currentPath.replace(/^\/en\/seo\//, '').replace(/\/$/, '');
+		if (seoSlug !== currentPath.replace(/\/$/, '')) return seoSlug ? `en/seo/${seoSlug}` : '';
+
+		const webDesignSlug = currentPath.replace(/^\/en\/web-design\//, '').replace(/\/$/, '');
+		if (webDesignSlug !== currentPath.replace(/\/$/, '')) return webDesignSlug ? `en/web-design/${webDesignSlug}` : '';
+
+		const dmSlug = currentPath.replace(/^\/en\/digital-marketing\//, '').replace(/\/$/, '');
+		if (dmSlug !== currentPath.replace(/\/$/, '')) return dmSlug ? `en/digital-marketing/${dmSlug}` : '';
+
+		const smSlug = currentPath.replace(/^\/en\/social-media\//, '').replace(/\/$/, '');
+		if (smSlug !== currentPath.replace(/\/$/, '')) return smSlug ? `en/social-media/${smSlug}` : '';
+
+		const blogSlug = currentPath.replace(/^\/en\/blog\//, '').replace(/\/$/, '');
+		return blogSlug ? `en/${blogSlug}` : '';
 	}
-	const slug = currentPath.replace(/^\/blog\//, '').replace(/\/$/, '');
-	return slug || '';
+	const seoSlug = currentPath.replace(/^\/seo\//, '').replace(/\/$/, '');
+	if (seoSlug !== currentPath.replace(/\/$/, '')) return seoSlug ? `seo/${seoSlug}` : '';
+
+	const disenowebSlug = currentPath.replace(/^\/disenoweb\//, '').replace(/\/$/, '');
+	if (disenowebSlug !== currentPath.replace(/\/$/, '')) return disenowebSlug ? `disenoweb/${disenowebSlug}` : '';
+
+	const marketingSlug = currentPath.replace(/^\/marketing-digital\//, '').replace(/\/$/, '');
+	if (marketingSlug !== currentPath.replace(/\/$/, '')) return marketingSlug ? `marketing-digital/${marketingSlug}` : '';
+
+	const socialSlug = currentPath.replace(/^\/social-media\//, '').replace(/\/$/, '');
+	if (socialSlug !== currentPath.replace(/\/$/, '')) return socialSlug ? `social-media/${socialSlug}` : '';
+
+	const blogSlug = currentPath.replace(/^\/blog\//, '').replace(/\/$/, '');
+	return blogSlug || '';
 })();
 
 const hrefForPost = (post: BlogEntry): string => {
+	if (post.id.startsWith('en/seo/')) return `/en/seo/${post.id.slice('en/seo/'.length)}/`;
+	if (post.id.startsWith('en/web-design/')) return `/en/web-design/${post.id.slice('en/web-design/'.length)}/`;
+	if (post.id.startsWith('en/digital-marketing/'))
+		return `/en/digital-marketing/${post.id.slice('en/digital-marketing/'.length)}/`;
+	if (post.id.startsWith('en/social-media/')) return `/en/social-media/${post.id.slice('en/social-media/'.length)}/`;
 	if (post.id.startsWith('en/')) return `/en/blog/${post.id.replace(/^en\//, '')}/`;
+
+	if (post.id.startsWith('seo/')) return `/seo/${post.id.slice('seo/'.length)}/`;
+	if (post.id.startsWith('disenoweb/')) return `/disenoweb/${post.id.slice('disenoweb/'.length)}/`;
+	if (post.id.startsWith('marketing-digital/'))
+		return `/marketing-digital/${post.id.slice('marketing-digital/'.length)}/`;
+	if (post.id.startsWith('social-media/')) return `/social-media/${post.id.slice('social-media/'.length)}/`;
+
 	return `/blog/${post.id}/`;
 };
 
@@ -142,6 +179,7 @@ const allPosts = Array.isArray(providedPosts) ? providedPosts : await getCollect
 const candidates = allPosts
 	.filter((p) => (lang === 'en' ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
 	.filter((p) => (currentId ? p.id !== currentId : normalizePath(hrefForPost(p)) !== currentPath))
+	.filter((p) => (group ? p.data?.relatedGroup === group : true))
 	.filter((p) => Boolean(p.data?.title && p.data?.description));
 
 const words = countWords(rawHtml);

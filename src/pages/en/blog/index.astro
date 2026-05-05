@@ -9,6 +9,33 @@ const posts = (await getCollection('blog'))
 
 const toEnSlug = (id: string) => id.replace(/^en\//, '');
 
+const seoPosts = new Set(['avoid-algorithmic-penalties-penguin', 'what-are-cloaking-and-keywords-stuffing-in-seo']);
+const webDesignPosts = new Set([
+	'responsive-web-design-with-html-5',
+	'web-design-services-for-small-businesses-the-affordable-and-reliable-guide',
+]);
+
+const postCategory = (id: string): 'web-design' | 'seo' | 'digital-marketing' | 'social-media' => {
+	if (id.startsWith('en/seo/')) return 'seo';
+	if (id.startsWith('en/web-design/')) return 'web-design';
+	if (id.startsWith('en/digital-marketing/')) return 'digital-marketing';
+	if (id.startsWith('en/social-media/')) return 'social-media';
+
+	const slug = toEnSlug(id);
+	if (seoPosts.has(slug)) return 'seo';
+	if (webDesignPosts.has(slug)) return 'web-design';
+	return 'web-design';
+};
+
+const postUrl = (id: string) => {
+	if (id.startsWith('en/seo/')) return `/en/seo/${id.slice('en/seo/'.length)}/`;
+	if (id.startsWith('en/web-design/')) return `/en/web-design/${id.slice('en/web-design/'.length)}/`;
+	if (id.startsWith('en/digital-marketing/'))
+		return `/en/digital-marketing/${id.slice('en/digital-marketing/'.length)}/`;
+	if (id.startsWith('en/social-media/')) return `/en/social-media/${id.slice('en/social-media/'.length)}/`;
+	return `/en/blog/${toEnSlug(id)}/`;
+};
+
 ---
 
 <Layout
@@ -25,10 +52,47 @@ const toEnSlug = (id: string) => id.replace(/^en\//, '');
     </p>
   </div>
 
+  <div class="flex flex-wrap gap-3 mb-10">
+    <a
+      href="/en/blog/?cat=web-design"
+      data-blog-tab="web-design"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      Web design
+    </a>
+    <a
+      href="/en/blog/?cat=seo"
+      data-blog-tab="seo"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      SEO
+    </a>
+    <a
+      href="/en/blog/?cat=digital-marketing"
+      data-blog-tab="digital-marketing"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      Digital marketing
+    </a>
+    <a
+      href="/en/blog/?cat=social-media"
+      data-blog-tab="social-media"
+      class="px-4 py-2 rounded-full border font-bold text-sm"
+      style="border-color: rgba(0,0,0,0.12); background: var(--white); color: var(--black); text-decoration: none;"
+    >
+      Social media
+    </a>
+  </div>
+
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {posts.map((post) => (
       <a
-        href={`/en/blog/${toEnSlug(post.id)}/`}
+        href={postUrl(post.id)}
+        data-blog-card
+        data-blog-category={postCategory(post.id)}
         class="bg-white rounded-2xl overflow-hidden transition-all duration-500 border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 block"
         style="text-decoration: none;"
       >
@@ -56,4 +120,29 @@ const toEnSlug = (id: string) => id.replace(/^en\//, '');
     ))}
   </div>
 </div>
+
+<script is:inline>
+  (() => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+
+    const cards = Array.from(document.querySelectorAll('[data-blog-card]'));
+    if (!cat) return;
+
+    for (const card of cards) {
+      const cardCat = card.getAttribute('data-blog-category');
+      (card).style.display = cardCat === cat ? '' : 'none';
+    }
+
+    const tabs = Array.from(document.querySelectorAll('[data-blog-tab]'));
+    for (const tab of tabs) {
+      const tabCat = tab.getAttribute('data-blog-tab');
+      if (tabCat === cat) {
+        tab.style.background = 'var(--primary-blue)';
+        tab.style.borderColor = 'var(--primary-blue)';
+        tab.style.color = 'var(--white)';
+      }
+    }
+  })();
+</script>
 </Layout>

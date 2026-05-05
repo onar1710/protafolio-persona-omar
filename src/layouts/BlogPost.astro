@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import InterlinkedContent from '../components/InterlinkedContent.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
@@ -9,11 +9,10 @@ import LayoutEN from './LayoutEN.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, author, pubDate, updatedDate, heroImage } = Astro.props;
+const { relatedGroup } = Astro.props;
 
 const isEn = Astro.url.pathname.startsWith('/en/');
 const backToBlogHref = isEn ? '/en/blog/' : '/blog/';
-
-const allPosts = await getCollection('blog');
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -80,11 +79,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					</header>
 
 					<article class="post-content text-black" style="max-width: 100%;">
-						<InterlinkedContent posts={allPosts}>
+						{relatedGroup ? (
+							<InterlinkedContent group={relatedGroup}>
+								<slot />
+							</InterlinkedContent>
+						) : (
 							<slot />
-						</InterlinkedContent>
+						)}
 					</article>
-					<RelatedArticles posts={allPosts} />
+					{relatedGroup ? <RelatedArticles group={relatedGroup} /> : null}
 				</div>
 			</main>
 		</LayoutEN>
@@ -149,11 +152,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					</header>
 
 					<article class="post-content text-black" style="max-width: 100%;">
-						<InterlinkedContent posts={allPosts}>
+						{relatedGroup ? (
+							<InterlinkedContent group={relatedGroup}>
+								<slot />
+							</InterlinkedContent>
+						) : (
 							<slot />
-						</InterlinkedContent>
+						)}
 					</article>
-					<RelatedArticles posts={allPosts} />
+					{relatedGroup ? <RelatedArticles group={relatedGroup} /> : null}
 				</div>
 			</main>
 		</Layout>
