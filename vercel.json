@@ -1,6 +1,18 @@
 {
   "redirects": [
     {
+      "source": "/docs/website_design_and_culture.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/website_design_and_culture.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/docs/website_design_and_culture.pdf",
+      "has": [{ "type": "host", "value": "diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/website_design_and_culture.pdf",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "omarfuentes.com" }],
       "destination": "https://www.omarfuentes.com/:path*",
