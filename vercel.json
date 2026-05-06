@@ -31,6 +31,18 @@
       "permanent": true
     },
     {
+      "source": "/docs/pr_province.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/pr_province.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/docs/pr_cknw.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/pr_cknw.pdf",
+      "permanent": true
+    },
+    {
       "source": "/cyr_head_ivanov2009.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/cyr_head_ivanov2009.pdf",
