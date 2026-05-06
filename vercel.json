@@ -25,6 +25,12 @@
       "permanent": true
     },
     {
+      "source": "/docs/Gender%20and%20website%20design%20(IJEB)%20final.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/Gender%20and%20website%20design%20%28IJEB%29%20final.pdf",
+      "permanent": true
+    },
+    {
       "source": "/docs/pr_vansun.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/pr_vansun.pdf",
