@@ -4,141 +4,141 @@
       "source": "/",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/en/blog/community-trust-social-capital-brand-loyalty-online-b2b-communities/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/Gender",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/Gender/",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/Gender:rest*",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/Gender%20and%20website%20design%20%28IJEB%29%20final.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/Gender%20and%20website%20design%20%28IJEB%29%20final.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/Gender%20and%20website%20design%20%28IJEB%29%20final.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/Gender and website design (IJEB) final.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/Gender%20and%20website%20design%20%28IJEB%29%20final.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/Gender%20and%20website%20design%20(IJEB)%20final.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/Gender%20and%20website%20design%20%28IJEB%29%20final.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/pr_vansun.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/pr_vansun.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/pr_province.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/pr_province.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/pr_cknw.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/pr_cknw.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/cyr_head_ivanov2009.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/cyr_head_ivanov2009.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/cyr2008_modelling.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/cyr2008_modelling.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/cyr2004_weblocalization.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/cyr2004_weblocalization.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/emerging_challenges.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/emerging_challenges.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/localization_of_webdesign.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/localization_of_webdesign.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/docs/website_design_and_culture.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/website_design_and_culture.pdf",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "omarfuentes.com" }],
       "destination": "https://www.omarfuentes.com/:path*",
-      "permanent": true
+      "statusCode": 301
     },
-    { "source": "/politica-cookies", "destination": "/", "permanent": true },
-    { "source": "/politica-cookies/", "destination": "/", "permanent": true },
+    { "source": "/politica-cookies", "destination": "/", "statusCode": 301 },
+    { "source": "/politica-cookies/", "destination": "/", "statusCode": 301 },
 
     {
       "source": "/disenador-web-freelance-profesional",
       "destination": "/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/disenador-web-freelance-profesional/",
       "destination": "/",
-      "permanent": true
+      "statusCode": 301
     },
 
-    { "source": "/tools", "destination": "/", "permanent": true },
-    { "source": "/tools/", "destination": "/", "permanent": true },
+    { "source": "/tools", "destination": "/", "statusCode": 301 },
+    { "source": "/tools/", "destination": "/", "statusCode": 301 },
 
-    { "source": "/cleaning-web-design", "destination": "/", "permanent": true },
-    { "source": "/cleaning-web-design/", "destination": "/", "permanent": true },
-    { "source": "/gym-web-design", "destination": "/", "permanent": true },
-    { "source": "/gym-web-design/", "destination": "/", "permanent": true },
-    { "source": "/electrician-web-design", "destination": "/", "permanent": true },
-    { "source": "/electrician-web-design/", "destination": "/", "permanent": true },
-    { "source": "/construction-web-design", "destination": "/", "permanent": true },
-    { "source": "/construction-web-design/", "destination": "/", "permanent": true },
+    { "source": "/cleaning-web-design", "destination": "/", "statusCode": 301 },
+    { "source": "/cleaning-web-design/", "destination": "/", "statusCode": 301 },
+    { "source": "/gym-web-design", "destination": "/", "statusCode": 301 },
+    { "source": "/gym-web-design/", "destination": "/", "statusCode": 301 },
+    { "source": "/electrician-web-design", "destination": "/", "statusCode": 301 },
+    { "source": "/electrician-web-design/", "destination": "/", "statusCode": 301 },
+    { "source": "/construction-web-design", "destination": "/", "statusCode": 301 },
+    { "source": "/construction-web-design/", "destination": "/", "statusCode": 301 },
 
-    { "source": "/portfolio/dataflow-analytics", "destination": "/", "permanent": true },
-    { "source": "/portfolio/dataflow-analytics/", "destination": "/", "permanent": true },
-    { "source": "/portfolio/ecommerce-redesign", "destination": "/", "permanent": true },
-    { "source": "/portfolio/ecommerce-redesign/", "destination": "/", "permanent": true },
-    { "source": "/portfolio/global-project", "destination": "/", "permanent": true },
-    { "source": "/portfolio/global-project/", "destination": "/", "permanent": true },
+    { "source": "/portfolio/dataflow-analytics", "destination": "/", "statusCode": 301 },
+    { "source": "/portfolio/dataflow-analytics/", "destination": "/", "statusCode": 301 },
+    { "source": "/portfolio/ecommerce-redesign", "destination": "/", "statusCode": 301 },
+    { "source": "/portfolio/ecommerce-redesign/", "destination": "/", "statusCode": 301 },
+    { "source": "/portfolio/global-project", "destination": "/", "statusCode": 301 },
+    { "source": "/portfolio/global-project/", "destination": "/", "statusCode": 301 },
 
-    { "source": "/blog/modern-seo", "destination": "/", "permanent": true },
-    { "source": "/blog/modern-seo/", "destination": "/", "permanent": true },
+    { "source": "/blog/modern-seo", "destination": "/", "statusCode": 301 },
+    { "source": "/blog/modern-seo/", "destination": "/", "statusCode": 301 },
 
-    { "source": "/changelog", "destination": "/", "permanent": true },
-    { "source": "/changelog/", "destination": "/", "permanent": true }
+    { "source": "/changelog", "destination": "/", "statusCode": 301 },
+    { "source": "/changelog/", "destination": "/", "statusCode": 301 }
   ]
 }
