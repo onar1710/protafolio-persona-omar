@@ -1,14 +1,68 @@
 {
   "redirects": [
     {
-      "source": "/docs/website_design_and_culture.pdf",
+      "source": "/",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
-      "destination": "https://www.omarfuentes.com/docs/website_design_and_culture.pdf",
+      "destination": "https://www.omarfuentes.com/en/blog/community-trust-social-capital-brand-loyalty-online-b2b-communities/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/Gender",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/Gender/",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/Gender%20and%20website%20design%20%28IJEB%29%20final.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/Gender%20and%20website%20design%20%28IJEB%29%20final.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/docs/pr_vansun.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/pr_vansun.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/cyr_head_ivanov2009.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/cyr_head_ivanov2009.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/cyr2008_modelling.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/cyr2008_modelling.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/cyr2004_weblocalization.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/cyr2004_weblocalization.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/docs/emerging_challenges.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/emerging_challenges.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/docs/localization_of_webdesign.pdf",
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
+      "destination": "https://www.omarfuentes.com/docs/localization_of_webdesign.pdf",
       "permanent": true
     },
     {
       "source": "/docs/website_design_and_culture.pdf",
-      "has": [{ "type": "host", "value": "diannecyr.com" }],
+      "has": [{ "type": "host", "value": "www.diannecyr.com" }],
       "destination": "https://www.omarfuentes.com/docs/website_design_and_culture.pdf",
       "permanent": true
     },
