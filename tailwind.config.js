@@ -24,7 +24,7 @@ export default {
         }
       },
       fontFamily: {
-        'display': ['Inter', 'system-ui', 'sans-serif'],
+        'display': ['var(--font-atkinson)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-blue': 'linear-gradient(135deg, #0066FF 0%, #4A90E2 100%)',

@@ -10,6 +10,9 @@ export default defineConfig({
 	site: 'https://www.omarfuentes.com',
 	trailingSlash: 'ignore',
 	integrations: [mdx()],
+	build: {
+		inlineStylesheets: 'always',
+	},
 	vite: {
 		css: {
 			postcss: {
