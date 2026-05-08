@@ -1,4 +1,10 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [{ "key": "Content-Signal", "value": "search=yes,ai-train=yes" }]
+    }
+  ],
   "redirects": [
     {
       "source": "/",
