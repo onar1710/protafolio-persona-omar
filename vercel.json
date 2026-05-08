@@ -102,41 +102,44 @@
       "destination": "https://www.omarfuentes.com/:path*",
       "statusCode": 301
     },
-    { "source": "/politica-cookies", "destination": "/", "statusCode": 301 },
-    { "source": "/politica-cookies/", "destination": "/", "statusCode": 301 },
+    { "source": "/precios", "destination": "/servicios/", "statusCode": 301 },
+    { "source": "/precios/", "destination": "/servicios/", "statusCode": 301 },
+
+    { "source": "/politica-cookies", "destination": "/politicas-cookies/", "statusCode": 301 },
+    { "source": "/politica-cookies/", "destination": "/politicas-cookies/", "statusCode": 301 },
 
     {
       "source": "/disenador-web-freelance-profesional",
-      "destination": "/",
+      "destination": "/servicios/",
       "statusCode": 301
     },
     {
       "source": "/disenador-web-freelance-profesional/",
-      "destination": "/",
+      "destination": "/servicios/",
       "statusCode": 301
     },
 
-    { "source": "/tools", "destination": "/", "statusCode": 301 },
-    { "source": "/tools/", "destination": "/", "statusCode": 301 },
+    { "source": "/tools", "destination": "/en/tools/", "statusCode": 301 },
+    { "source": "/tools/", "destination": "/en/tools/", "statusCode": 301 },
 
-    { "source": "/cleaning-web-design", "destination": "/", "statusCode": 301 },
-    { "source": "/cleaning-web-design/", "destination": "/", "statusCode": 301 },
-    { "source": "/gym-web-design", "destination": "/", "statusCode": 301 },
-    { "source": "/gym-web-design/", "destination": "/", "statusCode": 301 },
-    { "source": "/electrician-web-design", "destination": "/", "statusCode": 301 },
-    { "source": "/electrician-web-design/", "destination": "/", "statusCode": 301 },
-    { "source": "/construction-web-design", "destination": "/", "statusCode": 301 },
-    { "source": "/construction-web-design/", "destination": "/", "statusCode": 301 },
+    { "source": "/cleaning-web-design", "destination": "/en/cleaning-web-design/", "statusCode": 301 },
+    { "source": "/cleaning-web-design/", "destination": "/en/cleaning-web-design/", "statusCode": 301 },
+    { "source": "/gym-web-design", "destination": "/en/gym-web-design/", "statusCode": 301 },
+    { "source": "/gym-web-design/", "destination": "/en/gym-web-design/", "statusCode": 301 },
+    { "source": "/electrician-web-design", "destination": "/en/electrician-web-design/", "statusCode": 301 },
+    { "source": "/electrician-web-design/", "destination": "/en/electrician-web-design/", "statusCode": 301 },
+    { "source": "/construction-web-design", "destination": "/en/construction-web-design/", "statusCode": 301 },
+    { "source": "/construction-web-design/", "destination": "/en/construction-web-design/", "statusCode": 301 },
 
-    { "source": "/portfolio/dataflow-analytics", "destination": "/", "statusCode": 301 },
-    { "source": "/portfolio/dataflow-analytics/", "destination": "/", "statusCode": 301 },
-    { "source": "/portfolio/ecommerce-redesign", "destination": "/", "statusCode": 301 },
-    { "source": "/portfolio/ecommerce-redesign/", "destination": "/", "statusCode": 301 },
-    { "source": "/portfolio/global-project", "destination": "/", "statusCode": 301 },
-    { "source": "/portfolio/global-project/", "destination": "/", "statusCode": 301 },
+    { "source": "/portfolio/dataflow-analytics", "destination": "/en/portfolio/projects/", "statusCode": 301 },
+    { "source": "/portfolio/dataflow-analytics/", "destination": "/en/portfolio/projects/", "statusCode": 301 },
+    { "source": "/portfolio/ecommerce-redesign", "destination": "/en/portfolio/projects/", "statusCode": 301 },
+    { "source": "/portfolio/ecommerce-redesign/", "destination": "/en/portfolio/projects/", "statusCode": 301 },
+    { "source": "/portfolio/global-project", "destination": "/en/portfolio/projects/", "statusCode": 301 },
+    { "source": "/portfolio/global-project/", "destination": "/en/portfolio/projects/", "statusCode": 301 },
 
-    { "source": "/blog/modern-seo", "destination": "/", "statusCode": 301 },
-    { "source": "/blog/modern-seo/", "destination": "/", "statusCode": 301 },
+    { "source": "/blog/modern-seo", "destination": "/en/blog/", "statusCode": 301 },
+    { "source": "/blog/modern-seo/", "destination": "/en/blog/", "statusCode": 301 },
 
     { "source": "/changelog", "destination": "/", "statusCode": 301 },
     { "source": "/changelog/", "destination": "/", "statusCode": 301 }
