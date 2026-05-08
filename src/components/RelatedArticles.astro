@@ -7,9 +7,10 @@ type Props = {
 	limit?: number;
 	posts?: BlogEntry[];
 	group?: string;
+	tags?: string[];
 };
 
-const { limit = 3, posts: providedPosts, group } = Astro.props;
+const { limit = 3, posts: providedPosts, group, tags: providedTags } = Astro.props;
 
 const pathname = Astro.url.pathname || '/';
 const isEn = pathname.startsWith('/en/');
@@ -101,14 +102,44 @@ const shuffleSeeded = <T,>(items: T[], seedText: string): T[] => {
 	return arr;
 };
 
+const normalizeTag = (tag: unknown): string => String(tag ?? '').trim().toLowerCase();
+const getTagsArray = (value: unknown): string[] =>
+	Array.isArray(value) ? value.map(normalizeTag).filter(Boolean) : [];
+
+const currentTagsFromProps = getTagsArray(providedTags);
+
 const allPosts = Array.isArray(providedPosts) ? providedPosts : await getCollection('blog');
+const currentPost = currentId ? allPosts.find((p) => p.id === currentId) : undefined;
+const currentTags = currentTagsFromProps.length ? currentTagsFromProps : getTagsArray(currentPost?.data?.tags);
+const hasTagFilter = currentTags.length > 0;
+
+const sharedTagCount = (post: BlogEntry): number => {
+	if (!hasTagFilter) return 0;
+	const t = new Set(getTagsArray(post?.data?.tags));
+	let count = 0;
+	for (const ct of currentTags) if (t.has(ct)) count++;
+	return count;
+};
+
 const candidates = allPosts
 	.filter((p) => (isEn ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
 	.filter((p) => (currentId ? p.id !== currentId : normalizePath(hrefForPost(p)) !== currentPath))
-	.filter((p) => (group ? p.data?.relatedGroup === group : true))
+	.filter((p) => (hasTagFilter ? sharedTagCount(p) > 0 : group ? p.data?.relatedGroup === group : false))
 	.filter((p) => Boolean(p.data?.title && p.data?.description));
 
-const selected = shuffleSeeded(candidates, currentId || currentPath).slice(0, limit);
+const selected =
+	hasTagFilter
+		? candidates
+				.slice()
+				.sort((a, b) => {
+					const shared = sharedTagCount(b) - sharedTagCount(a);
+					if (shared !== 0) return shared;
+					const aDate = (a.data.updatedDate ?? a.data.pubDate).valueOf();
+					const bDate = (b.data.updatedDate ?? b.data.pubDate).valueOf();
+					return bDate - aDate;
+				})
+				.slice(0, limit)
+		: shuffleSeeded(candidates, currentId || currentPath).slice(0, limit);
 
 const heading = isEn ? 'Related Articles' : 'Artículos relacionados';
 const cta = isEn ? 'Read article' : 'Leer artículo';

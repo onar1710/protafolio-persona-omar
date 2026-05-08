@@ -8,7 +8,7 @@ import LayoutEN from './LayoutEN.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, author, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, author, pubDate, updatedDate, heroImage, tags } = Astro.props;
 const { relatedGroup } = Astro.props;
 
 const isEn = Astro.url.pathname.startsWith('/en/');
@@ -79,15 +79,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					</header>
 
 					<article class="post-content text-black" style="max-width: 100%;">
-						{relatedGroup ? (
-							<InterlinkedContent group={relatedGroup}>
-								<slot />
-							</InterlinkedContent>
-						) : (
+						<InterlinkedContent group={relatedGroup} tags={tags}>
 							<slot />
-						)}
+						</InterlinkedContent>
 					</article>
-					{relatedGroup ? <RelatedArticles group={relatedGroup} /> : null}
+					<RelatedArticles group={relatedGroup} tags={tags} />
 				</div>
 			</main>
 		</LayoutEN>
@@ -152,15 +148,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					</header>
 
 					<article class="post-content text-black" style="max-width: 100%;">
-						{relatedGroup ? (
-							<InterlinkedContent group={relatedGroup}>
-								<slot />
-							</InterlinkedContent>
-						) : (
+						<InterlinkedContent group={relatedGroup} tags={tags}>
 							<slot />
-						)}
+						</InterlinkedContent>
 					</article>
-					{relatedGroup ? <RelatedArticles group={relatedGroup} /> : null}
+					<RelatedArticles group={relatedGroup} tags={tags} />
 				</div>
 			</main>
 		</Layout>

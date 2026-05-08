@@ -10,9 +10,10 @@ type Props = {
 	maxLinks?: number;
 	posts?: BlogEntry[];
 	group?: string;
+	tags?: string[];
 };
 
-const { minLinks = 3, maxLinks = 7, posts: providedPosts, group } = Astro.props;
+const { minLinks = 2, maxLinks = 7, posts: providedPosts, group, tags: providedTags } = Astro.props;
 
 const pathname = Astro.url.pathname || '/';
 const isEn = pathname.startsWith('/en/');
@@ -95,7 +96,7 @@ const countWords = (html: string): number => {
 const clampInt = (n: number, min: number, max: number): number => Math.max(min, Math.min(max, Math.trunc(n)));
 
 const decideLinkCount = (words: number): number => {
-	if (words < 650) return clampInt(minLinks, 3, 7);
+	if (words < 650) return clampInt(minLinks, 1, 7);
 	if (words < 1100) return clampInt(4, minLinks, maxLinks);
 	if (words < 1700) return clampInt(5, minLinks, maxLinks);
 	if (words < 2300) return clampInt(6, minLinks, maxLinks);
@@ -175,11 +176,29 @@ const getDictionary = (): { es: string[]; en: string[] } => {
 const dictionary = getDictionary();
 const phrases = lang === 'en' ? dictionary.en : dictionary.es;
 
+const normalizeTag = (tag: unknown): string => String(tag ?? '').trim().toLowerCase();
+const getTagsArray = (value: unknown): string[] =>
+	Array.isArray(value) ? value.map(normalizeTag).filter(Boolean) : [];
+
+const currentTagsFromProps = getTagsArray(providedTags);
+
 const allPosts = Array.isArray(providedPosts) ? providedPosts : await getCollection('blog');
+const currentPost = currentId ? allPosts.find((p) => p.id === currentId) : undefined;
+const currentTags = currentTagsFromProps.length ? currentTagsFromProps : getTagsArray(currentPost?.data?.tags);
+const hasTagFilter = currentTags.length > 0;
+const shouldInterlink = hasTagFilter || Boolean(group);
+
+const sharesTag = (post: BlogEntry): boolean => {
+	if (!hasTagFilter) return false;
+	const t = new Set(getTagsArray(post?.data?.tags));
+	for (const ct of currentTags) if (t.has(ct)) return true;
+	return false;
+};
+
 const candidates = allPosts
 	.filter((p) => (lang === 'en' ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
 	.filter((p) => (currentId ? p.id !== currentId : normalizePath(hrefForPost(p)) !== currentPath))
-	.filter((p) => (group ? p.data?.relatedGroup === group : true))
+	.filter((p) => (hasTagFilter ? sharesTag(p) : group ? p.data?.relatedGroup === group : false))
 	.filter((p) => Boolean(p.data?.title && p.data?.description));
 
 const words = countWords(rawHtml);
@@ -243,14 +262,15 @@ const buildAnchorHtml = (phrase: string, target: BlogEntry): string => {
 };
 
 const buildInterlinkedHtml = (): string => {
+	if (!shouldInterlink) return rawHtml;
 	if (!paragraphMatches.length) return rawHtml;
 
 	const maxInjectIndex = Math.max(0, paragraphMatches.length - 2);
 	const usableCount = maxInjectIndex + 1;
-	if (usableCount < 3) return rawHtml;
+	if (usableCount < 2) return rawHtml;
 
 	const injectCount = Math.min(linkCount, usableCount, pickedPosts.length, pickedPhrases.length);
-	if (injectCount < 3) return rawHtml;
+	if (injectCount < 2) return rawHtml;
 	const anchors = Array.from({ length: injectCount }, (_, i) => buildAnchorHtml(pickedPhrases[i], pickedPosts[i]));
 
 	const targetParagraphIndexes: number[] = [];

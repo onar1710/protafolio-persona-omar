@@ -37,7 +37,8 @@ if (!token) {
 }
 
 const MODEL = 'black-forest-labs/flux-schnell';
-const OUTPUT_DIR = path.resolve(process.cwd(), 'public', 'assets', 'blog');
+const OUTPUT_DIR_ASSETS_BLOG = path.resolve(process.cwd(), 'public', 'assets', 'blog');
+const OUTPUT_DIR_IMAGES_EN = path.resolve(process.cwd(), 'public', 'images', 'images-en');
 const CONTENT_BLOG_DIR = path.resolve(process.cwd(), 'src', 'content', 'blog');
 
 const PROMPTS_BY_FILEBASE = {
@@ -181,33 +182,42 @@ function parseFrontmatter(markdown) {
 
 function collectImageTargetsFromBlogContent() {
   const map = new Map();
+  const targets = [
+    { urlDir: '/assets/blog/', outputDir: OUTPUT_DIR_ASSETS_BLOG },
+    { urlDir: '/images/images-en/', outputDir: OUTPUT_DIR_IMAGES_EN },
+  ];
   for (const filePath of walkFiles(CONTENT_BLOG_DIR)) {
     const lower = filePath.toLowerCase();
     if (!(lower.endsWith('.md') || lower.endsWith('.mdx'))) continue;
     const content = fs.readFileSync(filePath, 'utf8');
     const meta = parseFrontmatter(content) || {};
-    const regex = /\/assets\/blog\/([a-z0-9-]+)\.(png|jpg|jpeg|webp)/gi;
-    for (const match of content.matchAll(regex)) {
-      const base = match[1];
-      const ext = (match[2] || '').toLowerCase();
-      if (!base || !ext) continue;
-      const kind = String(meta.heroImageUrl || '').includes(`/assets/blog/${base}.${ext}`) ? 'hero' : 'inline';
-      const key = `${base}.${ext}`;
-      if (!map.has(key)) map.set(key, { kind, meta });
+    for (const t of targets) {
+      const escapedUrlDir = t.urlDir.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`${escapedUrlDir}([a-z0-9-]+)\\.(png|jpg|jpeg|webp)`, 'gi');
+      for (const match of content.matchAll(regex)) {
+        const base = match[1];
+        const ext = (match[2] || '').toLowerCase();
+        if (!base || !ext) continue;
+        const kind = String(meta.heroImageUrl || '').includes(`${t.urlDir}${base}.${ext}`) ? 'hero' : 'inline';
+        const fileName = `${base}.${ext}`;
+        const key = `${t.outputDir}::${fileName}`;
+        if (!map.has(key)) map.set(key, { kind, meta, outputDir: t.outputDir, fileName });
+      }
     }
   }
   return map;
 }
 
 const targets = collectImageTargetsFromBlogContent();
-const items = [...targets.entries()].map(([fileName, info]) => {
-  const dot = fileName.lastIndexOf('.');
-  const fileBase = dot === -1 ? fileName : fileName.slice(0, dot);
-  const ext = dot === -1 ? 'png' : fileName.slice(dot + 1).toLowerCase();
+const items = [...targets.values()].map((info) => {
+  const dot = info.fileName.lastIndexOf('.');
+  const fileBase = dot === -1 ? info.fileName : info.fileName.slice(0, dot);
+  const ext = dot === -1 ? 'png' : info.fileName.slice(dot + 1).toLowerCase();
   const outputFormat = ext === 'jpg' || ext === 'jpeg' ? 'jpg' : ext === 'webp' ? 'webp' : 'png';
   const promptOverride = info?.meta?.aiImagePrompt || info?.meta?.imagePrompt || '';
   return {
-    fileName,
+    fileName: info.fileName,
+    outputDir: info.outputDir,
     outputFormat,
     prompt: String(promptOverride).trim() || getPromptForFileBase(fileBase, info?.kind || 'hero', info?.meta),
   };
@@ -327,10 +337,9 @@ async function downloadToFile(url, outPath) {
   fs.writeFileSync(outPath, Buffer.from(arrayBuffer));
 }
 
-fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-
 for (const item of items) {
-  const outPath = path.join(OUTPUT_DIR, item.fileName);
+  fs.mkdirSync(item.outputDir, { recursive: true });
+  const outPath = path.join(item.outputDir, item.fileName);
   if (fs.existsSync(outPath)) {
     console.log(`SKIP: ${path.relative(process.cwd(), outPath)}`);
     continue;
