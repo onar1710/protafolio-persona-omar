@@ -28,48 +28,37 @@ const shouldInclude = (urlPath) => {
 	return true;
 };
 
-const TOP_ARTICLES = 10;
-
 const isBlogIndex = (urlPath) => urlPath === '/blog/' || urlPath === '/en/blog/';
 const isArticlePath = (urlPath) =>
 	/^\/blog\/[^/]+\/$/.test(urlPath) ||
 	/^\/(seo|disenoweb|marketing-digital|social-media)\/[^/]+\/$/.test(urlPath) ||
 	/^\/en\/blog\/[^/]+\/$/.test(urlPath) ||
 	/^\/en\/(seo|web-design|digital-marketing|social-media)\/[^/]+\/$/.test(urlPath);
-const isProjectsPage = (urlPath) => urlPath === '/portfolio/proyectos/' || urlPath === '/en/portfolio/projects/';
-const isServicePage = (urlPath) =>
-	urlPath === '/servicios/' ||
-	urlPath === '/en/services/' ||
-	urlPath === '/servicios-optimizacion-seo/' ||
-	urlPath === '/en/affordable-seo-services-for-small-business/' ||
-	/^\/(en\/)?[^/]+-web-design\/$/.test(urlPath);
-const isAboutPage = (urlPath) => urlPath === '/sobre-mi/' || urlPath === '/en/about/';
-const isContactPage = (urlPath) => urlPath === '/contacto/' || urlPath === '/en/contact/';
+const isHome = (urlPath) => urlPath === '/' || urlPath === '/en/';
+const isServicesIndex = (urlPath) => urlPath === '/servicios/' || urlPath === '/en/services/';
 
-const shouldKeep = (_urlPath, _topArticles) => true;
+const shouldKeep = (urlPath) => {
+	if (isHome(urlPath)) return true;
+	if (isBlogIndex(urlPath)) return true;
+	if (isServicesIndex(urlPath)) return true;
+	if (isArticlePath(urlPath)) return true;
+	return false;
+};
 
-const changefreqFor = (urlPath, topArticles) => {
-	if (urlPath === '/' || urlPath === '/en/') return 'weekly';
+const changefreqFor = (urlPath) => {
+	if (isHome(urlPath)) return 'weekly';
 	if (isBlogIndex(urlPath)) return 'weekly';
-	if (isArticlePath(urlPath) && topArticles.has(urlPath)) return 'weekly';
+	if (isServicesIndex(urlPath)) return 'monthly';
 	if (isArticlePath(urlPath)) return 'monthly';
-	if (isProjectsPage(urlPath)) return 'monthly';
-	if (isServicePage(urlPath)) return 'monthly';
-	if (isAboutPage(urlPath)) return 'yearly';
-	if (isContactPage(urlPath)) return 'yearly';
 	return 'monthly';
 };
 
-const priorityFor = (urlPath, topArticles) => {
-	if (urlPath === '/' || urlPath === '/en/') return '0.9';
-	if (isArticlePath(urlPath) && topArticles.has(urlPath)) return '0.9';
+const priorityFor = (urlPath) => {
+	if (isHome(urlPath)) return '1.0';
+	if (isArticlePath(urlPath)) return '0.9';
 	if (isBlogIndex(urlPath)) return '0.8';
-	if (isProjectsPage(urlPath)) return '0.8';
-	if (isServicePage(urlPath)) return '0.8';
-	if (isAboutPage(urlPath)) return '0.8';
-	if (isContactPage(urlPath)) return '0.8';
-	if (isArticlePath(urlPath)) return '0.7';
-	return '0.6';
+	if (isServicesIndex(urlPath)) return '0.6';
+	return '0.5';
 };
 
 const walk = (dir) => {
@@ -164,10 +153,12 @@ for (const file of files) {
 			const urlPath = dir ? `/${dir}/` : '/';
 			if (!shouldInclude(urlPath)) continue;
 			const stat = fs.statSync(file);
+			const contentDateMs = contentDateByUrlPath.get(urlPath) ?? null;
+			const lastmodMs = contentDateMs ?? stat.mtimeMs;
 			urls.push({
 				urlPath,
-				lastmodMs: stat.mtimeMs,
-				lastmod: toDate(stat.mtimeMs),
+				lastmodMs,
+				lastmod: toDate(lastmodMs),
 			});
 		}
 		continue;
@@ -176,25 +167,13 @@ for (const file of files) {
 	if (rel === 'rss.xml') continue;
 }
 
-const topArticles = new Set(
-	urls
-		.filter((u) => isArticlePath(u.urlPath) && !isBlogIndex(u.urlPath))
-		.sort((a, b) => {
-			const aMs = contentDateByUrlPath.get(a.urlPath) ?? a.lastmodMs;
-			const bMs = contentDateByUrlPath.get(b.urlPath) ?? b.lastmodMs;
-			return bMs - aMs;
-		})
-		.slice(0, TOP_ARTICLES)
-		.map((u) => u.urlPath)
-);
-
 const filtered = urls
-	.filter((u) => shouldKeep(u.urlPath, topArticles))
+	.filter((u) => shouldKeep(u.urlPath))
 	.map((u) => ({
 		urlPath: u.urlPath,
 		lastmod: u.lastmod,
-		changefreq: changefreqFor(u.urlPath, topArticles),
-		priority: priorityFor(u.urlPath, topArticles),
+		changefreq: changefreqFor(u.urlPath),
+		priority: priorityFor(u.urlPath),
 	}));
 
 const seen = new Set();
