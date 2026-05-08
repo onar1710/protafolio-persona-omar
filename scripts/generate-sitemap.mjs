@@ -196,3 +196,14 @@ const xml = [
 ].join('\n');
 
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), xml, 'utf-8');
+
+const robotsPath = path.join(dist, 'robots.txt');
+if (fs.existsSync(robotsPath)) {
+	const robotsRaw = fs.readFileSync(robotsPath, 'utf-8');
+	const sanitized = robotsRaw
+		.split(/\r?\n/)
+		.filter((line) => !/^\s*Content-Signal\s*:/i.test(line))
+		.join('\n')
+		.replace(/\n*$/, '\n');
+	if (sanitized !== robotsRaw) fs.writeFileSync(robotsPath, sanitized, 'utf-8');
+}
