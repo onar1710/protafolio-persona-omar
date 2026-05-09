@@ -1,5 +1,10 @@
 # Astro Starter Kit: Blog
 
+# para ejecutar
+
+node .\scripts\ai-image-gen.mjs
+
+
 ```sh
 npm create astro@latest -- --template blog
 ```

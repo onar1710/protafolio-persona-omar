@@ -10,7 +10,7 @@ type Props = {
 	tags?: string[];
 };
 
-const { limit = 3, posts: providedPosts, group, tags: providedTags } = Astro.props;
+const { limit = 6, posts: providedPosts, group, tags: providedTags } = Astro.props;
 
 const pathname = Astro.url.pathname || '/';
 const isEn = pathname.startsWith('/en/');
@@ -106,12 +106,15 @@ const normalizeTag = (tag: unknown): string => String(tag ?? '').trim().toLowerC
 const getTagsArray = (value: unknown): string[] =>
 	Array.isArray(value) ? value.map(normalizeTag).filter(Boolean) : [];
 
-const currentTagsFromProps = getTagsArray(providedTags);
-
-const allPosts = Array.isArray(providedPosts) ? providedPosts : await getCollection('blog');
-const currentPost = currentId ? allPosts.find((p) => p.id === currentId) : undefined;
-const currentTags = currentTagsFromProps.length ? currentTagsFromProps : getTagsArray(currentPost?.data?.tags);
+const currentTags = getTagsArray(providedTags);
 const hasTagFilter = currentTags.length > 0;
+const shouldSelect = hasTagFilter || Boolean(group);
+
+const allPosts = shouldSelect
+	? Array.isArray(providedPosts)
+		? providedPosts
+		: await getCollection('blog')
+	: [];
 
 const sharedTagCount = (post: BlogEntry): number => {
 	if (!hasTagFilter) return 0;
@@ -122,16 +125,16 @@ const sharedTagCount = (post: BlogEntry): number => {
 };
 
 const candidates = allPosts
-	.filter((p) => (isEn ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
-	.filter((p) => (currentId ? p.id !== currentId : normalizePath(hrefForPost(p)) !== currentPath))
-	.filter((p) => (hasTagFilter ? sharedTagCount(p) > 0 : group ? p.data?.relatedGroup === group : false))
-	.filter((p) => Boolean(p.data?.title && p.data?.description));
+	.filter((p: BlogEntry) => (isEn ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
+	.filter((p: BlogEntry) => (currentId ? p.id !== currentId : normalizePath(hrefForPost(p)) !== currentPath))
+	.filter((p: BlogEntry) => (hasTagFilter ? sharedTagCount(p) > 0 : group ? p.data?.relatedGroup === group : false))
+	.filter((p: BlogEntry) => Boolean(p.data?.title && p.data?.description));
 
 const selected =
 	hasTagFilter
 		? candidates
 				.slice()
-				.sort((a, b) => {
+				.sort((a: BlogEntry, b: BlogEntry) => {
 					const shared = sharedTagCount(b) - sharedTagCount(a);
 					if (shared !== 0) return shared;
 					const aDate = (a.data.updatedDate ?? a.data.pubDate).valueOf();
@@ -151,7 +154,7 @@ const cta = isEn ? 'Read article' : 'Leer artículo';
 			<h2 class="text-2xl md:text-3xl font-black">{heading}</h2>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-			{selected.map((post) => {
+			{selected.map((post: BlogEntry) => {
 				const href = hrefForPost(post);
 				const image = post.data.heroImageUrl || post.data.heroImage || '/og-image.webp';
 				return (

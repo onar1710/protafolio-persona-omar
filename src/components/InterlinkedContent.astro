@@ -19,8 +19,6 @@ const pathname = Astro.url.pathname || '/';
 const isEn = pathname.startsWith('/en/');
 const lang = isEn ? 'en' : 'es';
 
-const rawHtml = await Astro.slots.render('default');
-
 const normalizePath = (p: string): string => {
 	if (p === '/') return '/';
 	return `/${p.replace(/^\/+/, '').replace(/\/+$/, '')}/`;
@@ -139,7 +137,16 @@ const getDictionary = (): { es: string[]; en: string[] } => {
 	if (cached && typeof cached === 'object') return cached as { es: string[]; en: string[] };
 
 	try {
-		const filePath = path.join(process.cwd(), 'src', 'components', 'dicionario-interlink.txt');
+		const componentsDir = path.join(process.cwd(), 'src', 'components');
+		const candidates = [
+			'dicionario-interlink.txt',
+			'DICIONARION-INTERLINK.txt',
+			'DICIONARIO-INTERLINK.txt',
+			'dicionario-interlink.TXT',
+		];
+		const fileName = candidates.find((name) => fs.existsSync(path.join(componentsDir, name)));
+		if (!fileName) throw new Error('Interlink dictionary file not found');
+		const filePath = path.join(componentsDir, fileName);
 		const content = fs.readFileSync(filePath, 'utf-8');
 		const lines = content
 			.split(/\r?\n/g)
@@ -173,20 +180,18 @@ const getDictionary = (): { es: string[]; en: string[] } => {
 	}
 };
 
-const dictionary = getDictionary();
-const phrases = lang === 'en' ? dictionary.en : dictionary.es;
-
 const normalizeTag = (tag: unknown): string => String(tag ?? '').trim().toLowerCase();
 const getTagsArray = (value: unknown): string[] =>
 	Array.isArray(value) ? value.map(normalizeTag).filter(Boolean) : [];
 
-const currentTagsFromProps = getTagsArray(providedTags);
-
-const allPosts = Array.isArray(providedPosts) ? providedPosts : await getCollection('blog');
-const currentPost = currentId ? allPosts.find((p) => p.id === currentId) : undefined;
-const currentTags = currentTagsFromProps.length ? currentTagsFromProps : getTagsArray(currentPost?.data?.tags);
+const currentTags = getTagsArray(providedTags);
 const hasTagFilter = currentTags.length > 0;
 const shouldInterlink = hasTagFilter || Boolean(group);
+
+const dictionary = shouldInterlink ? getDictionary() : { es: [], en: [] };
+const phrases = lang === 'en' ? dictionary.en : dictionary.es;
+
+const rawHtml = shouldInterlink ? await Astro.slots.render('default') : '';
 
 const sharesTag = (post: BlogEntry): boolean => {
 	if (!hasTagFilter) return false;
@@ -195,11 +200,17 @@ const sharesTag = (post: BlogEntry): boolean => {
 	return false;
 };
 
+const allPosts = shouldInterlink
+	? Array.isArray(providedPosts)
+		? providedPosts
+		: await getCollection('blog')
+	: [];
+
 const candidates = allPosts
-	.filter((p) => (lang === 'en' ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
-	.filter((p) => (currentId ? p.id !== currentId : normalizePath(hrefForPost(p)) !== currentPath))
-	.filter((p) => (hasTagFilter ? sharesTag(p) : group ? p.data?.relatedGroup === group : false))
-	.filter((p) => Boolean(p.data?.title && p.data?.description));
+	.filter((p: BlogEntry) => (lang === 'en' ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
+	.filter((p: BlogEntry) => (currentId ? p.id !== currentId : normalizePath(hrefForPost(p)) !== currentPath))
+	.filter((p: BlogEntry) => (hasTagFilter ? sharesTag(p) : group ? p.data?.relatedGroup === group : false))
+	.filter((p: BlogEntry) => Boolean(p.data?.title && p.data?.description));
 
 const words = countWords(rawHtml);
 const linkCount = clampInt(decideLinkCount(words), minLinks, maxLinks);
@@ -222,34 +233,30 @@ const faqIndex = findFaqIndex(rawHtml);
 const beforeFaqHtml = faqIndex >= 0 ? rawHtml.slice(0, faqIndex) : rawHtml;
 const afterFaqHtml = faqIndex >= 0 ? rawHtml.slice(faqIndex) : '';
 
-type PMatch = { start: number; end: number; html: string; wordCount: number; hasLink: boolean };
+type H2Section = { start: number; end: number; title: string };
 
-const extractParagraphs = (html: string): PMatch[] => {
-	const matches: PMatch[] = [];
+const extractH2Sections = (html: string): H2Section[] => {
+	const starts: number[] = [];
 	let cursor = 0;
 	while (cursor < html.length) {
-		const openIdx = html.indexOf('<p', cursor);
-		if (openIdx < 0) break;
-		const gtIdx = html.indexOf('>', openIdx);
-		if (gtIdx < 0) break;
-		const closeIdx = html.indexOf('</p>', gtIdx);
-		if (closeIdx < 0) break;
-
-		const pHtml = html.slice(openIdx, closeIdx + 4);
-		const wc = countWords(pHtml);
-		if (wc >= 10) {
-			const hasLink = /<a\b/i.test(pHtml);
-			matches.push({ start: openIdx, end: closeIdx + 4, html: pHtml, wordCount: wc, hasLink });
-		}
-
-		cursor = closeIdx + 4;
+		const idx = html.indexOf('<h2', cursor);
+		if (idx < 0) break;
+		starts.push(idx);
+		cursor = idx + 3;
 	}
-	return matches;
-};
+	if (!starts.length) return [];
 
-const paragraphMatchesFallback = extractParagraphs(beforeFaqHtml);
-const paragraphMatchesPrimary = paragraphMatchesFallback.filter((p) => !p.hasLink);
-const paragraphMatches = paragraphMatchesPrimary.length >= 3 ? paragraphMatchesPrimary : paragraphMatchesFallback;
+	const sections: H2Section[] = [];
+	for (let i = 0; i < starts.length; i++) {
+		const start = starts[i];
+		const end = i + 1 < starts.length ? starts[i + 1] : html.length;
+		const h2Close = html.indexOf('</h2>', start);
+		const h2Html = h2Close >= 0 && h2Close < end ? html.slice(start, h2Close + 5) : html.slice(start, Math.min(start + 200, end));
+		const title = stripTags(h2Html).replace(/\s+/g, ' ').trim();
+		sections.push({ start, end, title });
+	}
+	return sections;
+};
 
 const buildAnchorHtml = (phrase: string, target: BlogEntry): string => {
 	const phraseText = String(phrase || '').trim().replace(/\s+/g, ' ');
@@ -263,50 +270,51 @@ const buildAnchorHtml = (phrase: string, target: BlogEntry): string => {
 
 const buildInterlinkedHtml = (): string => {
 	if (!shouldInterlink) return rawHtml;
-	if (!paragraphMatches.length) return rawHtml;
+	const sections = extractH2Sections(beforeFaqHtml);
+	if (sections.length < 2) return rawHtml;
 
-	const maxInjectIndex = Math.max(0, paragraphMatches.length - 2);
-	const usableCount = maxInjectIndex + 1;
-	if (usableCount < 2) return rawHtml;
+	const eligible = sections.filter((s) => {
+		const t = s.title.toLowerCase();
+		if (t.includes('preguntas frecuentes')) return false;
+		if (t.includes('frequently asked')) return false;
+		if (t.includes('conclusión') || t.includes('conclusion')) return false;
+		return true;
+	});
 
-	const injectCount = Math.min(linkCount, usableCount, pickedPosts.length, pickedPhrases.length);
+	if (eligible.length < 2) return rawHtml;
+
+	const injectCount = Math.min(linkCount, eligible.length, pickedPosts.length, pickedPhrases.length);
 	if (injectCount < 2) return rawHtml;
+
 	const anchors = Array.from({ length: injectCount }, (_, i) => buildAnchorHtml(pickedPhrases[i], pickedPosts[i]));
 
-	const targetParagraphIndexes: number[] = [];
+	const targetSectionIndexes: number[] = [];
 	for (let i = 1; i <= injectCount; i++) {
 		const pos = i / (injectCount + 1);
-		const idx = Math.min(maxInjectIndex, Math.max(0, Math.round(pos * (usableCount - 1))));
-		targetParagraphIndexes.push(idx);
+		const idx = Math.max(0, Math.min(eligible.length - 1, Math.round(pos * (eligible.length - 1))));
+		targetSectionIndexes.push(idx);
 	}
 
-	const uniqueIndexes = Array.from(new Set(targetParagraphIndexes)).sort((a, b) => a - b);
-	while (uniqueIndexes.length < injectCount && uniqueIndexes.length < usableCount) {
-		const seed = `${currentId || currentPath}-idx-${uniqueIndexes.length}`;
-		const rng = mulberry32(hashSeed(seed));
-		const candidate = Math.min(maxInjectIndex, Math.floor(rng() * usableCount));
-		if (!uniqueIndexes.includes(candidate)) uniqueIndexes.push(candidate);
+	const uniqueIndexes = Array.from(new Set(targetSectionIndexes)).sort((a, b) => a - b);
+	if (uniqueIndexes.length < injectCount) {
+		const all = Array.from({ length: eligible.length }, (_, i) => i);
+		const missing = all.filter((i) => !uniqueIndexes.includes(i));
+		const fill = shuffleSeeded(missing, `${currentId || currentPath}-h2-fill-${lang}`);
+		uniqueIndexes.push(...fill.slice(0, Math.max(0, injectCount - uniqueIndexes.length)));
 		uniqueIndexes.sort((a, b) => a - b);
 	}
 
-	const injectMap = new Map<number, string>();
-	for (let i = 0; i < Math.min(injectCount, uniqueIndexes.length); i++) {
-		injectMap.set(uniqueIndexes[i], anchors[i]);
-	}
+	const insertions = uniqueIndexes
+		.slice(0, injectCount)
+		.map((sectionIdx, i) => ({ pos: eligible[sectionIdx].end, html: `<p>${anchors[i]}</p>` }))
+		.sort((a, b) => a.pos - b.pos);
 
 	let out = '';
 	let cursor = 0;
-	for (let i = 0; i < paragraphMatches.length; i++) {
-		const p = paragraphMatches[i];
-		out += beforeFaqHtml.slice(cursor, p.start);
-		if (injectMap.has(i)) {
-			const anchor = injectMap.get(i) as string;
-			const injected = p.html.replace(/<\/p>\s*$/i, ` ${anchor}</p>`);
-			out += injected;
-		} else {
-			out += p.html;
-		}
-		cursor = p.end;
+	for (const ins of insertions) {
+		out += beforeFaqHtml.slice(cursor, ins.pos);
+		out += `\n${ins.html}\n`;
+		cursor = ins.pos;
 	}
 	out += beforeFaqHtml.slice(cursor);
 	return out + afterFaqHtml;
@@ -315,4 +323,4 @@ const buildInterlinkedHtml = (): string => {
 const interlinkedHtml = buildInterlinkedHtml();
 ---
 
-<div class="contents" set:html={interlinkedHtml} />
+{shouldInterlink ? <div class="contents" set:html={interlinkedHtml} /> : <div class="contents"><slot /></div>}

@@ -4,7 +4,7 @@ description: 'Aprende a crear un diseño web SEO desde cero. Guía completa de d
 keywords: 'diseño web seo, diseño web y posicionamiento seo, diseño web posicionamiento seo, diseño y posicionamiento web, seo pagina web, web seo'
 pubDate: 2026-02-25
 heroImage: '/assets/blog/diseno-web-seo.jpg'
-tags: ["diseño web seo", "posicionamiento web", "seo técnico", "optimización web", "diseño responsive"]
+tags: ["Posicionar mi web en Google"]
 ---
 
 # Diseño Web SEO: Guía Completa para Crear un Sitio que Posicione en Google

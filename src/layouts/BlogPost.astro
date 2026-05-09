@@ -9,7 +9,7 @@ import LayoutEN from './LayoutEN.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, author, pubDate, updatedDate, heroImage, tags } = Astro.props;
-const { relatedGroup } = Astro.props;
+const { relatedGroup, posts } = Astro.props;
 
 const isEn = Astro.url.pathname.startsWith('/en/');
 const backToBlogHref = isEn ? '/en/blog/' : '/blog/';
@@ -79,11 +79,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					</header>
 
 					<article class="post-content text-black" style="max-width: 100%;">
-						<InterlinkedContent group={relatedGroup} tags={tags}>
+						<InterlinkedContent posts={posts} group={relatedGroup} tags={tags}>
 							<slot />
 						</InterlinkedContent>
 					</article>
-					<RelatedArticles group={relatedGroup} tags={tags} />
+					<RelatedArticles posts={posts} group={relatedGroup} tags={tags} />
 				</div>
 			</main>
 		</LayoutEN>
@@ -148,11 +148,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					</header>
 
 					<article class="post-content text-black" style="max-width: 100%;">
-						<InterlinkedContent group={relatedGroup} tags={tags}>
+						<InterlinkedContent posts={posts} group={relatedGroup} tags={tags}>
 							<slot />
 						</InterlinkedContent>
 					</article>
-					<RelatedArticles group={relatedGroup} tags={tags} />
+					<RelatedArticles posts={posts} group={relatedGroup} tags={tags} />
 				</div>
 			</main>
 		</Layout>
