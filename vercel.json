@@ -12,6 +12,8 @@
       "destination": "https://www.omarfuentes.com/en/blog/community-trust-social-capital-brand-loyalty-online-b2b-communities/",
       "statusCode": 301
     },
+    { "source": "/docs", "destination": "/en/blog/", "statusCode": 301 },
+    { "source": "/docs/", "destination": "/en/blog/", "statusCode": 301 },
     {
       "source": "/docs/Gender",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
@@ -39,7 +41,7 @@
     {
       "source": "/docs/pr_province.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
-      "destination": "https://www.omarfuentes.com/docs/pr_province.pdf",
+      "destination": "https://www.omarfuentes.com/",
       "statusCode": 301
     },
     {
@@ -51,7 +53,7 @@
     {
       "source": "/docs/pr_cknw.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
-      "destination": "https://www.omarfuentes.com/docs/pr_cknw.pdf",
+      "destination": "https://www.omarfuentes.com/",
       "statusCode": 301
     },
     {
