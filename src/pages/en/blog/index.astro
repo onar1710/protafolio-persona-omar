@@ -1,11 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import Layout from '../../../layouts/LayoutEN.astro';
 
+type BlogEntry = CollectionEntry<'blog'>;
+
 const posts = (await getCollection('blog'))
-	.filter((post) => post.id.startsWith('en/'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+	.filter((post: BlogEntry) => post.id.startsWith('en/'))
+	.sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const pinnedId = 'en/what-s-preventing-you-from-achieving-conversions-learn';
+const pinnedPost = posts.find((p: BlogEntry) => p.id === pinnedId);
+const visiblePosts = pinnedPost ? [pinnedPost, ...posts.filter((p: BlogEntry) => p.id !== pinnedId)] : posts;
 
 const toEnSlug = (id: string) => id.replace(/^en\//, '');
 
@@ -88,7 +94,7 @@ const postUrl = (id: string) => {
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {posts.map((post) => (
+    {visiblePosts.map((post: BlogEntry) => (
       <a
         href={postUrl(post.id)}
         data-blog-card
@@ -120,29 +126,4 @@ const postUrl = (id: string) => {
     ))}
   </div>
 </div>
-
-<script is:inline>
-  (() => {
-    const params = new URLSearchParams(window.location.search);
-    const cat = params.get('cat');
-
-    const cards = Array.from(document.querySelectorAll('[data-blog-card]'));
-    if (!cat) return;
-
-    for (const card of cards) {
-      const cardCat = card.getAttribute('data-blog-category');
-      (card).style.display = cardCat === cat ? '' : 'none';
-    }
-
-    const tabs = Array.from(document.querySelectorAll('[data-blog-tab]'));
-    for (const tab of tabs) {
-      const tabCat = tab.getAttribute('data-blog-tab');
-      if (tabCat === cat) {
-        tab.style.background = 'var(--primary-blue)';
-        tab.style.borderColor = 'var(--primary-blue)';
-        tab.style.color = 'var(--white)';
-      }
-    }
-  })();
-</script>
 </Layout>
