@@ -65,7 +65,7 @@
     {
       "source": "/cyr2008_modelling.pdf",
       "has": [{ "type": "host", "value": "www.diannecyr.com" }],
-      "destination": "https://www.omarfuentes.com/cyr2008_modelling.pdf",
+      "destination": "https://www.omarfuentes.com/en/blog/us-web-design-localization-seo-ux-trust-american-market/",
       "statusCode": 301
     },
     {
