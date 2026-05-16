@@ -12,6 +12,15 @@
       "destination": "https://www.omarfuentes.com/en/blog/community-trust-social-capital-brand-loyalty-online-b2b-communities/",
       "statusCode": 301
     },
+    { "source": "/llms.txt", "destination": "/portfolio/leexms/", "statusCode": 301 },
+    {
+      "source": "/blog/algoritmo-de-google-que-es-y-como-funciona-el-sistema-de-busqueda",
+      "destination": "/blog/algoritmo-de-google/",
+      "statusCode": 301
+    },
+    { "source": "/blog/autoridad-de-Dominio", "destination": "/blog/autoridad-de-dominio/", "statusCode": 301 },
+    { "source": "/servicios-optimizacion-seo", "destination": "/servicios/", "statusCode": 301 },
+    { "source": "/servicios-optimizacion-seo/", "destination": "/servicios/", "statusCode": 301 },
     { "source": "/contact", "destination": "/contacto/", "statusCode": 301 },
     { "source": "/contact/", "destination": "/contacto/", "statusCode": 301 },
     { "source": "/cdn-cgi/l/email-protection", "destination": "/en/contact/", "statusCode": 301 },
