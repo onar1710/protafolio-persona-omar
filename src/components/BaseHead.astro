@@ -36,9 +36,7 @@ const normalizeCanonicalPathname = (p: string): string => {
 	if (raw === '') return '/';
 	const pathnameOnly = raw.split('?')[0].split('#')[0];
 	if (pathnameOnly === '/') return '/';
-	if (pathnameOnly.endsWith('/')) return pathnameOnly;
-	if (pathnameOnly.includes('.')) return pathnameOnly;
-	return `${pathnameOnly}/`;
+	return pathnameOnly;
 };
 
 const canonicalUrl = (() => {
@@ -88,6 +86,7 @@ const keywordText =
 			: '';
 
 const pathname = Astro.url.pathname || '/';
+const search = Astro.url.search || '';
 const mapAlternatePathname = (p: string, currentLang: 'es' | 'en'): string => {
 	const esToEn: Array<{ re: RegExp; to: string }> = [
 		{ re: /^\/herramientas\/?$/, to: '/en/tools/' },
@@ -180,9 +179,17 @@ const alternateUrl = (() => {
 	if (!alternateExists) return '';
 	const u = new URL(alternatePathname, site);
 	u.pathname = normalizeCanonicalPathname(u.pathname);
+	u.search = search;
 	return u.toString();
 })();
 const defaultUrl = new URL('/', site).toString();
+
+const selfHrefUrl = (() => {
+	const u = new URL(pathname, site);
+	u.pathname = normalizeCanonicalPathname(u.pathname);
+	u.search = search;
+	return u.toString();
+})();
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -229,7 +236,7 @@ const jsonLd = {
 
 <link rel="canonical" href={canonicalUrl} />
 {alternateExists ? <link rel="alternate" hreflang={lang === 'en' ? 'es' : 'en'} href={alternateUrl} /> : null}
-<link rel="alternate" hreflang={lang} href={canonicalUrl} />
+<link rel="alternate" hreflang={lang} href={selfHrefUrl} />
 <link rel="alternate" hreflang="x-default" href={defaultUrl} />
 
 <title>{title}</title>
