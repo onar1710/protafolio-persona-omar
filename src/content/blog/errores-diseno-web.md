@@ -319,8 +319,7 @@ Recuerda: tu sitio web no es un folleto estático, es tu vendedor más important
 ---
 
 **¿Necesitas ayuda para arreglar estos errores?**  
-[Pide una auditoría gratuita de tu sitio](/contact) y te diré exactamente qué está fallando y cómo solucionarlo. O [revisa cómo Ferrary Cucinas](/portfolio/ferrarycucina) evitó estos errores en su portafolio visual.
+[Pide una auditoría gratuita de tu sitio](/contacto/) y te diré exactamente qué está fallando y cómo solucionarlo. O [revisa cómo Ferrary Cucinas](/portfolio/ferrarycucina) evitó estos errores en su portafolio visual.
 
 ---
 
-*¿Quieres más guías como esta? [Suscríbete a mi newsletter](#) y recibe consejos exclusivos de diseño web y SEO cada semana.*

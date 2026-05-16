@@ -12,6 +12,10 @@
       "destination": "https://www.omarfuentes.com/en/blog/community-trust-social-capital-brand-loyalty-online-b2b-communities/",
       "statusCode": 301
     },
+    { "source": "/contact", "destination": "/contacto/", "statusCode": 301 },
+    { "source": "/contact/", "destination": "/contacto/", "statusCode": 301 },
+    { "source": "/cdn-cgi/l/email-protection", "destination": "/en/contact/", "statusCode": 301 },
+    { "source": "/cdn-cgi/l/email-protection/", "destination": "/en/contact/", "statusCode": 301 },
     { "source": "/docs", "destination": "/en/blog/", "statusCode": 301 },
     { "source": "/docs/", "destination": "/en/blog/", "statusCode": 301 },
     {
