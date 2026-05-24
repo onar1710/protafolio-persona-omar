@@ -1,11 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Layout from '../../layouts/Layout.astro';
 
+type BlogEntry = CollectionEntry<'blog'>;
+
 const posts = (await getCollection('blog'))
-	.filter((post) => !post.id.startsWith('en/'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+	.filter((post: BlogEntry) => !post.id.startsWith('en/'))
+	.sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const seoPosts = new Set([
 	'que-es-page-rank',
@@ -102,12 +104,16 @@ const postUrl = (id: string) => {
     </a>
   </div>
 
+  <div data-search-status class="hidden mb-8 rounded-2xl border border-blue-100 bg-blue-50 p-5 text-black"></div>
+
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {posts.map((post) => (
+    {posts.map((post: BlogEntry) => (
       <a
         href={postUrl(post.id)}
         data-blog-card
         data-blog-category={postCategory(post.id)}
+        data-blog-search={`${post.data.title} ${post.data.description} ${post.data.tags?.join(' ') ?? ''} ${postCategory(post.id)}`.toLowerCase()}
+        data-blog-tags={`${post.data.tags?.join(' ') ?? ''}`.toLowerCase()}
         class="bg-white rounded-2xl overflow-hidden transition-all duration-500 border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 block"
         style="text-decoration: none;"
       >
@@ -138,15 +144,42 @@ const postUrl = (id: string) => {
 
 <script is:inline>
   (() => {
+    const normalize = (value) =>
+      String(value || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+
     const params = new URLSearchParams(window.location.search);
     const cat = params.get('cat');
+    const q = normalize(params.get('q') || '');
+    const words = q.split(/\s+/).filter(Boolean);
 
     const cards = Array.from(document.querySelectorAll('[data-blog-card]'));
-    if (!cat || cat === 'all') return;
+    const status = document.querySelector('[data-search-status]');
+    let visibleCount = 0;
 
     for (const card of cards) {
       const cardCat = card.getAttribute('data-blog-category');
-      (card).style.display = cardCat === cat ? '' : 'none';
+      const cardText = normalize(card.getAttribute('data-blog-search') || '');
+      const cardTags = normalize(card.getAttribute('data-blog-tags') || '');
+      const matchesCat = !cat || cat === 'all' || cardCat === cat;
+      const matchesSearch =
+        !q ||
+        cardText.includes(q) ||
+        cardTags.includes(q) ||
+        words.some((word) => word.length > 2 && (cardText.includes(word) || cardTags.includes(word)));
+      const shouldShow = matchesCat && matchesSearch;
+      (card).style.display = shouldShow ? '' : 'none';
+      if (shouldShow) visibleCount += 1;
+    }
+
+    if (status && q) {
+      status.classList.remove('hidden');
+      status.innerHTML = visibleCount
+        ? `<strong>Resultados relacionados:</strong> encontré ${visibleCount} artículo${visibleCount === 1 ? '' : 's'} para tu búsqueda.`
+        : `<strong>No encontré coincidencias exactas.</strong> Prueba con otra palabra relacionada como SEO, backlinks, diseño web o rendimiento.`;
     }
 
     const tabs = Array.from(document.querySelectorAll('[data-blog-tab]'));

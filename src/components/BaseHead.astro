@@ -22,7 +22,7 @@ const {
 	lang = 'es',
 	keywords,
 	author = 'Omar Fuentes',
-	image = '/og-image.webp',
+	image = '/PAGINAS-WEB-BUCARAMAGA.webp',
 	canonical,
 	ogType = 'website',
 	twitterHandle = '@omarfuentes052',
@@ -30,6 +30,7 @@ const {
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://www.omarfuentes.com');
+const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT ?? 'ca-pub-1895965465312147';
 
 const normalizeCanonicalPathname = (p: string): string => {
 	const raw = String(p || '/');
@@ -63,14 +64,14 @@ const absoluteImageUrl = (() => {
 		try {
 			return new URL(image, site).toString();
 		} catch {
-			return new URL('/og-image.webp', site).toString();
+			return new URL('/PAGINAS-WEB-BUCARAMAGA.webp', site).toString();
 		}
 	}
 
 	try {
 		return new URL(image.src, site).toString();
 	} catch {
-		return new URL('/og-image.webp', site).toString();
+		return new URL('/PAGINAS-WEB-BUCARAMAGA.webp', site).toString();
 	}
 })();
 
@@ -231,7 +232,6 @@ const jsonLd = {
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />
 
 <link rel="canonical" href={canonicalUrl} />
@@ -262,5 +262,46 @@ const jsonLd = {
 <meta name="twitter:image" content={absoluteImageUrl} />
 {twitterHandle ? <meta name="twitter:site" content={twitterHandle} /> : null}
 {twitterHandle ? <meta name="twitter:creator" content={twitterHandle} /> : null}
+
+{adsenseClient ? (
+	<>
+		<script is:inline>
+			(() => {
+				const key = 'cookie_consent_v1';
+
+				const readCookie = (name) => {
+					const raw = document.cookie || '';
+					const parts = raw.split(';');
+					for (const part of parts) {
+						const [k, ...rest] = part.trim().split('=');
+						if (k === name) return decodeURIComponent(rest.join('=') || '');
+					}
+					return '';
+				};
+
+				const readConsent = () => {
+					try {
+						const v = localStorage.getItem(key);
+						if (v) return v;
+					} catch {}
+					const c = readCookie(key);
+					return c || '';
+				};
+
+				const consent = readConsent();
+				const nonPersonalized = consent === 'granted' ? 0 : 1;
+
+				const w = window;
+				w.adsbygoogle = w.adsbygoogle || [];
+				w.adsbygoogle.requestNonPersonalizedAds = nonPersonalized;
+			})();
+		</script>
+		<script
+			async
+			src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(adsenseClient)}`}
+			crossorigin="anonymous"
+		></script>
+	</>
+) : null}
 
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
