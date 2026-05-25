@@ -39,8 +39,7 @@ const PROJECT_CONFIG = {
   supportedExtensions: ['.md', '.mdx'],
   preferredAI: process.env.PREFERRED_AI || 'auto',
   minLinks: parseInt(process.env.MIN_LINKS) || 3,
-  maxLinks: parseInt(process.env.MAX_LINKS) || 8,
-  createBackup: process.env.CREATE_BACKUP !== 'false'
+  maxLinks: parseInt(process.env.MAX_LINKS) || 8
 };
 
 // ==========================================
@@ -516,23 +515,9 @@ function escapeRegex(string) {
 }
 
 /**
- * Crea un backup del archivo original
- */
-function createBackup(filePath) {
-  const backupPath = filePath + '.backup.' + Date.now();
-  fs.copyFileSync(filePath, backupPath);
-  console.log(`💾 Backup creado: ${path.basename(backupPath)}`);
-  return backupPath;
-}
-
-/**
  * Guarda el contenido modificado
  */
 function saveArticle(filePath, content) {
-  if (PROJECT_CONFIG.createBackup) {
-    createBackup(filePath);
-  }
-  
   fs.writeFileSync(filePath, content, 'utf-8');
   console.log(`💾 Artículo guardado: ${filePath}`);
 }

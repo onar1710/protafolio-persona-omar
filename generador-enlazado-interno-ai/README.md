@@ -13,7 +13,6 @@ Compatible con **Astro**, **Next.js** y **Visual Studio Code** projects.
 ✅ **Sin Repeticiones**: Nunca usa el mismo texto ancla dos veces  
 ✅ **Análisis Inteligente**: Detecta automáticamente temas y oportunidades de enlazado  
 ✅ **Multi-Framework**: Compatible con Astro, Next.js y proyectos VSC  
-✅ **Backup Automático**: Crea copias de seguridad antes de modificar  
 ✅ **Distribución Equilibrada**: Enlaces distribuidos a lo largo del artículo  
 
 ---
@@ -57,22 +56,16 @@ KIMI_API_KEY=tu_api_key_aqui
 
 ## 🚀 Uso Rápido
 
-### Paso 1: Configurar la ruta del artículo
-
-Abre `seo-internal-linker.js` y modifica la línea 39:
-
-```javascript
-const PROJECT_CONFIG = {
-  // MODIFICAR ESTA LÍNEA con la ruta de tu artículo
-  articlePath: 'src/content/blog/como-posicionar-mi-web-en-google.md',
-  // ... resto de configuración
-};
-```
-
-### Paso 2: Ejecutar el script
+### Paso 1: Ejecutar el script con el artículo a procesar
 
 ```bash
-node seo-internal-linker.js
+node seo-internal-linker.js --article "src/content/blog/como-posicionar-mi-web-en-google.md"
+```
+
+### Probar sin modificar (dry-run)
+
+```bash
+node seo-internal-linker.js --article "src/content/blog/como-posicionar-mi-web-en-google.md" --dry-run
 ```
 
 ### Ejemplo de salida:
@@ -95,7 +88,6 @@ node seo-internal-linker.js
 
 📊 Total de enlaces insertados: 5/5
 
-💾 Backup creado: como-posicionar-mi-web-en-google.md.backup.1735656789
 💾 Artículo guardado: src/content/blog/como-posicionar-mi-web-en-google.md
 
 ============================================================
@@ -126,9 +118,6 @@ PREFERRED_AI=grok
 # Controlar cantidad de enlaces
 MIN_LINKS=3
 MAX_LINKS=8
-
-# Desactivar backups
-CREATE_BACKUP=false
 ```
 
 ### Personalizar directorios de contenido
@@ -260,14 +249,12 @@ Solución: El script muestra qué textos no se encontraron. Puedes:
 
 ### 1. Artículo Nuevo
 ```bash
-# Agregar enlaces a un artículo recién escrito
-articlePath: 'src/content/blog/nuevo-articulo-seo.md'
+node seo-internal-linker.js --article "src/content/blog/nuevo-articulo-seo.md"
 ```
 
 ### 2. Actualizar Artículo Antiguo
 ```bash
-# El script respeta enlaces existentes y agrega nuevos
-articlePath: 'src/content/blog/articulo-2023.md'
+node seo-internal-linker.js --article "src/content/blog/articulo-2023.md"
 ```
 
 ### 3. Batch Processing (próximamente)
@@ -296,7 +283,6 @@ Este script implementa las mejores prácticas de Google:
 
 ## 🔒 Seguridad
 
-- ✅ Los backups protegen tu contenido original
 - ✅ Las API keys se mantienen en `.env` (no subir a Git)
 - ✅ El script solo modifica el archivo especificado
 - ✅ Logging completo de todas las operaciones
