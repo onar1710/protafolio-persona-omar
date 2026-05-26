@@ -244,6 +244,7 @@ const jsonLd = {
 {keywordText ? <meta name="keywords" content={keywordText} /> : null}
 <meta name="author" content={author} />
 {noindex ? <meta name="robots" content="noindex,nofollow" /> : null}
+{adsenseClient ? <meta name="google-adsense-account" content={adsenseClient} /> : null}
 
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonicalUrl} />
