@@ -1,6 +1,10 @@
 name: Publicar artículo (draft -> false)
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/publish-next-draft.yml"
   schedule:
     - cron: "30 5 * * *"
   workflow_dispatch:
