@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+##ai-article-genrerator
+ai-article-generator/
+
 # dependencies
 node_modules/
 
