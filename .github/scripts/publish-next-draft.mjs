@@ -155,7 +155,7 @@ async function main() {
 
 	candidates.sort((a, b) => {
 		if (a.pubDate && b.pubDate) {
-			const diff = a.pubDate.valueOf() - b.pubDate.valueOf();
+			const diff = b.pubDate.valueOf() - a.pubDate.valueOf();
 			if (diff !== 0) return diff;
 		} else if (a.pubDate && !b.pubDate) {
 			return -1;
