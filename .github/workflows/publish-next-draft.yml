@@ -1,0 +1,42 @@
+name: Publicar artículo (draft -> false)
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-next-draft
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Publicar (draft -> false)
+        run: node .github/scripts/publish-next-draft.mjs
+
+      - name: Commit y push si hubo cambios
+        run: |
+          if git diff --quiet; then
+            echo "No hay cambios para commitear."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: publicar siguiente artículo (draft=false)"
+          git push

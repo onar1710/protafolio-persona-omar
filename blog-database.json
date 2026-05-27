@@ -1,0 +1,386 @@
+{
+  "lastUpdated": "2026-05-27T06:26:22.117Z",
+  "totalPosts": 39,
+  "posts": [
+    {
+      "title": "Diseño web y género: Claves para aumentar conversiones",
+      "slug": "diseno-web-y-genero-claves-para-aumentar-conversiones",
+      "description": "El diseño web influye directamente en la confianza online. Conoce las señales de seguridad que tu sitio necesita para convertir visitantes en clientes.",
+      "pubDate": "2026-05-15T12:00:00-05:00",
+      "tags": [
+        "diseño web"
+      ],
+      "heroImage": ""
+    },
+    {
+      "title": "Diseño web y SEO internacional adaptado a diversas culturas y mercados",
+      "slug": "diseno-web-y-seo-internacional-adaptado",
+      "description": "Traducir una web no basta. Aprende cómo adaptar diseño, colores, UX, keywords y confianza para posicionar y vender en mercados internacionales.",
+      "pubDate": "2026-05-15T12:00:00-05:00",
+      "tags": [
+        "diseño web"
+      ],
+      "heroImage": ""
+    },
+    {
+      "title": "Interactividad web y ganar lealtad online convierte visitantes en clientes",
+      "slug": "Interactividad-web-ganar-lealtad-online",
+      "description": "Cómo la interactividad, la confianza, la eficiencia y el disfrute influyen en la lealtad online y en la conversión de una web profesional.",
+      "pubDate": "2026-05-15T12:00:00-05:00",
+      "tags": [
+        "diseño web"
+      ],
+      "heroImage": ""
+    },
+    {
+      "title": "Cómo encontrar huecos de contenido SEO para posicionar",
+      "slug": "huecos-de-contenido-seo-oportunidades",
+      "description": "Cómo detectar huecos de contenido SEO y oportunidades reales para posicionar en Google. Métodos prácticos para encontrar temas poco cubiertos, preguntas sin responder y keywords con baja competencia.",
+      "pubDate": "2026-05-08",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/huecos-de-contenido-seo-oportunidades-hero.jpg"
+    },
+    {
+      "title": "Cómo mejorar el CTR orgánico en Google sin subir posiciones",
+      "slug": "mejorar-ctr-organico-google",
+      "description": "Cómo mejorar el CTR orgánico en Google optimizando títulos SEO, meta descripciones y rich snippets. Estrategias prácticas para aumentar clics orgánicos sin necesidad de mejorar posiciones.",
+      "pubDate": "2026-05-08",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/mejorar-ctr-organico-google-hero.jpg"
+    },
+    {
+      "title": "Como Analizar tu Competencia SEO Sin Copiar: Método que Funciona",
+      "slug": "analizar-competencia-seo-sin-copiar",
+      "description": "Cómo analizar competidores SEO para mejorar contenido sin duplicar información. Aprende a estudiar estructura, profundidad y vulnerabilidades del contenido posicionado para crear algo superior.",
+      "pubDate": "2026-05-07",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/analizar-competencia-seo-sin-copiar-hero.jpg"
+    },
+    {
+      "title": "Cómo detectar la intención de búsqueda para el posicionamiento SEO",
+      "slug": "como-detectar-intencion-de-busqueda",
+      "description": "Cómo identificar correctamente la intención de búsqueda antes de crear contenido SEO. Aprende a analizar las SERPs de Google, detectar tipos de intención y evitar errores que impiden posicionar.",
+      "pubDate": "2026-05-07",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/detectar-intencion-busqueda-hero.jpg"
+    },
+    {
+      "title": "Cuánto Tarda Google en Posicionar una Web: Tiempos Reales",
+      "slug": "cuanto-tarda-google-en-posicionar-una-web",
+      "description": "Cuánto tiempo tarda Google en posicionar una web o artículo nuevo. Factores que influyen en los tiempos de posicionamiento, diferencia entre indexar y posicionar y expectativas realistas para sitios nuevos.",
+      "pubDate": "2026-05-07",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/cuanto-tarda-google-en-posicionar-una-web-hero.jpg"
+    },
+    {
+      "title": "12 Errores SEO que Impiden Posicionar una pagina en Google",
+      "slug": "errores-seo-que-impiden-posicionar",
+      "description": "Los errores SEO más comunes que bloquean el posicionamiento de una página en Google. Keyword stuffing, canibalización, mala estructura, contenido duplicado y más fallos que debes corregir para posicionar.",
+      "pubDate": "2026-05-07",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/errores-seo-que-impiden-posicionar-hero.jpg"
+    },
+    {
+      "title": "Cómo encontrar oportunidades SEO Potenciales en Search Console",
+      "slug": "oportunidades-seo-search-console",
+      "description": "Cómo detectar oportunidades SEO ocultas en Google Search Console. Aprende a interpretar impresiones, consultas y posiciones para encontrar keywords fáciles y mejorar tu posicionamiento orgánico.",
+      "pubDate": "2026-05-07",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/oportunidades-seo-search-console-hero.jpg"
+    },
+    {
+      "title": "Como Posicionar tu sitio Web Nuevo Sin Backlinks",
+      "slug": "posicionar-web-nueva-sin-backlinks",
+      "description": "Cómo posicionar una web nueva sin backlinks ni autoridad. Estrategia paso a paso con keywords de baja competencia, contenido específico y estructura correcta para posicionamiento orgánico desde cero.",
+      "pubDate": "2026-05-07",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/posicionar-web-nueva-sin-backlinks-hero.jpg"
+    },
+    {
+      "title": "Bootstrap Completo Para 3 Clases Css: El Peso Que No Ves",
+      "slug": "instalaste-bootstrap-completo-para-usar-3-clases-css",
+      "description": "Bootstrap pesa 220KB minificado y Tailwind sin purge puede generar 3MB de CSS. Identifica el CSS sobrante en tu proyecto, haz tree-shaking manual y mide el impacto real en LCP con pasos concretos.",
+      "pubDate": "2026-05-05T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "React Indexa Vacío: Diagnosticar Y Arreglar",
+      "slug": "mi-web-react-no-aparece-en-google-div-vacio",
+      "description": "Si tu aplicación React no aparece en Google o Googlebot ve un div vacío en lugar de tu contenido real, este artículo te enseña a diagnosticar el problema con Search Console y la herramienta de inspección de URLs, y a solucionarlo con SSR y prerendering.",
+      "pubDate": "2026-05-05T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "AngularJS A React: Checklist SEO Sin Catástrofes",
+      "slug": "migrar-angularjs-a-react-sin-perder-seo",
+      "description": "Guía técnica para migrar de AngularJS a React sin destruir tu posicionamiento. Redirecciones, rendering, structured data y prevención de 404s masivos en la transición de frameworks.",
+      "pubDate": "2026-05-05T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "SSR Duplica Páginas: El Error Que Google Castiga",
+      "slug": "tu-framework-ssr-genera-paginas-duplicadas-google",
+      "description": "Next.js, Nuxt y SvelteKit generan la misma página en múltiples URLs como /productos, /productos/index y /productos/index.html. Aprende a configurar canonical tags, redirecciones y robots.txt para eliminar contenido duplicado en frameworks SSR.",
+      "pubDate": "2026-05-05T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Tu robots.txt Bloquea Tu JavaScript Y Google No Lo Sabe",
+      "slug": "tu-robots-txt-bloquea-tu-javascript",
+      "description": "Tu robots.txt puede estar bloqueando los archivos JS que Googlebot necesita para renderizar tu web. Aprende a auditar tu robots.txt, detectar bloqueos invisibles y configurar correctamente Next.js y SPAs para que Google renderice tu contenido.",
+      "pubDate": "2026-05-05T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "UseEffect Te Está Destruyendo El Rendimiento: 5 Errores",
+      "slug": "useeffect-mal-usado-destruye-rendimiento-react",
+      "description": "Cada useEffect mal colocado genera re-renders innecesarios, fetch duplicados y bloqueo del hilo principal en React. Identifica los 5 patrones más comunes de useEffect mal usado con código antes y después, y mide el impacto real en INP.",
+      "pubDate": "2026-05-05T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Shadow DOM Oculta Tu Contenido De Google: El Problema Real",
+      "slug": "web-components-shadow-dom-seo-contenido-oculto",
+      "description": "Web Components con Shadow DOM encapsulan el contenido y lo hacen invisible al crawler de Google. Aprende a detectar si tu Lit Element o Custom Element está perdiendo indexación y cómo solucionarlo sin perder encapsulación.",
+      "pubDate": "2026-05-05T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "DevTools Miente: Por Qué tu Web Local No Refleja al Usuario",
+      "slug": "devtools-mente-rendimiento-local-vs-usuario-real",
+      "description": "Chrome DevTools no simula conexión móvil real, dispositivos de gama baja ni scripts de producción. Aprende a testear el rendimiento web real y diagnosticar como experimentan tus usuarios tu sitio.",
+      "pubDate": "2026-05-02T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Percentil 75 vs 95: Tu Web Pasa CWV pero Pierde Clientes",
+      "slug": "trampa-percentil-75-core-web-vitals",
+      "description": "Google usa el percentil 75 para evaluar Core Web Vitals, pero el 25% restante de tus usuarios tiene experiencias que destruyen conversiones. Cómo medir y optimizar para el percentil 95.",
+      "pubDate": "2026-05-02T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Cache Hit Ratio: Cómo Mejorar CWV en Hosting Compartido",
+      "slug": "cache-hit-ratio-cwv-servidores-compartidos",
+      "description": "La cache hit ratio conecta métricas de servidor con Core Web Vitals. Aprende a mejorar LCP e INP en hosting compartido de WordPress sin cambiar de plan ni gastar más dinero.",
+      "pubDate": "2026-05-01T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Cómo Afecta el Sesgo de CrUX a tus Decisiones de Negocio",
+      "slug": "como-afecta-sesgo-crux-decisiones-negocio",
+      "description": "CrUX agrega datos de 28 días y el percentil 75 puede ocultar problemas graves. Aprende a interpretar correctamente los datos de rendimiento cuando CrUX no es fiable para tu sitio.",
+      "pubDate": "2026-05-01T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Cómo mejorar Core Web Vitals tras la eliminación de \"Fast page\"",
+      "slug": "core-web-vitals-factor-ranking-google",
+      "description": "Google eliminó la etiqueta de Fast Page y el peso de CWV en el algoritmo es menor de lo que insinuó. Datos reales sobre si Core Web Vitals importan para rankings y cuándo merece la pena optimizar.",
+      "pubDate": "2026-05-01T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Core Web Vitals WooCommerce: Cómo Arreglar INP y CLS sin Ser Desarrollador",
+      "slug": "core-web-vitals-wordpress-woocommerce",
+      "description": "Tu tienda WooCommerce falla en INP y CLS y no sabes por qué. Plugins de chat, popups y analytics están destruyendo tus métricas. Soluciones reales paso a paso para dueños de tiendas online sin conocimientos técnicos.",
+      "pubDate": "2026-05-01T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "LCP No Baja de 2.5s: Los Elementos Invisibles que Google Ignora",
+      "slug": "lcp-no-es-tu-imagen-hero-elementos-invisibles",
+      "description": "Tu página carga rápido pero LCP sigue alto. Los navegadores excluyen ciertos elementos como candidatos LCP por opacidad cero, baja entropía y fondos de viewport. Aprende a diagnosticar el LCP real.",
+      "pubDate": "2026-05-01T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Como Optimizar Imágenes para Web Carga Más Rápida y Mejora tu SEO",
+      "slug": "optimizar-imagenes-para-web",
+      "description": "Aprende a optimizar imágenes para web con formatos (JPG, PNG, WebP, SVG), compresión, redimensionado, metadatos y lazy loading para mejorar velocidad, Core Web Vitals y SEO.",
+      "pubDate": "2026-04-07T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "PageRank el secreto que puede cambiar tu posicionamiento SEO",
+      "slug": "que-es-page-rank",
+      "description": "PageRank, cómo funciona el algoritmo de enlaces de Google, por qué sigue siendo relevante en SEO y cómo aplicar sus principios para mejorar autoridad y posicionamiento.",
+      "pubDate": "2026-04-07T12:00:00-05:00",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Que son los Enlaces No Follow: Función, Uso y Estrategia SEO",
+      "slug": "que-son-los-enlaces-nofollow-funcion-uso-estrategia-seo",
+      "description": "Guía completa sobre enlaces nofollow: qué son, cómo se implementan, cuándo usarlos, diferencias con dofollow y su impacto real en una estrategia SEO.",
+      "pubDate": "2026-04-07",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Backlink Dofollow: Cómo Conseguirlos de Forma Segura y Efectiva para Tu SEO",
+      "slug": "backlink-dofollow",
+      "description": "Aprende paso a paso qué son los backlinks dofollow, cómo diferenciarlos de los nofollow, herramientas para comprobarlos y cómo generar backlinks dofollow de calidad de manera natural y segura sin riesgos de penalización.",
+      "pubDate": "2026-03-26",
+      "tags": [
+        "backlink dofollow",
+        "link building",
+        "SEO off page",
+        "backlinks calidad",
+        "estrategias enlaces",
+        "dofollow checker"
+      ],
+      "heroImage": "/assets/blog/enlaces-dofollow-1200x630.jpg"
+    },
+    {
+      "title": "Cómo Escribir Artículos Web SEO: Guía Paso a Paso",
+      "slug": "como-escribir-articulos-seo-guia-completa",
+      "description": "Aprende a escribir artículos SEO que posicionen en Google. Guía práctica con investigación de keywords, estructura perfecta y checklist descargable. ¡Empieza hoy!",
+      "pubDate": "2026-03-20",
+      "tags": [
+        "redacción seo",
+        "contenido seo",
+        "optimización web",
+        "posicionamiento",
+        "escritura seo"
+      ],
+      "heroImage": "/assets/blog/posicionamiento-google-1.jpg"
+    },
+    {
+      "title": "Estas herramientas están en secreto generando backlinks en muchas webs",
+      "slug": "sitios-web-que-crean-backlinks-para-ti",
+      "description": "las mejores herramientas y sitios web que crean backlinks para ti automáticamente. Aprenderas analizar y monitorear tu estrategia qué plataformas funcionan, cómo usarlas y qué precauciones tomar para mejorar tu SEO sin riesgos.",
+      "pubDate": "2026-03-16",
+      "tags": [
+        "backlinks automáticos",
+        "generador backlinks",
+        "SEO herramientas",
+        "link building",
+        "backlinks gratis"
+      ],
+      "heroImage": "/assets/blog/sitios-web-que-generan-baclinks.jpg"
+    },
+    {
+      "title": "Así consigues backlinks que aumentan la autoridad de tu web",
+      "slug": "como-conseguir-backlinks-para-tu-sitio-web",
+      "description": "Cómo conseguir backlinks que aumentan la autoridad de tu web con estrategias efectivas que funcionan. Aprende técnicas probadas para obtener enlaces de calidad y mejorar tu autoridad en Google.",
+      "pubDate": "2026-03-15",
+      "tags": [
+        "conseguir backlinks",
+        "link building",
+        "SEO off page",
+        "autoridad web",
+        "estrategias enlaces",
+        "backlinks calidad"
+      ],
+      "heroImage": "/assets/blog/medir-exito-estrategia.jpg"
+    },
+    {
+      "title": "Qué es la Autoridad de Dominio: Por Qué es Tan Importante y Cómo Comprobarla",
+      "slug": "autoridad-de-Dominio",
+      "description": "Analisis detallado sobre la autoridad de dominio, importancia para tu web y  cómo comprobarla con Moz, Ahrefs y SEMrush, y aprende estrategias probadas para aumentarla de forma segura y efectiva en tu sitio web.",
+      "pubDate": "2026-03-14",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Algoritmo de Google: Qué es y Cómo Funciona el Sistema de Búsqueda",
+      "slug": "algoritmo-de-google",
+      "description": "Aprende qué es el algoritmo de Google, cómo funciona (rastreo, indexación y ranking), su evolución con actualizaciones como Panda, Penguin y Helpful Content, y cómo adaptarte para posicionar mejor.",
+      "pubDate": "2026-03-11",
+      "tags": [],
+      "heroImage": ""
+    },
+    {
+      "title": "Los Mejores Servicios de SEO Orgánico en Colombia | Top 15 Agencias",
+      "slug": "mejores-agencias-servicio-seo-organico-colombia",
+      "description": "Descubre las 15 mejores agencias de SEO en Colombia con análisis real, reseñas verificables y casos de éxito. Guía completa para elegir servicios de posicionamiento SEO confiables.",
+      "pubDate": "2026-02-27",
+      "tags": [
+        "agencias SEO Colombia",
+        "posicionamiento SEO",
+        "SEO orgánico",
+        "empresas SEO Colombia",
+        "consultoría SEO",
+        "marketing digital Colombia"
+      ],
+      "heroImage": "/assets/blog/mejores-agencias-servicio-seo-organico-colombia.jpg"
+    },
+    {
+      "title": "Diseño Web SEO: Guía Completa para Crear un Sitio que Posicione en Google",
+      "slug": "diseno-web-seo",
+      "description": "Aprende a crear un diseño web SEO desde cero. Guía completa de diseño web y posicionamiento SEO para que tu sitio posicione en Google.",
+      "pubDate": "2026-02-25",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/diseno-web-seo.jpg"
+    },
+    {
+      "title": "Estrategias Efectivas para Posicionar tu Web en los Primeros Lugares de Google",
+      "slug": "como-posicionar-mi-web-en-los-primeros-lugares-de-google",
+      "description": "Las razones reales por las que tu web no posiciona en Google y la estrategia paso a paso que están usando otros para aparecer en los primeros lugares sin gastar en anuncios. Resultados reales aunque seas nuevo.",
+      "pubDate": "2026-02-24",
+      "tags": [
+        "Posicionar mi web en Google"
+      ],
+      "heroImage": "/assets/blog/posicionar-mi-web-primeros-lugares-google.jpg"
+    },
+    {
+      "title": "7 Errores de Diseño Web que Están Costándote Clientes (y Cómo Evitarlos)",
+      "slug": "errores-diseno-web",
+      "description": "Descubre los errores de diseño web más comunes que afectan conversión, velocidad de carga y experiencia de usuario. Aprende a evitarlos y mejora tu posicionamiento SEO.",
+      "pubDate": "2026-02-01",
+      "tags": [
+        "Diseño Web",
+        "Errores",
+        "SEO",
+        "UX"
+      ],
+      "heroImage": "/assets/blog/blocks.jpg"
+    },
+    {
+      "title": "Diseño Web Freelance: Guía Completa para Contratar al Profesional Ideal",
+      "slug": "diseno-web-freelance-guia-completa",
+      "description": "Aprende qué evaluar antes de contratar, señales de profesionalismo, proceso de trabajo, precios y cómo elegir al diseñador web freelance correcto para tu proyecto.",
+      "pubDate": "2026-01-29",
+      "tags": [
+        "Diseño Web",
+        "Freelance",
+        "Colombia"
+      ],
+      "heroImage": "/assets/blog/art.jpg"
+    }
+  ]
+}

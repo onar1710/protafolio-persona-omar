@@ -2,9 +2,20 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export function getConfig() {
+  const rawProvider = String(process.env.AI_PROVIDER || 'grok').trim().toLowerCase();
+  const provider =
+    rawProvider === 'grok' || rawProvider.startsWith('grok-') || rawProvider.startsWith('xai')
+      ? 'grok'
+      : rawProvider === 'kimi' || rawProvider.startsWith('kimi-') || rawProvider.startsWith('moonshot')
+        ? 'kimi'
+        : rawProvider === 'mimo' || rawProvider.startsWith('mimo')
+          ? 'mimo'
+          : rawProvider;
+
+  const mimoModel = process.env.MIMO_MODEL || (provider === 'mimo' && rawProvider !== 'mimo' ? rawProvider : '') || 'MiMo-V2.5';
   return {
-    provider: process.env.AI_PROVIDER || 'grok',
-    outputFormat: process.env.OUTPUT_FORMAT || 'mdx',
+    provider,
+    outputFormat: String(process.env.OUTPUT_FORMAT || 'mdx').trim().toLowerCase(),
     promptsDir: process.env.PROMPTS_DIR || './prompts',
     outputDir: process.env.OUTPUT_DIR || './outputs',
 
@@ -26,7 +37,7 @@ export function getConfig() {
 
     mimo: {
       apiKey: process.env.MIMO_API_KEY,
-      model: process.env.MIMO_MODEL || 'MiMo-V2.5',
+      model: mimoModel,
       temperature: parseFloat(process.env.MIMO_TEMPERATURE) || 1.0,
       maxTokens: parseInt(process.env.MIMO_MAX_TOKENS) || 50000,
       timeoutMs: parseInt(process.env.MIMO_TIMEOUT_MS) || parseInt(process.env.AI_TIMEOUT_MS) || 300000,

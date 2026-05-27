@@ -3,7 +3,10 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-	const allPosts = (await getCollection('blog')).filter((post: CollectionEntry<'blog'>) => post.id.startsWith('en/'));
+	const includeDrafts = import.meta.env.DEV;
+	const allPosts = (await getCollection('blog'))
+		.filter((post: CollectionEntry<'blog'>) => post.id.startsWith('en/'))
+		.filter((post: CollectionEntry<'blog'>) => (includeDrafts ? true : !post.data?.draft));
 	const posts = allPosts.filter((post: CollectionEntry<'blog'>) => post.id.startsWith('en/digital-marketing/'));
 	return posts.map((post: CollectionEntry<'blog'>) => ({
 		params: { slug: post.id.slice('en/digital-marketing/'.length) },

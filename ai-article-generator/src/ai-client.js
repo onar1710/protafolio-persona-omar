@@ -6,6 +6,10 @@ export class AIClient {
     const config = getConfig();
     this.provider = config.provider;
     this.providerConfig = config[this.provider];
+
+    if (!this.providerConfig) {
+      throw new Error(`Proveedor AI inválido: ${this.provider}. Usa: grok | kimi | mimo`);
+    }
     
     if (!this.providerConfig.apiKey) {
       throw new Error(`API key no configurada para ${this.provider}`);

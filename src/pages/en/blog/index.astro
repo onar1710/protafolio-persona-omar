@@ -7,6 +7,7 @@ type BlogEntry = CollectionEntry<'blog'>;
 
 const posts = (await getCollection('blog'))
 	.filter((post: BlogEntry) => post.id.startsWith('en/'))
+	.filter((post: BlogEntry) => !post.data?.draft)
 	.sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const pinnedId = 'en/what-s-preventing-you-from-achieving-conversions-learn';

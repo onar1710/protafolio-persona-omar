@@ -31,6 +31,7 @@ El artículo debe ser original, fácil de leer, informativo, profesional y enfoc
 
 a continuacion tienes los datos que vas a usar para generar el articulo publico , enfoque o objetivo , intencion de busqueda 
 
+
 manten siempre el enfoque en el articulo no te desvie a oros temas que n tienen nada que ver es obligatorio
 
 
@@ -40,3 +41,8 @@ manten siempre el enfoque en el articulo no te desvie a oros temas que n tienen 
 *etiqueta : ["ASUS TUF Gaming RTX 4070"]  colocala una sola etiqueta la que te estoy dando 
 
 
+* añade en el fromater con el nombre de la imagen que despues yo voy añadir que apunte a esta dirrecion:
+ejemplo :  heroImage: '/assets/blog/posicionar-mi-web-primeros-lugares-google.jpg'
+
+añade en el fromater las variacones de keywords : 
+keywords:

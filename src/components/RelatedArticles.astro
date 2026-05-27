@@ -126,6 +126,7 @@ const sharedTagCount = (post: BlogEntry): number => {
 
 const candidates = allPosts
 	.filter((p: BlogEntry) => (isEn ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
+	.filter((p: BlogEntry) => !p.data?.draft)
 	.filter((p: BlogEntry) => (currentId ? p.id !== currentId : normalizePath(hrefForPost(p)) !== currentPath))
 	.filter((p: BlogEntry) => (hasTagFilter ? sharedTagCount(p) > 0 : group ? p.data?.relatedGroup === group : false))
 	.filter((p: BlogEntry) => Boolean(p.data?.title && p.data?.description));

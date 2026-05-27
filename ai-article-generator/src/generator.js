@@ -175,6 +175,66 @@ function sanitizeForMdx(text) {
   return text.replace(/<(?=\s*\d)/g, '&lt;');
 }
 
+function safeYamlDoubleQuoted(value) {
+  const s = String(value ?? '');
+  return `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\r?\n/g, ' ').trim()}"`;
+}
+
+function ensureFrontmatterBlock(markdown) {
+  const text = String(markdown ?? '');
+  const hasFrontmatter = /^---\s*\r?\n[\s\S]*?\r?\n---/m.test(text);
+  if (hasFrontmatter) return text;
+  return `---\n---\n\n${text.trimStart()}`;
+}
+
+function upsertFrontmatterField(markdown, key, valueLine) {
+  const text = ensureFrontmatterBlock(markdown);
+  return text.replace(
+    /^---\s*\r?\n([\s\S]*?)\r?\n---/,
+    (full, body) => {
+      const hasKey = new RegExp(`^\\s*${key}\\s*:`, 'im').test(body);
+      const newBody = hasKey ? body.replace(new RegExp(`^\\s*${key}\\s*:\\s*.*$`, 'im'), valueLine) : `${valueLine}\n${body}`;
+      return `---\n${newBody}\n---`;
+    }
+  );
+}
+
+function enforceRequiredFrontmatter(article, fields) {
+  let out = ensureFrontmatterBlock(article);
+
+  const title = String(fields?.title ?? '').trim();
+  const description = String(fields?.description ?? '').trim() || title;
+  const pubDate = String(fields?.pubDate ?? '').trim();
+
+  if (title) out = upsertFrontmatterField(out, 'title', `title: ${safeYamlDoubleQuoted(title)}`);
+  out = upsertFrontmatterField(out, 'description', `description: ${safeYamlDoubleQuoted(description)}`);
+  if (typeof fields?.draft === 'boolean') out = upsertFrontmatterField(out, 'draft', `draft: ${fields.draft ? 'true' : 'false'}`);
+
+  if (pubDate) out = upsertFrontmatterField(out, 'pubDate', `pubDate: ${pubDate}`);
+
+  const tags = Array.isArray(fields?.tags) ? fields.tags.map((t) => String(t ?? '').trim()).filter(Boolean) : [];
+  if (tags.length) {
+    const rendered = `[${tags.map((t) => safeYamlDoubleQuoted(t)).join(', ')}]`;
+    out = upsertFrontmatterField(out, 'tags', `tags: ${rendered}`);
+  }
+
+  return out;
+}
+
+function extractFormatExampleFromMarkdown(sourceMarkdown) {
+  const src = String(sourceMarkdown ?? '');
+  if (!src.trim()) return '';
+
+  const front = extractFrontmatterBlock(src);
+  const frontBlock = front ? `---\n${front}\n---\n` : '';
+  const withoutFront = src.replace(/^---\s*\r?\n[\s\S]*?\r?\n---\s*\r?\n?/, '');
+  const lines = withoutFront.split(/\r?\n/).slice(0, 40).join('\n').trim();
+  const head = lines ? `${lines}\n` : '';
+
+  const combined = `${frontBlock}${head}`.trim();
+  return combined ? `${combined}\n` : '';
+}
+
 function enforceTitle(article, desiredTitle) {
   if (!article || !desiredTitle) return article;
   const title = String(desiredTitle).trim();
@@ -206,6 +266,53 @@ function enforceTitle(article, desiredTitle) {
   });
 
   return out;
+}
+
+function enforceDraft(article, desiredDraft) {
+  if (!article) return article;
+  const draftValue = Boolean(desiredDraft);
+  const serialized = draftValue ? 'true' : 'false';
+
+  const hasFrontmatter = /^---\s*\r?\n[\s\S]*?\r?\n---/m.test(article);
+  if (!hasFrontmatter) {
+    return `---\ndraft: ${serialized}\n---\n\n${article.trimStart()}`;
+  }
+
+  return article.replace(
+    /^---\s*\r?\n([\s\S]*?)\r?\n---/,
+    (full, body) => {
+      const hasDraft = /^\s*draft\s*:/im.test(body);
+      const newBody = hasDraft ? body.replace(/^\s*draft\s*:\s*.*$/im, `draft: ${serialized}`) : `draft: ${serialized}\n${body}`;
+      return `---\n${newBody}\n---`;
+    }
+  );
+}
+
+function pickMetaDescription(item) {
+  if (!item || typeof item !== 'object') return '';
+  const d =
+    item.description ??
+    item.descripcion ??
+    item.meta_descripcion ??
+    item.metaDescription ??
+    item.meta_description ??
+    '';
+  return String(d ?? '').trim();
+}
+
+function pickTag(item, plan) {
+  const t = String(item?.tag ?? plan?.tag ?? plan?.constraints?.tag ?? '').trim();
+  return t;
+}
+
+function toIsoDateOnly(d) {
+  try {
+    const date = d instanceof Date ? d : new Date(d);
+    if (Number.isNaN(date.valueOf())) return '';
+    return date.toISOString().slice(0, 10);
+  } catch {
+    return '';
+  }
 }
 
 async function fileExists(filePath) {
@@ -330,11 +437,7 @@ function tryParseJsonFromModelOutput(text) {
 
 function validatePlanTitles(plan, maxLen = 72) {
   const issues = [];
-  const candidates = Array.isArray(plan)
-    ? plan
-    : Array.isArray(plan?.articles)
-      ? plan.articles
-      : [];
+  const candidates = normalizePlanItems(plan);
 
   const starters = new Set([
     'que',
@@ -397,6 +500,22 @@ async function listJsonFilesByMtimeDesc(dirPath) {
   }
 }
 
+async function listMarkdownFilesByMtimeDesc(dirPath) {
+  try {
+    const files = await listContentFilesRecursive(dirPath);
+    const withStat = await Promise.all(
+      files.map(async (fp) => {
+        const st = await fs.stat(fp);
+        return { fp, mtimeMs: st.mtimeMs };
+      })
+    );
+    return withStat.sort((a, b) => b.mtimeMs - a.mtimeMs).map((x) => x.fp);
+  } catch (error) {
+    if (error && error.code === 'ENOENT') return [];
+    throw error;
+  }
+}
+
 async function ask(rl, question, { defaultValue = '' } = {}) {
   const suffix = defaultValue ? ` (${defaultValue})` : '';
   const raw = await rl.question(`${question}${suffix}: `);
@@ -414,6 +533,48 @@ async function askChoice(rl, question, choices) {
     if (keySet.has(String(v))) return String(v);
     console.log('Opción inválida.');
   }
+}
+
+function normalizePlanItems(plan) {
+  if (Array.isArray(plan)) return plan;
+  if (!plan || typeof plan !== 'object') return [];
+
+  const candidates =
+    (Array.isArray(plan.articles) && plan.articles) ||
+    (Array.isArray(plan.investigations) && plan.investigations) ||
+    (Array.isArray(plan.investigaciones) && plan.investigaciones) ||
+    [];
+
+  return candidates;
+}
+
+function pickTitle(item) {
+  if (!item || typeof item !== 'object') return '';
+  const t =
+    item.title ??
+    item.titulo ??
+    item.seo_title ??
+    item.seoTitle ??
+    item.meta_title ??
+    item.metaTitle ??
+    '';
+  return String(t ?? '').trim();
+}
+
+function pickBaseName(item, fallbackTitle, index) {
+  const fileField = String(item?.nombre_archivo_md ?? item?.filename ?? '').trim();
+  if (fileField) {
+    const base = fileField.replace(/\.(md|mdx)$/i, '').trim();
+    if (base) return slugifyFilename(base);
+  }
+
+  const urlField = String(item?.url_optimizada ?? item?.url ?? item?.slug ?? '').trim();
+  if (urlField) return slugifyFilename(urlField);
+
+  const title = String(fallbackTitle ?? '').trim();
+  if (title) return slugifyFilename(title);
+
+  return `articulo-${index + 1}`;
 }
 
 async function main() {
@@ -443,16 +604,40 @@ async function main() {
     const args = parseArgs(argv);
     const command = args._[0] || '';
     const targetPath = args._[0] && !['analyze', 'generate-plan'].includes(args._[0]) ? args._[0] : args._[1];
+    const repoRoot = (await findRepoRoot(process.cwd())) ?? process.cwd();
 
-    console.log('  📖 Leyendo instrucciones globales (prompts/promts.txt)...');
-    const promptFile = args.prompt
+    const resolveMdOutputDir = (rawPath) => {
+      const raw = String(rawPath ?? '').trim();
+      if (!raw) return '';
+      if (path.isAbsolute(raw)) return raw;
+      const normalized = raw.replace(/\//g, path.sep);
+      if (/^src[\\/]/i.test(normalized)) return path.resolve(repoRoot, normalized);
+      return path.resolve(toolRootDir, normalized);
+    };
+
+    const analysisPromptPath = args.analysisPrompt
+      ? path.resolve(String(args.analysisPrompt))
+      : path.join(promptsDirResolved, 'promts-analysis.txt');
+    const articlePromptPath = args.prompt
       ? path.resolve(String(args.prompt))
       : path.join(promptsDirResolved, 'promts.txt');
-    const globalInstructions = await readRequiredFile(promptFile, `prompts/${path.basename(promptFile)}`);
 
-    const outputDirFromPrompt = extractOutputDirFromGlobalInstructions(globalInstructions);
-    const outDirOverride = args.outDir ? path.resolve(String(args.outDir)) : '';
-    const fileGenerator = new FileGenerator(outDirOverride || outputDirFromPrompt || config.outputDir);
+    console.log(`  📖 Leyendo prompt de análisis (prompts/${path.basename(analysisPromptPath)})...`);
+    const analysisInstructions = await readRequiredFile(
+      analysisPromptPath,
+      `prompts/${path.basename(analysisPromptPath)}`
+    );
+    console.log(`  📖 Leyendo prompt de generación (prompts/${path.basename(articlePromptPath)})...`);
+    const articleInstructions = await readRequiredFile(
+      articlePromptPath,
+      `prompts/${path.basename(articlePromptPath)}`
+    );
+
+    const outputDirFromPrompt = extractOutputDirFromGlobalInstructions(articleInstructions);
+    const getOutDirOverride = () => (args.outDir ? resolveMdOutputDir(String(args.outDir)) : '');
+    const fileGenerator = new FileGenerator(
+      getOutDirOverride() || resolveMdOutputDir(outputDirFromPrompt || config.outputDir)
+    );
 
     console.log('  📖 Leyendo ejemplos de formato (ejemplo-fromater)...');
     const formatterExamples = await readAllFilesInDir(formatterDirResolved);
@@ -475,15 +660,33 @@ async function main() {
             { key: 'es', label: 'Español' },
             { key: 'en', label: 'English' },
           ]);
+          args.lang = lang;
 
-          const mdOutDir = await ask(rl, 'Directorio donde se guardarán los .md', {
-            defaultValue: outputDirFromPrompt || config.outputDir,
-          });
+          const blogDir = path.join(repoRoot, 'src', 'content', 'blog');
+          const mdFiles = await listMarkdownFilesByMtimeDesc(blogDir);
 
-          const inputPathRaw = await ask(rl, 'Ruta del artículo a investigar (.md)', {
-            defaultValue: 'src/content/blog/como-posicionar-mi-web-en-los-primeros-lugares-de-google.md',
-          });
-          const inputPath = path.resolve(inputPathRaw);
+          let inputPath;
+          const defaultArticle = 'src/content/blog/como-posicionar-mi-web-en-los-primeros-lugares-de-google.md';
+          const shown = mdFiles.slice(0, 40);
+          if (shown.length) {
+            console.log(`\n📄 Artículos encontrados para analizar (mostrando ${shown.length}):\n`);
+            for (let i = 0; i < shown.length; i++) {
+              console.log(`  ${i + 1}) ${path.relative(repoRoot, shown[i]).replace(/\\/g, '/')}`);
+            }
+            console.log(`  0) Escribir ruta manual`);
+
+            const pickRaw = await ask(rl, 'Selecciona el número del .md', { defaultValue: '1' });
+            const pick = parseInt(pickRaw, 10);
+            if (Number.isFinite(pick) && pick > 0 && pick <= shown.length) {
+              inputPath = shown[pick - 1];
+            } else {
+              const inputPathRaw = await ask(rl, 'Ruta del artículo a investigar (.md)', { defaultValue: defaultArticle });
+              inputPath = path.resolve(inputPathRaw);
+            }
+          } else {
+            const inputPathRaw = await ask(rl, 'Ruta del artículo a investigar (.md)', { defaultValue: defaultArticle });
+            inputPath = path.resolve(inputPathRaw);
+          }
 
           const slug = path.basename(inputPath).replace(/\.(md|mdx)$/i, '');
           const stamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -492,7 +695,6 @@ async function main() {
           await fs.mkdir(outDirResolved, { recursive: true });
 
           const maxTitleLen = 72;
-          const repoRoot = (await findRepoRoot(process.cwd())) ?? process.cwd();
           const existingPosts = await summarizeExistingBlogPosts(repoRoot);
 
           console.log(`\n▶ Analizando: ${inputPath}`);
@@ -502,7 +704,6 @@ async function main() {
           const researchContent = JSON.stringify(
             {
               language: lang,
-              mdOutputDir: mdOutDir,
               sourceArticle: { path: inputPath, wordCount: wc, md: sourceContent },
               constraints: { maxTitleLength: maxTitleLen },
               existingSitePosts: existingPosts.slice(0, 400),
@@ -511,9 +712,15 @@ async function main() {
             2
           );
 
-          logPromptParts({ globalInstructions, formatterExamples, researchContent });
+          const formatterFromExampleForAnalysis = extractFormatExampleFromMarkdown(sourceContent);
+          const effectiveFormatterExamplesForAnalysis = [formatterExamples, formatterFromExampleForAnalysis].filter(Boolean).join('\n\n');
+          logPromptParts({ globalInstructions: analysisInstructions, formatterExamples: effectiveFormatterExamplesForAnalysis, researchContent });
           console.log('  🤖 Generando análisis/plan...');
-          const modelOutput = stripOuterMarkdownCodeFence(await getAIClient().generate(createMessages({ globalInstructions, formatterExamples, researchContent })));
+          const modelOutput = stripOuterMarkdownCodeFence(
+            await getAIClient().generate(
+              createMessages({ globalInstructions: analysisInstructions, formatterExamples: effectiveFormatterExamplesForAnalysis, researchContent })
+            )
+          );
 
           await fs.writeFile(outputPath, modelOutput, 'utf-8');
           console.log(`  ✅ Investigación guardada: ${outputPath}`);
@@ -529,8 +736,12 @@ async function main() {
           const go = await ask(rl, '¿Generar artículos ahora desde este JSON? (s/n)', { defaultValue: 'n' });
           if (go.toLowerCase() !== 's') return;
 
+          const mdOutDir = await ask(rl, 'Directorio donde se guardarán los .md', {
+            defaultValue: outputDirFromPrompt || config.outputDir,
+          });
           args.plan = outputPath;
-          args.outDir = mdOutDir;
+          args.outDir = resolveMdOutputDir(mdOutDir);
+          args.formatFrom = inputPath;
         }
 
         if (choice === '2') {
@@ -557,7 +768,7 @@ async function main() {
           const mdOutDir = await ask(rl, 'Directorio donde se guardarán los .md', {
             defaultValue: outputDirFromPrompt || config.outputDir,
           });
-          args.outDir = mdOutDir;
+          args.outDir = resolveMdOutputDir(mdOutDir);
         }
       } finally {
         rl.close();
@@ -581,10 +792,11 @@ async function main() {
       const sourceContent = await readRequiredFile(inputPath, 'artículo fuente');
       const wc = wordCount(sourceContent);
 
+      const mdOutDirDefault = getOutDirOverride() || resolveMdOutputDir(outputDirFromPrompt || config.outputDir);
       const researchContent = JSON.stringify(
         {
           language: args.lang ? String(args.lang) : '',
-          mdOutputDir: outDirOverride || outputDirFromPrompt || config.outputDir,
+          mdOutputDir: mdOutDirDefault,
           sourceArticle: {
             path: inputPath,
             wordCount: wc,
@@ -600,10 +812,12 @@ async function main() {
         null,
         2
       );
-      logPromptParts({ globalInstructions, formatterExamples, researchContent });
+      const formatterFromExampleForAnalysis = extractFormatExampleFromMarkdown(sourceContent);
+      const effectiveFormatterExamplesForAnalysis = [formatterExamples, formatterFromExampleForAnalysis].filter(Boolean).join('\n\n');
+      logPromptParts({ globalInstructions: analysisInstructions, formatterExamples: effectiveFormatterExamplesForAnalysis, researchContent });
 
       console.log('  🤖 Generando análisis/plan...');
-      const messages = createMessages({ globalInstructions, formatterExamples, researchContent });
+      const messages = createMessages({ globalInstructions: analysisInstructions, formatterExamples: effectiveFormatterExamplesForAnalysis, researchContent });
       const modelOutput = stripOuterMarkdownCodeFence(await getAIClient().generate(messages));
 
       console.log('  💾 Guardando plan...');
@@ -637,10 +851,21 @@ async function main() {
       }
 
       const plan = parsed.value;
-      const articles = Array.isArray(plan) ? plan : Array.isArray(plan?.articles) ? plan.articles : [];
+      const articles = normalizePlanItems(plan);
       if (!Array.isArray(articles) || articles.length === 0) {
-        throw new Error('El plan no contiene artículos (esperado: array o { "articles": [...] })');
+        throw new Error('El plan no contiene artículos (esperado: array o { "articles"/"investigations": [...] })');
       }
+
+      const formatterFromPathRaw =
+        (typeof args.formatFrom === 'string' && args.formatFrom.trim()) ||
+        (typeof plan?.sourceArticle?.path === 'string' && plan.sourceArticle.path.trim()) ||
+        (typeof plan?.constraints?.sourceArticlePath === 'string' && plan.constraints.sourceArticlePath.trim()) ||
+        '';
+      const formatterFromPath = formatterFromPathRaw ? resolveMdOutputDir(formatterFromPathRaw) : '';
+      const formatterFromMarkdown = formatterFromPath && (await fileExists(formatterFromPath))
+        ? await readRequiredFile(formatterFromPath, 'artículo de formato')
+        : '';
+      const formatterFromExample = extractFormatExampleFromMarkdown(formatterFromMarkdown);
 
       const planMdOutputDir =
         typeof plan?.mdOutputDir === 'string' && plan.mdOutputDir.trim()
@@ -648,16 +873,24 @@ async function main() {
           : typeof plan?.constraints?.mdOutputDir === 'string' && plan.constraints.mdOutputDir.trim()
             ? plan.constraints.mdOutputDir.trim()
             : '';
-      const mdOutDirFinal = outDirOverride || planMdOutputDir || outputDirFromPrompt || config.outputDir;
+      const mdOutDirFinal =
+        getOutDirOverride() ||
+        (planMdOutputDir ? resolveMdOutputDir(planMdOutputDir) : '') ||
+        resolveMdOutputDir(outputDirFromPrompt || config.outputDir);
 
       console.log(`\n📂 Plan cargado: ${articles.length} artículo(s)\n`);
 
       for (let i = 0; i < articles.length; i++) {
         const item = articles[i];
-        const desiredTitle = String(item?.title ?? '').trim();
-        const baseName = desiredTitle ? slugifyFilename(desiredTitle) : `articulo-${i + 1}`;
+        const desiredTitle = pickTitle(item);
+        const baseName = pickBaseName(item, desiredTitle, i);
 
         console.log(`\n▶ Generando (${i + 1}/${articles.length}): ${desiredTitle || baseName}`);
+        const effectiveFormatterExamples = [formatterExamples, formatterFromExample].filter(Boolean).join('\n\n');
+        const description = pickMetaDescription(item);
+        const tag = pickTag(item, plan);
+        const pubDate = toIsoDateOnly(item?.pubDate) || toIsoDateOnly(new Date());
+        const tags = tag ? [tag] : [];
         const researchContent = JSON.stringify(
           {
             planPath,
@@ -669,14 +902,18 @@ async function main() {
           2
         );
 
-        logPromptParts({ globalInstructions, formatterExamples, researchContent });
+        logPromptParts({ globalInstructions: articleInstructions, formatterExamples: effectiveFormatterExamples, researchContent });
 
         console.log('  🤖 Generando artículo...');
-        const messages = createMessages({ globalInstructions, formatterExamples, researchContent });
-        const article = enforceTitle(
-          sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages))),
-          desiredTitle
-        );
+        const messages = createMessages({ globalInstructions: articleInstructions, formatterExamples: effectiveFormatterExamples, researchContent });
+        const generated = sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages)));
+        const article = enforceRequiredFrontmatter(enforceDraft(enforceTitle(generated, desiredTitle), true), {
+          title: desiredTitle,
+          description,
+          pubDate,
+          tags,
+          draft: true,
+        });
 
         console.log('  💾 Guardando archivo...');
         const perRunFileGenerator = mdOutDirFinal === fileGenerator.outputDir ? fileGenerator : new FileGenerator(mdOutDirFinal);
@@ -705,13 +942,13 @@ async function main() {
         const desiredTitle = extractSeoTitleFromResearchContent(researchContent) || extractFirstNonEmptyLine(researchContent);
         const baseName = desiredTitle ? slugifyFilename(desiredTitle) : baseNameFromFile;
 
-        logPromptParts({ globalInstructions, formatterExamples, researchContent });
+        logPromptParts({ globalInstructions: articleInstructions, formatterExamples, researchContent });
 
         console.log('  🤖 Generando artículo...');
-        const messages = createMessages({ globalInstructions, formatterExamples, researchContent });
-        const article = enforceTitle(
-          sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages))),
-          desiredTitle
+        const messages = createMessages({ globalInstructions: articleInstructions, formatterExamples, researchContent });
+        const article = enforceDraft(
+          enforceTitle(sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages))), desiredTitle),
+          true
         );
 
         console.log('  💾 Guardando archivo...');
@@ -739,13 +976,13 @@ async function main() {
           const desiredTitle = extractSeoTitleFromResearchContent(researchContent) || extractFirstNonEmptyLine(researchContent);
           const baseName = desiredTitle ? slugifyFilename(desiredTitle) : baseNameFromFile;
 
-          logPromptParts({ globalInstructions, formatterExamples, researchContent });
+          logPromptParts({ globalInstructions: articleInstructions, formatterExamples, researchContent });
 
           console.log('  🤖 Generando artículo...');
-          const messages = createMessages({ globalInstructions, formatterExamples, researchContent });
-          const article = enforceTitle(
-            sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages))),
-            desiredTitle
+          const messages = createMessages({ globalInstructions: articleInstructions, formatterExamples, researchContent });
+          const article = enforceDraft(
+            enforceTitle(sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages))), desiredTitle),
+            true
           );
 
           console.log('  💾 Guardando archivo...');

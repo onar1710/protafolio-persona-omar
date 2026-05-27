@@ -1,28 +1,463 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
-import InterlinkedContent from '../components/InterlinkedContent.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
 import Layout from './Layout.astro';
 import LayoutEN from './LayoutEN.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+export type Props = CollectionEntry<'blog'>['data'] & {
+	posts?: CollectionEntry<'blog'>[];
+};
 
-const { title, description, author, pubDate, updatedDate, heroImage, tags } = Astro.props;
+const { title, description, keywords, author, pubDate, updatedDate, heroImage, tags } = Astro.props;
 const { relatedGroup, posts } = Astro.props;
 
 const isEn = Astro.url.pathname.startsWith('/en/');
 const backToBlogHref = isEn ? '/en/blog/' : '/blog/';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+type BlogEntry = CollectionEntry<'blog'>;
+
+const normalizePath = (p: string): string => {
+	if (p === '/') return '/';
+	return `/${p.replace(/^\/+/, '').replace(/\/+$/, '')}/`;
+};
+
+const currentPath = normalizePath(Astro.url.pathname || '/');
+
+const fold = (value: string): string =>
+	String(value || '')
+		.normalize('NFD')
+		.replace(/\p{Diacritic}/gu, '')
+		.toLowerCase();
+
+const normalizeWords = (value: string): string[] => {
+	const raw = String(value || '')
+		.replace(/[“”‘’"'()[\]{}]/g, ' ')
+		.replace(/[^\p{L}\p{N}]+/gu, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+	if (!raw) return [];
+	return raw.split(' ').filter(Boolean);
+};
+
+const stopEs = new Set([
+	'a',
+	'al',
+	'como',
+	'con',
+	'de',
+	'del',
+	'el',
+	'en',
+	'es',
+	'esta',
+	'estas',
+	'este',
+	'estos',
+	'la',
+	'las',
+	'lo',
+	'los',
+	'muy',
+	'para',
+	'por',
+	'que',
+	'si',
+	'sin',
+	'son',
+	'su',
+	'sus',
+	'tan',
+	'un',
+	'una',
+	'unas',
+	'unos',
+	'y',
+]);
+
+const stopEn = new Set([
+	'a',
+	'an',
+	'and',
+	'are',
+	'as',
+	'at',
+	'be',
+	'by',
+	'for',
+	'from',
+	'how',
+	'in',
+	'is',
+	'it',
+	'of',
+	'on',
+	'or',
+	'the',
+	'to',
+	'what',
+	'why',
+	'with',
+]);
+
+const genericTokensHard = new Set(
+	[
+		'seo',
+		'google',
+		'blog',
+		'web',
+		'sitio',
+		'sitios',
+		'pagina',
+		'paginas',
+	].map((t) => fold(t)),
+);
+
+const genericTokensSoft = new Set(
+	[
+		'contenido',
+		'contenidos',
+		'articulo',
+		'articulos',
+		'posicionar',
+		'posicionamiento',
+		'estrategia',
+		'estrategias',
+		'guia',
+		'guía',
+		'guias',
+		'guías',
+		'completa',
+		'completo',
+		'efectivas',
+		'efectivos',
+		'mejor',
+		'mejores',
+		'como',
+		'cómo',
+		'que',
+		'qué',
+	].map((t) => fold(t)),
+);
+
+const genericTokensAll = new Set([...genericTokensHard, ...genericTokensSoft]);
+
+const tokenSetFromText = (value: string, blockedTokens: Set<string>): Set<string> => {
+	const stop = isEn ? stopEn : stopEs;
+	const out = new Set<string>();
+	for (const w of normalizeWords(value)) {
+		const t = fold(w);
+		if (!t) continue;
+		if (stop.has(t)) continue;
+		if (blockedTokens.has(t)) continue;
+		if (!/\d/.test(t) && t.length < 3) continue;
+		out.add(t);
+		if (!/\d/.test(t) && t.length >= 5 && t.endsWith('s')) out.add(t.slice(0, -1));
+	}
+	return out;
+};
+
+const expandTitleTokens = (tokens: Set<string>, blockedTokens: Set<string>): Set<string> => {
+	const out = new Set(tokens);
+	const add = (t: string) => {
+		const v = fold(t);
+		if (!v) return;
+		if (blockedTokens.has(v)) return;
+		out.add(v);
+		if (!/\d/.test(v) && v.length >= 5 && v.endsWith('s')) out.add(v.slice(0, -1));
+	};
+
+	for (const t of tokens) {
+		if (t === 'lugares' || t === 'lugar') add('resultados');
+		if (t === 'resultados' || t === 'resultado') add('lugares');
+		if (t === 'posicionar' || t === 'posicionamiento') add('ranking');
+	}
+
+	return out;
+};
+
+const hrefForPost = (post: BlogEntry): string => {
+	if (post.id.startsWith('en/seo/')) return `/en/seo/${post.id.slice('en/seo/'.length)}/`;
+	if (post.id.startsWith('en/web-design/')) return `/en/web-design/${post.id.slice('en/web-design/'.length)}/`;
+	if (post.id.startsWith('en/digital-marketing/'))
+		return `/en/digital-marketing/${post.id.slice('en/digital-marketing/'.length)}/`;
+	if (post.id.startsWith('en/social-media/')) return `/en/social-media/${post.id.slice('en/social-media/'.length)}/`;
+	if (post.id.startsWith('en/')) return `/en/blog/${post.id.replace(/^en\//, '')}/`;
+
+	if (post.id.startsWith('seo/')) return `/seo/${post.id.slice('seo/'.length)}/`;
+	if (post.id.startsWith('disenoweb/')) return `/disenoweb/${post.id.slice('disenoweb/'.length)}/`;
+	if (post.id.startsWith('marketing-digital/'))
+		return `/marketing-digital/${post.id.slice('marketing-digital/'.length)}/`;
+	if (post.id.startsWith('social-media/')) return `/social-media/${post.id.slice('social-media/'.length)}/`;
+	return `/blog/${post.id}/`;
+};
+
+const intersectSize = (a: Set<string>, b: Set<string>): number => {
+	let n = 0;
+	for (const t of a) if (b.has(t)) n++;
+	return n;
+};
+
+const isGoodAnchorPhrase = (phrase: string): boolean => {
+	const words = normalizeWords(phrase);
+	if (words.length < 3) return false;
+	const stop = isEn ? stopEn : stopEs;
+	const first = fold(words[0]);
+	const last = fold(words[words.length - 1]);
+	if (stop.has(first) || stop.has(last)) return false;
+	let strong = 0;
+	for (const w of words) {
+		const t = fold(w);
+		if (!t) continue;
+		if (genericTokensHard.has(t)) continue;
+		if (/\d/.test(w) || w.length >= 5) strong++;
+	}
+	return strong > 0;
+};
+
+const escapeHtml = (value: string): string =>
+	String(value)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+
+const stripHtml = (html: string): string =>
+	String(html || '')
+		.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+		.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
+		.replace(/<[^>]+>/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+
+const insertBestTitleWindowInHtml = (
+	html: string,
+	{
+		href,
+		titleTokens,
+		minParagraphIndex = 1,
+		minCharOffsetInParagraph = 40,
+	}: {
+		href: string;
+		titleTokens: Set<string>;
+		minParagraphIndex?: number;
+		minCharOffsetInParagraph?: number;
+	},
+): { html: string; linked: boolean } => {
+	if (!href) return { html, linked: false };
+	if (html.includes(`href="${href}"`) || html.includes(`href='${href}'`)) return { html, linked: false };
+	if (titleTokens.size === 0) return { html, linked: false };
+
+	const parts = html.split(/(<[^>]+>)/g);
+	let insideA = false;
+	let insideP = 0;
+	let paragraphIndex = -1;
+	let paragraphTextOffset = 0;
+	let insideNoLink = 0;
+
+	let best:
+		| {
+				partIndex: number;
+				start: number;
+				end: number;
+				score: number;
+		  }
+		| null = null;
+
+	const stop = isEn ? stopEn : stopEs;
+	const wordRe = /[\p{L}\p{N}]+/gu;
+
+	for (let i = 0; i < parts.length; i++) {
+		const part = parts[i];
+		if (!part) continue;
+
+		if (part.startsWith('<')) {
+			if (/^<a\b/i.test(part)) insideA = true;
+			else if (/^<\/a\b/i.test(part)) insideA = false;
+
+			if (/^<p\b/i.test(part)) {
+				insideP++;
+				paragraphIndex++;
+				paragraphTextOffset = 0;
+			} else if (/^<\/p\b/i.test(part)) {
+				insideP = Math.max(0, insideP - 1);
+				if (insideP === 0) paragraphTextOffset = 0;
+			}
+
+			if (/^<(code|pre)\b/i.test(part)) insideNoLink++;
+			else if (/^<\/(code|pre)\b/i.test(part)) insideNoLink = Math.max(0, insideNoLink - 1);
+
+			continue;
+		}
+
+		if (insideA) {
+			paragraphTextOffset += part.length;
+			continue;
+		}
+		if (insideNoLink > 0) {
+			paragraphTextOffset += part.length;
+			continue;
+		}
+		if (insideP <= 0) continue;
+		if (paragraphIndex < minParagraphIndex) {
+			paragraphTextOffset += part.length;
+			continue;
+		}
+
+		const words: Array<{ start: number; end: number; token: string; raw: string }> = [];
+		for (const m of part.matchAll(wordRe)) {
+			const raw = m[0] || '';
+			const start = m.index ?? -1;
+			if (start < 0) continue;
+			const end = start + raw.length;
+			const token = fold(raw);
+			if (!token) continue;
+			words.push({ start, end, token, raw });
+		}
+
+		if (words.length >= 3) {
+			for (let startIdx = 0; startIdx <= words.length - 3; startIdx++) {
+				for (let len = Math.min(8, words.length - startIdx); len >= 3; len--) {
+					const endIdx = startIdx + len - 1;
+					if (endIdx >= words.length) continue;
+
+					const first = words[startIdx].token;
+					const last = words[endIdx].token;
+					if (stop.has(first) || stop.has(last)) continue;
+
+					const start = words[startIdx].start;
+					const end = words[endIdx].end;
+					const absoluteStart = paragraphTextOffset + start;
+					if (absoluteStart < minCharOffsetInParagraph) continue;
+
+					const before = part.slice(0, start);
+					const trimmedBefore = before.replace(/\s+/g, '');
+					if (trimmedBefore.length === 0) continue;
+
+					let overlap = 0;
+					for (let k = startIdx; k <= endIdx; k++) {
+						const tok = words[k].token;
+						if (titleTokens.has(tok)) overlap++;
+					}
+					if (overlap < 2) continue;
+
+					const phrase = part.slice(start, end);
+					if (!isGoodAnchorPhrase(phrase)) continue;
+
+					const score = overlap * 200 + len * 2;
+					if (!best || score > best.score) best = { partIndex: i, start, end, score };
+				}
+			}
+		}
+
+		paragraphTextOffset += part.length;
+	}
+
+	if (!best) return { html, linked: false };
+
+	const part = parts[best.partIndex] || '';
+	const before = part.slice(0, best.start);
+	const matchText = part.slice(best.start, best.end);
+	const after = part.slice(best.end);
+	parts[best.partIndex] = `${before}<a href="${escapeHtml(href)}" data-interlink="auto" class="font-semibold text-primary-blue hover:underline">${matchText}</a>${after}`;
+	return { html: parts.join(''), linked: true };
+};
+
+const rawHtml = await Astro.slots.render('default');
+
+const allPosts = Array.isArray(posts) ? (posts as BlogEntry[]) : [];
+const candidates = allPosts
+	.filter((p) => (isEn ? p.id.startsWith('en/') : !p.id.startsWith('en/')))
+	.filter((p) => (import.meta.env.DEV ? true : !p.data?.draft))
+	.filter((p) => normalizePath(hrefForPost(p)) !== currentPath);
+
+let outHtml = rawHtml;
+
+if (rawHtml && candidates.length > 0) {
+	const text = stripHtml(rawHtml);
+	const wordCount = normalizeWords(text).length;
+	const desiredLinks = Math.min(10, Math.max(5, Math.floor(wordCount / 350)));
+
+	const contentTokensStrict = tokenSetFromText(text, genericTokensAll);
+	const contentTokensRelaxed = tokenSetFromText(text, genericTokensHard);
+
+	const usedHrefs = new Set<string>();
+	let insertedCount = 0;
+
+	const tryInsertFrom = (items: Array<{ href: string; score: number; titleTokens: Set<string> }>) => {
+		items.sort((a, b) => b.score - a.score);
+		for (const item of items) {
+			if (insertedCount >= desiredLinks) return;
+			if (usedHrefs.has(item.href)) continue;
+			const inserted = insertBestTitleWindowInHtml(outHtml, { href: item.href, titleTokens: item.titleTokens });
+			usedHrefs.add(item.href);
+			if (inserted.linked) {
+				outHtml = inserted.html;
+				insertedCount++;
+			}
+		}
+	};
+
+	const strictScored: Array<{ href: string; score: number; titleTokens: Set<string> }> = [];
+
+	for (const p of candidates) {
+		const href = hrefForPost(p);
+		if (!href) continue;
+		if (rawHtml.includes(`href="${href}"`) || rawHtml.includes(`href='${href}'`)) continue;
+
+		const titleTokensStrict = expandTitleTokens(tokenSetFromText(String(p.data?.title ?? ''), genericTokensAll), genericTokensAll);
+		if (titleTokensStrict.size < 2) continue;
+
+		const inter = intersectSize(titleTokensStrict, contentTokensStrict);
+		if (inter < 2) continue;
+
+		const score = inter * 20 + Math.min(10, titleTokensStrict.size);
+		strictScored.push({ href, score, titleTokens: titleTokensStrict });
+	}
+
+	tryInsertFrom(strictScored);
+
+	if (insertedCount < desiredLinks) {
+		const relaxedScored: Array<{ href: string; score: number; titleTokens: Set<string> }> = [];
+		for (const p of candidates) {
+			const href = hrefForPost(p);
+			if (!href) continue;
+			if (usedHrefs.has(href)) continue;
+			if (rawHtml.includes(`href="${href}"`) || rawHtml.includes(`href='${href}'`)) continue;
+
+			const titleTokensStrict = expandTitleTokens(tokenSetFromText(String(p.data?.title ?? ''), genericTokensAll), genericTokensAll);
+			const titleTokensRelaxed = expandTitleTokens(
+				tokenSetFromText(String(p.data?.title ?? ''), genericTokensHard),
+				genericTokensHard,
+			);
+			if (titleTokensRelaxed.size < 2) continue;
+
+			const interRelaxed = intersectSize(titleTokensRelaxed, contentTokensRelaxed);
+			if (interRelaxed < 2) continue;
+
+			if (contentTokensStrict.size > 0) {
+				const interStrict = intersectSize(titleTokensStrict, contentTokensStrict);
+				if (interStrict < 1) continue;
+			}
+
+			const score = interRelaxed * 14 + Math.min(10, titleTokensRelaxed.size);
+			relaxedScored.push({ href, score, titleTokens: titleTokensRelaxed });
+		}
+
+		tryInsertFrom(relaxedScored);
+	}
+}
 ---
 
 {
 	isEn ? (
 		<LayoutEN
-			title={`${title} | Blog`}
+			title={title}
 			description={description}
-			keywords="web design, web development, SEO, performance"
+			keywords={keywords ?? "web design, web development, SEO, performance"}
 			url={canonicalURL.toString()}
 		>
 			<meta slot="head" name="author" content={author} />
@@ -79,9 +514,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					</header>
 
 					<article class="post-content text-black" style="max-width: 100%;">
-						<InterlinkedContent posts={posts} group={relatedGroup} tags={tags}>
-							<slot />
-						</InterlinkedContent>
+						<div class="contents" set:html={outHtml} />
 					</article>
 					<RelatedArticles posts={posts} group={relatedGroup} tags={tags} />
 				</div>
@@ -89,9 +522,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		</LayoutEN>
 	) : (
 		<Layout
-			title={`${title} | Blog`}
+			title={title}
 			description={description}
-			keywords="diseño de páginas web, desarrollo web, SEO, Colombia"
+			keywords={keywords ?? "diseño de páginas web, desarrollo web, SEO, Colombia"}
 			url={canonicalURL.toString()}
 		>
 			<meta slot="head" name="author" content={author} />
@@ -148,9 +581,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					</header>
 
 					<article class="post-content text-black" style="max-width: 100%;">
-						<InterlinkedContent posts={posts} group={relatedGroup} tags={tags}>
-							<slot />
-						</InterlinkedContent>
+						<div class="contents" set:html={outHtml} />
 					</article>
 					<RelatedArticles posts={posts} group={relatedGroup} tags={tags} />
 				</div>
