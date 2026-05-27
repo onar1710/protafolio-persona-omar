@@ -3,8 +3,7 @@ dist/
 # generated types
 .astro/
 
-##ai-article-genrerator
-ai-article-generator/
+
 
 # dependencies
 node_modules/
@@ -26,3 +25,7 @@ pnpm-debug.log*
 .idea/
 copia-seguridad/
 .tools/
+
+# ai-article-generator runtime output
+ai-article-generator/out/
+ai-article-generator/outputs/

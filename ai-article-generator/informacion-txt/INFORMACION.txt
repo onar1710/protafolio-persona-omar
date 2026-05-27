@@ -1,0 +1,50 @@
+ASUS TUF Gaming RTX 4070 no da imagen: causas y soluciones
+
+Keyword objetivo:
+ASUS TUF Gaming RTX 4070 no display
+
+Variantes reales de búsqueda:
+
+RTX 4070 no display after install
+ASUS TUF RTX 4070 black screen
+RTX 4070 fans spin no display
+new GPU no signal monitor
+RTX 4070 HDMI DisplayPort not working
+
+Intención de búsqueda:
+Troubleshooting / problema urgente.
+
+Qué busca la gente:
+El usuario instaló la GPU, pero el monitor dice “no signal”, aparece pantalla negra, los ventiladores giran pero no hay imagen, o Windows no detecta la tarjeta. Esta es una intención muy fuerte porque ocurre después de instalar una GPU nueva.
+
+Objetivo del artículo:
+Ayudar al usuario a diagnosticar el problema paso a paso antes de asumir que la tarjeta está dañada.
+
+Ángulo recomendado:
+“Pantalla negra no siempre significa GPU defectuosa: muchas veces es cable, fuente, BIOS, monitor o drivers.”
+
+Estructura sugerida:
+
+Confirmar que el monitor esté conectado a la RTX 4070.
+Probar DisplayPort y HDMI.
+Revisar que la GPU esté completamente insertada en PCIe.
+Revisar cable de alimentación.
+Probar otro cable o monitor.
+Hacer Clear CMOS si la placa no reconoce la GPU.
+Revisar configuración de BIOS:
+PCIe como salida principal.
+CSM/UEFI si hay problemas de arranque.
+Desinstalar drivers viejos con DDU si venías de AMD o GPU antigua.
+Instalar drivers NVIDIA actuales.
+Probar la GPU en otra PC si es posible.
+Cuándo contactar garantía:
+No enciende ningún LED.
+Olor a quemado.
+Artefactos persistentes.
+Pantalla negra en varias PCs.
+
+Título SEO recomendado:
+ASUS TUF Gaming RTX 4070 no da imagen: cómo solucionar pantalla negra o “no signal”
+
+Por qué no canibaliza la reseña:
+Es un artículo de soporte técnico. Captura usuarios con un problema específico, no usuarios buscando opinión o análisis.
