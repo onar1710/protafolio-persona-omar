@@ -2,7 +2,7 @@ name: Publicar artículo (draft -> false)
 
 on:
   schedule:
-    - cron: "10 11 * * *"
+    - cron: "35 11 * * *"
   workflow_dispatch:
 
 permissions:
