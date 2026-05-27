@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -6,6 +7,32 @@ const BLOG_DIR = path.join(ROOT, 'src', 'content', 'blog');
 
 const args = new Set(process.argv.slice(2));
 const dryRun = args.has('--dry-run');
+
+function alreadyPublishedTodayUtc() {
+	const now = new Date();
+	const start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0, 0));
+	const end = new Date(start.valueOf() + 24 * 60 * 60 * 1000);
+	const sinceIso = start.toISOString();
+	const untilIso = end.toISOString();
+	try {
+		const out = execFileSync(
+			'git',
+			[
+				'log',
+				`--since=${sinceIso}`,
+				`--until=${untilIso}`,
+				'--grep=chore: publicar siguiente artículo (draft=false)',
+				'-n',
+				'1',
+				'--pretty=%H',
+			],
+			{ encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+		);
+		return String(out ?? '').trim().length > 0;
+	} catch {
+		return false;
+	}
+}
 
 async function fileExists(fp) {
 	try {
@@ -97,6 +124,11 @@ function setDraftFalse(markdown) {
 async function main() {
 	if (!(await fileExists(BLOG_DIR))) {
 		console.log(`No existe el directorio: ${BLOG_DIR}`);
+		return;
+	}
+
+	if (alreadyPublishedTodayUtc()) {
+		console.log('Ya se publicó 1 artículo hoy (UTC).');
 		return;
 	}
 
