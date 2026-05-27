@@ -21,7 +21,7 @@ function alreadyPublishedTodayUtc() {
 				'log',
 				`--since=${sinceIso}`,
 				`--until=${untilIso}`,
-				'--grep=chore: publicar siguiente artículo (draft=false)',
+				'--grep=draft=false',
 				'-n',
 				'1',
 				'--pretty=%H',
@@ -65,13 +65,17 @@ async function listFilesRecursive(dirPath) {
 }
 
 function parseFrontmatter(markdown) {
-	const text = String(markdown ?? '');
+	const original = String(markdown ?? '');
+	const text = original.replace(/\r\n/g, '\n');
 	if (!text.startsWith('---')) return null;
-	const endIdx = text.indexOf('\n---', 3);
-	if (endIdx === -1) return null;
-	const body = text.slice(3, endIdx).replace(/^\r?\n/, '').trimEnd();
-	const rest = text.slice(endIdx + '\n---'.length);
-	return { body, rest, endIdx };
+
+	const endMatch = text.match(/\n---\s*(?:\n|$)/);
+	if (!endMatch || typeof endMatch.index !== 'number') return null;
+
+	const endIdx = endMatch.index;
+	const body = text.slice(3, endIdx).replace(/^\n/, '').trimEnd();
+	const rest = text.slice(endIdx + endMatch[0].length);
+	return { body, rest };
 }
 
 function extractField(frontmatterBody, key) {
@@ -100,7 +104,7 @@ function setDraftFalse(markdown) {
 
 	for (let i = 0; i < lines.length; i++) {
 		const line = lines[i] ?? '';
-		const m = line.match(/^(\s*)draft\s*:\s*(true|false)\s*$/i);
+		const m = line.match(/^(\s*)draft\s*:\s*(true|false)\b/i);
 		if (!m) continue;
 		found = true;
 		if (String(m[2]).toLowerCase() === 'false') break;
@@ -116,7 +120,7 @@ function setDraftFalse(markdown) {
 
 	if (!changed) return { changed: false, markdown };
 
-	const newFrontmatter = `---\n${lines.join('\n')}\n---`;
+	const newFrontmatter = `---\n${lines.join('\n')}\n---\n`;
 	const rebuilt = `${newFrontmatter}${fm.rest}`;
 	return { changed: true, markdown: rebuilt };
 }
