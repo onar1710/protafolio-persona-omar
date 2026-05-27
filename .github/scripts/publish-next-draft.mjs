@@ -7,6 +7,7 @@ const BLOG_DIR = path.join(ROOT, 'src', 'content', 'blog');
 
 const args = new Set(process.argv.slice(2));
 const dryRun = args.has('--dry-run');
+const ignoreDailyLimit = args.has('--ignore-daily-limit');
 
 function alreadyPublishedTodayUtc() {
 	const now = new Date();
@@ -131,7 +132,7 @@ async function main() {
 		return;
 	}
 
-	if (alreadyPublishedTodayUtc()) {
+	if (!ignoreDailyLimit && alreadyPublishedTodayUtc()) {
 		console.log('Ya se publicó 1 artículo hoy (UTC).');
 		return;
 	}
@@ -139,6 +140,7 @@ async function main() {
 	const files = await listFilesRecursive(BLOG_DIR);
 
 	const candidates = [];
+	let skippedFuture = 0;
 	for (const fp of files) {
 		const raw = await fs.readFile(fp, 'utf8');
 		const fm = parseFrontmatter(raw);
@@ -149,6 +151,11 @@ async function main() {
 
 		const pubDateRaw = extractField(fm.body, 'pubDate');
 		const pubDate = parseDate(pubDateRaw);
+
+		if (pubDate && pubDate.valueOf() > Date.now()) {
+			skippedFuture++;
+			continue;
+		}
 
 		candidates.push({ fp, pubDate });
 	}
@@ -166,6 +173,10 @@ async function main() {
 	});
 
 	if (candidates.length === 0) {
+		if (skippedFuture > 0) {
+			console.log(`No hay artículos publicables hoy. (${skippedFuture} con pubDate en el futuro)`);
+			return;
+		}
 		console.log('No hay artículos con draft: true para publicar.');
 		return;
 	}
