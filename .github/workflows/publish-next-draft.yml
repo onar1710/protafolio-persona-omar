@@ -1,9 +1,9 @@
 name: Publicar artículo (draft -> false)
 
 on:
-  schedule:
-    - cron: "0 9 * * *"
   workflow_dispatch:
+  repository_dispatch:
+    types: [publish-next-draft]
 
 permissions:
   contents: write
