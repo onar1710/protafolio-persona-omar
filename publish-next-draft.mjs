@@ -205,4 +205,3 @@ main().catch((error) => {
 	console.error(`Error: ${error?.message || String(error)}`);
 	process.exit(1);
 });
-
