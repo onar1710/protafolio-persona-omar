@@ -4,7 +4,7 @@ dist/
 .astro/
 
 #ai-article-generator
-ai-article-generator/
+
 
 # dependencies
 node_modules/
@@ -28,5 +28,4 @@ copia-seguridad/
 .tools/
 
 # ai-article-generator runtime output
-ai-article-generator/out/
-ai-article-generator/outputs/
+

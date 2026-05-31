@@ -167,6 +167,19 @@ function stripOuterMarkdownCodeFence(text) {
   return (fenceMatch[1] ?? '').trim() + '\n';
 }
 
+function stripYamlCodeFenceAroundFrontmatter(text) {
+  if (!text) return text;
+  const trimmed = text.trim();
+
+  // Remove ```yaml or ``` blocks that wrap the frontmatter
+  const yamlFenceMatch = trimmed.match(/^```(?:yaml)?\s*\r?\n([\s\S]*?)\r?\n```\s*$/);
+  if (yamlFenceMatch) {
+    return (yamlFenceMatch[1] ?? '').trim() + '\n';
+  }
+
+  return text;
+}
+
 function sanitizeForMdx(text) {
   if (!text) return text;
 
@@ -205,9 +218,11 @@ function enforceRequiredFrontmatter(article, fields) {
   const title = String(fields?.title ?? '').trim();
   const description = String(fields?.description ?? '').trim() || title;
   const pubDate = String(fields?.pubDate ?? '').trim();
+  const keywords = Array.isArray(fields?.keywords) ? fields.keywords.join(', ') : String(fields?.keywords ?? '').trim();
 
   if (title) out = upsertFrontmatterField(out, 'title', `title: ${safeYamlDoubleQuoted(title)}`);
-  out = upsertFrontmatterField(out, 'description', `description: ${safeYamlDoubleQuoted(description)}`);
+  if (description) out = upsertFrontmatterField(out, 'description', `description: ${safeYamlDoubleQuoted(description)}`);
+  if (keywords) out = upsertFrontmatterField(out, 'keywords', `keywords: ${safeYamlDoubleQuoted(keywords)}`);
   if (typeof fields?.draft === 'boolean') out = upsertFrontmatterField(out, 'draft', `draft: ${fields.draft ? 'true' : 'false'}`);
 
   if (pubDate) out = upsertFrontmatterField(out, 'pubDate', `pubDate: ${pubDate}`);
@@ -217,6 +232,9 @@ function enforceRequiredFrontmatter(article, fields) {
     const rendered = `[${tags.map((t) => safeYamlDoubleQuoted(t)).join(', ')}]`;
     out = upsertFrontmatterField(out, 'tags', `tags: ${rendered}`);
   }
+
+  // Remove slug field if present (not part of Astro schema)
+  out = out.replace(/^\s*slug\s*:.*$\r?\n?/im, '');
 
   return out;
 }
@@ -298,6 +316,19 @@ function pickMetaDescription(item) {
     item.meta_description ??
     '';
   return String(d ?? '').trim();
+}
+
+function pickKeywords(item) {
+  if (!item || typeof item !== 'object') return '';
+  const k =
+    item.keywords ??
+    item.variaciones_keywords ??
+    item.palabras_clave ??
+    [];
+  if (Array.isArray(k)) {
+    return k.map((kw) => String(kw ?? '').trim()).filter(Boolean).join(', ');
+  }
+  return String(k ?? '').trim();
 }
 
 function pickTag(item, plan) {
@@ -906,10 +937,12 @@ async function main() {
 
         console.log('  🤖 Generando artículo...');
         const messages = createMessages({ globalInstructions: articleInstructions, formatterExamples: effectiveFormatterExamples, researchContent });
-        const generated = sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages)));
+        const generated = sanitizeForMdx(stripYamlCodeFenceAroundFrontmatter(stripOuterMarkdownCodeFence(await getAIClient().generate(messages))));
+        const keywords = pickKeywords(item);
         const article = enforceRequiredFrontmatter(enforceDraft(enforceTitle(generated, desiredTitle), true), {
           title: desiredTitle,
           description,
+          keywords,
           pubDate,
           tags,
           draft: true,
@@ -947,7 +980,7 @@ async function main() {
         console.log('  🤖 Generando artículo...');
         const messages = createMessages({ globalInstructions: articleInstructions, formatterExamples, researchContent });
         const article = enforceDraft(
-          enforceTitle(sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages))), desiredTitle),
+          enforceTitle(sanitizeForMdx(stripYamlCodeFenceAroundFrontmatter(stripOuterMarkdownCodeFence(await getAIClient().generate(messages)))), desiredTitle),
           true
         );
 
@@ -981,7 +1014,7 @@ async function main() {
           console.log('  🤖 Generando artículo...');
           const messages = createMessages({ globalInstructions: articleInstructions, formatterExamples, researchContent });
           const article = enforceDraft(
-            enforceTitle(sanitizeForMdx(stripOuterMarkdownCodeFence(await getAIClient().generate(messages))), desiredTitle),
+            enforceTitle(sanitizeForMdx(stripYamlCodeFenceAroundFrontmatter(stripOuterMarkdownCodeFence(await getAIClient().generate(messages)))), desiredTitle),
             true
           );
 

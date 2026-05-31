@@ -1,6 +1,8 @@
 Generación de imágenes (ai-image-gen)
 Este proyecto incluye un script que genera automáticamente imágenes con IA en public/images/ para los artículos que referencian rutas tipo /images/<nombre>.png.
 
+ejecutar : npm run ai-image-gen
+
 Cómo funciona (importante)
 npm run ai-image-gen no “hace magia” por sí solo: npm únicamente ejecuta el script definido en package.json.
 El trabajo real lo hace scripts/ai-image-gen.mjs:
