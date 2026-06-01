@@ -126,11 +126,11 @@ const technologies = [
 const posts = (await getCollection('blog')).filter((post) => !post.id.startsWith('en/') && post.data.draft !== true);
 const latestPosts = posts
 	.sort((a, b) => {
-		const aDate = (a.data.updatedDate ?? a.data.pubDate).valueOf();
-		const bDate = (b.data.updatedDate ?? b.data.pubDate).valueOf();
+		const aDate = a.data.pubDate.valueOf();
+		const bDate = b.data.pubDate.valueOf();
 		return bDate - aDate;
 	})
-	.slice(0, 3);
+	.slice(0, 6);
 
 const postUrl = (id: string) => {
 	if (id.startsWith('seo/')) return `/seo/${id.slice('seo/'.length)}/`;
