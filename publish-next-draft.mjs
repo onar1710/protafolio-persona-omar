@@ -9,12 +9,22 @@ const args = new Set(process.argv.slice(2));
 const dryRun = args.has('--dry-run');
 const ignoreDailyLimit = args.has('--ignore-daily-limit');
 
-function alreadyPublishedTodayUtc() {
-	const now = new Date();
-	const start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0, 0));
-	const end = new Date(start.valueOf() + 24 * 60 * 60 * 1000);
-	const sinceIso = start.toISOString();
-	const untilIso = end.toISOString();
+function alreadyPublishedTodayBogota() {
+	const offsetMs = -5 * 60 * 60 * 1000;
+	const localNow = new Date(Date.now() + offsetMs);
+	const localDayStartAsUtcMs = Date.UTC(
+		localNow.getUTCFullYear(),
+		localNow.getUTCMonth(),
+		localNow.getUTCDate(),
+		0,
+		0,
+		0,
+		0,
+	);
+	const startUtc = new Date(localDayStartAsUtcMs - offsetMs);
+	const endUtc = new Date(startUtc.valueOf() + 24 * 60 * 60 * 1000);
+	const sinceIso = startUtc.toISOString();
+	const untilIso = endUtc.toISOString();
 	try {
 		const out = execFileSync(
 			'git',
@@ -132,8 +142,8 @@ async function main() {
 		return;
 	}
 
-	if (!ignoreDailyLimit && alreadyPublishedTodayUtc()) {
-		console.log('Ya se publicó 1 artículo hoy (UTC).');
+	if (!ignoreDailyLimit && alreadyPublishedTodayBogota()) {
+		console.log('Ya se publicó 1 artículo hoy (America/Bogota).');
 		return;
 	}
 
