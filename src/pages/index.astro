@@ -123,7 +123,7 @@ const technologies = [
   { name: "SEO", level: 95 }
 ];
 
-const posts = (await getCollection('blog')).filter((post) => !post.id.startsWith('en/'));
+const posts = (await getCollection('blog')).filter((post) => !post.id.startsWith('en/') && post.data.draft !== true);
 const latestPosts = posts
 	.sort((a, b) => {
 		const aDate = (a.data.updatedDate ?? a.data.pubDate).valueOf();
