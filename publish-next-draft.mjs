@@ -1,4 +1,3 @@
-import { execFileSync } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -7,42 +6,29 @@ const BLOG_DIR = path.join(ROOT, 'src', 'content', 'blog');
 
 const args = new Set(process.argv.slice(2));
 const dryRun = args.has('--dry-run');
-const ignoreDailyLimit = args.has('--ignore-daily-limit');
 
-function alreadyPublishedTodayBogota() {
-	const offsetMs = -5 * 60 * 60 * 1000;
-	const localNow = new Date(Date.now() + offsetMs);
-	const localDayStartAsUtcMs = Date.UTC(
-		localNow.getUTCFullYear(),
-		localNow.getUTCMonth(),
-		localNow.getUTCDate(),
-		0,
-		0,
-		0,
-		0,
-	);
-	const startUtc = new Date(localDayStartAsUtcMs - offsetMs);
-	const endUtc = new Date(startUtc.valueOf() + 24 * 60 * 60 * 1000);
-	const sinceIso = startUtc.toISOString();
-	const untilIso = endUtc.toISOString();
-	try {
-		const out = execFileSync(
-			'git',
-			[
-				'log',
-				`--since=${sinceIso}`,
-				`--until=${untilIso}`,
-				'--grep=draft=false',
-				'-n',
-				'1',
-				'--pretty=%H',
-			],
-			{ encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
-		);
-		return String(out ?? '').trim().length > 0;
-	} catch {
-		return false;
-	}
+const BOGOTA_OFFSET_MS = -5 * 60 * 60 * 1000;
+
+function bogotaYmdFromMs(ms) {
+	const d = new Date(Number(ms) + BOGOTA_OFFSET_MS);
+	return { y: d.getUTCFullYear(), m: d.getUTCMonth() + 1, d: d.getUTCDate() };
+}
+
+function parsePubDateYmd(value) {
+	const raw = String(value ?? '').trim();
+	if (!raw) return null;
+
+	const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+	if (m) return { y: Number(m[1]), m: Number(m[2]), d: Number(m[3]) };
+
+	const date = new Date(raw);
+	if (Number.isNaN(date.valueOf())) return null;
+	return bogotaYmdFromMs(date.valueOf());
+}
+
+function sameYmd(a, b) {
+	if (!a || !b) return false;
+	return a.y === b.y && a.m === b.m && a.d === b.d;
 }
 
 async function fileExists(fp) {
@@ -97,14 +83,6 @@ function extractField(frontmatterBody, key) {
 	return raw.replace(/^['"]|['"]$/g, '').trim();
 }
 
-function parseDate(value) {
-	const raw = String(value ?? '').trim();
-	if (!raw) return null;
-	const d = new Date(raw);
-	if (Number.isNaN(d.valueOf())) return null;
-	return d;
-}
-
 function setDraftFalse(markdown) {
 	const fm = parseFrontmatter(markdown);
 	if (!fm) return { changed: false, markdown };
@@ -142,15 +120,12 @@ async function main() {
 		return;
 	}
 
-	if (!ignoreDailyLimit && alreadyPublishedTodayBogota()) {
-		console.log('Ya se publicó 1 artículo hoy (America/Bogota).');
-		return;
-	}
-
 	const files = await listFilesRecursive(BLOG_DIR);
+	const today = bogotaYmdFromMs(Date.now());
 
 	const candidates = [];
-	let skippedFuture = 0;
+	let skippedNoPubDate = 0;
+	let skippedOtherDay = 0;
 	for (const fp of files) {
 		const raw = await fs.readFile(fp, 'utf8');
 		const fm = parseFrontmatter(raw);
@@ -160,34 +135,26 @@ async function main() {
 		if (String(draftRaw).toLowerCase() !== 'true') continue;
 
 		const pubDateRaw = extractField(fm.body, 'pubDate');
-		const pubDate = parseDate(pubDateRaw);
-
-		if (pubDate && pubDate.valueOf() > Date.now()) {
-			skippedFuture++;
+		const pubDateYmd = parsePubDateYmd(pubDateRaw);
+		if (!pubDateYmd) {
+			skippedNoPubDate++;
 			continue;
 		}
 
-		candidates.push({ fp, pubDate });
+		if (!sameYmd(pubDateYmd, today)) {
+			skippedOtherDay++;
+			continue;
+		}
+
+		candidates.push({ fp });
 	}
 
-	candidates.sort((a, b) => {
-		if (a.pubDate && b.pubDate) {
-			const diff = b.pubDate.valueOf() - a.pubDate.valueOf();
-			if (diff !== 0) return diff;
-		} else if (a.pubDate && !b.pubDate) {
-			return -1;
-		} else if (!a.pubDate && b.pubDate) {
-			return 1;
-		}
-		return a.fp.localeCompare(b.fp);
-	});
+	candidates.sort((a, b) => a.fp.localeCompare(b.fp));
 
 	if (candidates.length === 0) {
-		if (skippedFuture > 0) {
-			console.log(`No hay artículos publicables hoy. (${skippedFuture} con pubDate en el futuro)`);
-			return;
-		}
-		console.log('No hay artículos con draft: true para publicar.');
+		console.log(
+			`No hay artículos con draft: true para publicar hoy (America/Bogota). (${skippedOtherDay} con pubDate de otro día, ${skippedNoPubDate} sin pubDate)`,
+		);
 		return;
 	}
 
