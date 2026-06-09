@@ -104,25 +104,6 @@ const services = [
   }
 ];
 
-// Estadísticas basadas en resultados reales
-const stats = [
-  { value: "20+", label: "Negocios en Colombia" },
-  { value: "120%", label: "Tráfico Orgánico Promedio" },
-  { value: "0.8s", label: "Tiempo de Carga" },
-  { value: "<1h", label: "Respuesta Garantizada" }
-];
-
-// Tecnologías
-const technologies = [
-  { name: "Next.js", level: 95 },
-  { name: "React", level: 90 },
-  { name: "Astro", level: 85 },
-  { name: "WordPress", level: 88 },
-  { name: "Tailwind CSS", level: 92 },
-  { name: "Node.js", level: 88 },
-  { name: "SEO", level: 95 }
-];
-
 const posts = (await getCollection('blog')).filter((post) => !post.id.startsWith('en/') && post.data.draft !== true);
 const latestPosts = posts
 	.sort((a, b) => {
@@ -130,7 +111,7 @@ const latestPosts = posts
 		const bDate = b.data.pubDate.valueOf();
 		return bDate - aDate;
 	})
-	.slice(0, 6);
+	.slice(0, 9);
 
 const postUrl = (id: string) => {
 	if (id.startsWith('seo/')) return `/seo/${id.slice('seo/'.length)}/`;
@@ -142,59 +123,313 @@ const postUrl = (id: string) => {
 ---
 
 <Layout 
-  title="Diseño y Desarrollo de Paginas Web en Colombia Sitios que Venden" 
-  description="Diseño de páginas web profesional a medida en Colombia. Desarrollador web especializado en sitios rápidos, SEO potente y diseños que convierten visitantes en clientes. ¡Haz crecer tu negocio hoy!"
-  keywords="diseño y desarrollo de páginas web en Colombia, creación de páginas web, diseñador de páginas web, desarrollo de páginas web, páginas web profesionales, páginas web a medida, páginas web para negocios, páginas web responsivas, páginas web con SEO, páginas web que venden, páginas web modernas, páginas web rápidas, constructor de páginas web, empresa de páginas web, servicios de páginas web, páginas web para empresas, páginas web ecommerce, páginas web locales, páginas web SEO, páginas web Colombia, desarrollador web freelance, diseño web, SEO, Next.js, React, portafolio, sitios web modernos"
+  title="Blog de SEO y Diseño Web en Colombia | Omar Fuentes" 
+  description="Guías prácticas de SEO, diseño web y marketing digital para negocios en Colombia. Aprende a posicionar tu web en Google y conseguir más clientes. Freelancer SEO y desarrollador web."
+  keywords="blog seo colombia, diseño web colombia, posicionar web google, seo para negocios, freelancer seo, desarrollador web colombia, marketing digital, guias seo gratis"
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "url": "https://www.omarfuentes.com/",
+      "name": "Blog de SEO y Diseño Web en Colombia | Omar Fuentes",
+      "dateModified": "2026-06-09"
+    }
+  </script>
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center pb-16 md:pb-24 lg:pb-32 bg-gradient-to-br from-white via-blue-50/30 to-yellow-50/30 relative overflow-hidden pt-8">
-    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="animate-slide-in">
-          <div class="flex items-center space-x-2 mb-6">
-            <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-500/10 text-primary-blue border border-blue-500/20">Desarrollador Web Freelance</span>
-            <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-primary-green border border-green-500/20">Disponible</span>
+  <section id="home" class="min-h-screen flex items-center justify-center pb-4 md:pb-8 lg:pb-4 bg-white relative overflow-hidden pt-8">
+    <!-- Fondo sutil con formas geométricas -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-20 right-0 w-96 h-96 bg-blue-50 rounded-full opacity-60 translate-x-1/2 -translate-y-1/4"></div>
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-yellow-50 rounded-full opacity-50 -translate-x-1/3 translate-y-1/4"></div>
+    </div>
+
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <!-- Etiqueta editorial -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-8">
+            <span class="w-2 h-2 rounded-full bg-primary-blue animate-pulse"></span>
+            <span class="text-sm font-semibold text-primary-blue">Blog de SEO y Diseño Web · Recursos gratuitos</span>
           </div>
           
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-            Diseño y Desarrollo de <br/>
-            <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Paginas Web en Colombia</span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight text-gray-900">
+            SEO y Diseño Web para negocios que quieren
+            <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent"> crecer en Google</span>
           </h1>
-          
-          <p class="text-xl text-black mb-8 max-w-lg">
-            Páginas web profesional a medida en Colombia. Desarrollador web especializado en sitios rápidos, SEO potente y diseños que convierten visitantes en clientes. ¡Haz crecer tu negocio hoy!
+
+          <p class="text-lg md:text-xl text-gray-600 mb-4 max-w-xl leading-relaxed">
+            Soy <strong class="text-gray-900">Omar Fuentes</strong>, especialista en SEO y desarrollo web desde 2018. Aquí comparto guías prácticas y estrategias reales para que tu negocio sea más visible en Google.
+          </p>
+
+          <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-xl leading-relaxed">
+            Si necesitas que alguien lo aplique por ti, también puedo ayudarte con diseño web y posicionamiento SEO.
           </p>
           
-          <div class="flex flex-col sm:flex-row gap-4 mb-8">
-            <a href="/portfolio/proyectos/" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gradient-to-r from-primary-blue to-accent-blue text-white hover:shadow-glow-blue">
-              Ver Proyectos
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/blog/" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-semibold text-base bg-primary-blue text-white hover:bg-blue-700 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              Leer el blog
             </a>
-            <a href="#contact" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white">
-              Hablar por WhatsApp
+            <a href="/contacto/" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-semibold text-base border-2 border-gray-200 text-gray-700 hover:border-primary-blue hover:text-primary-blue transition-colors">
+              Hablar con Omar
             </a>
-          </div>
-          
-          <div class="w-full flex justify-between gap-4 md:gap-6">
-            {stats.map((stat) => (
-              <div class="text-center flex-1">
-                <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent leading-tight">
-                  {stat.value}
-                </div>
-                <div class="text-xs md:text-sm text-gray-600 leading-snug">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
         
-        <div class="relative">
-          <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-3xl opacity-10 animate-float"></div>
-          <div class="relative bg-white rounded-3xl p-8 shadow-2xl">
-            <div class="aspect-video bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl flex items-center justify-center">
-              <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-2xl mx-auto mb-4 animate-pulse"></div>
-                <p class="text-black">Tu próximo proyecto aquí</p>
+        <div class="relative flex justify-center lg:justify-end">
+          <!-- Tarjeta de credenciales detrás de la foto -->
+          <div class="relative">
+            <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100 z-10 max-w-xs">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-gray-900">+50 negocios ayudados</p>
+                  <p class="text-xs text-gray-500">Colombia y Latinoamérica</p>
+                </div>
+              </div>
+            </div>
+            <img 
+              src="/mi-foto-frelance-Photoroom.png" 
+              alt="Omar Fuentes - Especialista SEO y Desarrollador Web en Colombia"
+              class="w-4/5 lg:w-full h-auto max-w-sm relative z-0"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="pt-0 pb-4 lg:pb-8 bg-white">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      
+      <!-- Móvil: 2 filas | Desktop: 1 fila -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3 sm:gap-8 lg:gap-12">
+        
+        <!-- Fila 1 móvil: avatares + valoración -->
+        <div class="flex items-center gap-4">
+          <!-- Avatares -->
+          <div class="flex -space-x-2 flex-shrink-0">
+            <div class="w-8 h-8 lg:w-14 lg:h-14 rounded-full border-2 border-white bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xs lg:text-base flex-shrink-0">AM</div>
+            <div class="w-8 h-8 lg:w-14 lg:h-14 rounded-full border-2 border-white bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-xs lg:text-base flex-shrink-0">PA</div>
+            <div class="w-8 h-8 lg:w-14 lg:h-14 rounded-full border-2 border-white bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white font-bold text-xs lg:text-base flex-shrink-0">JC</div>
+            <div class="w-8 h-8 lg:w-14 lg:h-14 rounded-full border-2 border-white bg-gradient-to-br from-violet-500 to-violet-700 flex items-center justify-center text-white font-bold text-xs lg:text-base flex-shrink-0">GH</div>
+            <div class="w-8 h-8 lg:w-14 lg:h-14 rounded-full border-2 border-white bg-gradient-to-br from-rose-500 to-rose-700 flex items-center justify-center text-white font-bold text-xs lg:text-base flex-shrink-0">DV</div>
+          </div>
+          <div>
+            <p class="font-black text-base lg:text-2xl text-gray-900">43+ <span class="font-normal text-gray-500 text-sm lg:text-lg">clientes</span></p>
+          </div>
+          
+          <!-- Divisor solo desktop -->
+          <div class="hidden sm:block w-px h-8 bg-gray-200"></div>
+          
+          <!-- Valoración -->
+          <div class="flex items-center gap-2">
+            <div class="flex gap-0.5">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-4 h-4 lg:w-7 lg:h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+              ))}
+            </div>
+            <p class="font-black text-base lg:text-2xl text-gray-900">4.9 <span class="font-normal text-gray-500 text-sm lg:text-lg">/ 5</span></p>
+          </div>
+        </div>
+
+        <!-- Divisor desktop -->
+        <div class="hidden sm:block w-px h-8 bg-gray-200"></div>
+
+        <!-- Satisfechos -->
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 lg:w-11 lg:h-11 rounded-full bg-gradient-to-r from-primary-green to-accent-green flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <p class="font-black text-base lg:text-2xl text-gray-900">100% <span class="font-normal text-gray-500 text-sm lg:text-lg">satisfechos</span></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG DESTACADO — visible desde el inicio ===== -->
+  <section class="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-blue-500/10 text-primary-blue border border-blue-500/20 mb-3">Blog de SEO y Diseño Web</span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black">
+            Aprende a posicionar tu web <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">y vender más</span>
+          </h2>
+          <p class="text-xl text-black mt-3 max-w-2xl">Guías prácticas, análisis y estrategias de SEO, diseño web y marketing digital que aplico con mis clientes cada día.</p>
+        </div>
+        <a href="/blog/" class="flex-shrink-0 inline-flex items-center gap-2 text-primary-blue font-semibold hover:underline text-lg">
+          Ver todos los artículos
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {latestPosts.map((post) => (
+          <a href={postUrl(post.id)} class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block" style="text-decoration: none;">
+            <div class="relative aspect-video overflow-hidden bg-gray-50">
+              <img
+                src={post.data.heroImage || '/PAGINAS-WEB-BUCARAMAGA.webp'}
+                alt={post.data.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="p-6">
+              <div class="text-sm text-gray-500 mb-2">
+                <FormattedDate date={post.data.updatedDate ?? post.data.pubDate} />
+              </div>
+              <h3 class="text-xl font-black leading-snug text-black mb-3 group-hover:text-primary-blue transition-colors">{post.data.title}</h3>
+              <p class="text-gray-600 text-base line-clamp-2">{post.data.description}</p>
+              <div class="mt-4 text-primary-blue font-semibold text-sm flex items-center gap-1">
+                Leer artículo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Categorías del blog -->
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Explorar por categoría</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/blog/?cat=seo" class="px-5 py-2 rounded-full border-2 border-primary-blue text-primary-blue font-semibold hover:bg-primary-blue hover:text-white transition-all text-sm">SEO y Posicionamiento</a>
+          <a href="/blog/?cat=disenoweb" class="px-5 py-2 rounded-full border-2 border-primary-yellow text-gray-800 font-semibold hover:bg-primary-yellow transition-all text-sm">Diseño Web</a>
+          <a href="/blog/?cat=marketing" class="px-5 py-2 rounded-full border-2 border-primary-green text-primary-green font-semibold hover:bg-primary-green hover:text-white transition-all text-sm">Marketing Digital</a>
+          <a href="/blog/?cat=social" class="px-5 py-2 rounded-full border-2 border-gray-400 text-gray-700 font-semibold hover:bg-gray-100 transition-all text-sm">Social Media</a>
+          <a href="/blog/" class="px-5 py-2 rounded-full bg-gray-100 text-gray-700 font-semibold hover:bg-gray-200 transition-all text-sm">Ver todo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios SEO freelance -->
+  <section class="py-8 md:py-12 lg:py-6 bg-white">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div>
+        <div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            Cómo trabajo y qué puedes <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">aprender aquí</span>
+          </h2>
+          
+          <p class="text-xl text-black mb-6">
+            Como freelancer, estaré junto a ti durante todo el proceso. Para mí, cada cliente y cada proyecto tienen una historia, unos objetivos y unas necesidades propias. Tu negocio jamás será un número más.
+          </p>
+          
+          <h3 class="text-2xl font-bold mb-4">¿Por qué elegirme como tu freelancer de diseño web y SEO?</h3>
+          
+          <p class="text-xl text-black mb-6">
+            Soy más que un diseñador web o un profesional de posicionamiento SEO. Puedo convertirme en tu aliado estratégico para ayudarte a crecer en el entorno digital. Sé que cada negocio es diferente, por eso desarrollo sitios web y estrategias SEO personalizadas, sin soluciones prefabricadas ni promesas mágicas que no se puedan sostener.
+          </p>
+          
+          <h4 class="text-xl font-bold mb-4">Lo que hago diferente:</h4>
+          
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-blue to-accent-blue rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h5 class="font-bold text-lg mb-2">Escucho y entiendo tu negocio</h5>
+                <p class="text-black mb-6">
+                  Antes de hablar de diseño o estrategias SEO, escucho tus necesidades y adapto el diseño web y el SEO a tus metas reales.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-8">
+                  <a href="/blog/errores-diseno-web/" class="block group">
+                    <div class="relative aspect-video overflow-hidden rounded-lg mb-4">
+                      <img 
+                        src="/assets/blog/blocks.jpg" 
+                        alt="Errores de diseño web"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h6 class="font-bold text-xl mb-3 text-gray-900 group-hover:text-primary-blue transition-colors">¿Necesitas una web que genere confianza?</h6>
+                    <p class="text-xl text-gray-600">Descubre los 7 errores de diseño web que están costándote clientes y cómo evitarlos.</p>
+                  </a>
+                  
+                  <a href="/blog/como-posicionar-mi-web-en-los-primeros-lugares-de-google/" class="block group">
+                    <div class="relative aspect-video overflow-hidden rounded-lg mb-4">
+                      <img 
+                        src="/assets/blog/como-posicionar-web-primeros-lugares-google.jpg" 
+                        alt="Posicionar en Google"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h6 class="font-bold text-xl mb-3 text-gray-900 group-hover:text-primary-blue transition-colors">¿Quieres más tráfico orgánico?</h6>
+                    <p class="text-xl text-gray-600">Estrategias efectivas para posicionar tu web en los primeros lugares de Google sin pagar anuncios.</p>
+                  </a>
+                  
+                  <a href="/blog/posicionar-negocio-local-google-maps-busquedas/" class="block group">
+                    <div class="relative aspect-video overflow-hidden rounded-lg mb-4">
+                      <img 
+                        src="/assets/blog/posicionar-negocio-local-google-maps-busquedas.jpg" 
+                        alt="SEO Local Google Maps"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h6 class="font-bold text-xl mb-3 text-gray-900 group-hover:text-primary-blue transition-colors">¿Buscas clientes locales?</h6>
+                    <p class="text-xl text-gray-600">Aprende a posicionar tu negocio local en Google Maps y búsquedas locales para atraer clientes cerca de ti.</p>
+                  </a>
+                  
+                  <a href="/blog/eeat-google-experiencia-autoridad-posicionar/" class="block group">
+                    <div class="relative aspect-video overflow-hidden rounded-lg mb-4">
+                      <img 
+                        src="/assets/blog/eeat-google-experiencia-autoridad-posicionar.jpg" 
+                        alt="E-E-A-T Google"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h6 class="font-bold text-xl mb-3 text-gray-900 group-hover:text-primary-blue transition-colors">¿Quieres posicionarte como referente?</h6>
+                    <p class="text-sm text-gray-600">Descubre cómo demostrar experiencia y autoridad para que Google te reconozca como experto en tu campo.</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-yellow to-accent-yellow rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h5 class="font-bold text-lg mb-2">Pienso como tu cliente desde el diseño</h5>
+                <p class="text-black">
+                  El diseño no debe ser solo bonito, y la optimización no debe ser solo para Google. Todo debe conectar con tu cliente ideal. Por eso, creo sitios web con experiencias de usuario que facilitan la conversión, y trabajo estrategias SEO que atraen visitas calificadas. Porque el tráfico y un diseño bonito sin resultados no sirven de mucho.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-green to-accent-green rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h5 class="font-bold text-lg mb-2">Me enfoco en resultados reales y medibles</h5>
+                <p class="text-black">
+                  No se trata solo de tener una web bonita o de subir posiciones en Google. Se trata de que tu sitio web atraiga mejores oportunidades, más consultas, más ventas y más crecimiento. Mi trabajo combina diseño estratégico, desarrollo técnico y optimización SEO para que tu presencia online tenga un impacto claro en tu negocio.
+                </p>
               </div>
             </div>
           </div>
@@ -238,7 +473,7 @@ const postUrl = (id: string) => {
               </div>
               
               <h3 class="text-xl md:text-2xl font-bold mb-2">{project.title}</h3>
-              <p class="text-gray-600 mb-4">{project.description}</p>
+              <p class="text-xl text-gray-600 mb-4">{project.description}</p>
               
               <div class="flex flex-wrap gap-2 mb-4">
                 {project.stats.map((stat) => (
@@ -282,11 +517,11 @@ const postUrl = (id: string) => {
             </div>
             
             <h3 class="text-xl md:text-2xl font-bold mb-4">{service.title}</h3>
-            <p class="text-gray-600 mb-6">{service.description}</p>
+            <p class="text-xl text-gray-600 mb-6">{service.description}</p>
             
             <ul class="space-y-2">
               {service.features.map((feature) => (
-                <li class="flex items-center text-sm text-gray-600">
+                <li class="flex items-center text-base text-gray-600">
                   <svg class="w-4 h-4 text-primary-green mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                   </svg>
@@ -364,30 +599,24 @@ const postUrl = (id: string) => {
     </div>
   </section>
 
-  <!-- Technologies Section -->
-  <section class="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white">
-    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
-          Tecnologías <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Modernas</span>
-        </h2>
-        <p class="text-xl text-black max-w-3xl mx-auto">
-          Las mejores herramientas para crear sitios web de alto rendimiento
+  <!-- Technologies Section - movido a página sobre-mi -->
+
+  <!-- Mi Historia -->
+  <section class="py-16 md:py-24 lg:py-32">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-5xl">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-8 text-center">
+        Mi <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Historia</span>
+      </h2>
+      <div class="grid gap-6 text-lg leading-8 text-black">
+        <p>
+          Todo empezó en 2018, cuando creé mi primer sitio web. No era perfecto, pero me enseñó algo fundamental: <strong>una página web no es solo código y colores</strong>. Es la cara digital de un negocio, su primera impresión con clientes potenciales, y la herramienta más poderosa para generar confianza y ventas en Internet.
         </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {technologies.map((tech) => (
-          <div class="bg-white rounded-2xl p-6 shadow-lg">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="font-bold text-lg">{tech.name}</h3>
-              <span class="text-sm font-semibold bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">{tech.level}%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-3">
-              <div class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green h-3 rounded-full transition-all duration-1000" style={`width: ${tech.level}%`}></div>
-            </div>
-          </div>
-        ))}
+        <p>
+          Desde entonces, he tenido el privilegio de trabajar con más de 50 negocios en Colombia y Latinoamérica, ayudándolos a pasar de "no aparecer en Google" a "estar en los primeros lugares" y convertir visitas en clientes reales. Me especializo en sitios web rápidos, optimizados para SEO desde el primer día, y diseñados para convertir.
+        </p>
+        <p>
+          Hoy, como desarrollador web freelance, mi misión es simple: <strong>hacer que las pequeñas y medianas empresas colombianas compitan en Internet de tú a tú con las grandes marcas</strong>, sin gastos excesivos ni complicaciones innecesarias.
+        </p>
       </div>
     </div>
   </section>
@@ -514,47 +743,49 @@ const postUrl = (id: string) => {
     </div>
   </section>
 
-  <!-- Latest Blog Posts -->
-  <section class="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white">
-    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-        <div>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
-            Últimos <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">artículos</span>
-          </h2>
+  <!-- Latest Blog Posts - ELIMINADO, ahora está arriba -->
+
+  <!-- Preguntas Frecuentes -->
+  <section class="py-16 md:py-24 lg:py-32">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-4xl">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-12 text-center">
+        Preguntas <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">Frecuentes</span>
+      </h2>
+      <div class="space-y-8">
+        <div class="card">
+          <h3 class="text-xl font-bold mb-3">¿Cuánto tiempo tarda un sitio web en posicionarse en Google?</h3>
+          <p class="text-black leading-7">
+            Depende del nicho, la competencia y la calidad del contenido. En términos generales, un sitio nuevo necesita entre <strong>3 y 6 meses</strong> para empezar a ver resultados orgánicos consistentes. Los primeros meses Google evalúa la constancia, la estructura técnica y la relevancia del contenido. Los sitios con buena arquitectura SEO desde el día 1 acortan ese tiempo considerablemente.
+          </p>
         </div>
-        <a href="/blog/" class="text-primary-blue font-semibold hover:underline">
-          Ver todos los artículos
-        </a>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {latestPosts.map((post) => (
-          <a
-            href={postUrl(post.id)}
-            class="bg-white rounded-2xl overflow-hidden transition-all duration-500 border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 block"
-            style="text-decoration: none;"
-          >
-            <div class="relative aspect-video overflow-hidden bg-gray-50">
-              <img
-                src={post.data.heroImage || '/PAGINAS-WEB-BUCARAMAGA.webp'}
-                alt={post.data.title}
-                class="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+        <div class="card">
+          <h3 class="text-xl font-bold mb-3">¿Qué es el SEO técnico y por qué importa para mi negocio?</h3>
+          <p class="text-black leading-7">
+            El SEO técnico es el conjunto de configuraciones que le permiten a Google rastrear, entender e indexar tu sitio correctamente. Incluye velocidad de carga, estructura de URLs, datos estructurados, sitemap, robots.txt y Core Web Vitals. Sin una base técnica sólida, incluso el mejor contenido puede quedar invisible en los resultados de búsqueda.
+          </p>
+        </div>
 
-            <div class="p-7">
-              <div class="text-sm text-black mb-3">
-                <FormattedDate date={post.data.updatedDate ?? post.data.pubDate} />
-              </div>
-              <h3 class="text-xl font-black leading-snug text-black">{post.data.title}</h3>
-              <p class="mt-3 text-black">{post.data.description}</p>
-              <div class="mt-6 text-primary-blue font-semibold">Leer artículo</div>
-            </div>
-          </a>
-        ))}
+        <div class="card">
+          <h3 class="text-xl font-bold mb-3">¿Cuál es la diferencia entre SEO local y SEO orgánico?</h3>
+          <p class="text-black leading-7">
+            El SEO orgánico busca posicionar páginas web en resultados generales de Google sin importar la ubicación del usuario. El SEO local, en cambio, está diseñado para negocios con presencia física o que atienden una zona geográfica específica. Aparece en el mapa de Google (Local Pack) cuando alguien busca "servicio cerca de mí" o "servicio + ciudad". Son estrategias complementarias, no excluyentes.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-xl font-bold mb-3">¿Qué hace que un diseño web convierta visitas en clientes?</h3>
+          <p class="text-black leading-7">
+            Un sitio que convierte tiene tres pilares: <strong>velocidad</strong> (carga en menos de 2 segundos), <strong>claridad</strong> (el visitante entiende en 5 segundos qué ofreces y por qué confiar) y <strong>llamada a la acción visible</strong>. El diseño bonito ayuda, pero sin una estructura pensada para guiar al usuario hacia el contacto o la compra, las visitas simplemente rebotan.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-xl font-bold mb-3">¿Necesito un blog en mi sitio web para mejorar mi SEO?</h3>
+          <p class="text-black leading-7">
+            No es obligatorio, pero sí es una de las estrategias más efectivas a largo plazo. Un blog bien gestionado genera contenido indexable, atrae tráfico de búsquedas informativas y construye autoridad temática. Negocios que publican contenido relevante consistentemente reciben hasta 3 veces más tráfico orgánico que los que solo tienen páginas estáticas de servicios.
+          </p>
+        </div>
       </div>
     </div>
   </section>

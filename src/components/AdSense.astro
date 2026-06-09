@@ -1,0 +1,25 @@
+---
+export interface Props {
+	slot?: string;
+	format?: 'auto' | 'rectangle' | 'vertical' | 'horizontal';
+	layout?: string;
+}
+
+const { slot = '', format = 'auto' } = Astro.props;
+---
+
+<!-- Espacio para anuncio de AdSense -->
+<div class="my-8">
+	<ins
+		class="adsbygoogle"
+		style="display:block; text-align:center;"
+		data-ad-layout="in-article"
+		data-ad-format={format}
+		data-ad-client="ca-pub-1895965465312147"
+		data-ad-slot={slot}
+	></ins>
+</div>
+
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+</script>

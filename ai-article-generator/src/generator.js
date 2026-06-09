@@ -469,23 +469,11 @@ function tryParseJsonFromModelOutput(text) {
 function validatePlanTitles(plan, maxLen = 72) {
   const issues = [];
   const candidates = normalizePlanItems(plan);
+  const minLen = 60; // NUEVO: Mínimo obligatorio
 
-  const starters = new Set([
-    'que',
-    'qué',
-    'cual',
-    'cuál',
-    'por',
-    'porqué',
-    'porqué',
-    'donde',
-    'dónde',
-    'cuando',
-    'cuándo',
-    'como',
-    'cómo',
-    'si',
-  ]);
+  const forbiddenChars = [':', ',', '?', '¿'];
+  const forbiddenWords = ['guía', 'guia', 'tutorial', 'manual', 'completa', 'completo', 'definitiva', 'definitivo'];
+  const yearPattern = /\b(202[0-9]|203[0-9])\b/i;
 
   for (let i = 0; i < candidates.length; i++) {
     const t = String(candidates[i]?.title ?? '').trim();
@@ -493,18 +481,35 @@ function validatePlanTitles(plan, maxLen = 72) {
       issues.push({ index: i, type: 'missing_title' });
       continue;
     }
+    
+    // NUEVO: Check minimum length
+    if (t.length < minLen) {
+      issues.push({ index: i, type: 'title_too_short', length: t.length, minLen, title: t });
+    }
+    
+    // Check length
     if (t.length > maxLen) {
       issues.push({ index: i, type: 'title_too_long', length: t.length, maxLen, title: t });
     }
 
-    const first = t
-      .normalize('NFKD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .trim()
-      .split(/\s+/)[0]
-      .toLowerCase();
-    if (first && !starters.has(first)) {
-      issues.push({ index: i, type: 'title_starter_not_question_word', title: t });
+    // Check forbidden characters
+    for (const char of forbiddenChars) {
+      if (t.includes(char)) {
+        issues.push({ index: i, type: 'forbidden_character', char, title: t });
+      }
+    }
+
+    // Check for years
+    if (yearPattern.test(t)) {
+      issues.push({ index: i, type: 'contains_year', title: t });
+    }
+
+    // Check forbidden words
+    const lowerTitle = t.toLowerCase();
+    for (const word of forbiddenWords) {
+      if (lowerTitle.includes(word)) {
+        issues.push({ index: i, type: 'forbidden_word', word, title: t });
+      }
     }
   }
   return issues;
@@ -681,10 +686,125 @@ async function main() {
         const choice = await askChoice(rl, 'Selecciona una opción', [
           { key: '1', label: 'Analizar artículo (.md) y guardar investigación (JSON) en /out' },
           { key: '2', label: 'Generar artículos desde una investigación (JSON) en /out' },
+          { key: '3', label: 'Analizar fuente original con perfil del sitio y generar ideas' },
           { key: '0', label: 'Salir' },
         ]);
 
         if (choice === '0') return;
+
+        if (choice === '3') {
+          const lang = await askChoice(rl, 'Idioma del artículo', [
+            { key: 'es', label: 'Español' },
+            { key: 'en', label: 'English' },
+          ]);
+          args.lang = lang;
+
+          const profilePath = path.join(repoRoot, 'PERFIL_SITIO.md');
+          const sourcePath = path.join(toolRootDir, 'fuente-original-analisis.txt');
+          
+          if (!(await fileExists(profilePath))) {
+            throw new Error(`No se encontró el perfil del sitio en: ${profilePath}`);
+          }
+          if (!(await fileExists(sourcePath))) {
+            throw new Error(`No se encontró la fuente original en: ${sourcePath}`);
+          }
+
+          const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+          const outputPath = path.join(outDirResolved, `ideas-${stamp}.json`);
+
+          await fs.mkdir(outDirResolved, { recursive: true });
+
+          console.log(`\n▶ Leyendo perfil del sitio: ${profilePath}`);
+          const profileContent = await readRequiredFile(profilePath, 'PERFIL_SITIO.md');
+          
+          console.log(`▶ Leyendo fuente original: ${sourcePath}`);
+          const sourceContent = await readRequiredFile(sourcePath, 'fuente-original-analisis.txt');
+
+          console.log(`▶ Recopilando artículos existentes del sitio...`);
+          const existingPosts = await summarizeExistingBlogPosts(repoRoot);
+
+          const researchContent = JSON.stringify(
+            {
+              language: lang,
+              profileSite: profileContent,
+              sourceContent: sourceContent,
+              existingSitePosts: existingPosts.slice(0, 100),
+              timestamp: new Date().toISOString(),
+              instructions: "Genera ideas ÚNICAS y DIVERSAS. Evita repetir temas de artículos existentes. Cada idea debe ser diferente y cubrir ángulos distintos del tema fuente."
+            },
+            null,
+            2
+          );
+
+          logPromptParts({ globalInstructions: analysisInstructions, formatterExamples: '', researchContent });
+          console.log('  🤖 Generando ideas de artículos basadas en el perfil del sitio...');
+          
+          const modelOutput = stripOuterMarkdownCodeFence(
+            await getAIClient().generate(
+              createMessages({ globalInstructions: analysisInstructions, formatterExamples: '', researchContent })
+            )
+          );
+
+          await fs.writeFile(outputPath, modelOutput, 'utf-8');
+          console.log(`  ✅ Ideas guardadas en: ${outputPath}`);
+
+          const parsed = tryParseJsonFromModelOutput(modelOutput);
+          if (parsed.value) {
+            const items = normalizePlanItems(parsed.value);
+            console.log(`  📊 Se generaron ${items.length} ideas de artículos`);
+            
+            // Validate required fields (fragmento_textual_fuente, etc)
+            let missingFragments = 0;
+            let missingJustifications = 0;
+            for (let i = 0; i < items.length; i++) {
+              const item = items[i];
+              if (!item.fragmento_textual_fuente || item.fragmento_textual_fuente.length < 20) {
+                missingFragments++;
+              }
+              if (!item.por_que_genera_idea || item.por_que_genera_idea.length < 50) {
+                missingJustifications++;
+              }
+            }
+            
+            if (missingFragments > 0) {
+              console.log(`  ⚠️ ${missingFragments} idea(s) sin fragmento textual válido`);
+            }
+            if (missingJustifications > 0) {
+              console.log(`  ⚠️ ${missingJustifications} idea(s) sin justificación válida`);
+            }
+            
+            // Validate titles
+            const issues = validatePlanTitles(parsed.value, 74);
+            if (issues.length) {
+              console.log(`\n  ⚠️ ADVERTENCIA: ${issues.length} título(s) con problemas:`);
+              for (const issue of issues.slice(0, 5)) {
+                if (issue.type === 'title_too_short') {
+                  console.log(`    - Título ${issue.index + 1}: Muy corto (${issue.length} chars, mín ${issue.minLen})`);
+                } else if (issue.type === 'forbidden_character') {
+                  console.log(`    - Título ${issue.index + 1}: Contiene carácter prohibido "${issue.char}"`);
+                } else if (issue.type === 'contains_year') {
+                  console.log(`    - Título ${issue.index + 1}: Contiene año (no permitido)`);
+                } else if (issue.type === 'forbidden_word') {
+                  console.log(`    - Título ${issue.index + 1}: Contiene palabra genérica "${issue.word}"`);
+                } else if (issue.type === 'title_too_long') {
+                  console.log(`    - Título ${issue.index + 1}: Muy largo (${issue.length} caracteres)`);
+                }
+              }
+              if (issues.length > 5) {
+                console.log(`    ... y ${issues.length - 5} más`);
+              }
+              console.log(`\n  💡 Tip: Títulos deben tener 60-74 caracteres y prometer valor específico\n`);
+            } else {
+              console.log(`  ✅ Todos los títulos cumplen las reglas`);
+            }
+            
+            if (missingFragments === 0 && missingJustifications === 0 && issues.length === 0) {
+              console.log(`\n  🎉 ¡Perfecto! Todas las ideas tienen fragmentos textuales y justificaciones válidas\n`);
+            }
+          }
+
+          return;
+        }
 
         if (choice === '1') {
           const lang = await askChoice(rl, 'Idioma del artículo', [

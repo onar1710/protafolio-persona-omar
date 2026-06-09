@@ -204,14 +204,14 @@ const achievements = [
   },
 ];
 
-const barClass = (color) =>
+const barClass = (color: string) =>
   color === 'green'
     ? 'from-primary-green to-accent-green'
     : color === 'purple'
       ? 'from-primary-blue via-primary-yellow to-primary-green'
       : 'from-primary-blue to-accent-blue';
 
-const expectationIcon = (name) => {
+const expectationIcon = (name: string) => {
   if (name === 'Diseño y UX') {
     return `
       <svg viewBox="0 0 64 64" aria-hidden="true" class="w-14 h-14">
@@ -315,7 +315,7 @@ const heroProfileSvg = `
       <circle cx="360" cy="360" r="160" fill="url(#ring)"/>
       <circle cx="360" cy="360" r="146" fill="#ffffff"/>
 	  <image
-		href="/foto-perfil-omar-fuentes.jpeg"
+		href="/mi-foto-frelance-Photoroom.png"
 		x="224"
 		y="224"
 		width="272"
