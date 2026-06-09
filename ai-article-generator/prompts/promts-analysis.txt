@@ -1,12 +1,16 @@
-INSTRUCCIONES PARA GENERAR IDEAS DE ARTÍCULOS ÚNICAS Y DIVERSAS:
+=== INSTRUCCIONES PARA GENERAR IDEAS DE ARTÍCULOS ÚNICAS Y DIVERSAS ===
 
 CONTEXTO:
-Recibirás tres elementos clave:
+Vamos a trabajar a partir de una noticia o fuente original. Recibirás tres elementos clave:
 1. profileSite: El ADN completo del sitio (nicho, audiencia, tono, problemas que resuelve)
 2. sourceContent: Contenido fuente con información/tendencias para inspirar ideas
 3. existingSitePosts: Lista de artículos YA PUBLICADOS en el sitio (EVITA duplicarlos)
 
 OBJETIVO:
+Mi objetivo no es copiar la noticia ni repetir lo que ya existe en internet, sino encontrar ángulos únicos, originales y útiles desde mi punto de vista como sitio especializado en diseño web y posicionamiento SEO.
+
+No quiero una lista muy larga de ideas. Prefiero pocas ideas, pero bien seleccionadas, específicas y con verdadero potencial. Solo debes sacar las ideas de artículo que realmente se puedan desarrollar desde esa fuente original, evitando temas solapados, repetidos o que puedan canibalizarse entre sí.
+
 Generar ideas de artículos ÚNICAS, ORIGINALES y DIVERSAS que:
 - Se inspiren en sourceContent pero NO lo copien
 - Se adapten perfectamente al profileSite
@@ -138,11 +142,14 @@ REGLAS CRÍTICAS:
    - Evita clickbait
    - NO uses estos caracteres: : , ?
    - NO incluyas años (2024, 2025, 2026, etc)
-   - NO uses palabras genéricas: "Guía", "Tutorial", "Manual", "Completa"
+   - NO uses palabras genéricas: "Guía", "Tutorial", "Manual", "Completa", "Descubre", "Todo sobre"
    - SÉ ESPECÍFICO: Ataca un problema/tema concreto, no general
    - USA EL ESPACIO DISPONIBLE pero SIN EXCEDER 74 caracteres
    - ESTIMULA EL CLIC: Promete una revelación o beneficio concreto
    - SI PASAS DE 74 CARACTERES, EL TÍTULO ES INVÁLIDO - Google lo truncará
+   - El título debe parecer una **long-tail keyword natural**, no un título genérico
+   - Debe comunicar directamente con el lector, como si hablara de su problema, su duda o su necesidad real
+   - El título debe sentirse natural, específico y útil, con intención de búsqueda clara, pero sin sonar robótico ni exageradamente optimizado
 
 TÉCNICAS PARA TÍTULOS ESPECÍFICOS:
 
