@@ -4,7 +4,7 @@ dist/
 .astro/
 
 #ai-article-generator
-
+ai-article-generator/
 
 # dependencies
 node_modules/

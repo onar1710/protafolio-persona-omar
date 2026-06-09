@@ -1,12 +1,17 @@
 ---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
 import Layout from '../../layouts/LayoutEN.astro';
 
-const stats = [
-  { value: '20+', label: 'Businesses Helped' },
-  { value: '120%', label: 'Avg Organic Traffic' },
-  { value: '0.8s', label: 'Load Time' },
-  { value: '<1h', label: 'Response Time' },
-];
+type BlogEntry = CollectionEntry<'blog'>;
+
+const enPosts = (await getCollection('blog'))
+  .filter((post: BlogEntry) => post.id.startsWith('en/'))
+  .filter((post: BlogEntry) => !post.data?.draft)
+  .sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
+
+const postUrl = (id: string) => `/en/blog/${id.slice('en/'.length)}/`;
 
 const howItWorks = [
   { step: '1', title: 'Contact & Free Consultation', description: 'Tell us about your business, goals, and what you need. We\'ll guide you and recommend the best solution.' },
@@ -69,95 +74,189 @@ const whyWorkWithMe = [
 ];
 
 const testimonials = [
-  { name: 'Michael Johnson', text: 'Excellent web design service! Omar created a professional website for my restaurant that increased our online orders by 40%. Highly recommend!' },
-  { name: 'Sarah Williams', text: 'Great experience working with Omar! He designed our salon website and it looks amazing. Fast loading and mobile-friendly. Our clients love it!' },
-  { name: 'David Martinez', text: 'Professional and affordable web design! Omar built our construction company website and it helped us get more local clients. SEO optimization really works!' },
-  { name: 'Emily Chen', text: 'Amazing work! Omar created a beautiful website for my photography business. The gallery features are perfect and my clients love how easy it is to navigate.' },
-  { name: 'Robert Taylor', text: 'Great experience! Omar designed our gym website with class schedules and membership features. Our sign-ups increased by 35% in the first month!' },
-  { name: 'Jessica Brown', text: 'Omar built our cleaning service website and it\'s been fantastic! The quote request form brings us new leads every week. Highly recommend his services!' },
-  { name: 'Daniel Wilson', text: 'Outstanding service! Omar created our real estate website with property listings and virtual tours. We\'re getting more qualified leads than ever before!' },
+  { name: 'Ayeuri Melo Sanchez', text: 'One of the best developers I have ever met. He built a consulting website for the Dominican Republic and it turned out amazing. Highly recommend!' },
+  { name: 'Plomeria Aquaimperio', text: 'Omar, thank you for your services. I really liked the website, highly recommended, he does his job very well and pays close attention to detail.' },
+  { name: 'Jorge Capacho', text: 'Omar thank you for your support. The website turned out exactly how I wanted. Thanks to you I can continue with my business.' },
+  { name: 'Jaime Mantilla', text: 'Very professional, excellent for creating websites. He helped with my business and I highly recommend him.' },
+  { name: 'Gladys Hernández', text: 'I hired Omar to build my pet products website. I needed something professional and the result was excellent work.' },
+  { name: 'David', text: 'Very professional and dedicated. I was surprised that in 4 days my business website was almost ready. I recommend him openly.' },
 ];
 
 const faqs = [
-  { question: 'What makes your web design company in USA different?', answer: 'We combine responsive web design with HTML5, expert SEO optimization, and conversion-focused strategies. As a full-service web development company in USA, we deliver complete solutions that rank in Google and convert visitors into customers.' },
-  { question: 'How long does it take to see SEO results?', answer: 'Most clients see first-page rankings within 3 months. Our organic search engine optimization SEO company focuses on sustainable growth, with average organic traffic increases of 150% and 70% faster loading times.' },
-  { question: 'Do you offer Shopify development services?', answer: 'Yes, we provide complete Shopify development services including custom theme development, app integration, and SEO optimization. Our e-commerce clients see average sales increases of 35% with faster loading stores.' },
-  { question: 'What are your local SEO services for small business?', answer: 'Our local SEO services include Google Business Profile optimization, local keyword ranking, customer review strategy, and local citation building. Clients typically see 60% more local calls and Google 3-pack placement.' },
-  { question: 'Are you a WordPress web development and SEO specialist?', answer: 'Yes, we specialize in WordPress web development and SEO with 500+ sites optimized. We offer custom theme development, plugin optimization, schema markup, and security maintenance with 95% first-page ranking success.' },
-  { question: 'What is responsive web design with HTML5?', answer: 'Responsive web design with HTML5 ensures your website works perfectly on all devices while following modern web standards. Our responsive web design company with SEO expertise creates mobile-first designs that increase mobile traffic by 60%.' },
-  { question: 'How much do your web development services cost?', answer: 'Our web development company in USA offers flexible pricing: Shopify development from $499, WordPress SEO from $399, and local SEO services from $299. All packages include ongoing support and optimization.' },
-  { question: 'Do you work with small businesses only?', answer: 'While we specialize in helping small businesses compete online, we work with businesses of all sizes. Our responsive web design and SEO strategies are scalable to meet your specific needs and budget.' },
+  { question: 'How long does it take for a website to rank on Google?', answer: 'It depends on the niche, competition and content quality. Generally, a new website needs between 3 and 6 months to see consistent organic results. Sites with solid SEO technical structure from day one shorten that time considerably.' },
+  { question: 'What is technical SEO and why does it matter for my business?', answer: 'Technical SEO is the set of configurations that allow Google to crawl, understand and index your site correctly. It includes loading speed, URL structure, structured data, sitemap, robots.txt and Core Web Vitals. Without a solid technical foundation, even the best content can remain invisible in search results.' },
+  { question: 'What is the difference between local SEO and organic SEO?', answer: 'Organic SEO focuses on ranking web pages in general Google results regardless of user location. Local SEO is designed for businesses with a physical presence or that serve specific geographic areas. It appears on Google Maps (Local Pack) when someone searches for "service near me" or "service + city".' },
+  { question: 'What makes a website design convert visitors into customers?', answer: 'A website that converts has three pillars: speed (loads in under 2 seconds), clarity (the visitor understands in 5 seconds what you offer and why to trust you) and a visible call to action. Good design helps, but without a structure designed to guide the user toward contact or purchase, visits simply bounce.' },
+  { question: 'Do I need a blog on my website to improve my SEO?', answer: 'It is not mandatory, but it is one of the most effective long-term strategies. A well-managed blog generates indexable content, attracts traffic from informational searches and builds topical authority. Businesses that consistently publish relevant content receive up to 3 times more organic traffic than those with only static service pages.' },
 ];
 ---
 
 <Layout
-  title="Web Design, Development and SEO Company in USA for Small Business"
-  description="Professional web design, development and SEO services for small businesses in USA. Modern websites that rank on Google and convert visitors into customers."
-  keywords="web design company USA, web development company USA, SEO company USA, small business web services, affordable web design"
+  title="SEO and Web Design Blog for Small Businesses in USA | Omar Fuentes"
+  description="Free guides and practical strategies on SEO, web design and digital marketing for small businesses in the USA. Learn how to rank on Google and get more customers."
+  keywords="seo blog usa, web design blog, small business seo, web design for small business, freelance web developer usa, digital marketing guides"
 >
-  <section id="home" class="min-h-screen flex items-center justify-center pb-16 md:pb-24 lg:pb-32 bg-gradient-to-br from-white via-blue-50/30 to-yellow-50/30 relative overflow-hidden pt-8">
-    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="animate-slide-in">
-          <div class="flex items-center space-x-2 mb-6">
-            <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-500/10 text-primary-blue border border-blue-500/20">Freelance Web Developer</span>
-            <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-primary-green border border-green-500/20">Available</span>
+  <section id="home" class="min-h-screen flex items-center justify-center pb-4 md:pb-8 lg:pb-4 bg-white relative overflow-hidden pt-8">
+    <!-- Subtle background shapes -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-20 right-0 w-96 h-96 bg-blue-50 rounded-full opacity-60 translate-x-1/2 -translate-y-1/4"></div>
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-yellow-50 rounded-full opacity-50 -translate-x-1/3 translate-y-1/4"></div>
+    </div>
+
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <!-- Editorial badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-8">
+            <span class="w-2 h-2 rounded-full bg-primary-blue animate-pulse"></span>
+            <span class="text-sm font-semibold text-primary-blue">SEO & Web Design Blog · Free Resources</span>
           </div>
 
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-            Web Design & Development <br />
-            <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent">for Small Businesses in the USA</span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight text-gray-900">
+            SEO and Web Design for small businesses that want to
+            <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent"> grow on Google</span>
           </h1>
 
-          <p class="text-xl text-black mb-8 max-w-lg">
-            Modern websites built for speed, SEO, and conversions. I help small businesses get found on Google and turn visitors into customers.
+          <p class="text-lg md:text-xl text-gray-600 mb-4 max-w-xl leading-relaxed">
+            I'm <strong class="text-gray-900">Omar Fuentes</strong>, an SEO and web development specialist since 2018. Here I share practical guides and real strategies to help your business get more visibility on Google.
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-4 mb-8">
-            <a href="/en/portfolio/projects/" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gradient-to-r from-primary-blue to-accent-blue text-white hover:shadow-glow-blue">
-              View Projects
-            </a>
-            <a href="#contact" class="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white">
-              Message on WhatsApp
-            </a>
-          </div>
+          <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-xl leading-relaxed">
+            If you need someone to apply it for you, I also offer web design and SEO services for small businesses in the USA.
+          </p>
 
-          <div class="w-full flex justify-between gap-4 md:gap-6">
-            {stats.map((stat) => (
-              <div class="text-center flex-1">
-                <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent leading-tight">
-                  {stat.value}
-                </div>
-                <div class="text-xs md:text-sm text-gray-600 leading-snug">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/en/blog/" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-semibold text-base bg-primary-blue text-white hover:bg-blue-700 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              Read the blog
+            </a>
+            <a href="/en/contact/" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-semibold text-base border-2 border-gray-200 text-gray-700 hover:border-primary-blue hover:text-primary-blue transition-colors">
+              Talk with Omar
+            </a>
           </div>
         </div>
 
-        <div class="relative">
-          <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-3xl opacity-10 animate-float"></div>
-          <div class="relative bg-white rounded-3xl p-8 shadow-2xl">
-            <div class="aspect-video bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl flex items-center justify-center">
-              <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green rounded-2xl mx-auto mb-4 animate-pulse"></div>
-                <p class="text-black">Your next project goes here</p>
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100 z-10 max-w-xs">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-gray-900">50+ businesses helped</p>
+                  <p class="text-xs text-gray-500">Colombia & Latin America</p>
+                </div>
               </div>
             </div>
+            <img
+              src="/mi-foto-frelance-Photoroom.png"
+              alt="Omar Fuentes - SEO Specialist and Web Developer"
+              class="w-4/5 lg:w-full h-auto max-w-sm relative z-0"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Small Business Industries Section -->
+  <!-- Blog Featured Section -->
+  <section class="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+    <div class="px-6 md:px-8 lg:px-12 mx-auto max-w-7xl">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-blue-500/10 text-primary-blue border border-blue-500/20 mb-3">SEO & Web Design Blog</span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black">
+            Learn how to rank your website
+            <span class="bg-gradient-to-r from-primary-blue via-primary-yellow to-primary-green bg-clip-text text-transparent"> and get more clients</span>
+          </h2>
+          <p class="text-xl text-gray-700 mt-3 max-w-2xl">Practical guides, SEO strategies and web design tips I use with my clients every day.</p>
+        </div>
+        <a href="/en/blog/" class="flex-shrink-0 inline-flex items-center gap-2 text-primary-blue font-semibold hover:underline text-lg">
+          View all articles
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+
+      {enPosts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {enPosts.map((post: BlogEntry) => (
+            <a href={postUrl(post.id)} class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block" style="text-decoration: none;">
+              <div class="relative aspect-video overflow-hidden bg-gray-50">
+                <img
+                  src={post.data.heroImage || '/PAGINAS-WEB-BUCARAMAGA.webp'}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">
+                  <FormattedDate date={post.data.updatedDate ?? post.data.pubDate} />
+                </div>
+                <h3 class="text-xl font-black leading-snug text-black mb-3 group-hover:text-primary-blue transition-colors">{post.data.title}</h3>
+                <p class="text-gray-600 text-base line-clamp-2">{post.data.description}</p>
+                <div class="mt-4 text-primary-blue font-semibold text-sm flex items-center gap-1">
+                  Read article
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+              </div>
+            </a>
+          ))}
+
+          <!-- 3 static featured articles on Web Design & SEO -->
+          <a href="/en/blog/responsive-web-design-with-html-5/" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block" style="text-decoration: none;">
+            <div class="relative aspect-video overflow-hidden bg-gray-50">
+              <img src="/images/images-en/responsive-web-design-with-HTML5.png" alt="Responsive Web Design with HTML5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-black leading-snug text-black mb-3 group-hover:text-primary-blue transition-colors">Responsive Web Design with HTML5: From Mobile-First to Adaptive</h3>
+              <p class="text-gray-600 text-base line-clamp-2">A comprehensive guide to building responsive websites with HTML5, covering mobile-first design, fluid layouts and CSS3 techniques.</p>
+              <div class="mt-4 text-primary-blue font-semibold text-sm flex items-center gap-1">Read article <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>
+            </div>
+          </a>
+
+          <a href="/en/blog/web-design-services-for-small-businesses-the-affordable-and-reliable-guide/" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block" style="text-decoration: none;">
+            <div class="relative aspect-video overflow-hidden bg-gray-50">
+              <img src="/images/images-en/Web-design-services-for-small-businesses.png" alt="Web Design Services for Small Businesses" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-black leading-snug text-black mb-3 group-hover:text-primary-blue transition-colors">Web Design Services for Small Businesses: The Affordable Guide</h3>
+              <p class="text-gray-600 text-base line-clamp-2">A practical guide to choosing web design services for small businesses, comparing options, avoiding traps and making a confident decision.</p>
+              <div class="mt-4 text-primary-blue font-semibold text-sm flex items-center gap-1">Read article <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>
+            </div>
+          </a>
+
+          <a href="/en/blog/Find-your-website-SEO-strategies-work/" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block" style="text-decoration: none;">
+            <div class="relative aspect-video overflow-hidden bg-gray-50">
+              <img src="/assets/blog/website-localization-seo-adapt-web-design-global-markets-hero.jpg" alt="SEO Strategies that Work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-black leading-snug text-black mb-3 group-hover:text-primary-blue transition-colors">Find Your Website: SEO Strategies That Actually Work</h3>
+              <p class="text-gray-600 text-base line-clamp-2">Learn how website localization for SEO goes beyond translation to adapt your web design, content and technical setup for global markets.</p>
+              <div class="mt-4 text-primary-blue font-semibold text-sm flex items-center gap-1">Read article <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>
+            </div>
+          </a>
+
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <p class="text-xl text-gray-500 mb-4">English articles coming soon.</p>
+          <a href="/blog/" class="text-primary-blue font-semibold hover:underline">Read articles in Spanish →</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Educational: Web Design Best Practices by Industry -->
   <section class="py-20 section-featured">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="text-section mb-4">Industry-Specific Web Solutions</h2>
+        <h2 class="text-section mb-4">Web Design Best Practices by Industry</h2>
         <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-          Tailored small business websites that work specifically for your industry. Each site is designed with the features and functionality your customers expect.
+          Learn what makes a website effective for different types of businesses. Each industry has unique needs and customer expectations.
         </p>
       </div>
 
@@ -170,21 +269,21 @@ const faqs = [
               </svg>
             </div>
             <h3 class="text-xl font-bold mb-2">{industry.name}</h3>
-            <p class="text-gray-600 mb-4">{industry.description}</p>
-            <a href={industry.href} class="text-primary-blue font-semibold hover:underline">Learn more →</a>
+            <p class="text-gray-600 mb-4">Key features: {industry.description}</p>
+            <a href={industry.href} class="text-primary-blue font-semibold hover:underline">Read guide →</a>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Educational: Core Elements of a Successful Website -->
   <section id="services" class="py-20 bg-white">
     <div class="container">
       <div class="text-center mb-12">
-        <h2 class="text-section mb-4">Complete Web Solutions for Small Business</h2>
+        <h2 class="text-section mb-4">Core Elements of a Successful Small Business Website</h2>
         <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-          From design to development and SEO, we handle everything your small business needs to succeed online.
+          Understanding what makes a website effective: design principles, technical performance, and search visibility.
         </p>
       </div>
       
@@ -195,8 +294,8 @@ const faqs = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Web Design</h3>
-          <p class="text-gray-600">Modern, responsive designs that capture your brand and convert visitors into customers.</p>
+          <h3 class="text-xl font-bold mb-3">Design & User Experience</h3>
+          <p class="text-gray-600">How visual hierarchy, color psychology, and mobile-first design affect visitor behavior and conversion rates.</p>
         </div>
         
         <div class="card">
@@ -205,8 +304,8 @@ const faqs = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4m-4-4h-12"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Web Development</h3>
-          <p class="text-gray-600">Clean, fast code using modern technologies for optimal performance and user experience.</p>
+          <h3 class="text-xl font-bold mb-3">Technical Performance</h3>
+          <p class="text-gray-600">Why page speed, Core Web Vitals, and clean code architecture matter for user retention and Google rankings.</p>
         </div>
         
         <div class="card">
@@ -215,8 +314,8 @@ const faqs = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">SEO Optimization</h3>
-          <p class="text-gray-600">Strategic SEO to rank higher on Google and drive qualified organic traffic to your website.</p>
+          <h3 class="text-xl font-bold mb-3">Search Engine Visibility</h3>
+          <p class="text-gray-600">The fundamentals of on-page SEO, content structure, and technical optimization that help websites rank on Google.</p>
         </div>
       </div>
     </div>
@@ -261,13 +360,13 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Benefits Section -->
+  <!-- Educational: Key Factors for Website Success -->
   <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="text-section mb-4 text-white">Why Small Businesses Choose Our Web Design Services</h2>
+        <h2 class="text-section mb-4 text-white">6 Key Factors That Make Small Business Websites Succeed</h2>
         <p class="text-lg text-white/90 max-w-3xl mx-auto">
-          We help small businesses grow online with websites designed to attract customers, generate leads, and increase sales.
+          Research-backed principles that determine whether a website generates leads or gets ignored. Learn what really matters for small business success online.
         </p>
       </div>
 
@@ -287,41 +386,13 @@ const faqs = [
     </div>
   </section>
 
-  <!-- What You Get Section -->
-  <section class="py-20 bg-white">
-    <div class="container">
-      <div class="text-center mb-16">
-        <h2 class="text-section mb-4">What You Get</h2>
-        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-          When you work with me, you get more than just a website:
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {whatYouGet.map((item) => (
-          <div class="flex items-start gap-4">
-            <div class={`w-12 h-12 bg-gradient-to-br ${item.bgClass} rounded-xl flex items-center justify-center flex-shrink-0`}>
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold mb-2">{item.title}</h3>
-              <p class="text-gray-700">{item.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Technologies Section -->
+  <!-- Educational: Web Technologies Explained -->
   <section class="py-20 section-featured">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="text-section mb-4">Technologies We Use</h2>
+        <h2 class="text-section mb-4">Understanding Modern Web Technologies</h2>
         <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-          Modern technologies used to build fast, scalable, and high-performing websites for small businesses.
+          A quick overview of the most popular platforms and frameworks used to build professional websites today. Each has different strengths depending on your project needs.
         </p>
       </div>
 
@@ -339,18 +410,21 @@ const faqs = [
       </div>
 
       <div class="text-center">
-        <p class="text-lg text-gray-700 italic">
-          "Resulting in visually engaging, functional, and high-performing websites"
+        <p class="text-lg text-gray-700">
+          Each technology has specific use cases: static site generators for blogs, WordPress for easy content management, Next.js for dynamic applications, and Shopify for e-commerce.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Why Work With Me Section -->
+  <!-- Educational: Freelance vs Agency - What You Need to Know -->
   <section class="py-20 bg-white">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="text-section mb-4">Why Work With Me Instead of a Typical Agency</h2>
+        <h2 class="text-section mb-4">Freelance Web Developer vs Agency: Understanding Your Options</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Learn the key differences between hiring a freelance web developer and working with a traditional agency, so you can make an informed decision for your business.
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -451,7 +525,7 @@ const faqs = [
       <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
         Let's discuss how we can create a professional website that drives results for your small business.
       </p>
-      <a href="https://wa.me/12025551234?text=Hi%20Omar,%20I%20want%20a%20free%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 bg-white text-primary-blue hover:shadow-xl">Start Your Project</a>
+      <a href="https://wa.me/13239414865?text=Hi%20Omar,%20I%20want%20a%20free%20web%20design%20quote" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 bg-white text-primary-blue hover:shadow-xl">Start Your Project</a>
     </div>
   </section>
 </Layout>
