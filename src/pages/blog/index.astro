@@ -5,9 +5,17 @@ import Layout from '../../layouts/Layout.astro';
 
 type BlogEntry = CollectionEntry<'blog'>;
 
+// Filtrar solo artículos con fecha <= hoy
+const today = new Date();
+today.setHours(23, 59, 59, 999); // Incluir todo el día de hoy
+
 const posts = (await getCollection('blog'))
 	.filter((post: BlogEntry) => !post.id.startsWith('en/'))
 	.filter((post: BlogEntry) => !post.data?.draft)
+	.filter((post: BlogEntry) => {
+		const postDate = new Date(post.data.pubDate);
+		return postDate <= today;
+	})
 	.sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const seoPosts = new Set([

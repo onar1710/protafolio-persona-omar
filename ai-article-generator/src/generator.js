@@ -351,7 +351,12 @@ function toIsoDateOnly(d) {
   try {
     const date = d instanceof Date ? d : new Date(d);
     if (Number.isNaN(date.valueOf())) return '';
-    return date.toISOString().slice(0, 10);
+    // Formato con hora y zona horaria de Colombia (UTC-5)
+    // Ejemplo: 2026-06-10T06:00:00-05:00
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}T06:00:00-05:00`;
   } catch {
     return '';
   }

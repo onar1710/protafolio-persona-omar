@@ -2,7 +2,7 @@
 title: "Estructura web optimizada para aparecer en las vistas creadas con IA"
 description: "Cómo la arquitectura web, jerarquía de encabezados y diseño semántico determinan si Google selecciona tus páginas para generar respuestas con IA generativa."
 keywords: "jerarquía encabezados H1-H6, diseño semántico HTML, estructura web IA generativa, arquitectura información SEO, optimización Modo IA Google"
-pubDate: 2026-06-10
+pubDate: 2026-06-10T06:00:00-05:00
 heroImage: '/assets/blog/estructura-web-vistas-ia-generativa.jpg'
 tags: ["IA generativa"]
 draft: false

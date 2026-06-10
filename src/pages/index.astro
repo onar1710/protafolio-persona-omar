@@ -110,26 +110,26 @@ const posts = (await getCollection('blog')).filter((post) => !post.id.startsWith
 const today = new Date();
 today.setHours(23, 59, 59, 999); // Incluir todo el día de hoy
 
-const publishedPosts = posts.filter((post) => {
-	const postDate = new Date(post.data.pubDate);
-	return postDate <= today;
-});
+const publishedPosts = posts
+	.filter((post) => {
+		const postDate = new Date(post.data.pubDate);
+		return postDate <= today;
+	})
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// Agrupar artículos por etiqueta y tomar el más reciente de cada una
-const postsByTag = new Map();
-publishedPosts
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.forEach((post) => {
-		if (post.data.tags && post.data.tags.length > 0) {
-			const mainTag = post.data.tags[0]; // Primera etiqueta del artículo
-			if (!postsByTag.has(mainTag)) {
-				postsByTag.set(mainTag, post);
-			}
-		}
-	});
+// Agrupamiento por etiqueta: 1 artículo (el más reciente) por etiqueta única
+const seenTags = new Set();
+const latestPosts = [];
 
-// Convertir a array y limitar a 9 artículos únicos por etiqueta
-const latestPosts = Array.from(postsByTag.values()).slice(0, 9);
+for (const post of publishedPosts) {
+	if (latestPosts.length >= 9) break;
+	
+	const firstTag = post.data.tags?.[0];
+	if (!firstTag || seenTags.has(firstTag)) continue;
+	
+	seenTags.add(firstTag);
+	latestPosts.push(post);
+}
 
 const postUrl = (id: string) => {
 	if (id.startsWith('seo/')) return `/seo/${id.slice('seo/'.length)}/`;
