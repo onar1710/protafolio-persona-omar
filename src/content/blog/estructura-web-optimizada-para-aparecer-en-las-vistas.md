@@ -5,9 +5,8 @@ keywords: "jerarquía encabezados H1-H6, diseño semántico HTML, estructura web
 pubDate: 2026-06-10
 heroImage: '/assets/blog/estructura-web-vistas-ia-generativa.jpg'
 tags: ["IA generativa"]
-draft: true
+draft: false
 ---
-
 La aparición de funciones como "Vistas creadas con IA" y el "Modo IA" en los resultados de búsqueda de Google ha introducido una nueva capa de visibilidad orgánica. Para desarrolladores y diseñadores web, esto significa que las decisiones técnicas sobre la arquitectura de un sitio y la semántica de su contenido ya no solo afectan al posicionamiento tradicional, sino que también determinan directamente si una página es considerada para generar respuestas sintetizadas por inteligencia artificial.
 
 El camino hacia esta nueva visibilidad no se encuentra en trucos, sino en principios fundamentales de la web semántica y el diseño centrado en el contenido. Optimizar para estos sistemas implica facilitar a los algoritmos la comprensión precisa, jerárquica y contextual de la información que se ofrece. A continuación, se detallan las decisiones de estructura y diseño web que aumentan las posibilidades de ser seleccionado.
