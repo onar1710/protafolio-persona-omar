@@ -7,12 +7,22 @@ type BlogEntry = CollectionEntry<'blog'>;
 
 const allEnPosts = (await getCollection('blog'))
   .filter((post: BlogEntry) => post.id.startsWith('en/'))
-  .filter((post: BlogEntry) => !post.data?.draft)
+  .filter((post: BlogEntry) => !post.data?.draft);
+
+// Filtrar solo artículos con fecha <= hoy
+const today = new Date();
+today.setHours(23, 59, 59, 999); // Incluir todo el día de hoy
+
+const publishedEnPosts = allEnPosts
+  .filter((post: BlogEntry) => {
+    const postDate = new Date(post.data.pubDate);
+    return postDate <= today;
+  })
   .sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 // Agrupar artículos por etiqueta y tomar el más reciente de cada una
 const postsByTag = new Map();
-allEnPosts.forEach((post) => {
+publishedEnPosts.forEach((post) => {
   if (post.data.tags && post.data.tags.length > 0) {
     const mainTag = post.data.tags[0]; // Primera etiqueta del artículo
     if (!postsByTag.has(mainTag)) {
