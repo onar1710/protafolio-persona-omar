@@ -72,14 +72,22 @@ function logPromptParts({ globalInstructions, formatterExamples, researchContent
 }
 
 export function buildUserContent({ formatterExamples, researchContent }) {
-  return JSON.stringify(
-    {
-      formatterExamples: formatterExamples ?? '',
-      input: researchContent ?? '',
-    },
-    null,
-    2
-  );
+  // La IA recibe el contenido de forma natural
+  // Si hay ejemplo de formato, lo incluye primero
+  if (formatterExamples && formatterExamples.trim()) {
+    return `EJEMPLO DE FORMATO:
+
+${formatterExamples}
+
+---
+
+CONTENIDO PARA GENERAR:
+
+${researchContent ?? ''}`;
+  }
+  
+  // Si no hay ejemplo de formato, solo envía el contenido
+  return researchContent ?? '';
 }
 
 export function createMessages({ globalInstructions, formatterExamples, researchContent }) {
@@ -314,6 +322,8 @@ function pickMetaDescription(item) {
     item.meta_descripcion ??
     item.metaDescription ??
     item.meta_description ??
+    item.parrafo_enfoque ??
+    item.valor_lector ??
     '';
   return String(d ?? '').trim();
 }
@@ -324,6 +334,7 @@ function pickKeywords(item) {
     item.keywords ??
     item.variaciones_keywords ??
     item.palabras_clave ??
+    item.puntos_clave ??
     [];
   if (Array.isArray(k)) {
     return k.map((kw) => String(kw ?? '').trim()).filter(Boolean).join(', ');
@@ -576,6 +587,7 @@ function normalizePlanItems(plan) {
   if (!plan || typeof plan !== 'object') return [];
 
   const candidates =
+    (Array.isArray(plan.ideas) && plan.ideas) ||
     (Array.isArray(plan.articles) && plan.articles) ||
     (Array.isArray(plan.investigations) && plan.investigations) ||
     (Array.isArray(plan.investigaciones) && plan.investigaciones) ||
@@ -630,7 +642,7 @@ async function main() {
 
   const promptsDirResolved = await resolveDirFromCwdOrToolRoot(config.promptsDir);
   const infoDirResolved = await resolveDirFromCwdOrToolRoot('./informacion-txt');
-  const formatterDirResolved = await resolveDirFromCwdOrToolRoot('./ejemplo-fromater');
+  const formatterExamplePath = resolveFromToolRoot('./fromtaer-ejemplo.md');
   const outDirResolved = resolveFromToolRoot('./out');
 
   const promptReader = new PromptReader(promptsDirResolved);
@@ -675,8 +687,13 @@ async function main() {
       getOutDirOverride() || resolveMdOutputDir(outputDirFromPrompt || config.outputDir)
     );
 
-    console.log('  📖 Leyendo ejemplos de formato (ejemplo-fromater)...');
-    const formatterExamples = await readAllFilesInDir(formatterDirResolved);
+    console.log('  📖 Leyendo ejemplo de formato (fromtaer-ejemplo.md)...');
+    let formatterExamples = '';
+    if (await fileExists(formatterExamplePath)) {
+      formatterExamples = await fs.readFile(formatterExamplePath, 'utf-8');
+    } else {
+      console.log('  ⚠️ No se encontró fromtaer-ejemplo.md - continuando sin ejemplo de formato');
+    }
 
     const getAIClient = () => new AIClient();
 
@@ -699,12 +716,8 @@ async function main() {
           ]);
           args.lang = lang;
 
-          const profilePath = path.join(repoRoot, 'PERFIL_SITIO.md');
           const sourcePath = path.join(toolRootDir, 'fuente-original-analisis.txt');
           
-          if (!(await fileExists(profilePath))) {
-            throw new Error(`No se encontró el perfil del sitio en: ${profilePath}`);
-          }
           if (!(await fileExists(sourcePath))) {
             throw new Error(`No se encontró la fuente original en: ${sourcePath}`);
           }
@@ -714,30 +727,15 @@ async function main() {
 
           await fs.mkdir(outDirResolved, { recursive: true });
 
-          console.log(`\n▶ Leyendo perfil del sitio: ${profilePath}`);
-          const profileContent = await readRequiredFile(profilePath, 'PERFIL_SITIO.md');
-          
           console.log(`▶ Leyendo fuente original: ${sourcePath}`);
           const sourceContent = await readRequiredFile(sourcePath, 'fuente-original-analisis.txt');
 
-          console.log(`▶ Recopilando artículos existentes del sitio...`);
-          const existingPosts = await summarizeExistingBlogPosts(repoRoot);
-
-          const researchContent = JSON.stringify(
-            {
-              language: lang,
-              profileSite: profileContent,
-              sourceContent: sourceContent,
-              existingSitePosts: existingPosts.slice(0, 100),
-              timestamp: new Date().toISOString(),
-              instructions: "Genera ideas ÚNICAS y DIVERSAS. Evita repetir temas de artículos existentes. Cada idea debe ser diferente y cubrir ángulos distintos del tema fuente."
-            },
-            null,
-            2
-          );
+          // La IA recibe SOLO el contenido de fuente-original-analisis.txt
+          // Sin estructura JSON, sin PERFIL_SITIO.md, sin artículos existentes
+          const researchContent = sourceContent;
 
           logPromptParts({ globalInstructions: analysisInstructions, formatterExamples: '', researchContent });
-          console.log('  🤖 Generando ideas de artículos basadas en el perfil del sitio...');
+          console.log('  🤖 Generando ideas de artículos...');
           
           const modelOutput = stripOuterMarkdownCodeFence(
             await getAIClient().generate(
@@ -1042,16 +1040,9 @@ async function main() {
         const tag = pickTag(item, plan);
         const pubDate = toIsoDateOnly(item?.pubDate) || toIsoDateOnly(new Date());
         const tags = tag ? [tag] : [];
-        const researchContent = JSON.stringify(
-          {
-            planPath,
-            item,
-            language: args.lang ? String(args.lang) : '',
-            mdOutputDir: mdOutDirFinal,
-          },
-          null,
-          2
-        );
+        
+        // La IA recibe el item del JSON tal cual está, sin plantillas adicionales
+        const researchContent = JSON.stringify(item, null, 2);
 
         logPromptParts({ globalInstructions: articleInstructions, formatterExamples: effectiveFormatterExamples, researchContent });
 

@@ -15,7 +15,7 @@ export function getConfig() {
   const mimoModel = process.env.MIMO_MODEL || (provider === 'mimo' && rawProvider !== 'mimo' ? rawProvider : '') || 'MiMo-V2.5';
   return {
     provider,
-    outputFormat: String(process.env.OUTPUT_FORMAT || 'mdx').trim().toLowerCase(),
+    outputFormat: String(process.env.OUTPUT_FORMAT || 'md').trim().toLowerCase(),
     promptsDir: process.env.PROMPTS_DIR || './prompts',
     outputDir: process.env.OUTPUT_DIR || './outputs',
 

@@ -1,341 +1,57 @@
-=== INSTRUCCIONES PARA GENERAR IDEAS DE ARTÍCULOS ÚNICAS Y DIVERSAS ===
+Vamos a trabajar a partir de una noticia o fuente original debes enfocarla y adpatarla a el enfoque de mi sitio web que trata sobre: 
+-diseño web 
+-seo
+ de esta manera podemos crea articulo unico y orginal basada de una fuente oficial que debes analisar , no hagas titulos genericos ni generales ya que los generales los tocara los grandes y sera dificil posicionar, la estrategia es ser especifico pero mantenidendo la noticia real de la fuente original pero adpatando estas ideas al enfoque de mi web que es sobre diseño web  , seo  los titulos deben trasmitir y que me dirigo al lector sin mencionar (tu ) .
 
-CONTEXTO:
-Vamos a trabajar a partir de una noticia o fuente original. Recibirás tres elementos clave:
-1. profileSite: El ADN completo del sitio (nicho, audiencia, tono, problemas que resuelve)
-2. sourceContent: Contenido fuente con información/tendencias para inspirar ideas
-3. existingSitePosts: Lista de artículos YA PUBLICADOS en el sitio (EVITA duplicarlos)
-
-OBJETIVO:
-Mi objetivo no es copiar la noticia ni repetir lo que ya existe en internet, sino encontrar ángulos únicos, originales y útiles desde mi punto de vista como sitio especializado en diseño web y posicionamiento SEO.
+Quiero que analices esa fuente y extraigas ideas de artículos relacionadas con **diseño web y SEO**, pero adaptadas al ADN de mi página web. Mi objetivo no es copiar la noticia ni repetir lo que ya existe en internet, sino encontrar ángulos únicos, originales y útiles desde mi punto de vista como sitio especializado en diseño web y posicionamiento SEO.
 
 No quiero una lista muy larga de ideas. Prefiero pocas ideas, pero bien seleccionadas, específicas y con verdadero potencial. Solo debes sacar las ideas de artículo que realmente se puedan desarrollar desde esa fuente original, evitando temas solapados, repetidos o que puedan canibalizarse entre sí.
 
-Generar ideas de artículos ÚNICAS, ORIGINALES y DIVERSAS que:
-- Se inspiren en sourceContent pero NO lo copien
-- Se adapten perfectamente al profileSite
-- NO dupliquen temas de existingSitePosts
-- Cubran DIFERENTES ángulos y perspectivas del tema
+IMPORTANTE: Debes responder ÚNICAMENTE con un JSON válido, sin texto markdown, sin comentarios, sin explicaciones adicionales. Solo el JSON.
 
-PROCESO DE ANÁLISIS:
+Para cada idea de artículo en el JSON, incluye estos campos:
 
-1. ANALIZA EL PERFIL DEL SITIO (profileSite):
-   ✓ Identifica el nicho exacto y sub-nichos
-   ✓ Comprende la audiencia (nivel técnico, problemas, necesidades)
-   ✓ Detecta el tono y estilo de comunicación
-   ✓ Reconoce el mercado geográfico y contexto cultural
-   ✓ Identifica características únicas del sitio
-
-2. ANALIZA LA FUENTE ORIGINAL (sourceContent):
-   ✓ Extrae TODOS los temas, conceptos y tendencias mencionados
-   ✓ Identifica problemas específicos, soluciones y casos de uso
-   ✓ Detecta keywords, términos técnicos y nomenclatura
-   ✓ Busca implicaciones secundarias y efectos colaterales
-   ✓ Encuentra ángulos no obvios del tema
-   ✓ COPIA FRAGMENTOS TEXTUALES EXACTOS que inspiren cada idea (NO inventes, EXTRAE)
-   ✓ Identifica lo que el fragmento REVELA pero no dice explícitamente
-
-3. REVISA ARTÍCULOS EXISTENTES (existingSitePosts):
-   ✓ Identifica qué temas YA están cubiertos
-   ✓ Detecta huecos de contenido no explorados
-   ✓ Busca oportunidades de profundización
-   ✓ EVITA ideas similares a las ya publicadas
-
-4. GENERA IDEAS ÚNICAS Y DIVERSAS:
-   ✓ Cada idea debe cubrir un ÁNGULO DIFERENTE del tema fuente
-   ✓ Adapta al nicho y audiencia del sitio
-   ✓ Mantén el tono y estilo identificado
-   ✓ Asegura que resuelvan problemas ESPECÍFICOS
-   ✓ Prioriza contenido de alto valor (AdSense)
-   ✓ Crea títulos SEO optimizados (máximo 74 caracteres)
-
-TÉCNICAS PARA GENERAR DIVERSIDAD:
-
-A. DIFERENTES NIVELES DE PROFUNDIDAD:
-   - Vista general/introducción
-   - Análisis técnico profundo
-   - Casos de uso prácticos
-   - Errores comunes y soluciones
-   - Futuro y tendencias
-
-B. DIFERENTES AUDIENCIAS:
-   - Para principiantes (conceptos básicos)
-   - Para intermedios (implementación)
-   - Para avanzados (optimización)
-   - Para ejecutivos (impacto en negocio)
-
-C. DIFERENTES FORMATOS:
-   - Guías paso a paso
-   - Comparativas y análisis
-   - Casos de estudio
-   - Listas de recursos/herramientas
-   - Solución de problemas específicos
-
-D. DIFERENTES ÁNGULOS DEL TEMA:
-   - Impacto en SEO
-   - Impacto en conversiones
-   - Impacto en experiencia de usuario
-   - Impacto técnico
-   - Impacto en el negocio
-
-FORMATO DE SALIDA (JSON):
 {
-  "articles": [
+  "ideas": [
     {
-      "title": "Título SEO optimizado (max 74 caracteres)",
-      "slug": "url-amigable-del-articulo",
-      "description": "Meta descripción clara y atractiva (150-160 caracteres)",
-      "keywords": ["keyword1", "keyword2", "keyword3"],
-      "tags": ["tag1", "tag2"],
-      "problema_resuelto": "Problema ESPECÍFICO que resuelve este artículo",
-      "audiencia_objetivo": "Para quién es este artículo (nivel y perfil)",
-      "nivel_tecnico": "principiante | intermedio | avanzado | experto",
-      "angulo_unico": "Qué hace ÚNICO a este artículo vs otros del tema",
-      "valor_adsense": "Por qué es valioso para AdSense",
-      "fragmento_textual_fuente": "COPIA EXACTA del fragmento de sourceContent que inspira esta idea (entre comillas)",
-      "por_que_genera_idea": "Explicación detallada de qué revela este fragmento que nadie está explicando, qué implicación oculta tiene, qué problema resuelve",
-      "por_que_encaja_perfil": "Explicación de cómo esta idea se alinea con el nicho, audiencia, tono y problemas del profileSite",
-      "outline_sugerido": [
-        "Sección 1: Introducción al problema",
-        "Sección 2: Análisis del contexto",
-        "Sección 3: Solución paso a paso",
-        "Sección 4: Ejemplos prácticos",
-        "Sección 5: Conclusión y próximos pasos"
-      ]
+      "title": "Título del artículo (máximo 74 caracteres)",
+      "description": "Meta descripción de 150-160 caracteres que resuma el valor del artículo",
+      "keywords": "palabra clave 1, palabra clave 2, palabra clave 3, palabra clave 4",
+      "parrafo_enfoque": "Un breve párrafo explicando de dónde sale la idea y cómo se adapta a diseño web y SEO",
+      "puntos_clave": ["Punto 1", "Punto 2", "Punto 3"],
+      "publico_objetivo": "A qué tipo de lector va dirigido",
+      "intencion_busqueda": "Qué está buscando realmente el usuario",
+      "valor_lector": "Qué va a aprender y por qué será útil",
+      "enfoque_diferencial": "Cómo convertir esta idea en contenido único para mi web"
     }
-  ],
-  "meta": {
-    "total_ideas": 0,
-    "tema_fuente": "Descripción del tema analizado",
-    "angulos_explorados": ["ángulo1", "ángulo2", "ángulo3"],
-    "huecos_identificados": ["hueco1", "hueco2"]
-  }
+  ]
 }
 
-REGLAS CRÍTICAS:
+REGLAS PARA LOS TÍTULOS:
+- Máximo 74 caracteres
+- Deben ser long-tail keywords naturales
+- Comunicar directamente con el problema del lector
+- NO usar: "Descubre", "Guía", "Guía completa", "Todo sobre"
+- NO usar: dos puntos (:), signos de interrogación (?), comas en medio
+- NO incluir años (2024, 2025, 2026, etc)
+- Sentirse natural, específico y útil
+- Con intención de búsqueda clara
 
-1. DIVERSIDAD OBLIGATORIA:
-   - Cada artículo debe tener un ÁNGULO DIFERENTE
-   - NO generes variaciones superficiales del mismo tema
-   - Explora implicaciones secundarias y efectos colaterales
+REGLAS PARA LA META DESCRIPCIÓN (campo "description"):
+- Entre 150-160 caracteres (no más, no menos)
+- Debe resumir el valor principal del artículo
+- Incluir una palabra clave principal de forma natural
+- Terminar con una idea completa, no cortada
 
-2. ORIGINALIDAD:
-   - NO copies estructuras de existingSitePosts
-   - Crea enfoques NUEVOS del tema fuente
-   - Busca conexiones no obvias con el nicho del sitio
+REGLAS PARA LAS KEYWORDS:
+- Separadas por comas
+- Entre 4-6 keywords o frases clave
+- Específicas y relacionadas con el tema
+- Long-tail cuando sea posible
+- Ejemplo: "diseño web responsive, optimización móvil, CSS flexbox, grid layout"
 
-3. RELEVANCIA AL PERFIL:
-   - Mantén coherencia con el ADN del sitio
-   - Respeta el nivel técnico de la audiencia
-   - Usa el tono y estilo identificado
+Importante: no quiero artículos genéricos ni ideas que ya estén repetidas en internet. Quiero ángulos concretos, originales y con valor real para el lector. La fuente original solo debe servir como punto de partida; el contenido final debe adaptarse a mi web y aportar una perspectiva propia sobre diseño web y SEO.
 
-4. VALOR PARA ADSENSE:
-   - Artículos que resuelven problemas reales
-   - Contenido que enseña y aporta experiencia
-   - Estructura clara con intención de búsqueda bien definida
+Recuerda: responde SOLO con el JSON válido, sin markdown, sin comentarios.
 
-5. TÍTULOS SEO:
-   - OBLIGATORIO: 60-74 caracteres (NO MÁS DE 74, NO MENOS DE 60)
-   - Incluye keyword principal
-   - Atractivo y orientado a beneficio CLARO
-   - Promete solución o revelación ESPECÍFICA
-   - Evita clickbait
-   - NO uses estos caracteres: : , ?
-   - NO incluyas años (2024, 2025, 2026, etc)
-   - NO uses palabras genéricas: "Guía", "Tutorial", "Manual", "Completa", "Descubre", "Todo sobre"
-   - SÉ ESPECÍFICO: Ataca un problema/tema concreto, no general
-   - USA EL ESPACIO DISPONIBLE pero SIN EXCEDER 74 caracteres
-   - ESTIMULA EL CLIC: Promete una revelación o beneficio concreto
-   - SI PASAS DE 74 CARACTERES, EL TÍTULO ES INVÁLIDO - Google lo truncará
-   - El título debe parecer una **long-tail keyword natural**, no un título genérico
-   - Debe comunicar directamente con el lector, como si hablara de su problema, su duda o su necesidad real
-   - El título debe sentirse natural, específico y útil, con intención de búsqueda clara, pero sin sonar robótico ni exageradamente optimizado
 
-TÉCNICAS PARA TÍTULOS ESPECÍFICOS:
-
----
-
-## 🔍 METODOLOGÍA CRÍTICA: EXTRACCIÓN DE FRAGMENTOS TEXTUALES
-
-**REGLA DE ORO: NO INVENTES, EXTRAE**
-
-Para cada idea de artículo, debes:
-
-1. **Identificar un fragmento textual específico** de sourceContent
-2. **Copiarlo EXACTAMENTE** (entre comillas)
-3. **Explicar qué REVELA** ese fragmento (implicación oculta)
-4. **Justificar por qué encaja** con el profileSite
-
-### EJEMPLO DE METODOLOGÍA CORRECTA:
-
-**Fragmento textual de la noticia:**
-> "Estos datos se incluyen en el informe de rendimiento general, donde se seguirán registrando para ofrecer a los propietarios de los sitios una visión general de la visibilidad de su sitio en la Búsqueda de Google. Hoy lanzamos una vista independiente dedicada a la visibilidad de las funciones de IA generativa."
-
-**Por qué genera la idea:**
-Este fragmento revela algo que nadie está explicando: hasta ahora, las impresiones de IA se mezclaban con el informe general de rendimiento. Esto significa que muchos sitios han estado viendo métricas distorsionadas —páginas que parecían "morir" en tráfico podían estar apareciendo masivamente en respuestas de IA sin que nadie lo supiera. La separación en vista independiente cambia completamente cómo interpretar los datos de Search Console.
-
-**Por qué encaja con el perfil:**
-La audiencia de consultores SEO y propietarios de negocios lleva meses tomando decisiones basadas en métricas incompletas. Este artículo les enseña a reevaluar lo que creían saber sobre el rendimiento de sus sitios, alineándose con el enfoque honesto y basado en hechos de "mostrar lo que realmente funciona".
-
-**Título generado:**
-"Por qué tus métricas de Search Console están distorsionadas"
-
----
-
-### PROCESO OBLIGATORIO PARA CADA IDEA:
-
-1. **LEE sourceContent línea por línea**
-2. **IDENTIFICA fragmentos con implicaciones ocultas**
-3. **COPIA el fragmento exacto** (no parafrasees)
-4. **ANALIZA qué revela** ese fragmento que no es obvio
-5. **EXPLICA cómo afecta** a la audiencia del profileSite
-6. **GENERA el título** basado en esa revelación
-
-### EJEMPLO DE EXTRACCIÓN MÚLTIPLE:
-
-**Fragmento 1:**
-> "Impresiones: la frecuencia con la que las URLs de tu sitio han aparecido en las funciones de IA generativa"
-
-**Revelación:** La métrica es "impresiones" no "clics" - significa que puedes tener alta visibilidad en IA pero cero tráfico real.
-
-**Idea de artículo:** "Por qué tienes impresiones en IA pero cero tráfico real"
-
----
-
-**Fragmento 2:**
-> "Estamos implementando estos informes de forma gradual en un grupo reducido de sitios web"
-
-**Revelación:** No todos tienen acceso aún - muchos sitios están tomando decisiones sin datos completos.
-
-**Idea de artículo:** "Tomar decisiones SEO sin acceso a informes de IA"
-
----
-
-**Fragmento 3:**
-> "monitoriza tu rendimiento a lo largo del tiempo con una granularidad horaria, diaria, semanal y mensual"
-
-**Revelación:** Granularidad horaria sugiere que la visibilidad en IA puede fluctuar dramáticamente - no es constante como búsqueda tradicional.
-
-**Idea de artículo:** "Por qué tu visibilidad en IA fluctúa cada hora"
-
----
-
-### ⚠️ CRÍTICO: CAMPOS OBLIGATORIOS EN JSON
-
-Para CADA artículo en el JSON, debes incluir:
-
-```json
-{
-  "fragmento_textual_fuente": "COPIA EXACTA del texto de sourceContent",
-  "por_que_genera_idea": "Qué revela este fragmento que no es obvio. Qué implicación tiene. Qué problema oculto expone.",
-  "por_que_encaja_perfil": "Cómo esta revelación ayuda específicamente a la audiencia del profileSite. Por qué es relevante para su nicho y problemas."
-}
-```
-
-**SIN ESTOS CAMPOS, LA IDEA ES INVÁLIDA.**
-
----
-
-TÉCNICAS PARA TÍTULOS ESPECÍFICOS:
-
-1. ATACAR UN ERROR ESPECÍFICO:
-   - "Por qué useEffect sin cleanup destruye tu app React"
-   - "El error de canonical que duplica tu contenido"
-   - "Bootstrap completo para usar solo 3 clases CSS"
-
-2. ATACAR UNA MÉTRICA CONCRETA:
-   - "LCP no baja de 2.5s aunque optimices imágenes"
-   - "INP alto por scripts de terceros en WordPress"
-   - "CLS en móviles por anuncios sin reserved space"
-
-3. ATACAR UNA SITUACIÓN ESPECÍFICA:
-   - "Tu robots.txt bloquea JavaScript y Google no lo sabe"
-   - "SSR genera páginas duplicadas que Google penaliza"
-   - "Cache Hit Ratio bajo destruye tus Core Web Vitals"
-
-4. ATACAR UN PROBLEMA DE NEGOCIO:
-   - "Percentil 75 pasa CWV pero pierdes 25% de clientes"
-   - "DevTools local no refleja la experiencia real del usuario"
-   - "Sesgo de CrUX oculta problemas graves de tu sitio"
-
-5. COMPARAR O CONTRASTAR:
-   - "Contenido evergreen vs temporal para posicionar mejor"
-   - "Backlinks dofollow vs nofollow en autoridad de dominio"
-   - "Server Side Rendering vs Static Generation en SEO"
-
-CADA TÍTULO DEBE:
-- Identificar un problema MUY específico
-- Prometer una solución concreta
-- Usar lenguaje directo y sin ambigüedad
-- Evitar generalidades
-
-❌ PROHIBIDO:
-- Usar : (dos puntos)
-- Usar , (comas)
-- Usar ? (signos de interrogación)
-- Mencionar años (2024, 2025, 2026)
-- Usar "Guía", "Tutorial", "Manual", "Completa", "Definitiva"
-- Títulos genéricos y amplios
-- TÍTULOS CORTOS INCOMPLETOS (menos de 60 caracteres)
-- TÍTULOS LARGOS QUE EXCEDEN 74 CARACTERES (Google los trunca)
-
-✅ OBLIGATORIO:
-- Títulos entre 60-74 caracteres (RANGO ESTRICTO)
-- Títulos ESPECÍFICOS que atacan un problema concreto
-- Orientados a beneficio directo y claro
-- Prometen una revelación o solución específica
-- Sin caracteres especiales
-- Sin palabras genéricas
-- Estimulan el clic por el valor prometido
-- Si un título tiene 75+ caracteres, ACÓRTALO - Google lo truncará
-
-TÉCNICA PARA CONTROLAR LONGITUD:
-- Cuenta caracteres ANTES de finalizar cada título
-- Si pasas de 74, elimina palabras secundarias o conectores
-- Prioriza: PROBLEMA + BENEFICIO (no agregues palabras de relleno)
-
-EJEMPLOS DE LONGITUD CORRECTA:
-
-❌ MAL (muy cortos, no comunican valor):
-- "Impresiones de IA sin clics" (29 caracteres - incompleto)
-- "Search Console separa IA" (28 caracteres - vago)
-- "Tu visibilidad cambia" (21 caracteres - no dice nada)
-
-❌ MAL (muy largos, Google trunca):
-- "La verdad sobre tus métricas de Search Console e impresiones de IA distorsionadas" (84 caracteres - TRUNCADO)
-- "Vistas creadas con IA y Modo IA en Search Console y su impacto en tu estrategia SEO" (91 caracteres - TRUNCADO)
-
-✅ BIEN (60-74 caracteres, prometen valor claro):
-- "Por qué las impresiones de IA en Search Console no generan tráfico real" (74 caracteres) ✓
-- "Search Console separa datos de IA y revela métricas distorsionadas" (70 caracteres) ✓
-- "Tu visibilidad en IA fluctúa cada hora y así afecta tu estrategia" (69 caracteres) ✓
-- "Tomar decisiones SEO sin acceso a los informes de IA de Google" (64 caracteres) ✓
-
-IMPORTANTE:
-- Genera al menos 8-12 ideas diferentes
-- Cada una debe cubrir un ángulo único
-- Prioriza calidad sobre cantidad
-- EVITA duplicar temas de existingSitePosts
-- Títulos SIN : , ? y SIN años
-- Títulos ESPECÍFICOS, no genéricos
-- NO uses palabras genéricas como "Guía", "Tutorial", "Completa"
-- Cada título debe atacar UN problema o tema CONCRETO
-
-🔴 OBLIGATORIO - LONGITUD DE TÍTULOS:
-- MÍNIMO 60 caracteres
-- MÁXIMO 74 caracteres (LÍMITE ESTRICTO DE GOOGLE)
-- USA TODO EL ESPACIO DISPONIBLE pero SIN EXCEDER 74
-- Títulos cortos (menos de 60 chars) NO comunican suficiente valor
-- Títulos largos (más de 74 chars) SERÁN TRUNCADOS por Google
-- CUENTA los caracteres de cada título antes de finalizar
-- Si un título tiene 75+ caracteres, ELIMINA palabras secundarias
-- Prioriza: PROBLEMA + BENEFICIO (sin relleno innecesario)
-- Ejemplo MALO: "La verdad sobre tus métricas de Search Console e impresiones de IA distorsionadas" (84 chars - TRUNCADO)
-- Ejemplo BUENO: "Por qué tus métricas de Search Console están distorsionadas por IA" (68 chars - perfecto)
-
-🔴 OBLIGATORIO - EXTRACCIÓN DE FRAGMENTOS:
-- CADA idea DEBE incluir "fragmento_textual_fuente" copiado EXACTAMENTE de sourceContent
-- CADA idea DEBE incluir "por_que_genera_idea" explicando la revelación oculta
-- CADA idea DEBE incluir "por_que_encaja_perfil" justificando relevancia al sitio
-- NO INVENTES fragmentos - CÓPIALOS tal cual aparecen en sourceContent
-- Si no puedes extraer un fragmento específico, NO generes esa idea

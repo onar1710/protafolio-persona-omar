@@ -5,11 +5,24 @@ import Layout from '../../layouts/LayoutEN.astro';
 
 type BlogEntry = CollectionEntry<'blog'>;
 
-const enPosts = (await getCollection('blog'))
+const allEnPosts = (await getCollection('blog'))
   .filter((post: BlogEntry) => post.id.startsWith('en/'))
   .filter((post: BlogEntry) => !post.data?.draft)
-  .sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 6);
+  .sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Agrupar artículos por etiqueta y tomar el más reciente de cada una
+const postsByTag = new Map();
+allEnPosts.forEach((post) => {
+  if (post.data.tags && post.data.tags.length > 0) {
+    const mainTag = post.data.tags[0]; // Primera etiqueta del artículo
+    if (!postsByTag.has(mainTag)) {
+      postsByTag.set(mainTag, post);
+    }
+  }
+});
+
+// Convertir a array y limitar a 6 artículos únicos por etiqueta
+const enPosts = Array.from(postsByTag.values()).slice(0, 6);
 
 const postUrl = (id: string) => `/en/blog/${id.slice('en/'.length)}/`;
 

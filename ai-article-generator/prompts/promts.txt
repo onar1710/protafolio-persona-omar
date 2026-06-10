@@ -38,7 +38,7 @@ manten siempre el enfoque en el articulo no te desvie a oros temas que n tienen 
 
 *titulo no mayor de 72 caracteres maximo debe decir lo que va tratar el articulo especficamente el punto 
 
-*etiqueta : ["ASUS TUF Gaming RTX 4070"]  colocala una sola etiqueta la que te estoy dando 
+*etiqueta : ["IA generativa"]  colocala una sola etiqueta la que te estoy dando 
 
 
 * añade en el fromater con el nombre de la imagen que despues yo voy añadir que apunte a esta dirrecion:
