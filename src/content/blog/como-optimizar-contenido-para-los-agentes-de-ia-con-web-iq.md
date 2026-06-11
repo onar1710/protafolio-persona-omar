@@ -2,7 +2,7 @@
 title: "Como optimizar contenido para los agentes de IA con Web IQ"
 description: "Aprende a estructurar tu contenido para que los agentes de IA recuperen pasajes relevantes de tu sitio mediante Web IQ y mejoren tu visibilidad en la era de la búsqueda agente."
 keywords: "Web IQ SEO, optimización para agentes de IA, recuperación por pasajes, grounding AI, Bing AI agent, contenido estructurado SEO"
-pubDate: 2026-06-12T06:00:00-05:00
+pubDate: 2026-06-10T06:00:00-05:00
 heroImage: '/assets/blog/optimizar-contenido-agentes-ia-web-iq.jpg'
 tags: ["Web IQ"]
 draft: false
