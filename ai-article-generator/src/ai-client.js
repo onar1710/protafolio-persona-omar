@@ -8,7 +8,7 @@ export class AIClient {
     this.providerConfig = config[this.provider];
 
     if (!this.providerConfig) {
-      throw new Error(`Proveedor AI inválido: ${this.provider}. Usa: grok | kimi | mimo`);
+      throw new Error(`Proveedor AI inválido: ${this.provider}. Usa: grok | kimi | mimo | deepseek`);
     }
     
     if (!this.providerConfig.apiKey) {

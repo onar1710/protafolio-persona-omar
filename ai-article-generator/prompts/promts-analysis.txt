@@ -1,57 +1,79 @@
-Vamos a trabajar a partir de una noticia o fuente original debes enfocarla y adpatarla a el enfoque de mi sitio web que trata sobre: 
--diseño web 
--seo
- de esta manera podemos crea articulo unico y orginal basada de una fuente oficial que debes analisar , no hagas titulos genericos ni generales ya que los generales los tocara los grandes y sera dificil posicionar, la estrategia es ser especifico pero mantenidendo la noticia real de la fuente original pero adpatando estas ideas al enfoque de mi web que es sobre diseño web  , seo  los titulos deben trasmitir y que me dirigo al lector sin mencionar (tu ) .
+Analiza la fuente original y extrae exactamente 4 ideas de artículos ESPECIFICAS para un sitio especializado en diseño web y SEO.
 
-Quiero que analices esa fuente y extraigas ideas de artículos relacionadas con **diseño web y SEO**, pero adaptadas al ADN de mi página web. Mi objetivo no es copiar la noticia ni repetir lo que ya existe en internet, sino encontrar ángulos únicos, originales y útiles desde mi punto de vista como sitio especializado en diseño web y posicionamiento SEO.
+Evita titulos generales y genericos debe se muy especificos basado en el tema enfocado a diseño weB o seo , ademas evita caracteres como dos puntos ( : ) o interrogacion ( ? ) y no menciones año 
 
-No quiero una lista muy larga de ideas. Prefiero pocas ideas, pero bien seleccionadas, específicas y con verdadero potencial. Solo debes sacar las ideas de artículo que realmente se puedan desarrollar desde esa fuente original, evitando temas solapados, repetidos o que puedan canibalizarse entre sí.
 
-IMPORTANTE: Debes responder ÚNICAMENTE con un JSON válido, sin texto markdown, sin comentarios, sin explicaciones adicionales. Solo el JSON.
 
-Para cada idea de artículo en el JSON, incluye estos campos:
+Antes de generar el JSON, identifica internamente un ángulo único para cada idea. No muestres ese análisis interno.
+
+Los 4 ángulos deben cubrir problemas distintos del lector dentro del diseño web y SEO.
+
+Cada idea debe nacer de un problema real que pueda tener un diseñador web, consultor SEO, agencia, creador de sitios, responsable de contenido o negocio digital.
+
+
+Para cada idea, primero identifica una intención editorial concreta en lenguaje natural.
+
+Esa intención debe expresar qué problema busca resolver el lector y qué parte  se relaciona con ese problema.
+
+
+Evita fórmulas forzadas, frases incompletas, conectores artificiales y cierres genéricos.
+
+No uses estructuras de pregunta si los signos de interrogación están prohibidos.
+
+No uses frases abstractas como cambiar tu estrategia, transformar el futuro, claves para entender, guía completa o todo lo que debes saber.
+
+Si dos ideas podrían atraer al mismo lector con la misma necesidad, conserva la más fuerte y reemplaza la otra por un ángulo distinto.
+
+KEYWORDS:
+
+* 4-6 frases clave separadas por comas
+* Específicas del ángulo tratado
+* No repetir el mismo grupo de keywords en otra idea
+* Pensadas como búsquedas reales del usuario
+* Deben coincidir con la intención del título
+
+DESCRIPTION:
+
+* 150-160 caracteres exactos
+* Resume el valor principal sin sonar promocional
+* Integra naturalmente una palabra clave importante
+* No repetir la misma promesa de otra descripción
+* Debe explicar qué aprenderá o resolverá el lector
+* evita palabras como descubre, en esta guia , guia 
+
+PUNTOS CLAVE:
+
+* Los puntos clave deben ser concretos, útiles y aplicables
+* Cada punto clave debe conectar una parte de la fuente con un problema real del lector
+* El primer punto clave debe ser el más fuerte de la idea
+* Los puntos clave deben justificar por qué ese artículo merece existir
+
+parrafo_enfoque:
+
+Explica de dónde sale la idea dentro de la fuente original y qué conexión tiene con un problema real de diseño web o SEO.
+
+Antes de entregar el JSON, revisa internamente que:
+
+* Ninguna idea compite con otra
+* Cada descripción corresponde al mismo enfoque del título
+* Cada idea aporta un valor distinto al lector
+
+RESPONDE ÚNICAMENTE CON JSON VÁLIDO, sin markdown, sin comentarios y sin texto adicional:
 
 {
-  "ideas": [
-    {
-      "title": "Título del artículo (máximo 74 caracteres)",
-      "description": "Meta descripción de 150-160 caracteres que resuma el valor del artículo",
-      "keywords": "palabra clave 1, palabra clave 2, palabra clave 3, palabra clave 4",
-      "parrafo_enfoque": "Un breve párrafo explicando de dónde sale la idea y cómo se adapta a diseño web y SEO",
-      "puntos_clave": ["Punto 1", "Punto 2", "Punto 3"],
-      "publico_objetivo": "A qué tipo de lector va dirigido",
-      "intencion_busqueda": "Qué está buscando realmente el usuario",
-      "valor_lector": "Qué va a aprender y por qué será útil",
-      "enfoque_diferencial": "Cómo convertir esta idea en contenido único para mi web"
-    }
-  ]
+"ideas": [
+{
+"angulo_editorial": "problema o enfoque único de esta idea",
+"punto_clave_mas_fuerte": "el punto más potente que sirve como base del título",
+"title": "el título aquí",
+"description": "150-160 caracteres",
+"keywords": "palabra 1, palabra 2, palabra 3, palabra 4",
+"parrafo_enfoque": "de dónde sale la idea",
+"puntos_clave": ["punto 1", "punto 2", "punto 3"],
+"publico_objetivo": "a quién va dirigido",
+"intencion_busqueda": "qué busca el usuario",
+"valor_lector": "qué aprenderá",
+"enfoque_diferencial": "cómo hacerlo único"
 }
-
-REGLAS PARA LOS TÍTULOS:
-- Máximo 74 caracteres
-- Deben ser long-tail keywords naturales
-- Comunicar directamente con el problema del lector
-- NO usar: "Descubre", "Guía", "Guía completa", "Todo sobre"
-- NO usar: dos puntos (:), signos de interrogación (?), comas en medio
-- NO incluir años (2024, 2025, 2026, etc)
-- Sentirse natural, específico y útil
-- Con intención de búsqueda clara
-
-REGLAS PARA LA META DESCRIPCIÓN (campo "description"):
-- Entre 150-160 caracteres (no más, no menos)
-- Debe resumir el valor principal del artículo
-- Incluir una palabra clave principal de forma natural
-- Terminar con una idea completa, no cortada
-
-REGLAS PARA LAS KEYWORDS:
-- Separadas por comas
-- Entre 4-6 keywords o frases clave
-- Específicas y relacionadas con el tema
-- Long-tail cuando sea posible
-- Ejemplo: "diseño web responsive, optimización móvil, CSS flexbox, grid layout"
-
-Importante: no quiero artículos genéricos ni ideas que ya estén repetidas en internet. Quiero ángulos concretos, originales y con valor real para el lector. La fuente original solo debe servir como punto de partida; el contenido final debe adaptarse a mi web y aportar una perspectiva propia sobre diseño web y SEO.
-
-Recuerda: responde SOLO con el JSON válido, sin markdown, sin comentarios.
-
-
+]
+}

@@ -10,7 +10,9 @@ export function getConfig() {
         ? 'kimi'
         : rawProvider === 'mimo' || rawProvider.startsWith('mimo')
           ? 'mimo'
-          : rawProvider;
+          : rawProvider === 'deepseek' || rawProvider.startsWith('deepseek')
+            ? 'deepseek'
+            : rawProvider;
 
   const mimoModel = process.env.MIMO_MODEL || (provider === 'mimo' && rawProvider !== 'mimo' ? rawProvider : '') || 'MiMo-V2.5';
   return {
@@ -42,6 +44,14 @@ export function getConfig() {
       maxTokens: parseInt(process.env.MIMO_MAX_TOKENS) || 50000,
       timeoutMs: parseInt(process.env.MIMO_TIMEOUT_MS) || parseInt(process.env.AI_TIMEOUT_MS) || 300000,
       endpoint: 'https://token-plan-sgp.xiaomimimo.com/v1/chat/completions'
+    },
+
+    deepseek: {
+      apiKey: process.env.DEEPSEEK_API_KEY,
+      model: process.env.DEEPSEEK_MODEL || 'deepseek-chat',
+      temperature: parseFloat(process.env.DEEPSEEK_TEMPERATURE) || 1.0,
+      maxTokens: parseInt(process.env.DEEPSEEK_MAX_TOKENS) || 8000,
+      endpoint: 'https://api.deepseek.com/v1/chat/completions'
     }
   };
 }
