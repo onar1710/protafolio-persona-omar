@@ -5,9 +5,8 @@ keywords: "latencia web SEO, velocidad sitio agentes IA, Web IQ velocidad, tiemp
 pubDate: 2026-06-11T06:00:00-05:00
 heroImage: '/assets/blog/latencia-sitio-agentes-IA.jpg'
 tags: ["Web IQ"]
-draft: true
+draft: false
 ---
-
 El rendimiento web ha dejado de ser una preocupación exclusiva de la experiencia de usuario o del SEO tradicional. Los agentes de inteligencia artificial que automatizan tareas de investigación, síntesis de información y grounding operan bajo estrictos presupuestos de latencia. Web IQ, por ejemplo, tiene un objetivo de latencia p95 inferior a 165 milisegundos. Esto significa que cualquier demora en la respuesta de tu servidor, en la carga de recursos críticos o en la entrega de contenido puede excluir automáticamente tu sitio del proceso de recuperación.
 
 Para diseñadores web y especialistas en rendimiento, entender esta conexión ya no es opcional. Cada milisegundo cuenta cuando un agente decide si integra o descarta tu información. A continuación se explica por qué la latencia es una de las tres dimensiones clave de Web IQ —junto a la calidad del contenido y la eficiencia de tokens— y cómo optimizar tu sitio para no quedar fuera del alcance de estos sistemas.
