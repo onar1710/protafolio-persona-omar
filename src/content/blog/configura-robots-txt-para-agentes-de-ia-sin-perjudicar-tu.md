@@ -5,9 +5,8 @@ keywords: "robots.txt agentes IA, control acceso Web IQ, robots.txt grounding, w
 pubDate: 2026-06-13T06:00:00-05:00
 heroImage: '/assets/blog/configurar-robots-txt-agentes-ia.jpg'
 tags: ["Web IQ"]
-draft: true
+draft: false
 ---
-
 El auge de los agentes de inteligencia artificial que rastrean la web para recopilar información ha planteado un nuevo desafío para los webmasters y los especialistas en SEO. El archivo robots.txt, tradicionalmente usado para indicar a los buscadores qué contenido pueden indexar, ahora debe gestionar el acceso de crawlers de IA como Web IQ de Bing, que pueden usar el contenido para generar respuestas en motores de búsqueda conversacionales. La pregunta clave es: ¿cómo configurar el robots.txt para permitir que estos agentes accedan a tu contenido sin comprometer tu posicionamiento ni exponer áreas sensibles?
 Configurar mal las reglas puede llevar a bloqueos accidentales de contenido que los buscadores tradicionales necesitan para indexar correctamente tu sitio, o bien a permitir un acceso indiscriminado que afecte tu control sobre los datos. En este artículo se explican las diferencias entre los agentes de IA y los crawlers convencionales, y se ofrecen estrategias prácticas para mantener el equilibrio entre la visibilidad y la seguridad.
 ## ¿Qué son los agentes de IA y por qué necesitan reglas específicas?
