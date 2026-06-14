@@ -117,8 +117,9 @@ const publishedPosts = posts
 	})
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// Agrupamiento por etiqueta: 1 artículo (el más reciente) por etiqueta única
+// Agrupamiento por etiqueta y fecha: 1 artículo por etiqueta única y 1 por fecha única
 const seenTags = new Set();
+const seenDates = new Set();
 const latestPosts = [];
 
 for (const post of publishedPosts) {
@@ -127,7 +128,14 @@ for (const post of publishedPosts) {
 	const firstTag = post.data.tags?.[0];
 	if (!firstTag || seenTags.has(firstTag)) continue;
 	
+	// Obtener solo la fecha (sin hora) para comparar
+	const postDate = new Date(post.data.pubDate);
+	const dateOnly = `${postDate.getFullYear()}-${String(postDate.getMonth() + 1).padStart(2, '0')}-${String(postDate.getDate()).padStart(2, '0')}`;
+	
+	if (seenDates.has(dateOnly)) continue;
+	
 	seenTags.add(firstTag);
+	seenDates.add(dateOnly);
 	latestPosts.push(post);
 }
 

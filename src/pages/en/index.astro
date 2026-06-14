@@ -20,18 +20,26 @@ const publishedEnPosts = allEnPosts
   })
   .sort((a: BlogEntry, b: BlogEntry) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// Agrupar artículos por etiqueta y tomar el más reciente de cada una
+// Agrupar artículos por etiqueta y fecha: 1 artículo por etiqueta única y 1 por fecha única
 const postsByTag = new Map();
+const seenDates = new Set();
+
 publishedEnPosts.forEach((post) => {
   if (post.data.tags && post.data.tags.length > 0) {
     const mainTag = post.data.tags[0]; // Primera etiqueta del artículo
-    if (!postsByTag.has(mainTag)) {
+    
+    // Obtener solo la fecha (sin hora) para comparar
+    const postDate = new Date(post.data.pubDate);
+    const dateOnly = `${postDate.getFullYear()}-${String(postDate.getMonth() + 1).padStart(2, '0')}-${String(postDate.getDate()).padStart(2, '0')}`;
+    
+    if (!postsByTag.has(mainTag) && !seenDates.has(dateOnly)) {
       postsByTag.set(mainTag, post);
+      seenDates.add(dateOnly);
     }
   }
 });
 
-// Convertir a array y limitar a 6 artículos únicos por etiqueta
+// Convertir a array y limitar a 6 artículos únicos por etiqueta y fecha
 const enPosts = Array.from(postsByTag.values()).slice(0, 6);
 
 const postUrl = (id: string) => `/en/blog/${id.slice('en/'.length)}/`;
