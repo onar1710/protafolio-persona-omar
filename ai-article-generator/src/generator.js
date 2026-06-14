@@ -748,12 +748,43 @@ async function main() {
             )
           );
 
-          await fs.writeFile(outputPath, modelOutput, 'utf-8');
-          console.log(`  ✅ Ideas guardadas en: ${outputPath}`);
-
+          // Agregar fechas secuenciales a cada idea
           const parsed = tryParseJsonFromModelOutput(modelOutput);
+          let finalOutput = modelOutput;
+          
           if (parsed.value) {
             const items = normalizePlanItems(parsed.value);
+            
+            // Fecha base: hoy a las 6 AM Colombia
+            const baseDate = new Date();
+            baseDate.setHours(6, 0, 0, 0);
+            
+            // Agregar fecha secuencial a cada idea
+            for (let i = 0; i < items.length; i++) {
+              const articleDate = new Date(baseDate);
+              articleDate.setDate(articleDate.getDate() + i);
+              items[i].pubDate = toIsoDateOnly(articleDate);
+            }
+            
+            // Actualizar el objeto con las fechas
+            if (Array.isArray(parsed.value)) {
+              finalOutput = JSON.stringify(items, null, 2);
+            } else {
+              const updatedPlan = { ...parsed.value };
+              if (Array.isArray(updatedPlan.ideas)) updatedPlan.ideas = items;
+              else if (Array.isArray(updatedPlan.articles)) updatedPlan.articles = items;
+              else if (Array.isArray(updatedPlan.investigations)) updatedPlan.investigations = items;
+              else if (Array.isArray(updatedPlan.investigaciones)) updatedPlan.investigaciones = items;
+              finalOutput = JSON.stringify(updatedPlan, null, 2);
+            }
+          }
+
+          await fs.writeFile(outputPath, finalOutput, 'utf-8');
+          console.log(`  ✅ Ideas guardadas en: ${outputPath}`);
+
+          const parsedFinal = tryParseJsonFromModelOutput(finalOutput);
+          if (parsedFinal.value) {
+            const items = normalizePlanItems(parsedFinal.value);
             console.log(`  📊 Se generaron ${items.length} ideas de artículos`);
             
             // Validate required fields (fragmento_textual_fuente, etc)
@@ -1034,6 +1065,10 @@ async function main() {
 
       console.log(`\n📂 Plan cargado: ${articles.length} artículo(s)\n`);
 
+      // Fecha base: hoy a las 6 AM Colombia
+      const baseDate = new Date();
+      baseDate.setHours(6, 0, 0, 0);
+
       for (let i = 0; i < articles.length; i++) {
         const item = articles[i];
         const desiredTitle = pickTitle(item);
@@ -1043,7 +1078,12 @@ async function main() {
         const effectiveFormatterExamples = [formatterExamples, formatterFromExample].filter(Boolean).join('\n\n');
         const description = pickMetaDescription(item);
         const tag = pickTag(item, plan);
-        const pubDate = toIsoDateOnly(item?.pubDate) || toIsoDateOnly(new Date());
+        
+        // Fecha secuencial: primer artículo hoy, segundo mañana, tercero pasado mañana, etc.
+        const articleDate = new Date(baseDate);
+        articleDate.setDate(articleDate.getDate() + i);
+        const pubDate = toIsoDateOnly(articleDate);
+        
         const tags = tag ? [tag] : [];
         
         // La IA recibe el item del JSON tal cual está, sin plantillas adicionales
