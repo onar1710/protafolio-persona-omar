@@ -1,5 +1,5 @@
 ---
-title: "Cómo transformar rejillas hero y tablas de escritorio a móvil en diseño web con Mobile Always"
+title: "Cómo transformar rejillas hero y tablas de escritorio a móvil en diseño web mobile"
 description: "Adapta rejillas, hero y tablas de escritorio a móvil con patrones de apilado, carrusel, separación visual, tarjetas y scroll horizontal controlado."
 keywords: "transformar rejillas móvil, hero responsive WordPress, tablas móviles diseño web, grid a carrusel móvil, tarjetas comparativas móvil, Mobile Always patrones"
 pubDate: 2026-06-19T06:00:00-05:00

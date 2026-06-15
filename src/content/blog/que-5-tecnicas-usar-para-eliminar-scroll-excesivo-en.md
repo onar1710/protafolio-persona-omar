@@ -1,5 +1,5 @@
 ---
-title: "Qué 5 técnicas usar para eliminar scroll excesivo en diseño web móvil según Mobile Always"
+title: "5 técnicas para eliminar scroll excesivo en diseño web móvil"
 description: "Reduce el scroll excesivo en páginas móviles con carruseles, pestañas, acordeones, contenido progresivo y una selección más estricta de imágenes."
 keywords: "reducir scroll móvil, carruseles horizontales móvil, acordeones WordPress, contenido progresivo diseño web, pestañas móvil, Mobile Always scroll"
 pubDate: 2026-06-18T06:00:00-05:00

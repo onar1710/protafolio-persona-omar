@@ -1,5 +1,5 @@
 ---
-title: "Qué fórmula clamp usar para tipografía fluida en diseño web móvil según Mobile Always"
+title: "Qué fórmula clamp usar en tipografía fluida en diseño web móvil según Mobile Always"
 description: "Usa fórmulas clamp en WordPress para crear tipografía fluida entre móvil y escritorio sin saltos bruscos y con tamaños expresados en rem."
 keywords: "clamp tipografía fluida, font size clamp WordPress, escala modular móvil, diseño web móvil rem, tipografía responsive sin media queries, Mobile Always clamp"
 pubDate: 2026-06-16T06:00:00-05:00

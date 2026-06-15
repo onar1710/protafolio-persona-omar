@@ -1,5 +1,5 @@
 ---
-title: "Cómo corregir arquitectura desktop-first de WordPress en diseño web responsive con Mobile Always"
+title: "Cómo corregir arquitectura desktop-first de WordPress en diseño web responsive"
 description: "Corrige el enfoque desktop-first de WordPress diseñando la arquitectura, la jerarquía y las transformaciones móviles antes de adaptar la interfaz."
 keywords: "WordPress desktop first, corregir diseño responsive, arquitectura móvil WordPress, media queries max width, Mobile Always WordPress, diseño móvil desde wireframes"
 pubDate: 2026-06-24T06:00:00-05:00

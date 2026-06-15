@@ -1,5 +1,5 @@
 ---
-title: "Qué altura mínima de 48 px usar para formularios en diseño web móvil según Mobile Always"
+title: "Qué altura mínima de 48 px usar para formularios en diseño web móvil"
 description: "Diseña formularios móviles con campos de al menos 48 px, separación táctil adecuada y mensajes de error visibles en WordPress."
 keywords: "formularios móviles 48 px, altura campos WordPress, usabilidad formularios móvil, separación táctil inputs, errores formulario visibles, Mobile Always formularios"
 pubDate: 2026-06-22T06:00:00-05:00

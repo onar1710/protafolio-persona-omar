@@ -1,5 +1,5 @@
 ---
-title: "Qué 4 puntos verificar en checklist de diseño web móvil según Mobile Always para tu página"
+title: "Qué 4 puntos verificar en checklist de diseño web móvil para tu página"
 description: "Revisa cuatro áreas esenciales de una página móvil: jerarquía, elementos visuales, interacción y validación final en dispositivos reales."
 keywords: "checklist diseño web móvil, revisión Mobile Always, jerarquía móvil WordPress, interacción táctil checklist, imágenes responsive checklist, prueba móvil real"
 pubDate: 2026-06-25T06:00:00-05:00

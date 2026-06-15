@@ -1,5 +1,5 @@
 ---
-title: "Qué alternativas usar al menú hamburguesa para navegación móvil en diseño web según Mobile Always"
+title: "Qué alternativas usar al menú hamburguesa para navegación móvil en diseño web"
 description: "Descubre cuándo sustituir el menú hamburguesa por navegación inferior fija o priority+ para mejorar el acceso móvil en WordPress."
 keywords: "alternativas menú hamburguesa, navegación inferior móvil, priority navigation WordPress, menú móvil accesible, navegación pulgar diseño web, Mobile Always navegación"
 pubDate: 2026-06-20T06:00:00-05:00

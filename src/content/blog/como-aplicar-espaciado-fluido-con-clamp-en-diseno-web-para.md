@@ -1,5 +1,5 @@
 ---
-title: "Cómo aplicar espaciado fluido con clamp en diseño web para eliminar media queries de tu página"
+title: "Cómo aplicar clamp en diseño web para eliminar media queries de tu página"
 description: "Configura márgenes y rellenos fluidos con clamp en WordPress para adaptar secciones y tarjetas sin añadir media queries innecesarias."
 keywords: "espaciado fluido clamp, padding clamp WordPress, diseño web sin media queries, separación responsive CSS, márgenes fluidos móvil, Mobile Always espaciado"
 pubDate: 2026-06-17T06:00:00-05:00
