@@ -5,9 +5,8 @@ keywords: "botones táctiles 48 px, CTA 56 px, botones 60 px móvil, ergonomía 
 pubDate: 2026-06-15T06:00:00-05:00
 heroImage: '/assets/blog/botones-tactiles-wordpress-mobile-always.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 El diseño de interfaces móviles ha evolucionado para priorizar la comodidad del usuario al interactuar con la pantalla. Uno de los factores más críticos es el tamaño de los botones y elementos táctiles. Si un botón es demasiado pequeño, los dedos fallan al pulsarlo y la experiencia se vuelve frustrante. La iniciativa **Mobile Always** de WordPress recoge una serie de recomendaciones basadas en estudios de ergonomía y accesibilidad. Entre ellas destaca una guía concreta de dimensiones: **48×48 px para acciones habituales**, **56×56 px para CTA principales** y **60–64 px para acciones críticas**. Este artículo explica cómo aplicar estas medidas en tus proyectos WordPress para que cada botón tenga el tamaño adecuado según su importancia y uso.
 
 ## La base de la ergonomía táctil: el mínimo de 48×48 px
