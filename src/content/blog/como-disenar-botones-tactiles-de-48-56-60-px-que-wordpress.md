@@ -1,5 +1,5 @@
 ---
-title: "Cómo diseñar botones táctiles de 48 56 60 px que WordPress segun Mobile Always"
+title: "Cómo diseñar botones táctiles de 48 56 60 px en WordPress"
 description: "Aprende cuándo usar botones táctiles de 48, 56 y 60-64 px en WordPress para mejorar la accesibilidad, la ergonomía del pulgar y la conversión móvil."
 keywords: "botones táctiles 48 px, CTA 56 px, botones 60 px móvil, ergonomía pulgar diseño web, accesibilidad táctil WordPress, Mobile Always botones"
 pubDate: 2026-06-15T06:00:00-05:00
