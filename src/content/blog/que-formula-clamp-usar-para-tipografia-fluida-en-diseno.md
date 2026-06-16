@@ -5,9 +5,8 @@ keywords: "clamp tipografía fluida, font size clamp WordPress, escala modular m
 pubDate: 2026-06-16T06:00:00-05:00
 heroImage: '/assets/blog/formula-clamp-tipografia-fluida.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 La tipografía es uno de los pilares del diseño web. Un texto mal escalado arruina la legibilidad, daña la experiencia de usuario y puede aumentar la tasa de rebote. Durante años, los desarrolladores han utilizado media queries para declarar un tamaño de fuente para móvil y otro distinto para escritorio, generando un salto brusco en el punto de corte. Hoy existe una alternativa más elegante y continua: la función CSS `clamp()`. Este artículo explica qué fórmula de `clamp` usar para crear tipografía fluida en diseño web móvil, tomando como referencia la propuesta de Mobile Always: interpolar entre una escala modular de ratio 1.125 en móvil y una escala de ratio 1.25 en escritorio, siempre utilizando unidades `rem`.
 
 ## ¿Por qué `clamp()` reemplaza a las media queries tipográficas?
