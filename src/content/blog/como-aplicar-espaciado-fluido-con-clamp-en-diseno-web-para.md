@@ -5,9 +5,8 @@ keywords: "espaciado fluido clamp, padding clamp WordPress, diseño web sin medi
 pubDate: 2026-06-17T06:00:00-05:00
 heroImage: '/assets/blog/espaciado-fluido-clamp-diseno-web.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 El espaciado entre secciones, los márgenes alrededor de los componentes y el relleno interior de las tarjetas suelen definirse con valores fijos o mediante media queries que cambian bruscamente en ciertos puntos de ruptura. Este enfoque genera saltos visuales incómodos cuando el usuario redimensiona la ventana o navega en dispositivos con anchos intermedios. La propiedad `clamp()` de CSS resuelve este problema al permitir que los espacios varíen de forma continua entre un mínimo y un máximo según el tamaño del viewport.
 
 En este artículo aprenderás a aplicar espaciado fluido con `clamp()` en tus proyectos web, ya sea en WordPress, en un tema personalizado o en cualquier sitio construido con CSS moderno. Verás ejemplos concretos, entenderás qué significa cada valor y descubrirás cómo reducir drásticamente la cantidad de media queries necesarias para mantener un diseño coherente en todos los dispositivos.
