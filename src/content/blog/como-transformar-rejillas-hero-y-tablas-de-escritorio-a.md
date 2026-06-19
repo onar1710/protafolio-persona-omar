@@ -5,9 +5,8 @@ keywords: "transformar rejillas móvil, hero responsive WordPress, tablas móvil
 pubDate: 2026-06-19T06:00:00-05:00
 heroImage: '/assets/blog/transformar-rejillas-hero-tablas-movil.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 La transición de diseños pensados para escritorio a experiencias móviles efectivas es uno de los desafíos más comunes en el desarrollo web. Cuando se trabaja con **componentes complejos** como rejillas de contenido, secciones hero con imágenes superpuestas y tablas de datos, una simple reducción del tamaño no basta. El enfoque **Mobile Always** exige repensar la estructura y la interacción para que cada elemento cumpla su función en pantallas de 360 px sin perder legibilidad ni usabilidad.
 
 Este artículo ofrece criterios concretos para transformar tres patrones problemáticos, basándose en la función que cumple el contenido en cada caso. En lugar de aplicar soluciones genéricas, aprenderás a decidir entre apilar, convertir en carrusel, separar visualmente o utilizar componentes alternativos como tarjetas o acordeones.
