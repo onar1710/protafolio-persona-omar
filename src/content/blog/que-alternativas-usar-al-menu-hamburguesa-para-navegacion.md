@@ -5,9 +5,8 @@ keywords: "alternativas menú hamburguesa, navegación inferior móvil, priority
 pubDate: 2026-06-20T06:00:00-05:00
 heroImage: '/assets/blog/alternativas-menu-hamburguesa-navegacion-movil-mobile-always.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 El menú hamburguesa se ha convertido en un estándar de la navegación móvil. Su diseño minimalista ahorra espacio y resulta familiar para la mayoría de los usuarios. Sin embargo, no siempre es la opción más eficiente. Ocultar todas las opciones tras un icono puede aumentar los pasos necesarios para acceder a secciones de uso frecuente y, en ciertos contextos, reducir la visibilidad de contenido clave. El enfoque *Mobile Always*, que prioriza la experiencia móvil por encima de cualquier adaptación, plantea alternativas más directas y ergonómicas. Este artículo analiza dos patrones que pueden reemplazar al menú hamburguesa: **la barra de navegación inferior fija** y **la navegación priority+**. Ambos ofrecen soluciones alineadas con la comodidad del pulgar y la frecuencia real de uso de cada sección.
 
 ## ¿Por qué el menú hamburguesa no siempre es la mejor opción?
