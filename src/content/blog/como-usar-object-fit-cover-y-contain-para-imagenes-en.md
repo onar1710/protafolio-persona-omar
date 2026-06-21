@@ -5,9 +5,8 @@ keywords: "object fit cover contain, imágenes móviles sin recortes, object pos
 pubDate: 2026-06-21T06:00:00-05:00
 heroImage: '/assets/blog/object-fit-cover-contain-movil.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 Al adaptar imágenes para dispositivos móviles, uno de los problemas más frecuentes es que el contenido visual importante queda recortado o desaparece. Esto ocurre porque los contenedores cambian de forma y tamaño, y el navegador aplica un ajuste por defecto que no siempre respeta la intención del diseñador. Dos propiedades CSS, `object-fit` con los valores `cover` y `contain`, junto con `object-position`, ofrecen el control necesario para decidir exactamente cómo se muestra cada imagen. Esta guía explica cuándo usar cada una, cómo configurarlas y cómo documentar los recortes para que el resultado en móvil sea siempre predecible.
 
 ## ¿Qué hace object-fit y por qué es clave en móvil?
