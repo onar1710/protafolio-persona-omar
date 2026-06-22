@@ -5,9 +5,8 @@ keywords: "formularios móviles 48 px, altura campos WordPress, usabilidad formu
 pubDate: 2026-06-22T06:00:00-05:00
 heroImage: '/assets/blog/altura-minima-48-px-formularios-moviles.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 El diseño de formularios en dispositivos móviles representa uno de los puntos críticos para la experiencia de usuario y la tasa de conversión. Cuando un usuario visita un sitio web desde su móvil y se encuentra con campos diminutos o demasiado juntos, la probabilidad de que abandone el formulario se incrementa de forma considerable. Para evitarlo, existen pautas claras basadas en estudios de usabilidad táctil. Una de las más importantes es la altura mínima de 48 píxeles (px) para los campos de entrada, recomendada por guías como Mobile Always. Sin embargo, esta medida no es suficiente por sí sola. Para garantizar un formulario cómodo y sin errores, también es necesario aplicar una separación adecuada entre los controles y asegurar que los mensajes de error se muestren de forma visible, sin obligar al usuario a realizar desplazamientos adicionales. En este artículo se explica por qué los 48 px son el punto de partida y cómo combinarlos con estos otros dos requisitos para lograr formularios móviles realmente funcionales.
 
 ## Por qué 48 píxeles es la altura mínima para campos táctiles
