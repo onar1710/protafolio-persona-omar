@@ -5,9 +5,8 @@ keywords: "360 px diseño móvil, estándar Mobile Always, pantalla 360 px WordP
 pubDate: 2026-06-23T06:00:00-05:00
 heroImage: '/assets/blog/por-que-360px-estandar-mobile-always-wordpress.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 Cuando un equipo de diseño aborda un proyecto WordPress, la tentación de comenzar por la versión de escritorio es fuerte. Las pantallas grandes ofrecen espacio para jugar con columnas, imágenes grandes y layouts complejos. Sin embargo, esa comodidad inicial suele traducirse en dolores de cabeza al momento de adaptar el diseño a móvil. La metodología **Mobile Always** propone un enfoque diferente: usar los **360 píxeles de ancho como referencia constante** desde los primeros wireframes. Este artículo explica por qué ese número concreto se ha convertido en un estándar práctico y cómo aplicarlo correctamente en proyectos WordPress.
 
 ## El origen de los 360 px como referencia de diseño móvil
