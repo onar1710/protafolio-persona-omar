@@ -5,9 +5,8 @@ keywords: "WordPress desktop first, corregir diseño responsive, arquitectura m�
 pubDate: 2026-06-24T06:00:00-05:00
 heroImage: '/assets/blog/corregir-arquitectura-desktop-first-wordpress-mobile-always.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 Cada vez que inicias un proyecto en WordPress, el entorno te empuja a empezar por el escritorio. Los temas, el editor de bloques y los constructores visuales despliegan sus paneles pensando en una pantalla ancha. La consecuencia predecible es que la versión móvil se convierte en un ejercicio de reducir, ocultar o apilar componentes que no fueron pensados para ese tamaño. Pero ese resultado no es una ley inmutable. Existe una forma de trabajar que aprovecha las herramientas existentes sin condenar a los usuarios de móvil a una experiencia de segunda categoría. Se llama Mobile Always y consiste en corregir el proceso desde los primeros bocetos, no en luchar contra la tecnología.
 
 ## ¿Por qué WordPress es inherentemente desktop-first?
