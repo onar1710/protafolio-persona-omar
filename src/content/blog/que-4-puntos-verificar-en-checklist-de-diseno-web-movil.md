@@ -5,9 +5,8 @@ keywords: "checklist diseño web móvil, revisión Mobile Always, jerarquía mó
 pubDate: 2026-06-25T06:00:00-05:00
 heroImage: '/assets/blog/checklist-diseno-movil-mobile-always.jpg'
 tags: ["Mobile Always"]
-draft: true
+draft: false
 ---
-
 Cuando una página web se termina de maquetar para móvil, la tentación de publicarla rápido es grande. Sin embargo, los pequeños descuidos en la versión móvil pueden costar caro en experiencia de usuario y conversión. La checklist de diseño web móvil que propone Mobile Always es una de las más completas del sector, pero su extensión puede abrumar a quien necesita una revisión rápida pero rigurosa.
 
 Este artículo organiza los controles esenciales de esa metodología en cuatro bloques operativos. No se trata de una simplificación que omita pasos importantes, sino de una agrupación lógica que permite verificar una página móvil por áreas sin perder de vista ningún requisito clave. Cada bloque incluye los puntos de verificación que realmente marcan la diferencia entre una página funcional y una que genera fricción en el usuario.
